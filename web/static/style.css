@@ -119,6 +119,24 @@ button.link { background: none; border: none; color: #7eb6ff; cursor: pointer; }
   font: inherit;
 }
 #similar button.similar-link:hover { text-decoration: underline; }
+.reviews-block { margin-top: 0.5rem; }
+.review-item {
+  border-left: 3px solid #2d4a72;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.65rem;
+  background: #12161f;
+  border-radius: 4px;
+}
+.review-meta { font-size: 0.78rem; color: #8b95a8; margin-bottom: 0.25rem; }
+.review-text { font-size: 0.9rem; line-height: 1.45; white-space: pre-wrap; }
+.review-source {
+  display: inline-block;
+  font-size: 0.7rem;
+  background: #2d3a52;
+  padding: 0.05rem 0.35rem;
+  border-radius: 3px;
+  margin-right: 0.35rem;
+}
 
 @media (max-width: 900px) {
   main { grid-template-columns: 1fr; }

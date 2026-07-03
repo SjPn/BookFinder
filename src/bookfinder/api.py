@@ -9,6 +9,7 @@ from pydantic import BaseModel, Field
 
 from bookfinder.catalog import genre_counts, load_works, reload_works, search_works, similar_works
 from bookfinder.parsers import fantasy_worlds as fw
+from bookfinder.reviews_store import get_reviews_for_work
 from bookfinder.user_ratings import delete_user_rating, get_user_rating, set_user_rating, work_user_stats
 
 app = FastAPI(title="Bookfinder", version="0.1.0")
@@ -83,6 +84,11 @@ def work_detail(work_id: str) -> dict:
 @app.get("/api/works/{work_id}/similar")
 def work_similar(work_id: str, limit: int = Query(12, ge=1, le=50)) -> list[dict]:
     return similar_works(work_id, limit)
+
+
+@app.get("/api/works/{work_id}/reviews")
+def work_reviews(work_id: str, limit: int = Query(15, ge=1, le=30)) -> dict:
+    return get_reviews_for_work(work_id, limit)
 
 
 class UserRatingBody(BaseModel):

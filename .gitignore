@@ -15,6 +15,7 @@ venv/
 # Crawl caches (large, regenerate with scripts/)
 data/raw/
 data/books/fb2/
+data/processed/reviews/fw_by_id.json
 
 # Logs
 *.log

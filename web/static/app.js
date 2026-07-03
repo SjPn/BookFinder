@@ -295,6 +295,28 @@ async function showDetail(w) {
     });
   }
 
+  const reviewsEl = document.getElementById('d-reviews');
+  try {
+    const rev = await apiJson(`/api/works/${w.id}/reviews?limit=10`);
+    if (!rev.reviews?.length) {
+      reviewsEl.innerHTML = '<p class="muted">Отзывов с сайтов пока нет (ничего не выдумываем).</p>';
+    } else {
+      reviewsEl.innerHTML = rev.reviews.map((r) => {
+        const src = { fantasy_worlds: 'FW', fantlab: 'FantLab', livelib: 'LiveLib' }[r.source] || r.source;
+        const author = r.author ? esc(r.author) : 'Аноним';
+        const date = r.date ? ` · ${esc(r.date)}` : '';
+        const link = r.url ? ` <a href="${esc(r.url)}" target="_blank" rel="noopener">источник</a>` : '';
+        return `<article class="review-item">
+          <div class="review-meta"><span class="review-source">${esc(src)}</span>${author}${date}${link}</div>
+          <div class="review-text">${esc(r.text)}</div>
+        </article>`;
+      }).join('');
+    }
+  } catch (err) {
+    reviewsEl.innerHTML = '<p class="muted">Не удалось загрузить отзывы</p>';
+    console.error(err);
+  }
+
   detail.scrollIntoView({ behavior: 'smooth' });
 }
 
