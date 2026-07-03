@@ -28,7 +28,8 @@ def index() -> FileResponse:
 
 
 @app.get("/work/{work_id}")
-def work_page(_work_id: str) -> FileResponse:
+def work_page(work_id: str) -> FileResponse:
+    del work_id  # HTML page reads id from URL in book.js
     return FileResponse(WEB / "book.html", headers=NO_CACHE)
 
 
