@@ -1,11 +1,17 @@
 {
   "fantlab_merged": 459,
-  "fw_only_added": 7671,
-  "fw_only_rated": 3546,
-  "total": 8130,
-  "total_rated": 4005,
-  "with_download": 8098,
-  "with_fb2_local": 3130,
+  "fw_only_added": 20978,
+  "fw_only_rated": 12065,
+  "total": 21704,
+  "total_rated": 12790,
+  "with_download": 21521,
+  "with_fb2_local": 6549,
+  "kubikus_indexed": 56,
+  "kubikus_matched": 55,
+  "kubikus_only_added": 25,
+  "bookmix_indexed": 375,
+  "bookmix_matched": 318,
+  "bookmix_only_added": 242,
   "readrate_indexed": 67,
-  "rating_policy": "parsed sources only, min votes: fantlab=10, livelib=5, fw=10"
+  "rating_policy": "parsed sources only, min votes: fantlab=10, livelib=5, fw=10, kubikus=10, bookmix=5"
 }

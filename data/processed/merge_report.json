@@ -1,12 +1,12 @@
 {
   "fantlab_total": 459,
-  "search_cached": 183,
-  "matched_total": 173,
-  "matched_with_search_cache": 163,
-  "match_rate_on_cached_percent": 89.07,
-  "match_rate_overall_percent": 37.69,
+  "search_cached": 214,
+  "matched_total": 204,
+  "matched_with_search_cache": 194,
+  "match_rate_on_cached_percent": 90.65,
+  "match_rate_overall_percent": 44.44,
   "works_above_60": 459,
-  "fw_matched": 427,
+  "fw_matched": 428,
   "fw_search_cached": 459,
   "threshold": 0.78,
   "mvp_ready": true

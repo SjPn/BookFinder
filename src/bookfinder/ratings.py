@@ -10,12 +10,16 @@ MIN_VOTES: dict[str, int] = {
     "fantlab": 10,
     "livelib": 5,
     "fantasy_worlds": 10,
+    "kubikus": 10,
+    "bookmix": 5,
 }
 
 RATING_MAX: dict[str, float] = {
     "fantlab": 10.0,
     "livelib": 10.0,
     "fantasy_worlds": 10.0,
+    "kubikus": 5.0,
+    "bookmix": 5.0,
 }
 
 
@@ -73,3 +77,11 @@ def clean_fl_block(fl: dict[str, Any] | None) -> dict[str, Any] | None:
 
 def clean_ll_block(ll: dict[str, Any] | None) -> dict[str, Any] | None:
     return clean_source_block("livelib", ll)
+
+
+def clean_kubikus_block(block: dict[str, Any] | None) -> dict[str, Any] | None:
+    return clean_source_block("kubikus", block)
+
+
+def clean_bookmix_block(block: dict[str, Any] | None) -> dict[str, Any] | None:
+    return clean_source_block("bookmix", block)

@@ -11,6 +11,7 @@ sys.path.insert(0, str(ROOT / "src"))
 
 from bookfinder.http_client import RateLimitedClient
 from bookfinder.parsers import fantasy_worlds as fw
+from bookfinder.stable_fetch import fetch_text
 
 OUT = ROOT / "data" / "processed"
 BOOKS_DIR = ROOT / "data" / "raw" / "fw_books"
@@ -21,7 +22,6 @@ def main() -> None:
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit", type=int, default=0)
-    parser.add_argument("--delay", type=float, default=0.8)
     args = parser.parse_args()
 
     catalog_path = OUT / "fw_catalog.json"
@@ -40,25 +40,26 @@ def main() -> None:
         pending = pending[: args.limit]
 
     print(f"pending {len(pending)}")
-    ok = 0
+    ok = fail = 0
 
-    with RateLimitedClient(delay_sec=args.delay, warmup=False) as client:
+    with RateLimitedClient(delay_sec=None, warmup=True) as client:
         for idx, book_id in enumerate(pending, start=1):
+            url = fw.book_url(book_id)
+            path = BOOKS_DIR / f"{book_id}.html"
             try:
-                html = client.get(
-                    fw.book_url(book_id),
-                    referer="https://fantasy-worlds.net/lib/",
-                ).text
-                if "poll_mark1_" not in html:
-                    continue
-                (BOOKS_DIR / f"{book_id}.html").write_text(html, encoding="utf-8")
+                fetch_text(client, url, path, referer="https://fantasy-worlds.net/lib/")
                 ok += 1
                 if idx % 50 == 0:
                     print(f"[{idx}] saved {ok}")
             except Exception as exc:  # noqa: BLE001
-                print(f"[{idx}] fail {book_id}: {exc}")
+                fail += 1
+                if "Circuit open" in str(exc):
+                    print("circuit open, stopping batch")
+                    break
+                if idx % 100 == 0:
+                    print(f"[{idx}] fail {book_id}: {exc}")
 
-    print(f"done {ok}")
+    print(f"done ok={ok} fail={fail}")
 
 
 if __name__ == "__main__":

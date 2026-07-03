@@ -16,6 +16,8 @@ venv/
 data/raw/
 data/books/fb2/
 data/processed/reviews/fw_by_id.json
+data/processed/http_cookies/
+data/processed/fetch_circuit.json
 
 # Logs
 *.log

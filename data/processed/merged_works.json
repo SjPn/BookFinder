@@ -68,6 +68,37 @@
     "download_url": "https://fantasy-worlds.net/lib/id3543/download/"
   },
   {
+    "id": "d4feeb05-29a4-5ef4-b3d4-9c9b59c32803",
+    "title": "Собачье сердце (Чудовищная история)",
+    "authors": [
+      "Михаил Булгаков"
+    ],
+    "genres": [
+      "повесть"
+    ],
+    "year": 1968,
+    "aggregate_rating": 92.08,
+    "fantlab": {
+      "id": "15230",
+      "rating": 9.07,
+      "votes": 5399,
+      "url": "https://fantlab.ru/work15230"
+    },
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1013554153-sobache-serdtse-mihail-bulgakov",
+      "url": "https://www.livelib.ru/book/1013554153-sobache-serdtse-mihail-bulgakov"
+    },
+    "fantasy_worlds": {
+      "id": "20472",
+      "rating": 9.5,
+      "votes": 58,
+      "url": "https://fantasy-worlds.net/lib/id20472/",
+      "download_url": "https://fantasy-worlds.net/lib/id20472/download/"
+    },
+    "download_url": "https://fantasy-worlds.net/lib/id20472/download/"
+  },
+  {
     "id": "6e4c464e-c46c-5795-853c-6911a07c952a",
     "title": "Легендариум Средиземья",
     "authors": [
@@ -318,7 +349,11 @@
       "votes": 3076,
       "url": "https://fantlab.ru/work43272"
     },
-    "match_score": null,
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1001242520-vij-nikolaj-gogol",
+      "url": "https://www.livelib.ru/book/1001242520-vij-nikolaj-gogol"
+    },
     "fantasy_worlds": {
       "id": "15482",
       "rating": 9.6,
@@ -327,35 +362,6 @@
       "download_url": "https://fantasy-worlds.net/lib/id15482/download/"
     },
     "download_url": "https://fantasy-worlds.net/lib/id15482/download/"
-  },
-  {
-    "id": "d4feeb05-29a4-5ef4-b3d4-9c9b59c32803",
-    "title": "Собачье сердце (Чудовищная история)",
-    "authors": [
-      "Михаил Булгаков"
-    ],
-    "genres": [
-      "повесть"
-    ],
-    "year": 1968,
-    "aggregate_rating": 90.7,
-    "fantlab": {
-      "id": "15230",
-      "rating": 9.07,
-      "votes": 5399,
-      "url": "https://fantlab.ru/work15230"
-    },
-    "match_score": 1.0,
-    "livelib": {
-      "id": "1013554153-sobache-serdtse-mihail-bulgakov",
-      "url": "https://www.livelib.ru/book/1013554153-sobache-serdtse-mihail-bulgakov"
-    },
-    "fantasy_worlds": {
-      "id": "20472",
-      "url": "https://fantasy-worlds.net/lib/id20472/",
-      "download_url": "https://fantasy-worlds.net/lib/id20472/download/"
-    },
-    "download_url": "https://fantasy-worlds.net/lib/id20472/download/"
   },
   {
     "id": "1c8356e0-8a39-58eb-bf49-a58f4ac07bac",
@@ -543,7 +549,11 @@
       "votes": 520,
       "url": "https://fantlab.ru/work226921"
     },
-    "match_score": null
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1000443180-berserk-kniga-1-kentaro-miura",
+      "url": "https://www.livelib.ru/book/1000443180-berserk-kniga-1-kentaro-miura"
+    }
   },
   {
     "id": "d5ca3b97-e841-5741-9e9c-ecedfe48dc11",
@@ -1832,7 +1842,11 @@
       "votes": 8024,
       "url": "https://fantlab.ru/work556"
     },
-    "match_score": null,
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1017116746-obitaemyj-ostrov-arkadij-i-boris-strugatskie",
+      "url": "https://www.livelib.ru/book/1017116746-obitaemyj-ostrov-arkadij-i-boris-strugatskie"
+    },
     "fantasy_worlds": {
       "id": "15493",
       "rating": 9.2,
@@ -2196,7 +2210,11 @@
       "votes": 2933,
       "url": "https://fantlab.ru/work6146"
     },
-    "match_score": null,
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1001599887-budet-laskovyj-dozhd-rej-bredberi",
+      "url": "https://www.livelib.ru/book/1001599887-budet-laskovyj-dozhd-rej-bredberi"
+    },
     "fantasy_worlds": {
       "id": "13729",
       "url": "https://fantasy-worlds.net/lib/id13729/",
@@ -2251,7 +2269,11 @@
       "votes": 10356,
       "url": "https://fantlab.ru/work560"
     },
-    "match_score": null,
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1008778819-ponedelnik-nachinaetsya-v-subbotu-skazka-o-trojke-boris-strugatskij",
+      "url": "https://www.livelib.ru/book/1008778819-ponedelnik-nachinaetsya-v-subbotu-skazka-o-trojke-boris-strugatskij"
+    },
     "fantasy_worlds": {
       "id": "2949",
       "rating": 9.1,
@@ -2803,6 +2825,38 @@
     "download_url": "https://fantasy-worlds.net/lib/id14457/download/"
   },
   {
+    "id": "1034a8b2-1d3d-5d9b-b35f-ff1546e48112",
+    "title": "Пасынки Вселенной",
+    "authors": [
+      "Роберт Хайнлайн"
+    ],
+    "genres": [
+      "роман",
+      "становление героя",
+      "генетические эксперименты",
+      "Психологическое",
+      "Приключенческое",
+      "социальная фантастика"
+    ],
+    "year": 1963,
+    "aggregate_rating": 87.7,
+    "fantlab": {
+      "id": "2800",
+      "rating": 8.52,
+      "votes": 4802,
+      "url": "https://fantlab.ru/work2800"
+    },
+    "match_score": null,
+    "fantasy_worlds": {
+      "id": "15071",
+      "rating": 9.4,
+      "votes": 28,
+      "url": "https://fantasy-worlds.net/lib/id15071/",
+      "download_url": "https://fantasy-worlds.net/lib/id15071/download/"
+    },
+    "download_url": "https://fantasy-worlds.net/lib/id15071/download/"
+  },
+  {
     "id": "ddc4376b-d99d-5ff5-8565-330dafd304fd",
     "title": "Неукротимая планета",
     "authors": [
@@ -2991,7 +3045,11 @@
       "votes": 3023,
       "url": "https://fantlab.ru/work2182"
     },
-    "match_score": null,
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1002136363-koechto-zadarom-robert-shekli",
+      "url": "https://www.livelib.ru/book/1002136363-koechto-zadarom-robert-shekli"
+    },
     "fantasy_worlds": {
       "id": "21211",
       "url": "https://fantasy-worlds.net/lib/id21211/",
@@ -3060,35 +3118,6 @@
       "download_url": "https://fantasy-worlds.net/lib/id2306/download/"
     },
     "download_url": "https://fantasy-worlds.net/lib/id2306/download/"
-  },
-  {
-    "id": "aa8f7990-7d8d-5e9c-8d21-704b426d556f",
-    "title": "Путь королей",
-    "authors": [
-      "Брендон Сандерсон"
-    ],
-    "genres": [
-      "роман"
-    ],
-    "year": 2010,
-    "aggregate_rating": 87.5,
-    "fantlab": {
-      "id": "224233",
-      "rating": 8.75,
-      "votes": 4765,
-      "url": "https://fantlab.ru/work224233"
-    },
-    "match_score": 1.0,
-    "livelib": {
-      "id": "1001547246-arhiv-buresveta-kniga-1-put-korolej-brendon-sanderson",
-      "url": "https://www.livelib.ru/book/1001547246-arhiv-buresveta-kniga-1-put-korolej-brendon-sanderson"
-    },
-    "fantasy_worlds": {
-      "id": "19266",
-      "url": "https://fantasy-worlds.net/lib/id19266/",
-      "download_url": "https://fantasy-worlds.net/lib/id19266/download/"
-    },
-    "download_url": "https://fantasy-worlds.net/lib/id19266/download/"
   },
   {
     "id": "7eb19dba-833c-56bf-ae3b-c220bf0dc743",
@@ -3260,33 +3289,31 @@
     "download_url": "https://fantasy-worlds.net/lib/id15490/download/"
   },
   {
-    "id": "7ad86f1c-564c-543c-8a06-c39d834924e5",
-    "title": "Танец с драконами",
+    "id": "b5ed2e23-98c0-5ded-bccb-07fe27cb466a",
+    "title": "Послушай, как падают листья",
     "authors": [
-      "Джордж Р. Р. Мартин"
+      "Ольга Громыко"
     ],
     "genres": [
-      "роман"
+      "рассказ"
     ],
-    "year": 2011,
-    "aggregate_rating": 87.4,
+    "year": 2003,
+    "aggregate_rating": 87.42,
     "fantlab": {
-      "id": "4082",
-      "rating": 8.74,
-      "votes": 6276,
-      "url": "https://fantlab.ru/work4082"
+      "id": "35343",
+      "rating": 8.37,
+      "votes": 884,
+      "url": "https://fantlab.ru/work35343"
     },
-    "match_score": 1.0,
-    "livelib": {
-      "id": "1000996148-tanets-s-drakonami-iskry-nad-peplom-dzhordzh-martin",
-      "url": "https://www.livelib.ru/book/1000996148-tanets-s-drakonami-iskry-nad-peplom-dzhordzh-martin"
-    },
+    "match_score": null,
     "fantasy_worlds": {
-      "id": "17945",
-      "url": "https://fantasy-worlds.net/lib/id17945/",
-      "download_url": "https://fantasy-worlds.net/lib/id17945/download/"
+      "id": "8239",
+      "rating": 9.3,
+      "votes": 91,
+      "url": "https://fantasy-worlds.net/lib/id8239/",
+      "download_url": "https://fantasy-worlds.net/lib/id8239/download/"
     },
-    "download_url": "https://fantasy-worlds.net/lib/id17945/download/"
+    "download_url": "https://fantasy-worlds.net/lib/id8239/download/"
   },
   {
     "id": "cd01c003-d60c-5e99-84a0-9182ee8cd44e",
@@ -3411,7 +3438,11 @@
       "votes": 457,
       "url": "https://fantlab.ru/work16087"
     },
-    "match_score": null,
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1002607609-topolinaya-rubashka-vladislav-krapivin",
+      "url": "https://www.livelib.ru/book/1002607609-topolinaya-rubashka-vladislav-krapivin"
+    },
     "fantasy_worlds": {
       "id": "15178",
       "url": "https://fantasy-worlds.net/lib/id15178/",
@@ -3608,7 +3639,11 @@
       "votes": 791,
       "url": "https://fantlab.ru/work16040"
     },
-    "match_score": null,
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1006808554-deti-sinego-flamingo-vladislav-krapivin",
+      "url": "https://www.livelib.ru/book/1006808554-deti-sinego-flamingo-vladislav-krapivin"
+    },
     "fantasy_worlds": {
       "id": "21298",
       "url": "https://fantasy-worlds.net/lib/id21298/",
@@ -3773,7 +3808,11 @@
       "votes": 298,
       "url": "https://fantlab.ru/work49885"
     },
-    "match_score": null
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1007416825-bratya-lvinoe-serdtse-astrid-lindgren",
+      "url": "https://www.livelib.ru/book/1007416825-bratya-lvinoe-serdtse-astrid-lindgren"
+    }
   },
   {
     "id": "3a9ed982-aae5-5f85-8488-4c26be13f7ef",
@@ -3912,13 +3951,13 @@
     },
     "match_score": null,
     "fantasy_worlds": {
-      "id": "18206",
+      "id": "18352",
       "rating": 8.8,
-      "votes": 63,
-      "url": "https://fantasy-worlds.net/lib/id18206/",
-      "download_url": "https://fantasy-worlds.net/lib/id18206/download/"
+      "votes": 61,
+      "url": "https://fantasy-worlds.net/lib/id18352/",
+      "download_url": "https://fantasy-worlds.net/lib/id18352/download/"
     },
-    "download_url": "https://fantasy-worlds.net/lib/id18206/download/"
+    "download_url": "https://fantasy-worlds.net/lib/id18352/download/"
   },
   {
     "id": "b838497f-97ff-5a9b-a0a0-f01580368728",
@@ -3959,6 +3998,44 @@
     "download_url": "https://fantasy-worlds.net/lib/id80/download/"
   },
   {
+    "id": "aa8f7990-7d8d-5e9c-8d21-704b426d556f",
+    "title": "Путь королей",
+    "authors": [
+      "Брендон Сандерсон"
+    ],
+    "genres": [
+      "роман",
+      "становление героя",
+      "спасение мира",
+      "эпическое фэнтези",
+      "Приключенческое",
+      "С множеством интриг",
+      "Сверхъестественные способности, супергерои",
+      "иные миры"
+    ],
+    "year": 2010,
+    "aggregate_rating": 86.94,
+    "fantlab": {
+      "id": "224233",
+      "rating": 8.75,
+      "votes": 4765,
+      "url": "https://fantlab.ru/work224233"
+    },
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1001547246-arhiv-buresveta-kniga-1-put-korolej-brendon-sanderson",
+      "url": "https://www.livelib.ru/book/1001547246-arhiv-buresveta-kniga-1-put-korolej-brendon-sanderson"
+    },
+    "fantasy_worlds": {
+      "id": "19506",
+      "rating": 8.6,
+      "votes": 155,
+      "url": "https://fantasy-worlds.net/lib/id19506/",
+      "download_url": "https://fantasy-worlds.net/lib/id19506/download/"
+    },
+    "download_url": "https://fantasy-worlds.net/lib/id19506/download/"
+  },
+  {
     "id": "499eddf2-cd78-5ee6-9882-041d96557ceb",
     "title": "Хоббит, или Туда и обратно",
     "authors": [
@@ -3994,6 +4071,43 @@
       "download_url": "https://fantasy-worlds.net/lib/id990/download/"
     },
     "download_url": "https://fantasy-worlds.net/lib/id990/download/"
+  },
+  {
+    "id": "b34eabaf-24e0-5820-b009-90b4f8019e58",
+    "title": "Перемены",
+    "authors": [
+      "Джим Батчер"
+    ],
+    "genres": [
+      "роман",
+      "квест",
+      "вампиры",
+      "договор с нечистой силой",
+      "Приключенческое",
+      "С использованием мифологии",
+      "Сверхъестественные способности, супергерои"
+    ],
+    "year": 2010,
+    "aggregate_rating": 86.92,
+    "fantlab": {
+      "id": "177046",
+      "rating": 8.6,
+      "votes": 624,
+      "url": "https://fantlab.ru/work177046"
+    },
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1000665440-peremeny-dzhim-batcher",
+      "url": "https://www.livelib.ru/book/1000665440-peremeny-dzhim-batcher"
+    },
+    "fantasy_worlds": {
+      "id": "14980",
+      "rating": 8.9,
+      "votes": 16,
+      "url": "https://fantasy-worlds.net/lib/id14980/",
+      "download_url": "https://fantasy-worlds.net/lib/id14980/download/"
+    },
+    "download_url": "https://fantasy-worlds.net/lib/id14980/download/"
   },
   {
     "id": "38a66d29-c553-5a21-8b13-1723d332442b",
@@ -4370,7 +4484,11 @@
       "votes": 1106,
       "url": "https://fantlab.ru/work43300"
     },
-    "match_score": null,
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1001217494-portret-nikolaj-gogol",
+      "url": "https://www.livelib.ru/book/1001217494-portret-nikolaj-gogol"
+    },
     "fantasy_worlds": {
       "id": "15483",
       "url": "https://fantasy-worlds.net/lib/id15483/",
@@ -4395,7 +4513,11 @@
       "votes": 281,
       "url": "https://fantlab.ru/work142746"
     },
-    "match_score": null
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1008297475-samaya-legkaya-lodka-v-mire-yurij-koval",
+      "url": "https://www.livelib.ru/book/1008297475-samaya-legkaya-lodka-v-mire-yurij-koval"
+    }
   },
   {
     "id": "59a59fee-cc7b-5e3b-9d47-90ab8ee7576f",
@@ -4517,7 +4639,11 @@
       "votes": 3092,
       "url": "https://fantlab.ru/work724"
     },
-    "match_score": null,
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1005942919-dvuhsotletnij-chelovek-sbornik-rasskazov-ajzek-azimov",
+      "url": "https://www.livelib.ru/book/1005942919-dvuhsotletnij-chelovek-sbornik-rasskazov-ajzek-azimov"
+    },
     "fantasy_worlds": {
       "id": "2310",
       "url": "https://fantasy-worlds.net/lib/id2310/",
@@ -4591,7 +4717,11 @@
       "votes": 2131,
       "url": "https://fantlab.ru/work12257"
     },
-    "match_score": null,
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1007542819-devochka-s-kotoroj-nichego-ne-sluchitsya-kir-bulychjov",
+      "url": "https://www.livelib.ru/book/1007542819-devochka-s-kotoroj-nichego-ne-sluchitsya-kir-bulychjov"
+    },
     "fantasy_worlds": {
       "id": "4889",
       "rating": 8.9,
@@ -5351,6 +5481,37 @@
     "download_url": "https://fantasy-worlds.net/lib/id24120/download/"
   },
   {
+    "id": "7ad86f1c-564c-543c-8a06-c39d834924e5",
+    "title": "Танец с драконами",
+    "authors": [
+      "Джордж Р. Р. Мартин"
+    ],
+    "genres": [
+      "роман"
+    ],
+    "year": 2011,
+    "aggregate_rating": 86.26,
+    "fantlab": {
+      "id": "4082",
+      "rating": 8.74,
+      "votes": 6276,
+      "url": "https://fantlab.ru/work4082"
+    },
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1000996148-tanets-s-drakonami-iskry-nad-peplom-dzhordzh-martin",
+      "url": "https://www.livelib.ru/book/1000996148-tanets-s-drakonami-iskry-nad-peplom-dzhordzh-martin"
+    },
+    "fantasy_worlds": {
+      "id": "16039",
+      "rating": 8.4,
+      "votes": 80,
+      "url": "https://fantasy-worlds.net/lib/id16039/",
+      "download_url": "https://fantasy-worlds.net/lib/id16039/download/"
+    },
+    "download_url": "https://fantasy-worlds.net/lib/id16039/download/"
+  },
+  {
     "id": "325beb35-a739-59b4-92b0-193958bc7976",
     "title": "Война миров",
     "authors": [
@@ -5409,7 +5570,11 @@
       "votes": 1609,
       "url": "https://fantlab.ru/work12258"
     },
-    "match_score": null,
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1007544427-den-rozhdeniya-alisy-kir-bulychjov",
+      "url": "https://www.livelib.ru/book/1007544427-den-rozhdeniya-alisy-kir-bulychjov"
+    },
     "fantasy_worlds": {
       "id": "4891",
       "rating": 9.1,
@@ -5742,7 +5907,11 @@
       "votes": 2325,
       "url": "https://fantlab.ru/work31722"
     },
-    "match_score": null
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1000437067-morok-nad-insmutom-govard-lavkraft",
+      "url": "https://www.livelib.ru/book/1000437067-morok-nad-insmutom-govard-lavkraft"
+    }
   },
   {
     "id": "872b4411-8c2c-56d8-9a0e-f0caef1f3226",
@@ -6081,35 +6250,6 @@
     "download_url": "https://fantasy-worlds.net/lib/id36334/download/"
   },
   {
-    "id": "b34eabaf-24e0-5820-b009-90b4f8019e58",
-    "title": "Перемены",
-    "authors": [
-      "Джим Батчер"
-    ],
-    "genres": [
-      "роман"
-    ],
-    "year": 2010,
-    "aggregate_rating": 86.0,
-    "fantlab": {
-      "id": "177046",
-      "rating": 8.6,
-      "votes": 624,
-      "url": "https://fantlab.ru/work177046"
-    },
-    "match_score": 1.0,
-    "livelib": {
-      "id": "1000665440-peremeny-dzhim-batcher",
-      "url": "https://www.livelib.ru/book/1000665440-peremeny-dzhim-batcher"
-    },
-    "fantasy_worlds": {
-      "id": "34483",
-      "url": "https://fantasy-worlds.net/lib/id34483/",
-      "download_url": "https://fantasy-worlds.net/lib/id34483/download/"
-    },
-    "download_url": "https://fantasy-worlds.net/lib/id34483/download/"
-  },
-  {
     "id": "01e766a5-05f5-5873-9d1a-aa30fff3a385",
     "title": "Дознание",
     "authors": [
@@ -6201,7 +6341,11 @@
       "votes": 2700,
       "url": "https://fantlab.ru/work2088"
     },
-    "match_score": null,
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1000976047-bilet-na-planetu-tranaj-robert-shekli",
+      "url": "https://www.livelib.ru/book/1000976047-bilet-na-planetu-tranaj-robert-shekli"
+    },
     "fantasy_worlds": {
       "id": "27721",
       "rating": 8.7,
@@ -6339,7 +6483,11 @@
       "votes": 469,
       "url": "https://fantlab.ru/work16446"
     },
-    "match_score": null,
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1000421662-chistaya-fentezi-genri-lajon-oldi",
+      "url": "https://www.livelib.ru/book/1000421662-chistaya-fentezi-genri-lajon-oldi"
+    },
     "fantasy_worlds": {
       "id": "12953",
       "url": "https://fantasy-worlds.net/lib/id12953/",
@@ -6622,35 +6770,6 @@
     "download_url": "https://fantasy-worlds.net/lib/id347/download/"
   },
   {
-    "id": "339de645-1dea-5889-bd5a-5dbe164c1d8a",
-    "title": "Герои",
-    "authors": [
-      "Джо Аберкромби"
-    ],
-    "genres": [
-      "роман"
-    ],
-    "year": 2011,
-    "aggregate_rating": 85.7,
-    "fantlab": {
-      "id": "162237",
-      "rating": 8.57,
-      "votes": 3021,
-      "url": "https://fantlab.ru/work162237"
-    },
-    "match_score": 1.0,
-    "livelib": {
-      "id": "1005781711-geroi-dzho-aberkrombi",
-      "url": "https://www.livelib.ru/book/1005781711-geroi-dzho-aberkrombi"
-    },
-    "fantasy_worlds": {
-      "id": "31671",
-      "url": "https://fantasy-worlds.net/lib/id31671/",
-      "download_url": "https://fantasy-worlds.net/lib/id31671/download/"
-    },
-    "download_url": "https://fantasy-worlds.net/lib/id31671/download/"
-  },
-  {
     "id": "c29d9342-82e1-52bc-9992-e25a07d588b5",
     "title": "Человекоминимум",
     "authors": [
@@ -6746,7 +6865,11 @@
       "votes": 5094,
       "url": "https://fantlab.ru/work559"
     },
-    "match_score": null,
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1003637018-volny-gasyat-veter-arkadij-i-boris-strugatskie",
+      "url": "https://www.livelib.ru/book/1003637018-volny-gasyat-veter-arkadij-i-boris-strugatskie"
+    },
     "fantasy_worlds": {
       "id": "15495",
       "rating": 8.6,
@@ -6994,7 +7117,11 @@
       "votes": 621,
       "url": "https://fantlab.ru/work1367518"
     },
-    "match_score": null
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1007337205-teper-ty-koldun-roman-surzhikov",
+      "url": "https://www.livelib.ru/book/1007337205-teper-ty-koldun-roman-surzhikov"
+    }
   },
   {
     "id": "226caeba-606c-5866-8e3c-3782dee98df5",
@@ -7013,7 +7140,11 @@
       "votes": 537,
       "url": "https://fantlab.ru/work34783"
     },
-    "match_score": null,
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1000559946-golubyatnya-na-zheltoj-polyane-chast-2-prazdnik-leta-v-starogorske-vladislav-krapivin",
+      "url": "https://www.livelib.ru/book/1000559946-golubyatnya-na-zheltoj-polyane-chast-2-prazdnik-leta-v-starogorske-vladislav-krapivin"
+    },
     "fantasy_worlds": {
       "id": "21300",
       "url": "https://fantasy-worlds.net/lib/id21300/",
@@ -7832,7 +7963,11 @@
       "votes": 592,
       "url": "https://fantlab.ru/work34782"
     },
-    "match_score": null,
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1000690539-golubyatnya-na-zheltoj-polyane-chast-1-golubyatnya-v-orehove-vladislav-krapivin",
+      "url": "https://www.livelib.ru/book/1000690539-golubyatnya-na-zheltoj-polyane-chast-1-golubyatnya-v-orehove-vladislav-krapivin"
+    },
     "fantasy_worlds": {
       "id": "21297",
       "url": "https://fantasy-worlds.net/lib/id21297/",
@@ -8120,7 +8255,11 @@
       "votes": 2210,
       "url": "https://fantlab.ru/work4109"
     },
-    "match_score": null
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1002785983-korolipustynniki-dzhordzh-martin",
+      "url": "https://www.livelib.ru/book/1002785983-korolipustynniki-dzhordzh-martin"
+    }
   },
   {
     "id": "ab86bdf3-3f20-5558-9dd2-5f01ec3119d2",
@@ -8287,31 +8426,6 @@
       "download_url": "https://fantasy-worlds.net/lib/id17046/download/"
     },
     "download_url": "https://fantasy-worlds.net/lib/id17046/download/"
-  },
-  {
-    "id": "1034a8b2-1d3d-5d9b-b35f-ff1546e48112",
-    "title": "Пасынки Вселенной",
-    "authors": [
-      "Роберт Хайнлайн"
-    ],
-    "genres": [
-      "роман"
-    ],
-    "year": 1963,
-    "aggregate_rating": 85.2,
-    "fantlab": {
-      "id": "2800",
-      "rating": 8.52,
-      "votes": 4802,
-      "url": "https://fantlab.ru/work2800"
-    },
-    "match_score": null,
-    "fantasy_worlds": {
-      "id": "30933",
-      "url": "https://fantasy-worlds.net/lib/id30933/",
-      "download_url": "https://fantasy-worlds.net/lib/id30933/download/"
-    },
-    "download_url": "https://fantasy-worlds.net/lib/id30933/download/"
   },
   {
     "id": "51b8c524-349c-5ef1-9666-5712e8795a1a",
@@ -8706,7 +8820,11 @@
       "votes": 519,
       "url": "https://fantlab.ru/work34784"
     },
-    "match_score": null,
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1000559924-golubyatnya-na-zheltoj-polyane-chast-3-malchik-i-yascherka-vladislav-krapivin",
+      "url": "https://www.livelib.ru/book/1000559924-golubyatnya-na-zheltoj-polyane-chast-3-malchik-i-yascherka-vladislav-krapivin"
+    },
     "fantasy_worlds": {
       "id": "21295",
       "url": "https://fantasy-worlds.net/lib/id21295/",
@@ -9106,25 +9224,6 @@
       "rating": 8.48,
       "votes": 1487,
       "url": "https://fantlab.ru/work334007"
-    },
-    "match_score": null
-  },
-  {
-    "id": "c22bb404-5b53-5771-b5bb-7f2a6bdc2db6",
-    "title": "Странная история доктора Джекилла и мистера Хайда",
-    "authors": [
-      "Роберт Льюис Стивенсон"
-    ],
-    "genres": [
-      "повесть"
-    ],
-    "year": 1886,
-    "aggregate_rating": 84.8,
-    "fantlab": {
-      "id": "56154",
-      "rating": 8.48,
-      "votes": 1999,
-      "url": "https://fantlab.ru/work56154"
     },
     "match_score": null
   },
@@ -9590,7 +9689,11 @@
       "votes": 1800,
       "url": "https://fantlab.ru/work2403"
     },
-    "match_score": null,
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1000555752-nasledstvo-dlya-lonlilokli-maks-fraj",
+      "url": "https://www.livelib.ru/book/1000555752-nasledstvo-dlya-lonlilokli-maks-fraj"
+    },
     "fantasy_worlds": {
       "id": "124",
       "url": "https://fantasy-worlds.net/lib/id124/",
@@ -9893,7 +9996,11 @@
       "votes": 1856,
       "url": "https://fantlab.ru/work2406"
     },
-    "match_score": null,
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1000555751-sladkie-grezy-gravvi-maks-fraj",
+      "url": "https://www.livelib.ru/book/1000555751-sladkie-grezy-gravvi-maks-fraj"
+    },
     "fantasy_worlds": {
       "id": "24141",
       "url": "https://fantasy-worlds.net/lib/id24141/",
@@ -10535,6 +10642,37 @@
     "download_url": "https://fantasy-worlds.net/lib/id14065/download/"
   },
   {
+    "id": "c22bb404-5b53-5771-b5bb-7f2a6bdc2db6",
+    "title": "Странная история доктора Джекилла и мистера Хайда",
+    "authors": [
+      "Роберт Льюис Стивенсон"
+    ],
+    "genres": [
+      "повесть"
+    ],
+    "year": 1886,
+    "aggregate_rating": 84.37,
+    "fantlab": {
+      "id": "56154",
+      "rating": 8.48,
+      "votes": 1999,
+      "url": "https://fantlab.ru/work56154"
+    },
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1006076524-strannaya-istoriya-doktora-dzhekilla-i-mistera-hajda-robert-lyuis-stivenson",
+      "url": "https://www.livelib.ru/book/1006076524-strannaya-istoriya-doktora-dzhekilla-i-mistera-hajda-robert-lyuis-stivenson"
+    },
+    "fantasy_worlds": {
+      "id": "19156",
+      "rating": 8.3,
+      "votes": 10,
+      "url": "https://fantasy-worlds.net/lib/id19156/",
+      "download_url": "https://fantasy-worlds.net/lib/id19156/download/"
+    },
+    "download_url": "https://fantasy-worlds.net/lib/id19156/download/"
+  },
+  {
     "id": "45aa5380-3a73-5ea4-bfa3-6c4890559a60",
     "title": "Давший клятву",
     "authors": [
@@ -10569,31 +10707,6 @@
       "download_url": "https://fantasy-worlds.net/lib/id28542/download/"
     },
     "download_url": "https://fantasy-worlds.net/lib/id28542/download/"
-  },
-  {
-    "id": "285c352f-366f-5e93-924f-0512a3a76184",
-    "title": "Таинственный рыцарь",
-    "authors": [
-      "Джордж Р. Р. Мартин"
-    ],
-    "genres": [
-      "повесть"
-    ],
-    "year": 2010,
-    "aggregate_rating": 84.3,
-    "fantlab": {
-      "id": "56092",
-      "rating": 8.43,
-      "votes": 2745,
-      "url": "https://fantlab.ru/work56092"
-    },
-    "match_score": null,
-    "fantasy_worlds": {
-      "id": "13681",
-      "url": "https://fantasy-worlds.net/lib/id13681/",
-      "download_url": "https://fantasy-worlds.net/lib/id13681/download/"
-    },
-    "download_url": "https://fantasy-worlds.net/lib/id13681/download/"
   },
   {
     "id": "321ab91e-3e56-5fe9-aec9-965523a7174c",
@@ -10821,7 +10934,11 @@
       "votes": 1901,
       "url": "https://fantlab.ru/work2411"
     },
-    "match_score": null,
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1000547973-dorot-povelitel-manuhov-maks-fraj",
+      "url": "https://www.livelib.ru/book/1000547973-dorot-povelitel-manuhov-maks-fraj"
+    },
     "fantasy_worlds": {
       "id": "125",
       "url": "https://fantasy-worlds.net/lib/id125/",
@@ -11374,7 +11491,11 @@
       "votes": 8478,
       "url": "https://fantlab.ru/work80145"
     },
-    "match_score": null,
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1004112562-pervyj-zakon-krov-i-zhelezo-dzho-aberkrombi",
+      "url": "https://www.livelib.ru/book/1004112562-pervyj-zakon-krov-i-zhelezo-dzho-aberkrombi"
+    },
     "fantasy_worlds": {
       "id": "12974",
       "rating": 8.4,
@@ -11536,7 +11657,11 @@
       "votes": 3763,
       "url": "https://fantlab.ru/work15411"
     },
-    "match_score": null,
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1008788776-genom-sergej-lukyanenko",
+      "url": "https://www.livelib.ru/book/1008788776-genom-sergej-lukyanenko"
+    },
     "fantasy_worlds": {
       "id": "1994",
       "url": "https://fantasy-worlds.net/lib/id1994/",
@@ -11692,7 +11817,11 @@
       "votes": 1077,
       "url": "https://fantlab.ru/work10770"
     },
-    "match_score": null,
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1001103261-etot-mir-moj-sbornik-genri-kattner",
+      "url": "https://www.livelib.ru/book/1001103261-etot-mir-moj-sbornik-genri-kattner"
+    },
     "fantasy_worlds": {
       "id": "4504",
       "url": "https://fantasy-worlds.net/lib/id4504/",
@@ -12039,31 +12168,6 @@
       "download_url": "https://fantasy-worlds.net/lib/id15493/download/"
     },
     "download_url": "https://fantasy-worlds.net/lib/id15493/download/"
-  },
-  {
-    "id": "b5ed2e23-98c0-5ded-bccb-07fe27cb466a",
-    "title": "Послушай, как падают листья",
-    "authors": [
-      "Ольга Громыко"
-    ],
-    "genres": [
-      "рассказ"
-    ],
-    "year": 2003,
-    "aggregate_rating": 83.7,
-    "fantlab": {
-      "id": "35343",
-      "rating": 8.37,
-      "votes": 884,
-      "url": "https://fantlab.ru/work35343"
-    },
-    "match_score": null,
-    "fantasy_worlds": {
-      "id": "8239",
-      "url": "https://fantasy-worlds.net/lib/id8239/",
-      "download_url": "https://fantasy-worlds.net/lib/id8239/download/"
-    },
-    "download_url": "https://fantasy-worlds.net/lib/id8239/download/"
   },
   {
     "id": "a70bc09a-3aaa-5714-a612-ee5c6684ede8",
@@ -12678,6 +12782,44 @@
     "download_url": "https://fantasy-worlds.net/lib/id1555/download/"
   },
   {
+    "id": "339de645-1dea-5889-bd5a-5dbe164c1d8a",
+    "title": "Герои",
+    "authors": [
+      "Джо Аберкромби"
+    ],
+    "genres": [
+      "роман",
+      "волшебные миры",
+      "становление героя",
+      "позднее средневековье",
+      "интриги",
+      "средние века",
+      "эпоха возрождения",
+      "Fanzon"
+    ],
+    "year": 2011,
+    "aggregate_rating": 82.35,
+    "fantlab": {
+      "id": "162237",
+      "rating": 8.57,
+      "votes": 3021,
+      "url": "https://fantlab.ru/work162237"
+    },
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1005781711-geroi-dzho-aberkrombi",
+      "url": "https://www.livelib.ru/book/1005781711-geroi-dzho-aberkrombi"
+    },
+    "fantasy_worlds": {
+      "id": "19681",
+      "rating": 7.6,
+      "votes": 67,
+      "url": "https://fantasy-worlds.net/lib/id19681/",
+      "download_url": "https://fantasy-worlds.net/lib/id19681/download/"
+    },
+    "download_url": "https://fantasy-worlds.net/lib/id19681/download/"
+  },
+  {
     "id": "d1dc5575-a7f9-5912-973f-ba7796fda14f",
     "title": "Стрелок",
     "authors": [
@@ -12709,6 +12851,33 @@
       "download_url": "https://fantasy-worlds.net/lib/id1902/download/"
     },
     "download_url": "https://fantasy-worlds.net/lib/id1902/download/"
+  },
+  {
+    "id": "285c352f-366f-5e93-924f-0512a3a76184",
+    "title": "Таинственный рыцарь",
+    "authors": [
+      "Джордж Р. Р. Мартин"
+    ],
+    "genres": [
+      "повесть"
+    ],
+    "year": 2010,
+    "aggregate_rating": 81.55,
+    "fantlab": {
+      "id": "56092",
+      "rating": 8.43,
+      "votes": 2745,
+      "url": "https://fantlab.ru/work56092"
+    },
+    "match_score": null,
+    "fantasy_worlds": {
+      "id": "13681",
+      "rating": 7.4,
+      "votes": 17,
+      "url": "https://fantasy-worlds.net/lib/id13681/",
+      "download_url": "https://fantasy-worlds.net/lib/id13681/download/"
+    },
+    "download_url": "https://fantasy-worlds.net/lib/id13681/download/"
   },
   {
     "id": "eb8165d0-8857-5a39-add6-d7e07c01009f",
@@ -13032,7 +13201,11 @@
       "votes": 5585,
       "url": "https://fantlab.ru/work134421"
     },
-    "match_score": null,
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1000437896-lozhnaya-slepota-piter-uotts",
+      "url": "https://www.livelib.ru/book/1000437896-lozhnaya-slepota-piter-uotts"
+    },
     "fantasy_worlds": {
       "id": "29814",
       "url": "https://fantasy-worlds.net/lib/id29814/",

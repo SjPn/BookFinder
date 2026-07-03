@@ -26,6 +26,11 @@ RATING_ROW_RE = re.compile(
 
 INSUFFICIENT_VOTES_MARKER = "недостаточным количеством оценок"
 
+WORK_META_RE = re.compile(
+    r"Средняя\s+оценка:\s*([\d.,]+)\s*Оценок:\s*(\d+)",
+    re.IGNORECASE,
+)
+
 
 def _trim_rating_html(html: str) -> str:
     idx = html.find(INSUFFICIENT_VOTES_MARKER)
@@ -94,6 +99,39 @@ def parse_rating_page(html: str, work_type: int = 1) -> list[BookRecord]:
 
     records.sort(key=lambda r: (r.rank or 9999, r.external_id))
     return records[:100]
+
+
+def parse_work_meta(html: str, work_id: str) -> dict:
+    """Rating, title and genres from FantLab work HTML (API fallback)."""
+    soup = BeautifulSoup(html, "lxml")
+    rating_val: float | None = None
+    votes: int | None = None
+
+    match = WORK_META_RE.search(html)
+    if match:
+        rating_val = float(match.group(1).replace(",", "."))
+        votes = int(match.group(2))
+
+    title: str | None = None
+    for selector in ("h1", "h2"):
+        node = soup.select_one(selector)
+        if not node:
+            continue
+        text = node.get_text(" ", strip=True)
+        quoted = re.search(r"«([^»]+)»", text)
+        title = quoted.group(1) if quoted else text
+        break
+
+    return {
+        "work_id": work_id,
+        "work_name": title,
+        "rating": {
+            "rating": str(rating_val) if rating_val is not None else None,
+            "voters": votes,
+        },
+        "genres": parse_work_page(html, work_id),
+        "source": "html",
+    }
 
 
 def parse_work_page(html: str, work_id: str) -> list[str]:

@@ -20,6 +20,7 @@ from bookfinder.parsers.reviews import (
     parse_livelib_reviews,
 )
 from bookfinder.reviews_store import load_fw_reviews_by_id, load_work_reviews, save_work_reviews
+from bookfinder.stable_fetch import fetch_json, fetch_text
 
 OUT = ROOT / "data" / "processed"
 FW_BOOKS = ROOT / "data" / "raw" / "fw_books"
@@ -51,10 +52,9 @@ def fetch_fw_reviews(client: RateLimitedClient, fw_id: str, fw_cache: dict[str, 
     existing = fw_reviews_for_id(fw_id, fw_cache)
     if existing:
         return existing
+    path = FW_BOOKS / f"{fw_id}.html"
     try:
-        html = client.get_text(fw.book_url(fw_id), referer="https://fantasy-worlds.net/lib/")
-        FW_BOOKS.mkdir(parents=True, exist_ok=True)
-        (FW_BOOKS / f"{fw_id}.html").write_text(html, encoding="utf-8")
+        html = fetch_text(client, fw.book_url(fw_id), path, referer="https://fantasy-worlds.net/lib/")
         reviews = parse_fantasy_worlds_comments(html, fw_id)
         if reviews:
             fw_cache[fw_id] = reviews
@@ -65,12 +65,37 @@ def fetch_fw_reviews(client: RateLimitedClient, fw_id: str, fw_cache: dict[str, 
 
 def fetch_fantlab_reviews(client: RateLimitedClient, work_id: str) -> list[dict]:
     FL_WORK.mkdir(parents=True, exist_ok=True)
-    cache = FL_WORK / f"{work_id}.html"
+    cache_html = FL_WORK / f"{work_id}.html"
+    cache_json = FL_WORK / f"{work_id}.json"
     reviews: list[dict] = []
 
-    for api_suffix in ("responses.json", "workreviews.json", "reviews.json"):
+    try:
+        if cache_json.exists():
+            data = json.loads(cache_json.read_text(encoding="utf-8"))
+        else:
+            data = fetch_json(
+                client,
+                f"https://api.fantlab.ru/work{work_id}.json",
+                cache_json,
+                referer="https://fantlab.ru/",
+            )
+        if isinstance(data, dict) and data.get("work_name"):
+            pass  # valid work payload; opinions may be in HTML
+    except Exception:  # noqa: BLE001
+        pass
+
+    for suffix in ("responses.json", "workreviews.json"):
         try:
-            data = client.get_json(f"https://api.fantlab.ru/work{work_id}/{api_suffix}")
+            path = FL_WORK / f"{work_id}_{suffix}"
+            if path.exists():
+                data = json.loads(path.read_text(encoding="utf-8"))
+            else:
+                data = fetch_json(
+                    client,
+                    f"https://api.fantlab.ru/work{work_id}/{suffix}",
+                    path,
+                    referer="https://fantlab.ru/",
+                )
             reviews.extend(parse_fantlab_api_responses(data))
             if len(reviews) >= TARGET_MIN:
                 return reviews
@@ -78,11 +103,12 @@ def fetch_fantlab_reviews(client: RateLimitedClient, work_id: str) -> list[dict]
             continue
 
     try:
-        if cache.exists():
-            html = cache.read_text(encoding="utf-8", errors="ignore")
-        else:
-            html = client.get_text(f"https://fantlab.ru/work{work_id}", referer="https://fantlab.ru/")
-            cache.write_text(html, encoding="utf-8")
+        html = fetch_text(
+            client,
+            f"https://fantlab.ru/work{work_id}",
+            cache_html,
+            referer="https://fantlab.ru/",
+        )
         reviews.extend(parse_fantlab_work_page(html, work_id))
     except Exception:  # noqa: BLE001
         pass
@@ -93,13 +119,8 @@ def fetch_livelib_reviews(client: RateLimitedClient, book_url: str, book_id: str
     LL_REVIEWS.mkdir(parents=True, exist_ok=True)
     reviews_url = livelib_reviews_url(book_url)
     cache = LL_REVIEWS / f"{book_id}.html"
-
     try:
-        if cache.exists():
-            html = cache.read_text(encoding="utf-8", errors="ignore")
-        else:
-            html = client.get_text(reviews_url, referer="https://www.livelib.ru/")
-            cache.write_text(html, encoding="utf-8")
+        html = fetch_text(client, reviews_url, cache, referer="https://www.livelib.ru/")
         return parse_livelib_reviews(html, reviews_url)
     except Exception:  # noqa: BLE001
         return []
@@ -162,7 +183,7 @@ def main() -> None:
     store = load_work_reviews()
     ok = empty = 0
 
-    with RateLimitedClient(delay_sec=args.delay, warmup=False) as client:
+    with RateLimitedClient(delay_sec=None, warmup=True, use_livelib_browser=True) as client:
         for idx, work in enumerate(pending, start=1):
             work_id = work["id"]
             if work_id in store and store[work_id].get("count", 0) >= TARGET_MIN:

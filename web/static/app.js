@@ -135,7 +135,7 @@ async function runSearch() {
   tbody.innerHTML = '';
   rows.forEach((w, i) => {
     const tr = document.createElement('tr');
-    const sources = [w.fantlab ? 'FL' : null, w.livelib ? 'LL' : null, w.fantasy_worlds ? 'FW' : null]
+    const sources = [w.fantlab ? 'FL' : null, w.livelib ? 'LL' : null, w.fantasy_worlds ? 'FW' : null, w.kubikus ? 'KB' : null, w.bookmix ? 'BM' : null]
       .filter(Boolean)
       .join('+');
     tr.innerHTML = `
@@ -236,7 +236,7 @@ async function showDetail(w) {
   document.getElementById('d-title').textContent = w.title;
   document.getElementById('d-authors').textContent = (w.authors || []).join(', ');
   document.getElementById('d-rating').textContent =
-    `Рейтинг каталога: ${formatAggregateRating(w.aggregate_rating)} | FantLab: ${w.fantlab?.rating ?? '—'} | LiveLib: ${w.livelib?.rating ?? '—'} | FW: ${w.fantasy_worlds?.rating ?? '—'}`;
+    `Рейтинг каталога: ${formatAggregateRating(w.aggregate_rating)} | FantLab: ${w.fantlab?.rating ?? '—'} | LiveLib: ${w.livelib?.rating ?? '—'} | FW: ${w.fantasy_worlds?.rating ?? '—'} | Кубикус: ${w.kubikus?.rating ?? '—'} | BookMix: ${w.bookmix?.rating ?? '—'}`;
 
   const dl = document.getElementById('d-downloads');
   const fwId = w.fantasy_worlds?.id;
@@ -302,7 +302,7 @@ async function showDetail(w) {
       reviewsEl.innerHTML = '<p class="muted">Отзывов с сайтов пока нет (ничего не выдумываем).</p>';
     } else {
       reviewsEl.innerHTML = rev.reviews.map((r) => {
-        const src = { fantasy_worlds: 'FW', fantlab: 'FantLab', livelib: 'LiveLib' }[r.source] || r.source;
+        const src = { fantasy_worlds: 'FW', fantlab: 'FantLab', livelib: 'LiveLib', kubikus: 'Кубикус', bookmix: 'BookMix' }[r.source] || r.source;
         const author = r.author ? esc(r.author) : 'Аноним';
         const date = r.date ? ` · ${esc(r.date)}` : '';
         const link = r.url ? ` <a href="${esc(r.url)}" target="_blank" rel="noopener">источник</a>` : '';

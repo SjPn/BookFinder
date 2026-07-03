@@ -6,61 +6,89 @@
       "name": "Fantasy-Worlds.net",
       "url": "https://fantasy-worlds.net/lib/",
       "role": "primary_catalog_download",
-      "books_in_catalog": 5700,
-      "ratings": "poll on book page (0-10)",
-      "download": "FB2 zip per book",
       "status": "integrated",
-      "notes": "Main source for downloads and bulk catalog. ID scan + search + bigram crawl."
+      "ratings": "poll 0-10 on book page",
+      "notes": "Main catalog + FB2 downloads"
     },
     {
       "id": "fantlab",
       "name": "FantLab",
       "url": "https://fantlab.ru/",
-      "role": "ratings_anchor",
-      "books_in_catalog": 459,
-      "ratings": "api.fantlab.ru/work{id}.json",
-      "download": "via FW link when matched",
+      "role": "ratings_anchor_genres",
       "status": "integrated",
-      "notes": "Top lists + popular works. API cache for ratings without HTML scrape."
+      "ratings": "API + HTML fallback",
+      "notes": "Local DNS may poison to 127.0.0.1; use VPN or dns_resolve bypass"
     },
     {
       "id": "livelib",
       "name": "LiveLib",
       "url": "https://www.livelib.ru/",
-      "role": "ratings",
-      "books_in_catalog": 148,
-      "ratings": "10-point user rating",
-      "download": "no",
+      "role": "ratings_reviews",
       "status": "partial",
-      "notes": "DDoS-Guard blocks bulk HTTP; Playwright cache ~87% match on cached searches."
+      "ratings": "10-point user rating",
+      "notes": "DDoS-Guard; Playwright for search/reviews"
     },
     {
       "id": "readrate",
       "name": "ReadRate",
       "url": "https://readrate.com/rus/",
       "role": "ratings_discovery",
-      "books_indexed": 67,
-      "ratings": "editorial lists",
-      "download": "no",
       "status": "indexed_not_merged",
-      "notes": "Lists: top100, bestsellers, most-commented. Merge via title matcher planned."
+      "ratings": "editorial lists",
+      "notes": "67 books indexed; merge via title matcher"
+    }
+  ],
+  "candidate_sources": [
+    {
+      "id": "kubikus",
+      "name": "Кубикус",
+      "url": "https://www.kubikus.ru/rating.asp",
+      "priority": "high",
+      "niche": "фэнтези/фантастика",
+      "ratings": "рейтинги по оценке, прочтениям, отзывам; кубики экспертов",
+      "reviews": "да",
+      "api": "нет",
+      "status": "not_integrated",
+      "notes": "ASP-каталог, хорошо стыкуется с FantLab/FW по нише"
+    },
+    {
+      "id": "bookmix",
+      "name": "BookMix",
+      "url": "https://bookmix.ru/",
+      "priority": "medium",
+      "niche": "общая литература + фэнтези",
+      "ratings": "пользовательские 1-5, ТОП-250",
+      "reviews": "рецензии и отзывы",
+      "api": "нет",
+      "status": "not_integrated",
+      "notes": "DNS может не резолвиться локально; широкий охват"
+    },
+    {
+      "id": "author_today",
+      "name": "Author.Today",
+      "url": "https://author.today/",
+      "priority": "medium",
+      "niche": "самиздат, фэнтези/LitRPG",
+      "ratings": "звёзды на произведениях",
+      "reviews": "комментарии",
+      "api": "частично (неофициально)",
+      "status": "not_integrated",
+      "notes": "Много новинок, слабее пересечение с классикой"
+    },
+    {
+      "id": "libs_ru",
+      "name": "Libs.ru / Zhurnal.ru",
+      "url": "http://libs.ru/",
+      "priority": "low",
+      "niche": "архивы, самиздат",
+      "ratings": "ограниченно",
+      "status": "not_integrated",
+      "notes": "Устаревший UI, мало структурированных рейтингов"
     }
   ],
   "rejected_sources": [
-    {"name": "Flibusta", "reason": "pirate library, out of scope"},
-    {"name": "ЛитРес", "reason": "commercial, no bulk API"},
+    {"name": "Flibusta", "reason": "pirate library"},
+    {"name": "ЛитРес", "reason": "commercial, no bulk access"},
     {"name": "Goodreads", "reason": "English-centric, anti-bot"}
-  ],
-  "catalog_metrics": {
-    "total_works": 5731,
-    "with_aggregate_rating": 3665,
-    "with_download_url": 5699,
-    "with_local_fb2": 419,
-    "fantlab_fw_matched": "427/459"
-  },
-  "pipelines": {
-    "fetch_fb2": "scripts/fetch_fb2.py — downloads to data/books/fb2/",
-    "repair_downloads": "scripts/repair_fw_downloads.py — aggressive FW search",
-    "enrichment": "scripts/run_enrichment.py — full rebuild chain"
-  }
+  ]
 }
