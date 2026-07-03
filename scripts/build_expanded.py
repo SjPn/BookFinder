@@ -11,6 +11,11 @@ from pathlib import Path
 from bookfinder.matcher import MATCH_THRESHOLD, find_best_match, score_pair
 from bookfinder.models import BookRecord
 from bookfinder.normalize import normalize_authors, normalize_title
+from bookfinder.descriptions import (
+    extract_bookmix_description,
+    extract_fantlab_description,
+    extract_fw_description,
+)
 from bookfinder.parsers import fantasy_worlds as fw
 from bookfinder.ratings import (
     aggregate_from_sources,
@@ -27,6 +32,8 @@ sys.path.insert(0, str(ROOT / "src"))
 
 OUT = ROOT / "data" / "processed"
 FW_BOOKS = ROOT / "data" / "raw" / "fw_books"
+BOOKMIX_RAW = ROOT / "data" / "raw" / "bookmix"
+FL_WORK = ROOT / "data" / "raw" / "fantlab_work"
 FL_API_CACHE = OUT / "fantlab_api_cache.json"
 FB2_DIR = ROOT / "data" / "books" / "fb2"
 
@@ -69,6 +76,45 @@ def fw_rating(book: dict) -> tuple[float | None, int | None, list[str], str | No
                 return record.rating, record.vote_count, genres, fantlab_id
 
     return None, None, genres, fantlab_id
+
+
+def attach_description(entry: dict) -> None:
+    if entry.get("description"):
+        return
+
+    title = entry.get("title") or ""
+    candidates: list[tuple[str, str]] = []
+
+    fw_id = (entry.get("fantasy_worlds") or {}).get("id")
+    if fw_id:
+        path = FW_BOOKS / f"{fw_id}.html"
+        if path.exists():
+            text = extract_fw_description(path.read_text(encoding="utf-8", errors="ignore"), title)
+            if text:
+                candidates.append(("fantasy_worlds", text))
+
+    bm_id = (entry.get("bookmix") or {}).get("id")
+    if bm_id:
+        path = BOOKMIX_RAW / f"{bm_id}.html"
+        if path.exists():
+            text = extract_bookmix_description(path.read_text(encoding="utf-8", errors="ignore"))
+            if text:
+                candidates.append(("bookmix", text))
+
+    fl_id = (entry.get("fantlab") or {}).get("id")
+    if fl_id:
+        path = FL_WORK / f"{fl_id}.html"
+        if path.exists():
+            text = extract_fantlab_description(path.read_text(encoding="utf-8", errors="ignore"))
+            if text:
+                candidates.append(("fantlab", text))
+
+    if not candidates:
+        return
+    candidates.sort(key=lambda item: len(item[1]), reverse=True)
+    source, text = candidates[0]
+    entry["description"] = text
+    entry["description_source"] = source
 
 
 def load_source_records(path: Path, source: str) -> list[BookRecord]:
@@ -245,6 +291,7 @@ def sanitize_entry(entry: dict, fl_api: dict[str, dict]) -> dict:
     else:
         entry.pop("fb2_local", None)
 
+    attach_description(entry)
     return entry
 
 
@@ -385,6 +432,7 @@ def main() -> None:
         "total_rated": sum(1 for item in expanded if item.get("aggregate_rating")),
         "with_download": sum(1 for item in expanded if item.get("download_url")),
         "with_fb2_local": sum(1 for item in expanded if item.get("fb2_local")),
+        "with_description": sum(1 for item in expanded if item.get("description")),
         "kubikus_indexed": len(kubikus_records),
         "kubikus_matched": len(used_kubikus),
         "kubikus_only_added": kubikus_added,

@@ -17,18 +17,19 @@ app = FastAPI(title="Bookfinder", version="0.1.0")
 WEB = Path(__file__).resolve().parents[2] / "web"
 DATA = Path(__file__).resolve().parents[2] / "data"
 FB2_DIR = DATA / "books" / "fb2"
+NO_CACHE = {"Cache-Control": "no-cache, no-store, must-revalidate"}
 WEB.mkdir(exist_ok=True)
 app.mount("/static", StaticFiles(directory=WEB / "static"), name="static")
 
 
 @app.get("/")
 def index() -> FileResponse:
-    return FileResponse(WEB / "index.html")
+    return FileResponse(WEB / "index.html", headers=NO_CACHE)
 
 
 @app.get("/work/{work_id}")
 def work_page(_work_id: str) -> FileResponse:
-    return FileResponse(WEB / "book.html")
+    return FileResponse(WEB / "book.html", headers=NO_CACHE)
 
 
 @app.get("/api/stats")
@@ -93,7 +94,12 @@ def work_similar(work_id: str, limit: int = Query(12, ge=1, le=50)) -> list[dict
 
 @app.get("/api/works/{work_id}/reviews")
 def work_reviews(work_id: str, limit: int = Query(15, ge=1, le=30)) -> dict:
-    return get_reviews_for_work(work_id, limit)
+    fw_id = None
+    for w in load_works():
+        if w["id"] == work_id:
+            fw_id = (w.get("fantasy_worlds") or {}).get("id")
+            break
+    return get_reviews_for_work(work_id, limit, fw_id=str(fw_id) if fw_id else None)
 
 
 class UserRatingBody(BaseModel):

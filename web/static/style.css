@@ -149,6 +149,9 @@ a.row-link:hover, a.link:hover { text-decoration: underline; }
 }
 .back-link:hover { text-decoration: underline; }
 .book-authors { color: #aeb6c2; margin: 0.35rem 0 0; font-size: 1.05rem; }
+.book-description { line-height: 1.55; font-size: 0.95rem; white-space: pre-wrap; }
+.desc-source { display: block; margin-top: 0.5rem; font-size: 0.78rem; color: #8b95a8; }
+.reviews-count { margin: 0 0 0.65rem; font-size: 0.82rem; color: #8b95a8; }
 .book-main {
   display: flex;
   flex-direction: column;

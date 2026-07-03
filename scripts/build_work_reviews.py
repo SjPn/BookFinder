@@ -45,7 +45,7 @@ def main() -> None:
         store[work_id] = {
             "count": len(merged),
             "sources_tried": tried,
-            "reviews": merged[:10],
+            "reviews": merged[:15],
         }
 
     save_work_reviews(store)

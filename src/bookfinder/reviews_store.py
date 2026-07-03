@@ -40,9 +40,15 @@ def save_work_reviews(data: dict[str, dict]) -> None:
     _save(WORKS_FILE, data)
 
 
-def get_reviews_for_work(work_id: str, limit: int = 15) -> dict:
+def get_reviews_for_work(work_id: str, limit: int = 15, fw_id: str | None = None) -> dict:
     entry = load_work_reviews().get(work_id, {})
-    reviews = entry.get("reviews") or []
+    reviews = list(entry.get("reviews") or [])
+
+    if fw_id and len(reviews) < limit:
+        fw_reviews = load_fw_reviews_by_id().get(str(fw_id), [])
+        if fw_reviews:
+            reviews = dedupe_reviews(reviews + fw_reviews)
+
     return {
         "work_id": work_id,
         "count": len(reviews),

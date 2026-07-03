@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Cache-Control" content="no-cache">
   <title>Bookfinder — книга</title>
-  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/style.css?v=20260703">
 </head>
 <body class="book-page">
   <header>
@@ -13,6 +14,10 @@
     <p id="d-authors" class="book-authors"></p>
   </header>
   <main class="book-main">
+    <section class="book-panel" id="d-description-panel">
+      <h2>Аннотация</h2>
+      <p id="d-description" class="book-description muted">Загрузка…</p>
+    </section>
     <section class="book-panel">
       <h2>Рейтинги</h2>
       <p id="d-rating"></p>
@@ -29,15 +34,15 @@
       <p id="d-relevance" class="help-block"></p>
     </section>
     <section class="book-panel">
+      <h2>Комментарии с сайтов</h2>
+      <div id="d-reviews" class="reviews-block muted">Загрузка…</div>
+    </section>
+    <section class="book-panel">
       <h2>Похожие книги</h2>
       <ul id="similar"></ul>
     </section>
-    <section class="book-panel">
-      <h2>Отзывы с сайтов</h2>
-      <div id="d-reviews" class="reviews-block muted">Загрузка…</div>
-    </section>
   </main>
-  <script src="/static/common.js"></script>
-  <script src="/static/book.js"></script>
+  <script src="/static/common.js?v=20260703"></script>
+  <script src="/static/book.js?v=20260703"></script>
 </body>
 </html>

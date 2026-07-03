@@ -6,6 +6,8 @@ const genreListEl = document.getElementById('genre-list');
 const filterWeightsEl = document.getElementById('filter-weights');
 const resultMetaEl = document.getElementById('result-meta');
 
+const ASSET_V = '20260703';
+
 let allGenres = [];
 let searchTimer = null;
 
@@ -88,6 +90,11 @@ function formatGenreMatches(work) {
     .join(', ');
 }
 
+function openWork(workId) {
+  saveCatalogState();
+  window.location.assign(workUrl(workId));
+}
+
 async function loadStats() {
   const s = await apiJson('/api/stats');
   const m = s.merge || {};
@@ -121,29 +128,32 @@ async function runSearch() {
   tbody.innerHTML = '';
   rows.forEach((w, i) => {
     const tr = document.createElement('tr');
+    tr.dataset.workId = w.id;
+    const href = workUrl(w.id);
     const sources = [w.fantlab ? 'FL' : null, w.livelib ? 'LL' : null, w.fantasy_worlds ? 'FW' : null, w.kubikus ? 'KB' : null, w.bookmix ? 'BM' : null]
       .filter(Boolean)
       .join('+');
     tr.innerHTML = `
       <td>${i + 1}</td>
-      <td><a class="row-link" href="${workUrl(w.id)}">${esc(w.title)}</a></td>
+      <td><a class="row-link" href="${href}">${esc(w.title)}</a></td>
       <td>${esc((w.authors || []).join(', '))}</td>
       <td>${formatAggregateRating(w.aggregate_rating)}</td>
       <td>${w.relevance ?? '—'}</td>
       <td>${sources || '—'}</td>
       <td class="genre-cell">${formatGenreMatches(w)}</td>
-      <td><a class="link" href="${workUrl(w.id)}" aria-label="Открыть">→</a></td>
+      <td><a class="link" href="${href}" aria-label="Открыть">→</a></td>
     `;
-    for (const a of tr.querySelectorAll('a')) {
-      a.addEventListener('click', saveCatalogState);
-    }
-    tr.onclick = (e) => {
-      if (e.target.closest('a')) return;
-      navigateToWork(w.id);
-    };
     tbody.appendChild(tr);
   });
 }
+
+tbody.addEventListener('click', (e) => {
+  const tr = e.target.closest('tr');
+  if (!tr?.dataset.workId) return;
+  if (e.target.closest('a')) return;
+  e.preventDefault();
+  openWork(tr.dataset.workId);
+});
 
 function scheduleSearch() {
   clearTimeout(searchTimer);

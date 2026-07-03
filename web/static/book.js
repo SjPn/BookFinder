@@ -83,6 +83,18 @@ async function renderWork(w) {
   document.title = `${w.title} — Bookfinder`;
   document.getElementById('d-title').textContent = w.title;
   document.getElementById('d-authors').textContent = (w.authors || []).join(', ') || 'Автор не указан';
+
+  const descEl = document.getElementById('d-description');
+  const descPanel = document.getElementById('d-description-panel');
+  if (w.description) {
+    const srcLabel = { fantasy_worlds: 'Fantasy-Worlds', fantlab: 'FantLab', livelib: 'LiveLib', bookmix: 'BookMix', kubikus: 'Кубикус' }[w.description_source] || w.description_source || '';
+    descEl.classList.remove('muted');
+    descEl.innerHTML = esc(w.description) + (srcLabel ? `<span class="desc-source">Источник: ${esc(srcLabel)}</span>` : '');
+  } else {
+    descPanel.classList.add('hidden');
+    descEl.textContent = '';
+  }
+
   document.getElementById('d-rating').textContent =
     `Сводный: ${formatAggregateRating(w.aggregate_rating)} | FantLab: ${w.fantlab?.rating ?? '—'} | LiveLib: ${w.livelib?.rating ?? '—'} | FW: ${w.fantasy_worlds?.rating ?? '—'} | Кубикус: ${w.kubikus?.rating ?? '—'} | BookMix: ${w.bookmix?.rating ?? '—'}`;
 
@@ -143,11 +155,12 @@ async function renderWork(w) {
 
   const reviewsEl = document.getElementById('d-reviews');
   try {
-    const rev = await apiJson(`/api/works/${w.id}/reviews?limit=10`);
+    const rev = await apiJson(`/api/works/${w.id}/reviews?limit=15`);
     if (!rev.reviews?.length) {
-      reviewsEl.innerHTML = '<p class="muted">Отзывов с сайтов пока нет.</p>';
+      reviewsEl.innerHTML = '<p class="muted">Комментариев с FantLab, LiveLib и Fantasy-Worlds пока нет для этой книги.</p>';
     } else {
-      reviewsEl.innerHTML = rev.reviews.map((r) => {
+      reviewsEl.innerHTML = `<p class="reviews-count">Показано ${rev.reviews.length}${rev.count > rev.reviews.length ? ` из ${rev.count}` : ''}</p>` +
+        rev.reviews.map((r) => {
         const src = { fantasy_worlds: 'FW', fantlab: 'FantLab', livelib: 'LiveLib', kubikus: 'Кубикус', bookmix: 'BookMix' }[r.source] || r.source;
         const author = r.author ? esc(r.author) : 'Аноним';
         const date = r.date ? ` · ${esc(r.date)}` : '';
