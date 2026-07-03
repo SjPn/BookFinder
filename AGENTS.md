@@ -40,3 +40,7 @@ python scripts/fetch_livelib_playwright.py --delay 5
 При `Circuit open` скрипт сохраняет прогресс и останавливается — перезапуск через паузу (5–10 мин для LiveLib).
 
 FB2 и `data/raw/` не в git (`.gitignore`).
+
+## Git
+
+**После каждого коммита — сразу `git push origin main`.** Render деплоит с GitHub; локальные коммиты без push на сайт не попадают.

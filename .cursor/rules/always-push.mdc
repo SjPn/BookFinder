@@ -1,0 +1,17 @@
+---
+description: Always push commits to origin after any git commit
+alwaysApply: true
+---
+
+# Git: commit + push
+
+После **любого** коммита в этом проекте — **сразу** `git push origin main` (или текущую ветку).
+
+Не оставлять коммиты только локально. Render деплоит с GitHub — без push изменения на сайте не появятся.
+
+Порядок:
+1. `git add` + `git commit`
+2. `git push origin HEAD` — обязательно, в той же сессии
+3. Если push упал — сообщить пользователю и не считать задачу выполненной
+
+Не писать «запушь сам» без попытки push.
