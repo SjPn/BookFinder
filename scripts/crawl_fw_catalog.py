@@ -25,6 +25,12 @@ BIGRAMS = [
     "ре", "ри", "ро", "са", "се", "си", "ск", "ст", "та", "те", "ти", "то", "тр", "ул", "фе", "ха", "че",
     "ши", "эп", "юр", "як",
 ]
+TRIGRAMS = [
+    "ста", "тор", "ный", "ная", "ное", "ный", "кра", "при", "про", "пер", "под", "над", "без", "дра",
+    "вол", "лор", "мир", "тем", "све", "тен", "чер", "бел", "кра", "зве", "луна", "ден", "ноч", "огн",
+    "меч", "мор", "гор", "лес", "пут", "дор", "вой", "бит", "кор", "прин", "рыц", "маг", "вед", "кол",
+    "дух", "бог", "дем", "анг", "ад", "адв", "авт", "роб", "кос", "зем", "мар", "вен", "мер", "юп",
+]
 
 
 def load_catalog() -> dict[str, dict]:
@@ -45,12 +51,15 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--delay", type=float, default=1.0)
     parser.add_argument("--bigrams", action="store_true")
+    parser.add_argument("--trigrams", action="store_true")
     args = parser.parse_args()
 
     catalog = load_catalog()
     queries = list(QUERIES)
     if args.bigrams:
         queries.extend(BIGRAMS)
+    if args.trigrams:
+        queries.extend(TRIGRAMS)
 
     with RateLimitedClient(delay_sec=args.delay, warmup=False) as client:
         for idx, query in enumerate(queries, start=1):

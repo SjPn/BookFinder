@@ -119,7 +119,7 @@ def main() -> None:
             rating = float(fl_rating["rating"])
             votes = fl_rating.get("votes")
 
-        if agg is not None and agg < 50:
+        if agg is not None and agg < 30:
             continue
 
         entry = {
