@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bookfinder — книга</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="book-page">
+  <header>
+    <p class="back-row"><a href="/" class="back-link" id="back-link">← Вернуться в каталог</a></p>
+    <h1 id="d-title">Загрузка…</h1>
+    <p id="d-authors" class="book-authors"></p>
+  </header>
+  <main class="book-main">
+    <section class="book-panel">
+      <h2>Рейтинги</h2>
+      <p id="d-rating"></p>
+      <div id="d-user-rating" class="user-rating"></div>
+    </section>
+    <section class="book-panel">
+      <h2>Скачивание</h2>
+      <p id="d-downloads"></p>
+      <p id="d-sources" class="sources-row"></p>
+    </section>
+    <section class="book-panel">
+      <h2>Жанры</h2>
+      <p id="d-genres"></p>
+      <p id="d-relevance" class="help-block"></p>
+    </section>
+    <section class="book-panel">
+      <h2>Похожие книги</h2>
+      <ul id="similar"></ul>
+    </section>
+    <section class="book-panel">
+      <h2>Отзывы с сайтов</h2>
+      <div id="d-reviews" class="reviews-block muted">Загрузка…</div>
+    </section>
+  </main>
+  <script src="/static/common.js"></script>
+  <script src="/static/book.js"></script>
+</body>
+</html>

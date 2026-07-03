@@ -26,6 +26,11 @@ def index() -> FileResponse:
     return FileResponse(WEB / "index.html")
 
 
+@app.get("/work/{work_id}")
+def work_page(_work_id: str) -> FileResponse:
+    return FileResponse(WEB / "book.html")
+
+
 @app.get("/api/stats")
 def stats() -> dict:
     works = load_works()

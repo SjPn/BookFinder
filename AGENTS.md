@@ -40,4 +40,8 @@ python scripts/fetch_livelib_playwright.py --delay 5
 При `Circuit open` скрипт сохраняет прогресс и останавливается — перезапуск через паузу (5–10 мин для LiveLib).
 
 ### Деплой
+**Основной хост — Render** (`main` → auto-deploy). Локально API/сервер не запускать — проверки и UI на Render.
+
 На Render/VPS кроллинг надёжнее, чем с домашней сети (FantLab API часто падает по SSL с Windows).
+
+FB2 и `data/raw/` не в git (`.gitignore`) — только на диске сервера/локально.
