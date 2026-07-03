@@ -34,7 +34,9 @@ function applyCatalogState(state) {
 function renderGenres(filterText = '') {
   const needle = filterText.trim().toLowerCase();
   genreListEl.innerHTML = '';
-  const filtered = allGenres.filter((g) => !needle || g.name.toLowerCase().includes(needle));
+  const filtered = allGenres
+    .filter((g) => !needle || g.name.toLowerCase().includes(needle))
+    .sort((a, b) => a.name.localeCompare(b.name, 'ru'));
 
   for (const g of filtered) {
     const label = document.createElement('label');

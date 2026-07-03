@@ -38,7 +38,7 @@ def genre_counts() -> list[dict]:
             "count": count,
             "weight": round(count / total, 4),
         }
-        for name, count in sorted(counts.items(), key=lambda item: (-item[1], item[0]))
+        for name, count in sorted(counts.items(), key=lambda item: item[0].casefold())
     ]
 
 
