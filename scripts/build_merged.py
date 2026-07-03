@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import json
-import math
 import sys
 import uuid
 from pathlib import Path
@@ -18,6 +17,7 @@ from bookfinder.normalize import normalize_authors, normalize_title
 from bookfinder.matcher import MATCH_THRESHOLD, find_best_match
 from bookfinder.parsers import fantasy_worlds as fw
 from bookfinder.parsers import livelib
+from bookfinder.ratings import aggregate_from_sources, clean_fl_block, clean_fw_block, clean_ll_block
 
 DATA = ROOT / "data"
 RAW = DATA / "raw"
@@ -155,17 +155,14 @@ def aggregate_rating(
     ll: BookRecord | None,
     fw_book: BookRecord | None = None,
 ) -> float | None:
-    parts: list[tuple[float, float]] = []
+    sources: list[tuple[str, float, int | None]] = []
     if fl.rating is not None:
-        parts.append((fl.rating / fl.rating_max * 100, math.log1p(fl.vote_count or 1)))
+        sources.append(("fantlab", fl.rating, fl.vote_count))
     if ll and ll.rating is not None:
-        parts.append((ll.rating / ll.rating_max * 100, math.log1p(ll.vote_count or 1)))
+        sources.append(("livelib", ll.rating, ll.vote_count))
     if fw_book and fw_book.rating is not None:
-        parts.append((fw_book.rating / fw_book.rating_max * 100, math.log1p(fw_book.vote_count or 1)))
-    if not parts:
-        return None
-    total_w = sum(w for _, w in parts)
-    return sum(s * w for s, w in parts) / total_w
+        sources.append(("fantasy_worlds", fw_book.rating, fw_book.vote_count))
+    return aggregate_from_sources(sources)
 
 
 def main() -> None:
@@ -226,8 +223,15 @@ def main() -> None:
             },
             "match_score": round(score, 3) if ll else None,
         }
+        entry["fantlab"] = clean_fl_block(entry["fantlab"])
         if ll:
-            entry["livelib"] = {"id": ll.external_id, "rating": ll.rating, "url": ll.url}
+            entry["livelib"] = {
+                "id": ll.external_id,
+                "rating": ll.rating,
+                "votes": ll.vote_count,
+                "url": ll.url,
+            }
+            entry["livelib"] = clean_ll_block(entry["livelib"])
         if fw_book:
             entry["fantasy_worlds"] = {
                 "id": fw_book.external_id,
@@ -236,7 +240,9 @@ def main() -> None:
                 "url": fw_book.url,
                 "download_url": fw.download_url(fw_book.external_id),
             }
-            entry["download_url"] = fw.download_url(fw_book.external_id)
+            entry["fantasy_worlds"] = clean_fw_block(entry["fantasy_worlds"])
+            if entry.get("fantasy_worlds"):
+                entry["download_url"] = entry["fantasy_worlds"].get("download_url")
         works.append(entry)
 
     works.sort(key=lambda w: w["aggregate_rating"], reverse=True)
