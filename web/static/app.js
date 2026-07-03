@@ -9,9 +9,21 @@ const resultMetaEl = document.getElementById('result-meta');
 
 let allGenres = [];
 let searchTimer = null;
+let currentWorkId = null;
 
-async function apiJson(url) {
-  const r = await fetch(url);
+const USER_ID_KEY = 'bookfinder_user_id';
+
+function getUserId() {
+  let id = localStorage.getItem(USER_ID_KEY);
+  if (!id) {
+    id = crypto.randomUUID();
+    localStorage.setItem(USER_ID_KEY, id);
+  }
+  return id;
+}
+
+async function apiJson(url, options) {
+  const r = await fetch(url, options);
   if (!r.ok) throw new Error(`${url}: ${r.status}`);
   return r.json();
 }
@@ -87,6 +99,10 @@ function formatGenreMatches(work) {
     .join(', ');
 }
 
+function formatAggregateRating(value) {
+  return value == null ? '—' : value;
+}
+
 async function loadStats() {
   const s = await apiJson('/api/stats');
   const m = s.merge || {};
@@ -126,7 +142,7 @@ async function runSearch() {
       <td>${i + 1}</td>
       <td>${esc(w.title)}</td>
       <td>${esc((w.authors || []).join(', '))}</td>
-      <td>${w.aggregate_rating}</td>
+      <td>${formatAggregateRating(w.aggregate_rating)}</td>
       <td>${w.relevance ?? '—'}</td>
       <td>${sources || '—'}</td>
       <td class="genre-cell">${formatGenreMatches(w)}</td>
@@ -141,17 +157,86 @@ async function runSearch() {
   });
 }
 
+async function saveUserRating(workId, rating) {
+  const userId = getUserId();
+  return apiJson(`/api/works/${workId}/user-rating`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ user_id: userId, rating }),
+  });
+}
+
+async function clearUserRating(workId) {
+  const userId = getUserId();
+  return apiJson(`/api/works/${workId}/user-rating?user_id=${encodeURIComponent(userId)}`, {
+    method: 'DELETE',
+  });
+}
+
+function renderUserRating(workId, data) {
+  const box = document.getElementById('d-user-rating');
+  const current = data?.rating ?? null;
+  const community = data?.community || {};
+
+  const stars = document.createElement('div');
+  stars.className = 'rating-stars';
+
+  for (let n = 1; n <= 10; n += 1) {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.textContent = String(n);
+    btn.title = `Моя оценка: ${n}/10`;
+    if (current === n) btn.classList.add('active');
+    btn.onclick = async () => {
+      try {
+        const saved = await saveUserRating(workId, n);
+        renderUserRating(workId, saved);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    stars.appendChild(btn);
+  }
+
+  const clearBtn = document.createElement('button');
+  clearBtn.type = 'button';
+  clearBtn.className = 'clear';
+  clearBtn.textContent = 'Сбросить';
+  clearBtn.onclick = async () => {
+    try {
+      await clearUserRating(workId);
+      renderUserRating(workId, { rating: null, community: community });
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  stars.appendChild(clearBtn);
+
+  const meta = document.createElement('p');
+  meta.className = 'user-rating-meta';
+  const mine = current != null ? `Ваша оценка: ${current}/10` : 'Вы ещё не оценивали эту книгу';
+  const comm = community.count
+    ? `Средняя читателей портала: ${community.average}/10 (${community.count})`
+    : 'Пока нет оценок других читателей';
+  meta.textContent = `${mine}. ${comm}.`;
+
+  box.innerHTML = '<label>Ваша личная оценка (1–10)</label>';
+  box.appendChild(stars);
+  box.appendChild(meta);
+}
+
 async function showDetail(w) {
   if (typeof w === 'string') {
     w = await apiJson(`/api/works/${w}`);
   }
   if (w.error) return;
 
+  currentWorkId = w.id;
   detail.classList.remove('hidden');
   document.getElementById('d-title').textContent = w.title;
   document.getElementById('d-authors').textContent = (w.authors || []).join(', ');
   document.getElementById('d-rating').textContent =
-    `Рейтинг: ${w.aggregate_rating} | FantLab: ${w.fantlab?.rating ?? '—'} | LiveLib: ${w.livelib?.rating ?? '—'} | FW: ${w.fantasy_worlds?.rating ?? '—'}`;
+    `Рейтинг каталога: ${formatAggregateRating(w.aggregate_rating)} | FantLab: ${w.fantlab?.rating ?? '—'} | LiveLib: ${w.livelib?.rating ?? '—'} | FW: ${w.fantasy_worlds?.rating ?? '—'}`;
 
   const dl = document.getElementById('d-downloads');
   const fwId = w.fantasy_worlds?.id;
@@ -169,18 +254,47 @@ async function showDetail(w) {
 
   const matches = w.genre_matches || {};
   const relParts = Object.entries(matches).map(([g, s]) => `${g}: ${Math.round(s * 100)}%`);
-  document.getElementById('d-relevance').textContent = relParts.length
+  const relevanceText = relParts.length
     ? `Совпадение фильтров: ${relParts.join(', ')}`
-    : `Релевантность: ${w.relevance ?? '—'}`;
+    : (w.relevance != null ? `Релевантность поиска: ${w.relevance}` : 'Релевантность не рассчитана (нет активного поиска)');
+
+  document.getElementById('d-relevance').innerHTML =
+    `${esc(relevanceText)}<br><span class="muted">Рейтинг — качество книги по данным FantLab/LiveLib/FW. Релевантность — насколько книга подходит под ваш запрос и выбранные жанры.</span>`;
 
   document.getElementById('d-genres').innerHTML = (w.genres || [])
     .map((g) => `<span class="badge">${esc(g)}</span>`)
     .join('');
 
+  try {
+    const userId = getUserId();
+    const ratingData = await apiJson(
+      `/api/works/${w.id}/user-rating?user_id=${encodeURIComponent(userId)}`,
+    );
+    renderUserRating(w.id, ratingData);
+  } catch (err) {
+    document.getElementById('d-user-rating').innerHTML = '<p class="muted">Не удалось загрузить личную оценку</p>';
+    console.error(err);
+  }
+
   const sim = await apiJson(`/api/works/${w.id}/similar`);
-  document.getElementById('similar').innerHTML = sim
-    .map((s) => `<li>${esc(s.title)} — ${esc((s.authors || []).join(', '))} (${s.aggregate_rating})</li>`)
-    .join('');
+  const similarEl = document.getElementById('similar');
+  similarEl.innerHTML = '';
+  if (!sim.length) {
+    similarEl.innerHTML = '<li class="muted">Похожих книг не найдено</li>';
+  } else {
+    sim.forEach((s) => {
+      const li = document.createElement('li');
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'similar-link';
+      const rating = s.aggregate_rating != null ? ` · ${s.aggregate_rating}` : '';
+      btn.textContent = `${s.title} — ${(s.authors || []).join(', ')}${rating}`;
+      btn.onclick = () => showDetail(s.id);
+      li.appendChild(btn);
+      similarEl.appendChild(li);
+    });
+  }
+
   detail.scrollIntoView({ behavior: 'smooth' });
 }
 

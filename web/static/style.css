@@ -77,6 +77,48 @@ tr:hover { background: #1a1f2a; cursor: pointer; }
 button.link { background: none; border: none; color: #7eb6ff; cursor: pointer; }
 #d-downloads a { color: #7eb6ff; margin-right: 0.75rem; }
 .muted { color: #8b95a8; font-size: 0.85rem; }
+.th-hint {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  border-radius: 50%;
+  background: #2d3a52;
+  color: #aeb6c2;
+  font-size: 0.7rem;
+  cursor: help;
+}
+.help-block { font-size: 0.85rem; color: #9aa3b2; line-height: 1.45; }
+.user-rating { margin: 0.5rem 0 0.75rem; }
+.user-rating label { display: block; font-size: 0.85rem; color: #aeb6c2; margin-bottom: 0.35rem; }
+.rating-stars { display: flex; gap: 0.25rem; flex-wrap: wrap; align-items: center; }
+.rating-stars button {
+  background: #0f1115;
+  border: 1px solid #3a4254;
+  color: #e8eaed;
+  border-radius: 4px;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+.rating-stars button:hover { border-color: #7eb6ff; }
+.rating-stars button.active { background: #2d4a72; border-color: #7eb6ff; }
+.rating-stars button.clear { width: auto; padding: 0 0.5rem; font-size: 0.78rem; }
+.user-rating-meta { margin-top: 0.35rem; font-size: 0.8rem; color: #8b95a8; }
+#similar { list-style: none; padding: 0; margin: 0; }
+#similar li { margin-bottom: 0.35rem; }
+#similar button.similar-link {
+  background: none;
+  border: none;
+  color: #7eb6ff;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+  font: inherit;
+}
+#similar button.similar-link:hover { text-decoration: underline; }
 
 @media (max-width: 900px) {
   main { grid-template-columns: 1fr; }

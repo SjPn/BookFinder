@@ -5,9 +5,11 @@ from pathlib import Path
 from fastapi import FastAPI, Query
 from fastapi.responses import FileResponse, RedirectResponse, Response
 from fastapi.staticfiles import StaticFiles
+from pydantic import BaseModel, Field
 
 from bookfinder.catalog import genre_counts, load_works, reload_works, search_works, similar_works
 from bookfinder.parsers import fantasy_worlds as fw
+from bookfinder.user_ratings import delete_user_rating, get_user_rating, set_user_rating, work_user_stats
 
 app = FastAPI(title="Bookfinder", version="0.1.0")
 
@@ -81,6 +83,34 @@ def work_detail(work_id: str) -> dict:
 @app.get("/api/works/{work_id}/similar")
 def work_similar(work_id: str, limit: int = Query(12, ge=1, le=50)) -> list[dict]:
     return similar_works(work_id, limit)
+
+
+class UserRatingBody(BaseModel):
+    user_id: str = Field(min_length=8, max_length=64)
+    rating: int = Field(ge=1, le=10)
+
+
+@app.get("/api/works/{work_id}/user-rating")
+def read_user_rating(work_id: str, user_id: str = Query(..., min_length=8, max_length=64)) -> dict:
+    rating = get_user_rating(user_id, work_id)
+    return {
+        "work_id": work_id,
+        "user_id": user_id,
+        "rating": rating,
+        "community": work_user_stats(work_id),
+    }
+
+
+@app.put("/api/works/{work_id}/user-rating")
+def write_user_rating(work_id: str, body: UserRatingBody) -> dict:
+    saved = set_user_rating(body.user_id, work_id, body.rating)
+    return {**saved, "community": work_user_stats(work_id)}
+
+
+@app.delete("/api/works/{work_id}/user-rating")
+def remove_user_rating(work_id: str, user_id: str = Query(..., min_length=8, max_length=64)) -> dict:
+    deleted = delete_user_rating(user_id, work_id)
+    return {"deleted": deleted, "community": work_user_stats(work_id)}
 
 
 @app.get("/api/download/fw/{book_id}", response_model=None)
