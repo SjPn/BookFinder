@@ -23,6 +23,9 @@ data/processed/fetch_circuit.json
 *.log
 data/processed/*.log
 
+# Deploy configs (local only)
+deploy/
+
 # OS
 Thumbs.db
 .DS_Store
