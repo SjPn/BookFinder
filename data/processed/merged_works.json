@@ -345,7 +345,11 @@
       "votes": 5399,
       "url": "https://fantlab.ru/work15230"
     },
-    "match_score": null,
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1013554153-sobache-serdtse-mihail-bulgakov",
+      "url": "https://www.livelib.ru/book/1013554153-sobache-serdtse-mihail-bulgakov"
+    },
     "fantasy_worlds": {
       "id": "20472",
       "url": "https://fantasy-worlds.net/lib/id20472/",
@@ -1092,11 +1096,7 @@
       "votes": 351,
       "url": "https://fantlab.ru/work4128"
     },
-    "match_score": 0.835,
-    "livelib": {
-      "id": "1003407420-green-arrow-blood-of-the-dragon-dik-dzhordano",
-      "url": "https://www.livelib.ru/book/1003407420-green-arrow-blood-of-the-dragon-dik-dzhordano"
-    }
+    "match_score": null
   },
   {
     "id": "9cc35c78-3b40-5e14-a952-a4ae9ec96a97",
@@ -1140,7 +1140,11 @@
       "votes": 2305,
       "url": "https://fantlab.ru/work12285"
     },
-    "match_score": null,
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1008741790-puteshestvie-alisy-kir-bulychjov",
+      "url": "https://www.livelib.ru/book/1008741790-puteshestvie-alisy-kir-bulychjov"
+    },
     "fantasy_worlds": {
       "id": "4890",
       "rating": 9.2,
@@ -1640,6 +1644,45 @@
     "download_url": "https://fantasy-worlds.net/lib/id13529/download/"
   },
   {
+    "id": "bc93a953-966d-545a-ae09-a1f96e3415dc",
+    "title": "День триффидов",
+    "authors": [
+      "Джон Уиндем"
+    ],
+    "genres": [
+      "роман",
+      "постапокалиптика",
+      "спасение мира",
+      "генетические эксперименты",
+      "вторжение «чужих»",
+      "роман-катастрофа",
+      "стихийные бедствия",
+      "мировая катастрофа",
+      "Психологическое",
+      "Приключенческое",
+      "социальная фантастика",
+      "Последний человек/люди на Земле",
+      "классика фантастики"
+    ],
+    "year": 1951,
+    "aggregate_rating": 88.56,
+    "fantlab": {
+      "id": "15067",
+      "rating": 8.5,
+      "votes": 5906,
+      "url": "https://fantlab.ru/work15067"
+    },
+    "match_score": null,
+    "fantasy_worlds": {
+      "id": "13821",
+      "rating": 9.7,
+      "votes": 38,
+      "url": "https://fantasy-worlds.net/lib/id13821/",
+      "download_url": "https://fantasy-worlds.net/lib/id13821/download/"
+    },
+    "download_url": "https://fantasy-worlds.net/lib/id13821/download/"
+  },
+  {
     "id": "5625da50-4ea8-5452-b492-c9da7f64ed23",
     "title": "Буря мечей",
     "authors": [
@@ -1753,7 +1796,11 @@
       "votes": 2399,
       "url": "https://fantlab.ru/work6072"
     },
-    "match_score": null,
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1000690714-led-i-plamya-rej-bredberi",
+      "url": "https://www.livelib.ru/book/1000690714-led-i-plamya-rej-bredberi"
+    },
     "fantasy_worlds": {
       "id": "13764",
       "rating": 8.9,
@@ -1794,6 +1841,37 @@
       "download_url": "https://fantasy-worlds.net/lib/id15493/download/"
     },
     "download_url": "https://fantasy-worlds.net/lib/id15493/download/"
+  },
+  {
+    "id": "ed4deb78-565b-5b05-9120-f041a2561440",
+    "title": "Робот-Зазнайка",
+    "authors": [
+      "Генри Каттнер",
+      "Кэтрин Мур"
+    ],
+    "genres": [
+      "рассказ",
+      "роботы",
+      "Юмористическое",
+      "Изобретения и научные исследования"
+    ],
+    "year": 1943,
+    "aggregate_rating": 88.49,
+    "fantlab": {
+      "id": "10772",
+      "rating": 8.39,
+      "votes": 1241,
+      "url": "https://fantlab.ru/work10772"
+    },
+    "match_score": null,
+    "fantasy_worlds": {
+      "id": "7249",
+      "rating": 9.8,
+      "votes": 30,
+      "url": "https://fantasy-worlds.net/lib/id7249/",
+      "download_url": "https://fantasy-worlds.net/lib/id7249/download/"
+    },
+    "download_url": "https://fantasy-worlds.net/lib/id7249/download/"
   },
   {
     "id": "b6bd420b-7f6d-5928-af81-b1f4379fb60c",
@@ -2969,7 +3047,11 @@
       "votes": 5639,
       "url": "https://fantlab.ru/work7"
     },
-    "match_score": null,
+    "match_score": 1.0,
+    "livelib": {
+      "id": "1005499291-vtoraya-akademiya-ajzek-azimov",
+      "url": "https://www.livelib.ru/book/1005499291-vtoraya-akademiya-ajzek-azimov"
+    },
     "fantasy_worlds": {
       "id": "2306",
       "rating": 9.4,
@@ -8721,31 +8803,6 @@
     "download_url": "https://fantasy-worlds.net/lib/id1553/download/"
   },
   {
-    "id": "bc93a953-966d-545a-ae09-a1f96e3415dc",
-    "title": "День триффидов",
-    "authors": [
-      "Джон Уиндем"
-    ],
-    "genres": [
-      "роман"
-    ],
-    "year": 1951,
-    "aggregate_rating": 85.0,
-    "fantlab": {
-      "id": "15067",
-      "rating": 8.5,
-      "votes": 5906,
-      "url": "https://fantlab.ru/work15067"
-    },
-    "match_score": null,
-    "fantasy_worlds": {
-      "id": "13821",
-      "url": "https://fantasy-worlds.net/lib/id13821/",
-      "download_url": "https://fantasy-worlds.net/lib/id13821/download/"
-    },
-    "download_url": "https://fantasy-worlds.net/lib/id13821/download/"
-  },
-  {
     "id": "dcf7aa94-d56b-545e-b318-503d6c5c7957",
     "title": "Лабиринт отражений",
     "authors": [
@@ -11363,32 +11420,6 @@
     "download_url": "https://fantasy-worlds.net/lib/id3758/download/"
   },
   {
-    "id": "ed4deb78-565b-5b05-9120-f041a2561440",
-    "title": "Робот-Зазнайка",
-    "authors": [
-      "Генри Каттнер",
-      "Кэтрин Мур"
-    ],
-    "genres": [
-      "рассказ"
-    ],
-    "year": 1943,
-    "aggregate_rating": 83.9,
-    "fantlab": {
-      "id": "10772",
-      "rating": 8.39,
-      "votes": 1241,
-      "url": "https://fantlab.ru/work10772"
-    },
-    "match_score": null,
-    "fantasy_worlds": {
-      "id": "33938",
-      "url": "https://fantasy-worlds.net/lib/id33938/",
-      "download_url": "https://fantasy-worlds.net/lib/id33938/download/"
-    },
-    "download_url": "https://fantasy-worlds.net/lib/id33938/download/"
-  },
-  {
     "id": "2c657774-08e3-5f17-9565-b7eaccd39fd2",
     "title": "Предисловие",
     "authors": [
@@ -12470,7 +12501,11 @@
       "votes": 676,
       "url": "https://fantlab.ru/work31581"
     },
-    "match_score": null,
+    "match_score": 0.982,
+    "livelib": {
+      "id": "1009064176-polunochnyj-priliv-stiven-erikson",
+      "url": "https://www.livelib.ru/book/1009064176-polunochnyj-priliv-stiven-erikson"
+    },
     "fantasy_worlds": {
       "id": "15655",
       "rating": 7.9,

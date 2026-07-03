@@ -1,11 +1,11 @@
 {
   "fantlab_merged": 459,
-  "fw_only_added": 7603,
-  "fw_only_rated": 3070,
-  "total": 8062,
-  "total_rated": 3529,
-  "with_download": 8030,
-  "with_fb2_local": 1735,
+  "fw_only_added": 7663,
+  "fw_only_rated": 3221,
+  "total": 8122,
+  "total_rated": 3680,
+  "with_download": 8090,
+  "with_fb2_local": 2528,
   "readrate_indexed": 67,
   "rating_policy": "parsed sources only, min votes: fantlab=10, livelib=5, fw=10"
 }
