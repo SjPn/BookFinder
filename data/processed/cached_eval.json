@@ -1,0 +1,249 @@
+{
+  "fantlab_count": 459,
+  "search_files_used": 69,
+  "search_coverage_percent": 15.03,
+  "match_rate_on_covered_percent": 66.67,
+  "matched_on_covered": 46,
+  "projected_match_rate_if_full_coverage": 66.67,
+  "mvp_ready_on_sample": false,
+  "sample_matches": [
+    {
+      "score": 1.0,
+      "fantlab": "Буря мечей",
+      "fantlab_authors": [
+        "Джордж Р. Р. Мартин"
+      ],
+      "livelib": "Буря мечей",
+      "livelib_authors": [
+        "Джордж Мартин"
+      ]
+    },
+    {
+      "score": 0.98,
+      "fantlab": "Возвращение Короля",
+      "fantlab_authors": [
+        "Дж. Р. Р. Толкин"
+      ],
+      "livelib": "Властелин Колец: Возвращение короля",
+      "livelib_authors": [
+        "Джон Р. Р. Толкин"
+      ]
+    },
+    {
+      "score": 1.0,
+      "fantlab": "Битва королей",
+      "fantlab_authors": [
+        "Джордж Р. Р. Мартин"
+      ],
+      "livelib": "Битва королей",
+      "livelib_authors": [
+        "Джордж Мартин"
+      ]
+    },
+    {
+      "score": 1.0,
+      "fantlab": "Две твердыни",
+      "fantlab_authors": [
+        "Дж. Р. Р. Толкин"
+      ],
+      "livelib": "\"Властелин колец\". Книга 2 \"Две твердыни\"",
+      "livelib_authors": []
+    },
+    {
+      "score": 1.0,
+      "fantlab": "Мастер и Маргарита",
+      "fantlab_authors": [
+        "Михаил Булгаков"
+      ],
+      "livelib": "Мастер и Маргарита",
+      "livelib_authors": [
+        "Михаил Булгаков"
+      ]
+    },
+    {
+      "score": 1.0,
+      "fantlab": "Память Света",
+      "fantlab_authors": [
+        "Роберт Джордан",
+        "Брендон Сандерсон"
+      ],
+      "livelib": "Память Света",
+      "livelib_authors": [
+        "Роберт Джордан"
+      ]
+    },
+    {
+      "score": 1.0,
+      "fantlab": "Янмэйская охота",
+      "fantlab_authors": [
+        "Роман Суржиков"
+      ],
+      "livelib": "Янмэйская охота. Том II",
+      "livelib_authors": [
+        "Роман Суржиков"
+      ]
+    },
+    {
+      "score": 1.0,
+      "fantlab": "Грядущая буря",
+      "fantlab_authors": [
+        "Роберт Джордан",
+        "Брендон Сандерсон"
+      ],
+      "livelib": "Колесо Времени. Книга 12. Грядущая буря",
+      "livelib_authors": [
+        "Роберт Джордан"
+      ]
+    },
+    {
+      "score": 1.0,
+      "fantlab": "К оружию! К оружию!",
+      "fantlab_authors": [
+        "Терри Пратчетт"
+      ],
+      "livelib": "К оружию! К оружию!",
+      "livelib_authors": [
+        "Терри Пратчетт"
+      ]
+    },
+    {
+      "score": 1.0,
+      "fantlab": "Держи марку!",
+      "fantlab_authors": [
+        "Терри Пратчетт"
+      ],
+      "livelib": "Держи марку!",
+      "livelib_authors": [
+        "Терри Пратчетт"
+      ]
+    },
+    {
+      "score": 1.0,
+      "fantlab": "Путь королей",
+      "fantlab_authors": [
+        "Брендон Сандерсон"
+      ],
+      "livelib": "Архив Буресвета. Книга 1. Путь королей",
+      "livelib_authors": [
+        "Брендон Сандерсон"
+      ]
+    },
+    {
+      "score": 1.0,
+      "fantlab": "Танец с драконами",
+      "fantlab_authors": [
+        "Джордж Р. Р. Мартин"
+      ],
+      "livelib": "Танец с драконами. Искры над пеплом",
+      "livelib_authors": [
+        "Джордж Мартин"
+      ]
+    },
+    {
+      "score": 1.0,
+      "fantlab": "Ноги из глины",
+      "fantlab_authors": [
+        "Терри Пратчетт"
+      ],
+      "livelib": "Ноги из глины",
+      "livelib_authors": [
+        "Терри Пратчетт"
+      ]
+    },
+    {
+      "score": 1.0,
+      "fantlab": "Конец Вечности",
+      "fantlab_authors": [
+        "Айзек Азимов"
+      ],
+      "livelib": "Конец вечности",
+      "livelib_authors": [
+        "Айзек Азимов"
+      ]
+    },
+    {
+      "score": 0.815,
+      "fantlab": "Память",
+      "fantlab_authors": [
+        "Лоис Макмастер Буджолд"
+      ],
+      "livelib": "Сквозь зеркала. Память Вавилона",
+      "livelib_authors": [
+        "Кристель Дабо"
+      ]
+    },
+    {
+      "score": 1.0,
+      "fantlab": "Гиперион",
+      "fantlab_authors": [
+        "Дэн Симмонс"
+      ],
+      "livelib": "Гиперион",
+      "livelib_authors": [
+        "Дэн Симмонс"
+      ]
+    },
+    {
+      "score": 1.0,
+      "fantlab": "Рука Оберона",
+      "fantlab_authors": [
+        "Роджер Желязны"
+      ],
+      "livelib": "Рука Оберона",
+      "livelib_authors": [
+        "Роджер Желязны"
+      ]
+    },
+    {
+      "score": 1.0,
+      "fantlab": "Санта-Хрякус",
+      "fantlab_authors": [
+        "Терри Пратчетт"
+      ],
+      "livelib": "Санта-Хрякус",
+      "livelib_authors": [
+        "Терри Пратчетт"
+      ]
+    },
+    {
+      "score": 1.0,
+      "fantlab": "Непобедимый",
+      "fantlab_authors": [
+        "Станислав Лем"
+      ],
+      "livelib": "Непобедимый",
+      "livelib_authors": [
+        "Станислав Лем"
+      ]
+    },
+    {
+      "score": 1.0,
+      "fantlab": "Аутодафе",
+      "fantlab_authors": [
+        "Алексей Пехов",
+        "Елена Бычкова"
+      ],
+      "livelib": "Аутодафе (сборник)",
+      "livelib_authors": [
+        "Алексей Пехов"
+      ]
+    }
+  ],
+  "sample_failures": [
+    {
+      "fantlab": "До рассвета",
+      "livelib": "Дожить до рассвета. Обелиск (сборник)",
+      "score": 0.809
+    },
+    {
+      "fantlab": "Память",
+      "livelib": "Сквозь зеркала. Память Вавилона",
+      "score": 0.815
+    }
+  ],
+  "fantasy_worlds": {
+    "search_cached": 459,
+    "matched": 215,
+    "match_rate_percent": 46.84
+  }
+}

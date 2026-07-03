@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bookfinder</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h1>Bookfinder</h1>
+    <p id="stats"></p>
+  </header>
+  <main>
+    <aside>
+      <div class="panel">
+        <label class="field-label" for="genre-filter">Фильтр жанров</label>
+        <input id="genre-filter" type="search" placeholder="Найти жанр…" autocomplete="off">
+        <div class="match-mode">
+          <label><input type="radio" name="match" value="any" checked> любой</label>
+          <label><input type="radio" name="match" value="all"> все</label>
+        </div>
+        <div id="genre-list" class="genre-list"></div>
+      </div>
+      <div id="filter-weights" class="filter-weights hidden"></div>
+    </aside>
+    <section class="results">
+      <div class="toolbar">
+        <label class="search-field">
+          <span>Поиск книг</span>
+          <input id="query" type="search" placeholder="Название, автор, жанр…" autocomplete="off">
+        </label>
+        <p id="result-meta" class="result-meta"></p>
+      </div>
+      <table id="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Название</th>
+            <th>Автор</th>
+            <th>Рейтинг</th>
+            <th>Релев.</th>
+            <th>Источники</th>
+            <th>Жанры</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+    <section id="detail" class="hidden">
+      <h2 id="d-title"></h2>
+      <p id="d-authors"></p>
+      <p id="d-rating"></p>
+      <p id="d-downloads"></p>
+      <p id="d-relevance"></p>
+      <p id="d-genres"></p>
+      <h3>Похожие</h3>
+      <ul id="similar"></ul>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>

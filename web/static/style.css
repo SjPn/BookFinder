@@ -1,0 +1,84 @@
+* { box-sizing: border-box; }
+body { font-family: system-ui, sans-serif; margin: 0; background: #0f1115; color: #e8eaed; }
+header { padding: 1rem 1.5rem; border-bottom: 1px solid #2a2f3a; }
+main {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  align-items: start;
+}
+aside { display: flex; flex-direction: column; gap: 0.75rem; }
+.panel, .filter-weights, #detail {
+  background: #1a1f2a;
+  border: 1px solid #2a2f3a;
+  border-radius: 8px;
+  padding: 0.75rem;
+}
+.field-label, .search-field span {
+  display: block;
+  font-size: 0.85rem;
+  color: #aeb6c2;
+  margin-bottom: 0.35rem;
+}
+input[type=search], input[type=text] {
+  width: 100%;
+  padding: 0.45rem 0.55rem;
+  background: #0f1115;
+  color: inherit;
+  border: 1px solid #3a4254;
+  border-radius: 4px;
+}
+.match-mode {
+  display: flex;
+  gap: 0.75rem;
+  margin: 0.6rem 0;
+  font-size: 0.85rem;
+}
+.genre-list {
+  max-height: 55vh;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.genre-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.35rem 0.5rem;
+  align-items: start;
+  font-size: 0.82rem;
+  padding: 0.2rem 0;
+  cursor: pointer;
+}
+.genre-name { line-height: 1.25; }
+.genre-meta { color: #8b95a8; white-space: nowrap; font-size: 0.75rem; }
+.filter-weights h3 { margin: 0 0 0.5rem; font-size: 0.95rem; }
+.filter-weights ul { margin: 0; padding-left: 1rem; }
+.filter-weights li { margin-bottom: 0.45rem; font-size: 0.82rem; }
+.filter-weights li span { display: block; color: #9aa3b2; }
+.results { min-width: 0; }
+.toolbar { margin-bottom: 0.75rem; }
+.result-meta { margin: 0.35rem 0 0; color: #9aa3b2; font-size: 0.85rem; }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+th, td { text-align: left; padding: 0.45rem; border-bottom: 1px solid #2a2f3a; vertical-align: top; }
+tr:hover { background: #1a1f2a; cursor: pointer; }
+.genre-cell { max-width: 220px; color: #aeb6c2; font-size: 0.78rem; }
+.hidden { display: none; }
+#detail { grid-column: 1 / -1; }
+.badge {
+  display: inline-block;
+  background: #2d3a52;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  margin: 0 0.25rem 0.25rem 0;
+}
+button.link { background: none; border: none; color: #7eb6ff; cursor: pointer; }
+#d-downloads a { color: #7eb6ff; margin-right: 0.75rem; }
+.muted { color: #8b95a8; font-size: 0.85rem; }
+
+@media (max-width: 900px) {
+  main { grid-template-columns: 1fr; }
+  .genre-list { max-height: 240px; }
+}

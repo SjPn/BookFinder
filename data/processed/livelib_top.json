@@ -1,0 +1,1829 @@
+[
+  {
+    "source": "livelib",
+    "external_id": "1018107352-garri-potter-i-uznik-azkabana-dzhoan-rouling",
+    "title": "Гарри Поттер и Узник Азкабана",
+    "authors": [
+      "Джоан Роулинг"
+    ],
+    "rating": 4.8,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 1,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1018107352-garri-potter-i-uznik-azkabana-dzhoan-rouling",
+    "genres": [],
+    "normalized_title": "гарри поттер и узник азкабана",
+    "normalized_authors": [
+      "джоан роулинг"
+    ],
+    "normalized_score": 96.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1000186331-garri-potter-i-printspolukrovka-brat-volk-komplekt-iz-2-knig-mishel-pejver",
+    "title": "Гарри Поттер и Принц-полукровка. Брат Волк (комплект из 2 книг) (сборник)",
+    "authors": [
+      "Мишель Пейвер"
+    ],
+    "rating": 4.8,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 2,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1000186331-garri-potter-i-printspolukrovka-brat-volk-komplekt-iz-2-knig-mishel-pejver",
+    "genres": [],
+    "normalized_title": "гарри поттер и принц полукровка брат волк из книг",
+    "normalized_authors": [
+      "мишель пейвер"
+    ],
+    "normalized_score": 96.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1015851475-unesennye-vetrom-tom-2-margaret-mitchell",
+    "title": "Унесенные ветром. Том 2",
+    "authors": [
+      "Маргарет Митчелл"
+    ],
+    "rating": 4.8,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 3,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1015851475-unesennye-vetrom-tom-2-margaret-mitchell",
+    "genres": [],
+    "normalized_title": "унесенные ветром",
+    "normalized_authors": [
+      "маргарет митчелл"
+    ],
+    "normalized_score": 96.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1010756453-unesennye-vetrom-margaret-mitchell",
+    "title": "Унесенные ветром",
+    "authors": [
+      "Маргарет Митчелл"
+    ],
+    "rating": 4.7,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 4,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1010756453-unesennye-vetrom-margaret-mitchell",
+    "genres": [],
+    "normalized_title": "унесенные ветром",
+    "normalized_authors": [
+      "маргарет митчелл"
+    ],
+    "normalized_score": 94.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1002724724-zelenaya-milya-stiven-king",
+    "title": "Зеленая миля",
+    "authors": [
+      "Стивен Кинг"
+    ],
+    "rating": 4.7,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 5,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1002724724-zelenaya-milya-stiven-king",
+    "genres": [],
+    "normalized_title": "зеленая миля",
+    "normalized_authors": [
+      "стивен кинг"
+    ],
+    "normalized_score": 94.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1012375946-vse-priklyucheniya-sherloka-holmsa-artur-konan-dojl",
+    "title": "Все приключения Шерлока Холмса (сборник)",
+    "authors": [
+      "Артур Конан Дойл"
+    ],
+    "rating": 4.8,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 6,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1012375946-vse-priklyucheniya-sherloka-holmsa-artur-konan-dojl",
+    "genres": [],
+    "normalized_title": "все приключения шерлока холмса",
+    "normalized_authors": [
+      "артур конан дойл"
+    ],
+    "normalized_score": 96.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1012822978-graf-montekristo-tom-ii-aleksandr-dyuma",
+    "title": "Граф Монте-Кристо. Том II",
+    "authors": [
+      "Александр Дюма"
+    ],
+    "rating": 4.7,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 7,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1012822978-graf-montekristo-tom-ii-aleksandr-dyuma",
+    "genres": [],
+    "normalized_title": "граф монте кристо ii",
+    "normalized_authors": [
+      "александр дюма"
+    ],
+    "normalized_score": 94.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1001569364-prisluga-ketrin-stokett",
+    "title": "Прислуга",
+    "authors": [
+      "Кэтрин Стокетт"
+    ],
+    "rating": 4.7,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 8,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1001569364-prisluga-ketrin-stokett",
+    "genres": [],
+    "normalized_title": "прислуга",
+    "normalized_authors": [
+      "кэтрин стокетт"
+    ],
+    "normalized_score": 94.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1010081047-v-spiskah-ne-znachilsya-boris-vasilev",
+    "title": "В списках не значился",
+    "authors": [
+      "Борис Васильев"
+    ],
+    "rating": 4.7,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 9,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1010081047-v-spiskah-ne-znachilsya-boris-vasilev",
+    "genres": [],
+    "normalized_title": "в списках не значился",
+    "normalized_authors": [
+      "борис васильев"
+    ],
+    "normalized_score": 94.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1008547489-krutoj-marshrut-evgeniya-ginzburg",
+    "title": "Крутой маршрут",
+    "authors": [
+      "Евгения Гинзбург"
+    ],
+    "rating": 4.8,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 10,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1008547489-krutoj-marshrut-evgeniya-ginzburg",
+    "genres": [],
+    "normalized_title": "крутой маршрут",
+    "normalized_authors": [
+      "евгения гинзбург"
+    ],
+    "normalized_score": 96.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1005584599-vlastelin-kolets-vozvraschenie-korolya-dzhon-r-r-tolkin",
+    "title": "Властелин Колец: Возвращение короля",
+    "authors": [
+      "Джон Р. Р. Толкин"
+    ],
+    "rating": 4.7,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 11,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1005584599-vlastelin-kolets-vozvraschenie-korolya-dzhon-r-r-tolkin",
+    "genres": [],
+    "normalized_title": "властелин колец возвращение короля",
+    "normalized_authors": [
+      "джон толкин"
+    ],
+    "normalized_score": 94.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1013202307-graf-montekristo-aleksandr-dyuma",
+    "title": "Граф Монте-Кристо",
+    "authors": [
+      "Александр Дюма"
+    ],
+    "rating": 4.7,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 12,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1013202307-graf-montekristo-aleksandr-dyuma",
+    "genres": [],
+    "normalized_title": "граф монте кристо",
+    "normalized_authors": [
+      "александр дюма"
+    ],
+    "normalized_score": 94.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1012822975-graf-montekristo-tom-i-aleksandr-dyuma",
+    "title": "Граф Монте-Кристо. Том I",
+    "authors": [
+      "Александр Дюма"
+    ],
+    "rating": 4.7,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 13,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1012822975-graf-montekristo-tom-i-aleksandr-dyuma",
+    "genres": [],
+    "normalized_title": "граф монте кристо i",
+    "normalized_authors": [
+      "александр дюма"
+    ],
+    "normalized_score": 94.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1005628018-burya-mechej-dzhordzh-martin",
+    "title": "Буря мечей",
+    "authors": [
+      "Джордж Мартин"
+    ],
+    "rating": 4.7,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 14,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1005628018-burya-mechej-dzhordzh-martin",
+    "genres": [],
+    "normalized_title": "буря мечей",
+    "normalized_authors": [
+      "джордж мартин"
+    ],
+    "normalized_score": 94.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1016983744-a-zori-zdes-tihie-boris-vasilev",
+    "title": "А зори здесь тихие. ..",
+    "authors": [
+      "Борис Васильев"
+    ],
+    "rating": 4.7,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 15,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1016983744-a-zori-zdes-tihie-boris-vasilev",
+    "genres": [],
+    "normalized_title": "а зори здесь тихие",
+    "normalized_authors": [
+      "борис васильев"
+    ],
+    "normalized_score": 94.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1010925299-zavtra-byla-vojna-boris-vasilev",
+    "title": "Завтра была война",
+    "authors": [
+      "Борис Васильев"
+    ],
+    "rating": 4.7,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 16,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1010925299-zavtra-byla-vojna-boris-vasilev",
+    "genres": [],
+    "normalized_title": "завтра была война",
+    "normalized_authors": [
+      "борис васильев"
+    ],
+    "normalized_score": 94.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1002756364-pustaya-mogila-dzhonatan-straud",
+    "title": "Пустая могила",
+    "authors": [
+      "Джонатан Страуд"
+    ],
+    "rating": 4.7,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 17,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1002756364-pustaya-mogila-dzhonatan-straud",
+    "genres": [],
+    "normalized_title": "пустая могила",
+    "normalized_authors": [
+      "джонатан страуд"
+    ],
+    "normalized_score": 94.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1002773007-prodazhnoe-korolevstvo-li-bardugo",
+    "title": "Продажное королевство",
+    "authors": [
+      "Ли Бардуго"
+    ],
+    "rating": 4.7,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 18,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1002773007-prodazhnoe-korolevstvo-li-bardugo",
+    "genres": [],
+    "normalized_title": "продажное королевство",
+    "normalized_authors": [
+      "ли бардуго"
+    ],
+    "normalized_score": 94.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1006852459-korolevstvo-pepla-sara-dzh-maas",
+    "title": "Королевство пепла",
+    "authors": [
+      "Сара Дж. Маас"
+    ],
+    "rating": 4.8,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 19,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1006852459-korolevstvo-pepla-sara-dzh-maas",
+    "genres": [],
+    "normalized_title": "королевство пепла",
+    "normalized_authors": [
+      "сара дж маас"
+    ],
+    "normalized_score": 96.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1006976599-o-vseh-sozdaniyah-bolshih-i-malyh-dzhejms-herriot",
+    "title": "О всех созданиях – больших и малых",
+    "authors": [
+      "Джеймс Хэрриот"
+    ],
+    "rating": 4.7,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 20,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1006976599-o-vseh-sozdaniyah-bolshih-i-malyh-dzhejms-herriot",
+    "genres": [],
+    "normalized_title": "о всех созданиях больших и малых",
+    "normalized_authors": [
+      "джеймс хэрриот"
+    ],
+    "normalized_score": 94.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1002225089-bezumnyj-korabl-robin-hobb",
+    "title": "Безумный корабль",
+    "authors": [
+      "Робин Хобб"
+    ],
+    "rating": 4.7,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 21,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1002225089-bezumnyj-korabl-robin-hobb",
+    "genres": [],
+    "normalized_title": "безумный корабль",
+    "normalized_authors": [
+      "робин хобб"
+    ],
+    "normalized_score": 94.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1001496707-tajnaya-opora-privyazannost-v-zhizni-rebenka-lyudmila-petranovskaya",
+    "title": "Тайная опора. Привязанность в жизни ребенка",
+    "authors": [
+      "Людмила Петрановская"
+    ],
+    "rating": 4.7,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 22,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1001496707-tajnaya-opora-privyazannost-v-zhizni-rebenka-lyudmila-petranovskaya",
+    "genres": [],
+    "normalized_title": "тайная опора привязанность в жизни ребенка",
+    "normalized_authors": [
+      "людмила петрановская"
+    ],
+    "normalized_score": 94.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1005586864-vtoraya-zhizn-uve-fredrik-bakman",
+    "title": "Вторая жизнь Уве",
+    "authors": [
+      "Фредрик Бакман"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 23,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1005586864-vtoraya-zhizn-uve-fredrik-bakman",
+    "genres": [],
+    "normalized_title": "вторая жизнь уве",
+    "normalized_authors": [
+      "фредрик бакман"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1008338995-vlastelin-kolets-dzhon-r-r-tolkin",
+    "title": "Властелин колец",
+    "authors": [
+      "Джон Р. Р. Толкин"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 24,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1008338995-vlastelin-kolets-dzhon-r-r-tolkin",
+    "genres": [],
+    "normalized_title": "властелин колец",
+    "normalized_authors": [
+      "джон толкин"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1007051965-priklyucheniya-sherloka-holmsa-artur-konan-dojl",
+    "title": "Приключения Шерлока Холмса (сборник)",
+    "authors": [
+      "Артур Конан Дойл"
+    ],
+    "rating": 4.7,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 25,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1007051965-priklyucheniya-sherloka-holmsa-artur-konan-dojl",
+    "genres": [],
+    "normalized_title": "приключения шерлока холмса",
+    "normalized_authors": [
+      "артур конан дойл"
+    ],
+    "normalized_score": 94.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1002225088-arhiv-buresveta-kniga-2-slova-siyaniya-brendon-sanderson",
+    "title": "Архив Буресвета. Книга 2. Слова сияния",
+    "authors": [
+      "Брендон Сандерсон"
+    ],
+    "rating": 4.8,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 26,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1002225088-arhiv-buresveta-kniga-2-slova-siyaniya-brendon-sanderson",
+    "genres": [],
+    "normalized_title": "архив буресвета слова сияния",
+    "normalized_authors": [
+      "брендон сандерсон"
+    ],
+    "normalized_score": 96.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1013202667-krestnyj-otets-mario-pyuzo",
+    "title": "Крестный отец",
+    "authors": [
+      "Марио Пьюзо"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 27,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1013202667-krestnyj-otets-mario-pyuzo",
+    "genres": [],
+    "normalized_title": "крестный отец",
+    "normalized_authors": [
+      "марио пьюзо"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1002050577-uchenik-ubijtsy-korolevskij-ubijtsa-robin-hobb",
+    "title": "Ученик убийцы. Королевский убийца (сборник)",
+    "authors": [
+      "Робин Хобб"
+    ],
+    "rating": 4.7,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 28,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1002050577-uchenik-ubijtsy-korolevskij-ubijtsa-robin-hobb",
+    "genres": [],
+    "normalized_title": "ученик убийцы королевский убийца",
+    "normalized_authors": [
+      "робин хобб"
+    ],
+    "normalized_score": 94.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1017709096-imperatorskij-div-koldun-rossijskoj-imperii-viktor-dashkevich",
+    "title": "Императорский Див. Колдун Российской империи",
+    "authors": [
+      "Виктор Дашкевич"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 29,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1017709096-imperatorskij-div-koldun-rossijskoj-imperii-viktor-dashkevich",
+    "genres": [],
+    "normalized_title": "императорский див колдун российской империи",
+    "normalized_authors": [
+      "виктор дашкевич"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1005556180-desyat-negrityat-agata-kristi",
+    "title": "Десять негритят",
+    "authors": [
+      "Агата Кристи"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 30,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1005556180-desyat-negrityat-agata-kristi",
+    "genres": [],
+    "normalized_title": "десять негритят",
+    "normalized_authors": [
+      "агата кристи"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1010776136-tsvety-dlya-eldzhernona-deniel-kiz",
+    "title": "Цветы для Элджернона",
+    "authors": [
+      "Дэниел Киз"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 31,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1010776136-tsvety-dlya-eldzhernona-deniel-kiz",
+    "genres": [],
+    "normalized_title": "цветы для элджернона",
+    "normalized_authors": [
+      "дэниел киз"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1005579736-zapiski-yunogo-vracha-mihail-bulgakov",
+    "title": "Записки юного врача (сборник)",
+    "authors": [
+      "Михаил Булгаков"
+    ],
+    "rating": 4.7,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 32,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1005579736-zapiski-yunogo-vracha-mihail-bulgakov",
+    "genres": [],
+    "normalized_title": "записки юного врача",
+    "normalized_authors": [
+      "михаил булгаков"
+    ],
+    "normalized_score": 94.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1000750889-tysyacha-siyayuschih-solnts-haled-hossejni",
+    "title": "Тысяча сияющих солнц",
+    "authors": [
+      "Халед Хоссейни"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 33,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1000750889-tysyacha-siyayuschih-solnts-haled-hossejni",
+    "genres": [],
+    "normalized_title": "тысяча сияющих солнц",
+    "normalized_authors": [
+      "халед хоссейни"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1011217952-mayak-poteryannoj-nadezhdy-ispoved-cheloveka-pobedivshego-panicheskie-ataki-i-depressiyu-zabotina-mariya-dmitrievna",
+    "title": "Маяк потерянной надежды. Исповедь человека, победившего панические атаки и депрессию",
+    "authors": [
+      "Мария Заботина"
+    ],
+    "rating": 4.8,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 34,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1011217952-mayak-poteryannoj-nadezhdy-ispoved-cheloveka-pobedivshego-panicheskie-ataki-i-depressiyu-zabotina-mariya-dmitrievna",
+    "genres": [],
+    "normalized_title": "маяк потерянной надежды исповедь человека победившего панические атаки и депрессию",
+    "normalized_authors": [
+      "мария заботина"
+    ],
+    "normalized_score": 96.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1010742584-beguschaya-mogila-robert-gelbrejt",
+    "title": "Бегущая могила",
+    "authors": [
+      "Роберт Гэлбрейт"
+    ],
+    "rating": 4.8,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 35,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1010742584-beguschaya-mogila-robert-gelbrejt",
+    "genres": [],
+    "normalized_title": "бегущая могила",
+    "normalized_authors": [
+      "роберт гэлбрейт"
+    ],
+    "normalized_score": 96.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1009349701-vybor-o-svobode-i-vnutrennej-sile-cheloveka-edit-eva-eger",
+    "title": "Выбор. О свободе и внутренней силе человека",
+    "authors": [
+      "Эдит Ева Эгер"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 36,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1009349701-vybor-o-svobode-i-vnutrennej-sile-cheloveka-edit-eva-eger",
+    "genres": [],
+    "normalized_title": "выбор о свободе и внутренней силе человека",
+    "normalized_authors": [
+      "эдит ева эгер"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1016947531-iskra-zhizni-erih-mariya-remark",
+    "title": "Искра жизни",
+    "authors": [
+      "Эрих Мария Ремарк"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 37,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1016947531-iskra-zhizni-erih-mariya-remark",
+    "genres": [],
+    "normalized_title": "искра жизни",
+    "normalized_authors": [
+      "эрих мария ремарк"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1001080581-chasodei-chasovaya-bitva-natalya-scherba",
+    "title": "Часодеи. Часовая битва",
+    "authors": [
+      "Наталья Щерба"
+    ],
+    "rating": 4.7,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 38,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1001080581-chasodei-chasovaya-bitva-natalya-scherba",
+    "genres": [],
+    "normalized_title": "часодеи часовая битва",
+    "normalized_authors": [
+      "наталья щерба"
+    ],
+    "normalized_score": 94.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1010774984-knizhnyj-vor-markus-zusak",
+    "title": "Книжный вор",
+    "authors": [
+      "Маркус Зусак"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 39,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1010774984-knizhnyj-vor-markus-zusak",
+    "genres": [],
+    "normalized_title": "книжный вор",
+    "normalized_authors": [
+      "маркус зусак"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1001445982-pobeg-iz-shoushenka-stiven-king",
+    "title": "Побег из Шоушенка",
+    "authors": [
+      "Стивен Кинг"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 40,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1001445982-pobeg-iz-shoushenka-stiven-king",
+    "genres": [],
+    "normalized_title": "побег из шоушенка",
+    "normalized_authors": [
+      "стивен кинг"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1003186837-zhazhda-zhizni-irving-stoun",
+    "title": "Жажда жизни",
+    "authors": [
+      "Ирвинг Стоун"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 41,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1003186837-zhazhda-zhizni-irving-stoun",
+    "genres": [],
+    "normalized_title": "жажда жизни",
+    "normalized_authors": [
+      "ирвинг стоун"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1000921803-proklyatyj-gorn-aleksej-pehov",
+    "title": "Проклятый горн (сборник)",
+    "authors": [
+      "Алексей Пехов"
+    ],
+    "rating": 4.7,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 42,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1000921803-proklyatyj-gorn-aleksej-pehov",
+    "genres": [],
+    "normalized_title": "проклятый горн",
+    "normalized_authors": [
+      "алексей пехов"
+    ],
+    "normalized_score": 94.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1010078512-k-vostoku-ot-edema-dzhon-stejnbek",
+    "title": "К востоку от Эдема",
+    "authors": [
+      "Джон Стейнбек"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 43,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1010078512-k-vostoku-ot-edema-dzhon-stejnbek",
+    "genres": [],
+    "normalized_title": "к востоку от эдема",
+    "normalized_authors": [
+      "джон стейнбек"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1008445836-hodyaschie-v-nochi-kniga-3-plenniki-razdora-ekaterina-kazakova-alena-haritonova",
+    "title": "Ходящие в ночи. Книга 3. Пленники раздора",
+    "authors": [
+      "Екатерина Казакова, Алена Харитонова"
+    ],
+    "rating": 4.7,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 44,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1008445836-hodyaschie-v-nochi-kniga-3-plenniki-razdora-ekaterina-kazakova-alena-haritonova",
+    "genres": [],
+    "normalized_title": "ходящие в ночи пленники раздора",
+    "normalized_authors": [
+      "екатерина казакова алена харитонова"
+    ],
+    "normalized_score": 94.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1004565601-otverzhennye-viktor-gyugo",
+    "title": "Отверженные",
+    "authors": [
+      "Виктор Гюго"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 45,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1004565601-otverzhennye-viktor-gyugo",
+    "genres": [],
+    "normalized_title": "отверженные",
+    "normalized_authors": [
+      "виктор гюго"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1005562174-korolevstvo-gneva-i-tumana-sara-dzh-maas",
+    "title": "Королевство гнева и тумана",
+    "authors": [
+      "Сара Дж. Маас"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 46,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1005562174-korolevstvo-gneva-i-tumana-sara-dzh-maas",
+    "genres": [],
+    "normalized_title": "королевство гнева и тумана",
+    "normalized_authors": [
+      "сара дж маас"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1008956917-na-zapadnom-fronte-bez-peremen-erih-mariya-remark",
+    "title": "На Западном фронте без перемен",
+    "authors": [
+      "Эрих Мария Ремарк"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 47,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1008956917-na-zapadnom-fronte-bez-peremen-erih-mariya-remark",
+    "genres": [],
+    "normalized_title": "на западном фронте без перемен",
+    "normalized_authors": [
+      "эрих мария ремарк"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1012628185-dvenadtsat-stulev-i-zolotoj-telenok-komplekt-iz-2h-knig",
+    "title": "Двенадцать стульев  и  Золотой теленок (комплект из 2-х книг) (сборник)",
+    "authors": [
+      "Илья Ильф, Евгений Петров"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 48,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1012628185-dvenadtsat-stulev-i-zolotoj-telenok-komplekt-iz-2h-knig",
+    "genres": [],
+    "normalized_title": "двенадцать стульев и золотой теленок из х книг",
+    "normalized_authors": [
+      "илья ильф евгений петров"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1010152678-dva-kapitana-veniamin-kaverin",
+    "title": "Два капитана",
+    "authors": [
+      "Вениамин Каверин"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 49,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1010152678-dva-kapitana-veniamin-kaverin",
+    "genres": [],
+    "normalized_title": "два капитана",
+    "normalized_authors": [
+      "вениамин каверин"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1018166602-priklyucheniya-sherloka-holmsa-artur-konan-dojl",
+    "title": "Приключения Шерлока Холмса",
+    "authors": [
+      "Артур Конан Дойл"
+    ],
+    "rating": 4.7,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 50,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1018166602-priklyucheniya-sherloka-holmsa-artur-konan-dojl",
+    "genres": [],
+    "normalized_title": "приключения шерлока холмса",
+    "normalized_authors": [
+      "артур конан дойл"
+    ],
+    "normalized_score": 94.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1008421858-zamok-broudi-archibald-kronin",
+    "title": "Замок Броуди",
+    "authors": [
+      "Арчибальд Кронин"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 51,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1008421858-zamok-broudi-archibald-kronin",
+    "genres": [],
+    "normalized_title": "замок броуди",
+    "normalized_authors": [
+      "арчибальд кронин"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1000432960-pro-fedotastreltsa-udalogo-molodtsa-leonid-filatov",
+    "title": "Про Федота-стрельца, удалого молодца (сборник)",
+    "authors": [
+      "Леонид Филатов"
+    ],
+    "rating": 4.7,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 52,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1000432960-pro-fedotastreltsa-udalogo-molodtsa-leonid-filatov",
+    "genres": [],
+    "normalized_title": "про федота стрельца удалого молодца",
+    "normalized_authors": [
+      "леонид филатов"
+    ],
+    "normalized_score": 94.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1001401495-zapiski-o-sherloke-holmse-artur-konan-dojl",
+    "title": "Записки о Шерлоке Холмсе (сборник)",
+    "authors": [
+      "Артур Конан Дойл"
+    ],
+    "rating": 4.7,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 53,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1001401495-zapiski-o-sherloke-holmse-artur-konan-dojl",
+    "genres": [],
+    "normalized_title": "записки о шерлоке холмсе",
+    "normalized_authors": [
+      "артур конан дойл"
+    ],
+    "normalized_score": 94.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1007101123-priklyucheniya-emilya-iz-ljonnebergi-astrid-lindgren",
+    "title": "Приключения Эмиля из Лённеберги (сборник)",
+    "authors": [
+      "Астрид Линдгрен"
+    ],
+    "rating": 4.7,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 54,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1007101123-priklyucheniya-emilya-iz-ljonnebergi-astrid-lindgren",
+    "genres": [],
+    "normalized_title": "приключения эмиля из леннеберги",
+    "normalized_authors": [
+      "астрид линдгрен"
+    ],
+    "normalized_score": 94.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1005931411-ubit-peresmeshnika-harper-li",
+    "title": "Убить пересмешника",
+    "authors": [
+      "Харпер Ли"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 55,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1005931411-ubit-peresmeshnika-harper-li",
+    "genres": [],
+    "normalized_title": "убить пересмешника",
+    "normalized_authors": [
+      "харпер ли"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1008273178-miss-cheriti-mariod-myuraj",
+    "title": "Мисс Черити",
+    "authors": [
+      "Мари-Од Мюрай"
+    ],
+    "rating": 4.7,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 56,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1008273178-miss-cheriti-mariod-myuraj",
+    "genres": [],
+    "normalized_title": "мисс черити",
+    "normalized_authors": [
+      "мари од мюрай"
+    ],
+    "normalized_score": 94.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1017669421-sobaka-baskervilej-artur-konan-dojl",
+    "title": "Собака Баскервилей",
+    "authors": [
+      "Артур Конан Дойл"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 57,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1017669421-sobaka-baskervilej-artur-konan-dojl",
+    "genres": [],
+    "normalized_title": "собака баскервилей",
+    "normalized_authors": [
+      "артур конан дойл"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1008873001-labirint-menina-maks-fraj",
+    "title": "Лабиринт Менина (сборник)",
+    "authors": [
+      "Макс Фрай"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 58,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1008873001-labirint-menina-maks-fraj",
+    "genres": [],
+    "normalized_title": "лабиринт менина",
+    "normalized_authors": [
+      "макс фрай"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1000730276-zapiski-yunogo-vracha-mihail-bulgakov",
+    "title": "Записки юного врача (сборник)",
+    "authors": [
+      "Михаил Булгаков"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 59,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1000730276-zapiski-yunogo-vracha-mihail-bulgakov",
+    "genres": [],
+    "normalized_title": "записки юного врача",
+    "normalized_authors": [
+      "михаил булгаков"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1002513813-tsitadel-archibald-kronin",
+    "title": "Цитадель",
+    "authors": [
+      "Арчибальд Кронин"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 60,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1002513813-tsitadel-archibald-kronin",
+    "genres": [],
+    "normalized_title": "цитадель",
+    "normalized_authors": [
+      "арчибальд кронин"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1012237580-belyj-bim-chernoe-uho-gavriil-troepolskij",
+    "title": "Белый Бим Чёрное ухо",
+    "authors": [
+      "Гавриил Троепольский"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 61,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1012237580-belyj-bim-chernoe-uho-gavriil-troepolskij",
+    "genres": [],
+    "normalized_title": "белый бим черное ухо",
+    "normalized_authors": [
+      "гавриил троепольский"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1016094979-mech-prednaznacheniya-andzhej-sapkovskij",
+    "title": "Меч предназначения",
+    "authors": [
+      "Анджей Сапковский"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 62,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1016094979-mech-prednaznacheniya-andzhej-sapkovskij",
+    "genres": [],
+    "normalized_title": "меч предназначения",
+    "normalized_authors": [
+      "анджей сапковский"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1008478174-temnaya-storona-vershitel-maks-fraj",
+    "title": "Темная сторона (Вершитель) (сборник)",
+    "authors": [
+      "Макс Фрай"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 63,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1008478174-temnaya-storona-vershitel-maks-fraj",
+    "genres": [],
+    "normalized_title": "темная сторона вершитель",
+    "normalized_authors": [
+      "макс фрай"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1013122594-anya-iz-zelenyh-mezoninov",
+    "title": "Аня из Зеленых Мезонинов",
+    "authors": [
+      "Люси Мод Монтгомери"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 64,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1013122594-anya-iz-zelenyh-mezoninov",
+    "genres": [],
+    "normalized_title": "аня из зеленых мезонинов",
+    "normalized_authors": [
+      "люси мод монтгомери"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1017090091-master-i-margarita-mihail-bulgakov",
+    "title": "Мастер и Маргарита",
+    "authors": [
+      "Михаил Булгаков"
+    ],
+    "rating": 4.5,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 65,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1017090091-master-i-margarita-mihail-bulgakov",
+    "genres": [],
+    "normalized_title": "мастер и маргарита",
+    "normalized_authors": [
+      "михаил булгаков"
+    ],
+    "normalized_score": 90.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1000996148-tanets-s-drakonami-iskry-nad-peplom-dzhordzh-martin",
+    "title": "Танец с драконами. Искры над пеплом",
+    "authors": [
+      "Джордж Мартин"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 66,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1000996148-tanets-s-drakonami-iskry-nad-peplom-dzhordzh-martin",
+    "genres": [],
+    "normalized_title": "танец с драконами искры над пеплом",
+    "normalized_authors": [
+      "джордж мартин"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1003189038-bessmertnyj-ogon-annett-mari",
+    "title": "Бессмертный огонь",
+    "authors": [
+      "Аннетт Мари"
+    ],
+    "rating": 4.7,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 67,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1003189038-bessmertnyj-ogon-annett-mari",
+    "genres": [],
+    "normalized_title": "бессмертный огонь",
+    "normalized_authors": [
+      "аннетт мари"
+    ],
+    "normalized_score": 94.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1008918100-hraniteli-absolyutnoe-izdanie-alan-mur-dejv-gibbons",
+    "title": "Хранители. Абсолютное издание",
+    "authors": [
+      "Алан Мур, Дэйв Гиббонс"
+    ],
+    "rating": 4.7,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 68,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1008918100-hraniteli-absolyutnoe-izdanie-alan-mur-dejv-gibbons",
+    "genres": [],
+    "normalized_title": "хранители абсолютное",
+    "normalized_authors": [
+      "алан мур дэйв гиббонс"
+    ],
+    "normalized_score": 94.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1012391492-poselok-kir-bulychjov",
+    "title": "Поселок",
+    "authors": [
+      "Кир Булычёв"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 69,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1012391492-poselok-kir-bulychjov",
+    "genres": [],
+    "normalized_title": "поселок",
+    "normalized_authors": [
+      "кир булычев"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1010753069-dary-volhvov-o-genri",
+    "title": "Дары волхвов",
+    "authors": [
+      "О. Генри"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 70,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1010753069-dary-volhvov-o-genri",
+    "genres": [],
+    "normalized_title": "дары волхвов",
+    "normalized_authors": [
+      "генри"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1015651183-belyj-klyk-dzhek-london",
+    "title": "Белый клык",
+    "authors": [
+      "Джек Лондон"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 71,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1015651183-belyj-klyk-dzhek-london",
+    "genres": [],
+    "normalized_title": "белый клык",
+    "normalized_authors": [
+      "джек лондон"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1012698871-pletuschaya-liya-arden",
+    "title": "Плетущая",
+    "authors": [
+      "Лия Арден"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 72,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1012698871-pletuschaya-liya-arden",
+    "genres": [],
+    "normalized_title": "плетущая",
+    "normalized_authors": [
+      "лия арден"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1006221715-ubijstvo-v-vostochnom-ekspresse-agata-kristi",
+    "title": "Убийство в \"Восточном экспрессе\"",
+    "authors": [
+      "Агата Кристи"
+    ],
+    "rating": 4.5,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 73,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1006221715-ubijstvo-v-vostochnom-ekspresse-agata-kristi",
+    "genres": [],
+    "normalized_title": "убийство в восточном экспрессе",
+    "normalized_authors": [
+      "агата кристи"
+    ],
+    "normalized_score": 90.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1013811406-volshebnik-izumrudnogo-goroda-aleksandr-volkov",
+    "title": "Волшебник Изумрудного города",
+    "authors": [
+      "Александр Волков"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 74,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1013811406-volshebnik-izumrudnogo-goroda-aleksandr-volkov",
+    "genres": [],
+    "normalized_title": "волшебник изумрудного города",
+    "normalized_authors": [
+      "александр волков"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1001478063-ataka-na-titanov-kniga-1-hadzime-isayama",
+    "title": "Атака на Титанов. Книга 1",
+    "authors": [
+      "Хадзимэ Исаяма"
+    ],
+    "rating": 4.7,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 75,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1001478063-ataka-na-titanov-kniga-1-hadzime-isayama",
+    "genres": [],
+    "normalized_title": "атака на титанов",
+    "normalized_authors": [
+      "хадзимэ исаяма"
+    ],
+    "normalized_score": 94.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1001514718-solovej-kristin-hanna",
+    "title": "Соловей",
+    "authors": [
+      "Кристин Ханна"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 76,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1001514718-solovej-kristin-hanna",
+    "genres": [],
+    "normalized_title": "соловей",
+    "normalized_authors": [
+      "кристин ханна"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1008480872-vlast-nesbyvshegosya-maks-fraj",
+    "title": "Власть несбывшегося (сборник)",
+    "authors": [
+      "Макс Фрай"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 77,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1008480872-vlast-nesbyvshegosya-maks-fraj",
+    "genres": [],
+    "normalized_title": "власть несбывшегося",
+    "normalized_authors": [
+      "макс фрай"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1002950803-godsgrejv-dzhej-kristoff",
+    "title": "Годсгрейв",
+    "authors": [
+      "Джей Кристофф"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 78,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1002950803-godsgrejv-dzhej-kristoff",
+    "genres": [],
+    "normalized_title": "годсгрейв",
+    "normalized_authors": [
+      "джей кристофф"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1007496565-k-oruzhiyu-k-oruzhiyu-terri-pratchett",
+    "title": "К оружию! К оружию!",
+    "authors": [
+      "Терри Пратчетт"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 79,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1007496565-k-oruzhiyu-k-oruzhiyu-terri-pratchett",
+    "genres": [],
+    "normalized_title": "к оружию к оружию",
+    "normalized_authors": [
+      "терри пратчетт"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1009926277-voshititelnaya-vedma-anna-dzhejn",
+    "title": "Восхитительная ведьма",
+    "authors": [
+      "Анна Джейн"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 80,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1009926277-voshititelnaya-vedma-anna-dzhejn",
+    "genres": [],
+    "normalized_title": "восхитительная ведьма",
+    "normalized_authors": [
+      "анна джейн"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1008480870-navazhdeniya-maks-fraj",
+    "title": "Наваждения (сборник)",
+    "authors": [
+      "Макс Фрай"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 81,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1008480870-navazhdeniya-maks-fraj",
+    "genres": [],
+    "normalized_title": "наваждения",
+    "normalized_authors": [
+      "макс фрай"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1016758387-tri-tovarischa-erih-mariya-remark",
+    "title": "Три товарища",
+    "authors": [
+      "Эрих Мария Ремарк"
+    ],
+    "rating": 4.5,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 82,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1016758387-tri-tovarischa-erih-mariya-remark",
+    "genres": [],
+    "normalized_title": "три товарища",
+    "normalized_authors": [
+      "эрих мария ремарк"
+    ],
+    "normalized_score": 90.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1013125234-pollianna-per-batischevoj",
+    "title": "Поллианна",
+    "authors": [
+      "Элинор Портер"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 83,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1013125234-pollianna-per-batischevoj",
+    "genres": [],
+    "normalized_title": "поллианна",
+    "normalized_authors": [
+      "элинор портер"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1015408360-dary-volhvov-o-genri",
+    "title": "Дары волхвов (сборник)",
+    "authors": [
+      "О. Генри"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 84,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1015408360-dary-volhvov-o-genri",
+    "genres": [],
+    "normalized_title": "дары волхвов",
+    "normalized_authors": [
+      "генри"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1002737695-vedmahranitelnitsa-olga-gromyko",
+    "title": "Ведьма-хранительница",
+    "authors": [
+      "Ольга Громыко"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 85,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1002737695-vedmahranitelnitsa-olga-gromyko",
+    "genres": [],
+    "normalized_title": "ведьма хранительница",
+    "normalized_authors": [
+      "ольга громыко"
+    ],
+    "normalized_score": 92.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1006202149-112263-stiven-king",
+    "title": "11/22/63",
+    "authors": [
+      "Стивен Кинг"
+    ],
+    "rating": 4.5,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 86,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1006202149-112263-stiven-king",
+    "genres": [],
+    "normalized_title": "",
+    "normalized_authors": [
+      "стивен кинг"
+    ],
+    "normalized_score": 90.0
+  },
+  {
+    "source": "livelib",
+    "external_id": "1004187547-pervyj-zakon-prezhde-chem-ih-povesyat-dzho-aberkrombi",
+    "title": "Первый Закон. Прежде чем их повесят",
+    "authors": [
+      "Джо Аберкромби"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": 87,
+    "work_type": null,
+    "year": null,
+    "url": "https://www.livelib.ru/book/1004187547-pervyj-zakon-prezhde-chem-ih-povesyat-dzho-aberkrombi",
+    "genres": [],
+    "normalized_title": "первый закон прежде чем их повесят",
+    "normalized_authors": [
+      "джо аберкромби"
+    ],
+    "normalized_score": 92.0
+  }
+]

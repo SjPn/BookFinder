@@ -1,0 +1,3276 @@
+{
+  "4080": {
+    "fw_id": null
+  },
+  "1669": {
+    "fw_id": "25802",
+    "title": "Возвращение короля",
+    "download_url": "https://fantasy-worlds.net/lib/id25802/download/",
+    "url": "https://fantasy-worlds.net/lib/id25802/",
+    "match_score": 1.0
+  },
+  "4079": {
+    "fw_id": null
+  },
+  "1668": {
+    "fw_id": "25801",
+    "title": "Две твердыни",
+    "download_url": "https://fantasy-worlds.net/lib/id25801/download/",
+    "url": "https://fantasy-worlds.net/lib/id25801/",
+    "match_score": 1.0
+  },
+  "9164": {
+    "fw_id": "3543",
+    "title": "Мастер и Маргарита",
+    "download_url": "https://fantasy-worlds.net/lib/id3543/download/",
+    "url": "https://fantasy-worlds.net/lib/id3543/",
+    "match_score": 1.0
+  },
+  "1667": {
+    "fw_id": "25800",
+    "title": "Хранители Кольца",
+    "download_url": "https://fantasy-worlds.net/lib/id25800/download/",
+    "url": "https://fantasy-worlds.net/lib/id25800/",
+    "match_score": 0.8
+  },
+  "395": {
+    "fw_id": "15491",
+    "title": "Зеленая миля",
+    "download_url": "https://fantasy-worlds.net/lib/id15491/download/",
+    "url": "https://fantasy-worlds.net/lib/id15491/",
+    "match_score": 1.0
+  },
+  "4078": {
+    "fw_id": null
+  },
+  "12012": {
+    "fw_id": "4833",
+    "title": "Поселок",
+    "download_url": "https://fantasy-worlds.net/lib/id4833/download/",
+    "url": "https://fantasy-worlds.net/lib/id4833/",
+    "match_score": 1.0
+  },
+  "451540": {
+    "fw_id": "22283",
+    "title": "Слова сияния",
+    "download_url": "https://fantasy-worlds.net/lib/id22283/download/",
+    "url": "https://fantasy-worlds.net/lib/id22283/",
+    "match_score": 1.0
+  },
+  "52178": {
+    "fw_id": "35624",
+    "title": "Цветы для Элджернона (перевод Сергея Таска)",
+    "download_url": "https://fantasy-worlds.net/lib/id35624/download/",
+    "url": "https://fantasy-worlds.net/lib/id35624/",
+    "match_score": 1.0
+  },
+  "1949": {
+    "fw_id": "2137",
+    "title": "Ночная стража",
+    "download_url": "https://fantasy-worlds.net/lib/id2137/download/",
+    "url": "https://fantasy-worlds.net/lib/id2137/",
+    "match_score": 1.0
+  },
+  "165308": {
+    "fw_id": "15442",
+    "title": "Башни Полуночи (ЛП)",
+    "download_url": "https://fantasy-worlds.net/lib/id15442/download/",
+    "url": "https://fantasy-worlds.net/lib/id15442/",
+    "match_score": 1.0
+  },
+  "165309": {
+    "fw_id": "18743",
+    "title": "Память Света",
+    "download_url": "https://fantasy-worlds.net/lib/id18743/download/",
+    "url": "https://fantasy-worlds.net/lib/id18743/",
+    "match_score": 1.0
+  },
+  "1301843": {
+    "fw_id": null,
+    "method": "aggressive"
+  },
+  "140752": {
+    "fw_id": "15125",
+    "title": "Грядущая буря (ЛП)",
+    "download_url": "https://fantasy-worlds.net/lib/id15125/download/",
+    "url": "https://fantasy-worlds.net/lib/id15125/",
+    "match_score": 1.0
+  },
+  "919364": {
+    "fw_id": null,
+    "method": "aggressive"
+  },
+  "1727": {
+    "fw_id": "1944",
+    "title": "К оружию! К оружию!",
+    "download_url": "https://fantasy-worlds.net/lib/id1944/download/",
+    "url": "https://fantasy-worlds.net/lib/id1944/",
+    "match_score": 1.0
+  },
+  "1537901": {
+    "fw_id": null,
+    "method": "aggressive"
+  },
+  "1946": {
+    "fw_id": "35698",
+    "title": "Правда (перевод Романа Демидова)",
+    "download_url": "https://fantasy-worlds.net/lib/id35698/download/",
+    "url": "https://fantasy-worlds.net/lib/id35698/",
+    "match_score": 1.0
+  },
+  "1951": {
+    "fw_id": "2140",
+    "title": "Держи марку!",
+    "download_url": "https://fantasy-worlds.net/lib/id2140/download/",
+    "url": "https://fantasy-worlds.net/lib/id2140/",
+    "match_score": 1.0
+  },
+  "224233": {
+    "fw_id": "19266",
+    "title": "Путь Короля. Том 2",
+    "download_url": "https://fantasy-worlds.net/lib/id19266/download/",
+    "url": "https://fantasy-worlds.net/lib/id19266/",
+    "match_score": 0.771,
+    "method": "aggressive"
+  },
+  "1945": {
+    "fw_id": "2131",
+    "title": "Пятый элефант",
+    "download_url": "https://fantasy-worlds.net/lib/id2131/download/",
+    "url": "https://fantasy-worlds.net/lib/id2131/",
+    "match_score": 1.0
+  },
+  "3870": {
+    "fw_id": "2141",
+    "title": "Шмяк!",
+    "download_url": "https://fantasy-worlds.net/lib/id2141/download/",
+    "url": "https://fantasy-worlds.net/lib/id2141/",
+    "match_score": 1.0
+  },
+  "4082": {
+    "fw_id": "17945",
+    "title": "Танец с драконами. Книга 2. Искры над пеплом",
+    "download_url": "https://fantasy-worlds.net/lib/id17945/download/",
+    "url": "https://fantasy-worlds.net/lib/id17945/",
+    "match_score": 1.0,
+    "method": "aggressive"
+  },
+  "273195": {
+    "fw_id": "21183",
+    "title": "Проклятый горн",
+    "download_url": "https://fantasy-worlds.net/lib/id21183/download/",
+    "url": "https://fantasy-worlds.net/lib/id21183/",
+    "match_score": 1.0
+  },
+  "3198": {
+    "fw_id": "2298",
+    "title": "Повелитель императоров",
+    "download_url": "https://fantasy-worlds.net/lib/id2298/download/",
+    "url": "https://fantasy-worlds.net/lib/id2298/",
+    "match_score": 1.0
+  },
+  "1398806": {
+    "fw_id": null,
+    "method": "aggressive"
+  },
+  "944239": {
+    "fw_id": null,
+    "method": "aggressive"
+  },
+  "1728": {
+    "fw_id": "32218",
+    "title": "Ноги из глины (перевод Екатерины Пташкиной)",
+    "download_url": "https://fantasy-worlds.net/lib/id32218/download/",
+    "url": "https://fantasy-worlds.net/lib/id32218/",
+    "match_score": 1.0
+  },
+  "656": {
+    "fw_id": "2319",
+    "title": "Конец вечности",
+    "download_url": "https://fantasy-worlds.net/lib/id2319/download/",
+    "url": "https://fantasy-worlds.net/lib/id2319/",
+    "match_score": 1.0
+  },
+  "5033": {
+    "fw_id": "31227",
+    "title": "Память (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id31227/download/",
+    "url": "https://fantasy-worlds.net/lib/id31227/",
+    "match_score": 0.98,
+    "method": "aggressive"
+  },
+  "1730": {
+    "fw_id": "2128",
+    "title": "Патриот",
+    "download_url": "https://fantasy-worlds.net/lib/id2128/download/",
+    "url": "https://fantasy-worlds.net/lib/id2128/",
+    "match_score": 1.0
+  },
+  "1666": {
+    "fw_id": "39737",
+    "title": "Хоббит, или Туда и Обратно  (перевод Кирилла Королёва)",
+    "download_url": "https://fantasy-worlds.net/lib/id39737/download/",
+    "url": "https://fantasy-worlds.net/lib/id39737/",
+    "match_score": 1.0
+  },
+  "9632": {
+    "fw_id": "11604",
+    "title": "1984",
+    "download_url": "https://fantasy-worlds.net/lib/id11604/download/",
+    "url": "https://fantasy-worlds.net/lib/id11604/",
+    "match_score": 1.0
+  },
+  "1722": {
+    "fw_id": "1898",
+    "title": "Мелкие Боги",
+    "download_url": "https://fantasy-worlds.net/lib/id1898/download/",
+    "url": "https://fantasy-worlds.net/lib/id1898/",
+    "match_score": 1.0
+  },
+  "1301844": {
+    "fw_id": null,
+    "method": "aggressive"
+  },
+  "3653": {
+    "fw_id": "4596",
+    "title": "Гарри Поттер и Узник Азкабана",
+    "download_url": "https://fantasy-worlds.net/lib/id4596/download/",
+    "url": "https://fantasy-worlds.net/lib/id4596/",
+    "match_score": 0.98,
+    "method": "aggressive"
+  },
+  "273194": {
+    "fw_id": "18013",
+    "title": "Золотые костры",
+    "download_url": "https://fantasy-worlds.net/lib/id18013/download/",
+    "url": "https://fantasy-worlds.net/lib/id18013/",
+    "match_score": 1.0
+  },
+  "432": {
+    "fw_id": "12961",
+    "title": "Иди куда хочешь",
+    "download_url": "https://fantasy-worlds.net/lib/id12961/download/",
+    "url": "https://fantasy-worlds.net/lib/id12961/",
+    "match_score": 1.0
+  },
+  "188171": {
+    "fw_id": "18206",
+    "title": "Страхи мудреца. Книга 1",
+    "download_url": "https://fantasy-worlds.net/lib/id18206/download/",
+    "url": "https://fantasy-worlds.net/lib/id18206/",
+    "match_score": 1.0
+  },
+  "1": {
+    "fw_id": "1809",
+    "title": "Падение Гипериона",
+    "download_url": "https://fantasy-worlds.net/lib/id1809/download/",
+    "url": "https://fantasy-worlds.net/lib/id1809/",
+    "match_score": 1.0
+  },
+  "34781": {
+    "fw_id": "21297",
+    "title": "Голубятня на желтой поляне",
+    "download_url": "https://fantasy-worlds.net/lib/id21297/download/",
+    "url": "https://fantasy-worlds.net/lib/id21297/",
+    "match_score": 1.0
+  },
+  "31577": {
+    "fw_id": "24887",
+    "title": "Память льда. Том 2",
+    "download_url": "https://fantasy-worlds.net/lib/id24887/download/",
+    "url": "https://fantasy-worlds.net/lib/id24887/",
+    "match_score": 1.0
+  },
+  "22": {
+    "fw_id": "36422",
+    "title": "Девять принцев Амбера. Ружья Авалона (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id36422/download/",
+    "url": "https://fantasy-worlds.net/lib/id36422/",
+    "match_score": 1.0
+  },
+  "3104": {
+    "fw_id": "5058",
+    "title": "Солярис",
+    "download_url": "https://fantasy-worlds.net/lib/id5058/download/",
+    "url": "https://fantasy-worlds.net/lib/id5058/",
+    "match_score": 1.0
+  },
+  "3153": {
+    "fw_id": "5066",
+    "title": "Футурологический конгресс",
+    "download_url": "https://fantasy-worlds.net/lib/id5066/download/",
+    "url": "https://fantasy-worlds.net/lib/id5066/",
+    "match_score": 1.0,
+    "method": "aggressive"
+  },
+  "4081": {
+    "fw_id": null
+  },
+  "4325": {
+    "fw_id": "5393",
+    "title": "Дюна",
+    "download_url": "https://fantasy-worlds.net/lib/id5393/download/",
+    "url": "https://fantasy-worlds.net/lib/id5393/",
+    "match_score": 1.0
+  },
+  "1723": {
+    "fw_id": "1943",
+    "title": "Дамы и Господа",
+    "download_url": "https://fantasy-worlds.net/lib/id1943/download/",
+    "url": "https://fantasy-worlds.net/lib/id1943/",
+    "match_score": 1.0
+  },
+  "39319": {
+    "fw_id": "15507",
+    "title": "Затерянный мир",
+    "download_url": "https://fantasy-worlds.net/lib/id15507/download/",
+    "url": "https://fantasy-worlds.net/lib/id15507/",
+    "match_score": 1.0
+  },
+  "31589": {
+    "fw_id": "33391",
+    "title": "Увечный бог. Том 2",
+    "download_url": "https://fantasy-worlds.net/lib/id33391/download/",
+    "url": "https://fantasy-worlds.net/lib/id33391/",
+    "match_score": 1.0
+  },
+  "2793": {
+    "fw_id": "1503",
+    "title": "Дверь в лето",
+    "download_url": "https://fantasy-worlds.net/lib/id1503/download/",
+    "url": "https://fantasy-worlds.net/lib/id1503/",
+    "match_score": 1.0
+  },
+  "4335": {
+    "fw_id": "12717",
+    "title": "Кафедра Странников",
+    "download_url": "https://fantasy-worlds.net/lib/id12717/download/",
+    "url": "https://fantasy-worlds.net/lib/id12717/",
+    "match_score": 1.0
+  },
+  "1720": {
+    "fw_id": "36334",
+    "title": "Мрачный Жнец (перевод Александра Гагинского)",
+    "download_url": "https://fantasy-worlds.net/lib/id36334/download/",
+    "url": "https://fantasy-worlds.net/lib/id36334/",
+    "match_score": 1.0
+  },
+  "2434": {
+    "fw_id": "3425",
+    "title": "Неукротимая планета",
+    "download_url": "https://fantasy-worlds.net/lib/id3425/download/",
+    "url": "https://fantasy-worlds.net/lib/id3425/",
+    "match_score": 1.0
+  },
+  "46460": {
+    "fw_id": "23767",
+    "title": "Герой Веков",
+    "download_url": "https://fantasy-worlds.net/lib/id23767/download/",
+    "url": "https://fantasy-worlds.net/lib/id23767/",
+    "match_score": 1.0
+  },
+  "2": {
+    "fw_id": "1809",
+    "title": "Падение Гипериона",
+    "download_url": "https://fantasy-worlds.net/lib/id1809/download/",
+    "url": "https://fantasy-worlds.net/lib/id1809/",
+    "match_score": 1.0
+  },
+  "440": {
+    "fw_id": "12019",
+    "title": "Сеть для Миродержцев",
+    "download_url": "https://fantasy-worlds.net/lib/id12019/download/",
+    "url": "https://fantasy-worlds.net/lib/id12019/",
+    "match_score": 1.0
+  },
+  "26": {
+    "fw_id": "37175",
+    "title": "Знак Единорога. Рука Оберона (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id37175/download/",
+    "url": "https://fantasy-worlds.net/lib/id37175/",
+    "match_score": 1.0
+  },
+  "27": {
+    "fw_id": "37175",
+    "title": "Знак Единорога. Рука Оберона (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id37175/download/",
+    "url": "https://fantasy-worlds.net/lib/id37175/",
+    "match_score": 1.0
+  },
+  "1729": {
+    "fw_id": "2127",
+    "title": "Санта-Хрякус",
+    "download_url": "https://fantasy-worlds.net/lib/id2127/download/",
+    "url": "https://fantasy-worlds.net/lib/id2127/",
+    "match_score": 1.0
+  },
+  "564": {
+    "fw_id": "15496",
+    "title": "Град обреченный",
+    "download_url": "https://fantasy-worlds.net/lib/id15496/download/",
+    "url": "https://fantasy-worlds.net/lib/id15496/",
+    "match_score": 1.0
+  },
+  "7092": {
+    "fw_id": "12904",
+    "title": "Верные враги",
+    "download_url": "https://fantasy-worlds.net/lib/id12904/download/",
+    "url": "https://fantasy-worlds.net/lib/id12904/",
+    "match_score": 1.0
+  },
+  "3654": {
+    "fw_id": "4597",
+    "title": "Гарри Поттер и Кубок огня",
+    "download_url": "https://fantasy-worlds.net/lib/id4597/download/",
+    "url": "https://fantasy-worlds.net/lib/id4597/",
+    "match_score": 0.98,
+    "method": "aggressive"
+  },
+  "2963": {
+    "fw_id": "112",
+    "title": "Час презрения",
+    "download_url": "https://fantasy-worlds.net/lib/id112/download/",
+    "url": "https://fantasy-worlds.net/lib/id112/",
+    "match_score": 1.0
+  },
+  "5149": {
+    "fw_id": "13757",
+    "title": "Марсианские хроники. Полное издание",
+    "download_url": "https://fantasy-worlds.net/lib/id13757/download/",
+    "url": "https://fantasy-worlds.net/lib/id13757/",
+    "match_score": 1.0
+  },
+  "9": {
+    "fw_id": "2308",
+    "title": "Вторая Академия",
+    "download_url": "https://fantasy-worlds.net/lib/id2308/download/",
+    "url": "https://fantasy-worlds.net/lib/id2308/",
+    "match_score": 1.0
+  },
+  "1957": {
+    "fw_id": "2139",
+    "title": "Шляпа, полная неба",
+    "download_url": "https://fantasy-worlds.net/lib/id2139/download/",
+    "url": "https://fantasy-worlds.net/lib/id2139/",
+    "match_score": 1.0
+  },
+  "188170": {
+    "fw_id": "31606",
+    "title": "Имя ветра (перевод Анны Хромовой)",
+    "download_url": "https://fantasy-worlds.net/lib/id31606/download/",
+    "url": "https://fantasy-worlds.net/lib/id31606/",
+    "match_score": 1.0
+  },
+  "2964": {
+    "fw_id": "121",
+    "title": "Крещение огнем",
+    "download_url": "https://fantasy-worlds.net/lib/id121/download/",
+    "url": "https://fantasy-worlds.net/lib/id121/",
+    "match_score": 1.0
+  },
+  "1948": {
+    "fw_id": "2134",
+    "title": "Последний герой",
+    "download_url": "https://fantasy-worlds.net/lib/id2134/download/",
+    "url": "https://fantasy-worlds.net/lib/id2134/",
+    "match_score": 1.0
+  },
+  "3113": {
+    "fw_id": "5062",
+    "title": "Непобедимый",
+    "download_url": "https://fantasy-worlds.net/lib/id5062/download/",
+    "url": "https://fantasy-worlds.net/lib/id5062/",
+    "match_score": 1.0
+  },
+  "162237": {
+    "fw_id": "31671",
+    "title": "Холодное железо: Лучше подавать холодным. Герои. Красная страна (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id31671/download/",
+    "url": "https://fantasy-worlds.net/lib/id31671/",
+    "match_score": 1.0
+  },
+  "1726": {
+    "fw_id": "2125",
+    "title": "Маскарад",
+    "download_url": "https://fantasy-worlds.net/lib/id2125/download/",
+    "url": "https://fantasy-worlds.net/lib/id2125/",
+    "match_score": 1.0
+  },
+  "13713": {
+    "fw_id": "4017",
+    "title": "Террор",
+    "download_url": "https://fantasy-worlds.net/lib/id4017/download/",
+    "url": "https://fantasy-worlds.net/lib/id4017/",
+    "match_score": 1.0
+  },
+  "7298": {
+    "fw_id": null,
+    "method": "aggressive"
+  },
+  "80146": {
+    "fw_id": "12975",
+    "title": "Прежде чем их повесят",
+    "download_url": "https://fantasy-worlds.net/lib/id12975/download/",
+    "url": "https://fantasy-worlds.net/lib/id12975/",
+    "match_score": 1.0
+  },
+  "9788": {
+    "fw_id": "37762",
+    "title": "Система мира (Сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id37762/download/",
+    "url": "https://fantasy-worlds.net/lib/id37762/",
+    "match_score": 1.0
+  },
+  "5031": {
+    "fw_id": "3046",
+    "title": "Танец отражений",
+    "download_url": "https://fantasy-worlds.net/lib/id3046/download/",
+    "url": "https://fantasy-worlds.net/lib/id3046/",
+    "match_score": 0.98,
+    "method": "aggressive"
+  },
+  "23962": {
+    "fw_id": "537",
+    "title": "Врата Птолемея",
+    "download_url": "https://fantasy-worlds.net/lib/id537/download/",
+    "url": "https://fantasy-worlds.net/lib/id537/",
+    "match_score": 1.0
+  },
+  "31582": {
+    "fw_id": "15656",
+    "title": "Охотники за Костями",
+    "download_url": "https://fantasy-worlds.net/lib/id15656/download/",
+    "url": "https://fantasy-worlds.net/lib/id15656/",
+    "match_score": 1.0
+  },
+  "80147": {
+    "fw_id": "15195",
+    "title": "Последний довод королей",
+    "download_url": "https://fantasy-worlds.net/lib/id15195/download/",
+    "url": "https://fantasy-worlds.net/lib/id15195/",
+    "match_score": 1.0
+  },
+  "1721": {
+    "fw_id": "36318",
+    "title": "Ведьмы за границей (перевод Александра Гагинского)",
+    "download_url": "https://fantasy-worlds.net/lib/id36318/download/",
+    "url": "https://fantasy-worlds.net/lib/id36318/",
+    "match_score": 1.0
+  },
+  "1944": {
+    "fw_id": "2130",
+    "title": "Carpe Jugulum. Хватай за горло!",
+    "download_url": "https://fantasy-worlds.net/lib/id2130/download/",
+    "url": "https://fantasy-worlds.net/lib/id2130/",
+    "match_score": 1.0
+  },
+  "238607": {
+    "fw_id": "14903",
+    "title": "Аутодафе",
+    "download_url": "https://fantasy-worlds.net/lib/id14903/download/",
+    "url": "https://fantasy-worlds.net/lib/id14903/",
+    "match_score": 1.0
+  },
+  "885262": {
+    "fw_id": "29871",
+    "title": "Каждая мертвая мечта",
+    "download_url": "https://fantasy-worlds.net/lib/id29871/download/",
+    "url": "https://fantasy-worlds.net/lib/id29871/",
+    "match_score": 1.0,
+    "method": "aggressive"
+  },
+  "177046": {
+    "fw_id": "34483",
+    "title": "Архивы Дрездена: Перемены. Адская работенка (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id34483/download/",
+    "url": "https://fantasy-worlds.net/lib/id34483/",
+    "match_score": 1.0
+  },
+  "1724": {
+    "fw_id": "2124",
+    "title": "Интересные времена",
+    "download_url": "https://fantasy-worlds.net/lib/id2124/download/",
+    "url": "https://fantasy-worlds.net/lib/id2124/",
+    "match_score": 1.0
+  },
+  "1947": {
+    "fw_id": "2133",
+    "title": "Вор Времени",
+    "download_url": "https://fantasy-worlds.net/lib/id2133/download/",
+    "url": "https://fantasy-worlds.net/lib/id2133/",
+    "match_score": 1.0
+  },
+  "2962": {
+    "fw_id": "111",
+    "title": "Кровь эльфов",
+    "download_url": "https://fantasy-worlds.net/lib/id111/download/",
+    "url": "https://fantasy-worlds.net/lib/id111/",
+    "match_score": 1.0
+  },
+  "532092": {
+    "fw_id": "28542",
+    "title": "Давший клятву",
+    "download_url": "https://fantasy-worlds.net/lib/id28542/download/",
+    "url": "https://fantasy-worlds.net/lib/id28542/",
+    "match_score": 1.0
+  },
+  "1242": {
+    "fw_id": "1465",
+    "title": "Лабиринт отражений",
+    "download_url": "https://fantasy-worlds.net/lib/id1465/download/",
+    "url": "https://fantasy-worlds.net/lib/id1465/",
+    "match_score": 1.0
+  },
+  "1955": {
+    "fw_id": "27391",
+    "title": "Изумительный Морис и его ученые грызуны",
+    "download_url": "https://fantasy-worlds.net/lib/id27391/download/",
+    "url": "https://fantasy-worlds.net/lib/id27391/",
+    "match_score": 1.0
+  },
+  "15939": {
+    "fw_id": "4598",
+    "title": "Гарри Поттер и Дары Смерти",
+    "download_url": "https://fantasy-worlds.net/lib/id4598/download/",
+    "url": "https://fantasy-worlds.net/lib/id4598/",
+    "match_score": 0.98,
+    "method": "aggressive"
+  },
+  "8": {
+    "fw_id": "2307",
+    "title": "Академия и Империя",
+    "download_url": "https://fantasy-worlds.net/lib/id2307/download/",
+    "url": "https://fantasy-worlds.net/lib/id2307/",
+    "match_score": 1.0
+  },
+  "3651": {
+    "fw_id": "4588",
+    "title": "Гарри Поттер и Философский камень",
+    "download_url": "https://fantasy-worlds.net/lib/id4588/download/",
+    "url": "https://fantasy-worlds.net/lib/id4588/",
+    "match_score": 0.98,
+    "method": "aggressive"
+  },
+  "7": {
+    "fw_id": "2308",
+    "title": "Вторая Академия",
+    "download_url": "https://fantasy-worlds.net/lib/id2308/download/",
+    "url": "https://fantasy-worlds.net/lib/id2308/",
+    "match_score": 1.0
+  },
+  "31581": {
+    "fw_id": "15655",
+    "title": "Полночный Прилив",
+    "download_url": "https://fantasy-worlds.net/lib/id15655/download/",
+    "url": "https://fantasy-worlds.net/lib/id15655/",
+    "match_score": 1.0
+  },
+  "1717": {
+    "fw_id": "1459",
+    "title": "Стража! Стража!",
+    "download_url": "https://fantasy-worlds.net/lib/id1459/download/",
+    "url": "https://fantasy-worlds.net/lib/id1459/",
+    "match_score": 1.0
+  },
+  "15230": {
+    "fw_id": "20472",
+    "title": "Собачье сердце",
+    "download_url": "https://fantasy-worlds.net/lib/id20472/download/",
+    "url": "https://fantasy-worlds.net/lib/id20472/",
+    "match_score": 1.0,
+    "method": "aggressive"
+  },
+  "43261": {
+    "fw_id": null,
+    "method": "aggressive"
+  },
+  "569": {
+    "fw_id": null
+  },
+  "38187": {
+    "fw_id": "4621",
+    "title": "Извне",
+    "download_url": "https://fantasy-worlds.net/lib/id4621/download/",
+    "url": "https://fantasy-worlds.net/lib/id4621/",
+    "match_score": 0.76,
+    "method": "aggressive"
+  },
+  "12011": {
+    "fw_id": "37670",
+    "title": "Стражница Сумеречного перевала",
+    "download_url": "https://fantasy-worlds.net/lib/id37670/download/",
+    "url": "https://fantasy-worlds.net/lib/id37670/",
+    "match_score": 0.8,
+    "method": "aggressive"
+  },
+  "552": {
+    "fw_id": "2952",
+    "title": "Трудно быть богом",
+    "download_url": "https://fantasy-worlds.net/lib/id2952/download/",
+    "url": "https://fantasy-worlds.net/lib/id2952/",
+    "match_score": 1.0
+  },
+  "43272": {
+    "fw_id": "15482",
+    "title": "Вий",
+    "download_url": "https://fantasy-worlds.net/lib/id15482/download/",
+    "url": "https://fantasy-worlds.net/lib/id15482/",
+    "match_score": 1.0
+  },
+  "12288": {
+    "fw_id": "23341",
+    "title": "Приключения Алисы. Том 2. Сто лет тому вперед",
+    "download_url": "https://fantasy-worlds.net/lib/id23341/download/",
+    "url": "https://fantasy-worlds.net/lib/id23341/",
+    "match_score": 1.0
+  },
+  "6072": {
+    "fw_id": "13764",
+    "title": "Лед и пламя",
+    "download_url": "https://fantasy-worlds.net/lib/id13764/download/",
+    "url": "https://fantasy-worlds.net/lib/id13764/",
+    "match_score": 1.0
+  },
+  "16048": {
+    "fw_id": "27439",
+    "title": "Самолет по имени Серёжка",
+    "download_url": "https://fantasy-worlds.net/lib/id27439/download/",
+    "url": "https://fantasy-worlds.net/lib/id27439/",
+    "match_score": 0.82,
+    "method": "aggressive"
+  },
+  "43262": {
+    "fw_id": "15483",
+    "title": "Вечера на хуторе близ Диканьки",
+    "download_url": "https://fantasy-worlds.net/lib/id15483/download/",
+    "url": "https://fantasy-worlds.net/lib/id15483/",
+    "match_score": 0.667,
+    "method": "aggressive"
+  },
+  "4162": {
+    "fw_id": null,
+    "method": "aggressive"
+  },
+  "12285": {
+    "fw_id": "4890",
+    "title": "Путешествие Алисы",
+    "download_url": "https://fantasy-worlds.net/lib/id4890/download/",
+    "url": "https://fantasy-worlds.net/lib/id4890/",
+    "match_score": 1.0
+  },
+  "544154": {
+    "fw_id": "14457",
+    "title": "Джанга с тенями",
+    "download_url": "https://fantasy-worlds.net/lib/id14457/download/",
+    "url": "https://fantasy-worlds.net/lib/id14457/",
+    "match_score": 0.85,
+    "method": "aggressive"
+  },
+  "4128": {
+    "fw_id": null,
+    "method": "aggressive"
+  },
+  "16037": {
+    "fw_id": "27460",
+    "title": "Ампула Грина",
+    "download_url": "https://fantasy-worlds.net/lib/id27460/download/",
+    "url": "https://fantasy-worlds.net/lib/id27460/",
+    "match_score": 0.716,
+    "method": "aggressive"
+  },
+  "16040": {
+    "fw_id": "21298",
+    "title": "Оранжевый портрет с крапинками",
+    "download_url": "https://fantasy-worlds.net/lib/id21298/download/",
+    "url": "https://fantasy-worlds.net/lib/id21298/",
+    "match_score": 0.709,
+    "method": "aggressive"
+  },
+  "43135": {
+    "fw_id": "15482",
+    "title": "Вий",
+    "download_url": "https://fantasy-worlds.net/lib/id15482/download/",
+    "url": "https://fantasy-worlds.net/lib/id15482/",
+    "match_score": 0.88,
+    "method": "aggressive"
+  },
+  "560": {
+    "fw_id": "2949",
+    "title": "Понедельник начинается в субботу",
+    "download_url": "https://fantasy-worlds.net/lib/id2949/download/",
+    "url": "https://fantasy-worlds.net/lib/id2949/",
+    "match_score": 1.0
+  },
+  "556": {
+    "fw_id": "15493",
+    "title": "Обитаемый остров",
+    "download_url": "https://fantasy-worlds.net/lib/id15493/download/",
+    "url": "https://fantasy-worlds.net/lib/id15493/",
+    "match_score": 1.0
+  },
+  "674": {
+    "fw_id": "18954",
+    "title": "Вредная профессия [Сборник]",
+    "download_url": "https://fantasy-worlds.net/lib/id18954/download/",
+    "url": "https://fantasy-worlds.net/lib/id18954/",
+    "match_score": 0.811,
+    "method": "aggressive"
+  },
+  "43300": {
+    "fw_id": "15483",
+    "title": "Вечера на хуторе близ Диканьки",
+    "download_url": "https://fantasy-worlds.net/lib/id15483/download/",
+    "url": "https://fantasy-worlds.net/lib/id15483/",
+    "match_score": 0.657,
+    "method": "aggressive"
+  },
+  "724": {
+    "fw_id": "2310",
+    "title": "Основание и Земля",
+    "download_url": "https://fantasy-worlds.net/lib/id2310/download/",
+    "url": "https://fantasy-worlds.net/lib/id2310/",
+    "match_score": 0.743,
+    "method": "aggressive"
+  },
+  "128271": {
+    "fw_id": "28417",
+    "title": "Необыкновенные приключения Карика и Вали",
+    "download_url": "https://fantasy-worlds.net/lib/id28417/download/",
+    "url": "https://fantasy-worlds.net/lib/id28417/",
+    "match_score": 1.0
+  },
+  "558": {
+    "fw_id": "15494",
+    "title": "Жук в муравейнике",
+    "download_url": "https://fantasy-worlds.net/lib/id15494/download/",
+    "url": "https://fantasy-worlds.net/lib/id15494/",
+    "match_score": 1.0
+  },
+  "16042": {
+    "fw_id": "15178",
+    "title": "Тополята",
+    "download_url": "https://fantasy-worlds.net/lib/id15178/download/",
+    "url": "https://fantasy-worlds.net/lib/id15178/",
+    "match_score": 0.72,
+    "method": "aggressive"
+  },
+  "16087": {
+    "fw_id": "15178",
+    "title": "Тополята",
+    "download_url": "https://fantasy-worlds.net/lib/id15178/download/",
+    "url": "https://fantasy-worlds.net/lib/id15178/",
+    "match_score": 0.862,
+    "method": "aggressive"
+  },
+  "247481": {
+    "fw_id": "28362",
+    "title": "Тайна третьей планеты",
+    "download_url": "https://fantasy-worlds.net/lib/id28362/download/",
+    "url": "https://fantasy-worlds.net/lib/id28362/",
+    "match_score": 1.0
+  },
+  "43136": {
+    "fw_id": "15483",
+    "title": "Вечера на хуторе близ Диканьки",
+    "download_url": "https://fantasy-worlds.net/lib/id15483/download/",
+    "url": "https://fantasy-worlds.net/lib/id15483/",
+    "match_score": 0.669,
+    "method": "aggressive"
+  },
+  "31722": {
+    "fw_id": null,
+    "method": "aggressive"
+  },
+  "3120": {
+    "fw_id": "5056",
+    "title": "Расследование (Следствие)",
+    "download_url": "https://fantasy-worlds.net/lib/id5056/download/",
+    "url": "https://fantasy-worlds.net/lib/id5056/",
+    "match_score": 0.85,
+    "method": "aggressive"
+  },
+  "12257": {
+    "fw_id": "4889",
+    "title": "Девочка, с которой ничего не случится",
+    "download_url": "https://fantasy-worlds.net/lib/id4889/download/",
+    "url": "https://fantasy-worlds.net/lib/id4889/",
+    "match_score": 1.0
+  },
+  "1597205": {
+    "fw_id": null,
+    "method": "aggressive"
+  },
+  "544151": {
+    "fw_id": "25216",
+    "title": "Созерцатель",
+    "download_url": "https://fantasy-worlds.net/lib/id25216/download/",
+    "url": "https://fantasy-worlds.net/lib/id25216/",
+    "match_score": 0.76,
+    "method": "aggressive"
+  },
+  "43137": {
+    "fw_id": "15482",
+    "title": "Вий",
+    "download_url": "https://fantasy-worlds.net/lib/id15482/download/",
+    "url": "https://fantasy-worlds.net/lib/id15482/",
+    "match_score": 0.88,
+    "method": "aggressive"
+  },
+  "1356854": {
+    "fw_id": "16362",
+    "title": "Ядерная зима. Дожить до рассвета!",
+    "download_url": "https://fantasy-worlds.net/lib/id16362/download/",
+    "url": "https://fantasy-worlds.net/lib/id16362/",
+    "match_score": 0.807,
+    "method": "aggressive"
+  },
+  "26009": {
+    "fw_id": "3044",
+    "title": "Границы бесконечности",
+    "download_url": "https://fantasy-worlds.net/lib/id3044/download/",
+    "url": "https://fantasy-worlds.net/lib/id3044/",
+    "match_score": 0.98,
+    "method": "aggressive"
+  },
+  "559": {
+    "fw_id": "15495",
+    "title": "Волны гасят ветер",
+    "download_url": "https://fantasy-worlds.net/lib/id15495/download/",
+    "url": "https://fantasy-worlds.net/lib/id15495/",
+    "match_score": 1.0
+  },
+  "544153": {
+    "fw_id": "12491",
+    "title": "Страж",
+    "download_url": "https://fantasy-worlds.net/lib/id12491/download/",
+    "url": "https://fantasy-worlds.net/lib/id12491/",
+    "match_score": 0.76,
+    "method": "aggressive"
+  },
+  "34923": {
+    "fw_id": "27439",
+    "title": "Самолет по имени Серёжка",
+    "download_url": "https://fantasy-worlds.net/lib/id27439/download/",
+    "url": "https://fantasy-worlds.net/lib/id27439/",
+    "match_score": 1.0
+  },
+  "333": {
+    "fw_id": "19997",
+    "title": "Туман [сборник]",
+    "download_url": "https://fantasy-worlds.net/lib/id19997/download/",
+    "url": "https://fantasy-worlds.net/lib/id19997/",
+    "match_score": 1.0
+  },
+  "2088": {
+    "fw_id": "27721",
+    "title": "Билет на планету Транай",
+    "download_url": "https://fantasy-worlds.net/lib/id27721/download/",
+    "url": "https://fantasy-worlds.net/lib/id27721/",
+    "match_score": 1.0
+  },
+  "572": {
+    "fw_id": "15495",
+    "title": "Волны гасят ветер",
+    "download_url": "https://fantasy-worlds.net/lib/id15495/download/",
+    "url": "https://fantasy-worlds.net/lib/id15495/",
+    "match_score": 0.711,
+    "method": "aggressive"
+  },
+  "16055": {
+    "fw_id": "27440",
+    "title": "Лето кончится не скоро",
+    "download_url": "https://fantasy-worlds.net/lib/id27440/download/",
+    "url": "https://fantasy-worlds.net/lib/id27440/",
+    "match_score": 0.7,
+    "method": "aggressive"
+  },
+  "2404": {
+    "fw_id": "75",
+    "title": "Тёмная сторона",
+    "download_url": "https://fantasy-worlds.net/lib/id75/download/",
+    "url": "https://fantasy-worlds.net/lib/id75/",
+    "match_score": 0.711,
+    "method": "aggressive"
+  },
+  "419935": {
+    "fw_id": "21939",
+    "title": "Распятая Русь. Предания «Велесовой книги»",
+    "download_url": "https://fantasy-worlds.net/lib/id21939/download/",
+    "url": "https://fantasy-worlds.net/lib/id21939/",
+    "match_score": 0.827,
+    "method": "aggressive"
+  },
+  "565": {
+    "fw_id": null
+  },
+  "1356855": {
+    "fw_id": null,
+    "method": "aggressive"
+  },
+  "12275": {
+    "fw_id": "23342",
+    "title": "Приключения Алисы. Том 3. Миллион приключений",
+    "download_url": "https://fantasy-worlds.net/lib/id23342/download/",
+    "url": "https://fantasy-worlds.net/lib/id23342/",
+    "match_score": 1.0
+  },
+  "2400": {
+    "fw_id": "125",
+    "title": "Властелин Морморы",
+    "download_url": "https://fantasy-worlds.net/lib/id125/download/",
+    "url": "https://fantasy-worlds.net/lib/id125/",
+    "match_score": 0.727,
+    "method": "aggressive"
+  },
+  "544152": {
+    "fw_id": "21183",
+    "title": "Проклятый горн",
+    "download_url": "https://fantasy-worlds.net/lib/id21183/download/",
+    "url": "https://fantasy-worlds.net/lib/id21183/",
+    "match_score": 1.0
+  },
+  "255936": {
+    "fw_id": "14903",
+    "title": "Аутодафе",
+    "download_url": "https://fantasy-worlds.net/lib/id14903/download/",
+    "url": "https://fantasy-worlds.net/lib/id14903/",
+    "match_score": 1.0
+  },
+  "2393": {
+    "fw_id": "29979",
+    "title": "Так берегись",
+    "download_url": "https://fantasy-worlds.net/lib/id29979/download/",
+    "url": "https://fantasy-worlds.net/lib/id29979/",
+    "match_score": 0.7,
+    "method": "aggressive"
+  },
+  "16063": {
+    "fw_id": "21298",
+    "title": "Оранжевый портрет с крапинками",
+    "download_url": "https://fantasy-worlds.net/lib/id21298/download/",
+    "url": "https://fantasy-worlds.net/lib/id21298/",
+    "match_score": 1.0
+  },
+  "16027": {
+    "fw_id": "21294",
+    "title": "В ночь большого прилива",
+    "download_url": "https://fantasy-worlds.net/lib/id21294/download/",
+    "url": "https://fantasy-worlds.net/lib/id21294/",
+    "match_score": 1.0
+  },
+  "544149": {
+    "fw_id": "14457",
+    "title": "Джанга с тенями",
+    "download_url": "https://fantasy-worlds.net/lib/id14457/download/",
+    "url": "https://fantasy-worlds.net/lib/id14457/",
+    "match_score": 0.756,
+    "method": "aggressive"
+  },
+  "16022": {
+    "fw_id": "21300",
+    "title": "Струна и люстра",
+    "download_url": "https://fantasy-worlds.net/lib/id21300/download/",
+    "url": "https://fantasy-worlds.net/lib/id21300/",
+    "match_score": 0.731,
+    "method": "aggressive"
+  },
+  "2742": {
+    "fw_id": "30507",
+    "title": "Расширенная Вселенная (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id30507/download/",
+    "url": "https://fantasy-worlds.net/lib/id30507/",
+    "match_score": 1.0
+  },
+  "43134": {
+    "fw_id": null,
+    "method": "aggressive"
+  },
+  "4109": {
+    "fw_id": null,
+    "method": "aggressive"
+  },
+  "553": {
+    "fw_id": "15497",
+    "title": "Малыш",
+    "download_url": "https://fantasy-worlds.net/lib/id15497/download/",
+    "url": "https://fantasy-worlds.net/lib/id15497/",
+    "match_score": 1.0
+  },
+  "12254": {
+    "fw_id": "4907",
+    "title": "Город без памяти",
+    "download_url": "https://fantasy-worlds.net/lib/id4907/download/",
+    "url": "https://fantasy-worlds.net/lib/id4907/",
+    "match_score": 1.0
+  },
+  "419938": {
+    "fw_id": "29144",
+    "title": "Талорис",
+    "download_url": "https://fantasy-worlds.net/lib/id29144/download/",
+    "url": "https://fantasy-worlds.net/lib/id29144/",
+    "match_score": 0.743,
+    "method": "aggressive"
+  },
+  "13859": {
+    "fw_id": "72",
+    "title": "Волонтеры Вечности",
+    "download_url": "https://fantasy-worlds.net/lib/id72/download/",
+    "url": "https://fantasy-worlds.net/lib/id72/",
+    "match_score": 1.0
+  },
+  "419940": {
+    "fw_id": "18013",
+    "title": "Золотые костры",
+    "download_url": "https://fantasy-worlds.net/lib/id18013/download/",
+    "url": "https://fantasy-worlds.net/lib/id18013/",
+    "match_score": 1.0
+  },
+  "49885": {
+    "fw_id": null,
+    "method": "aggressive"
+  },
+  "544148": {
+    "fw_id": "12910",
+    "title": "Новые боги",
+    "download_url": "https://fantasy-worlds.net/lib/id12910/download/",
+    "url": "https://fantasy-worlds.net/lib/id12910/",
+    "match_score": 0.76,
+    "method": "aggressive"
+  },
+  "1367518": {
+    "fw_id": null,
+    "method": "aggressive"
+  },
+  "255943": {
+    "fw_id": "23924",
+    "title": "Создатель кошмаров",
+    "download_url": "https://fantasy-worlds.net/lib/id23924/download/",
+    "url": "https://fantasy-worlds.net/lib/id23924/",
+    "match_score": 0.76,
+    "method": "aggressive"
+  },
+  "2397": {
+    "fw_id": "15481",
+    "title": "Простые волшебные вещи",
+    "download_url": "https://fantasy-worlds.net/lib/id15481/download/",
+    "url": "https://fantasy-worlds.net/lib/id15481/",
+    "match_score": 1.0
+  },
+  "12253": {
+    "fw_id": "23344",
+    "title": "Приключения Алисы. Том 5. Гай-до",
+    "download_url": "https://fantasy-worlds.net/lib/id23344/download/",
+    "url": "https://fantasy-worlds.net/lib/id23344/",
+    "match_score": 1.0
+  },
+  "482": {
+    "fw_id": "12789",
+    "title": "Кукольник",
+    "download_url": "https://fantasy-worlds.net/lib/id12789/download/",
+    "url": "https://fantasy-worlds.net/lib/id12789/",
+    "match_score": 0.7,
+    "method": "aggressive"
+  },
+  "12010": {
+    "fw_id": "4831",
+    "title": "Половина жизни",
+    "download_url": "https://fantasy-worlds.net/lib/id4831/download/",
+    "url": "https://fantasy-worlds.net/lib/id4831/",
+    "match_score": 1.0
+  },
+  "34783": {
+    "fw_id": "21300",
+    "title": "Струна и люстра",
+    "download_url": "https://fantasy-worlds.net/lib/id21300/download/",
+    "url": "https://fantasy-worlds.net/lib/id21300/",
+    "match_score": 0.7,
+    "method": "aggressive"
+  },
+  "334007": {
+    "fw_id": null,
+    "method": "aggressive"
+  },
+  "555": {
+    "fw_id": "4631",
+    "title": "Далекая Радуга",
+    "download_url": "https://fantasy-worlds.net/lib/id4631/download/",
+    "url": "https://fantasy-worlds.net/lib/id4631/",
+    "match_score": 0.924,
+    "method": "aggressive"
+  },
+  "34782": {
+    "fw_id": "21297",
+    "title": "Голубятня на желтой поляне",
+    "download_url": "https://fantasy-worlds.net/lib/id21297/download/",
+    "url": "https://fantasy-worlds.net/lib/id21297/",
+    "match_score": 0.824,
+    "method": "aggressive"
+  },
+  "56154": {
+    "fw_id": null,
+    "method": "aggressive"
+  },
+  "2569": {
+    "fw_id": "80",
+    "title": "Лабиринт Менина",
+    "download_url": "https://fantasy-worlds.net/lib/id80/download/",
+    "url": "https://fantasy-worlds.net/lib/id80/",
+    "match_score": 1.0
+  },
+  "43265": {
+    "fw_id": "15482",
+    "title": "Вий",
+    "download_url": "https://fantasy-worlds.net/lib/id15482/download/",
+    "url": "https://fantasy-worlds.net/lib/id15482/",
+    "match_score": 0.88,
+    "method": "aggressive"
+  },
+  "2409": {
+    "fw_id": "21095",
+    "title": "Вторая линия. Рассказы и истории разных лет",
+    "download_url": "https://fantasy-worlds.net/lib/id21095/download/",
+    "url": "https://fantasy-worlds.net/lib/id21095/",
+    "match_score": 0.709,
+    "method": "aggressive"
+  },
+  "115519": {
+    "fw_id": "37104",
+    "title": "Слуга Пиковой дамы",
+    "download_url": "https://fantasy-worlds.net/lib/id37104/download/",
+    "url": "https://fantasy-worlds.net/lib/id37104/",
+    "match_score": 0.663,
+    "method": "aggressive"
+  },
+  "2403": {
+    "fw_id": "124",
+    "title": "Хроники Ехо",
+    "download_url": "https://fantasy-worlds.net/lib/id124/download/",
+    "url": "https://fantasy-worlds.net/lib/id124/",
+    "match_score": 0.686,
+    "method": "aggressive"
+  },
+  "12258": {
+    "fw_id": "4891",
+    "title": "День рождения Алисы",
+    "download_url": "https://fantasy-worlds.net/lib/id4891/download/",
+    "url": "https://fantasy-worlds.net/lib/id4891/",
+    "match_score": 1.0
+  },
+  "142746": {
+    "fw_id": null,
+    "method": "aggressive"
+  },
+  "495353": {
+    "fw_id": null,
+    "method": "aggressive"
+  },
+  "2406": {
+    "fw_id": "24141",
+    "title": "Сказки cтарого Вильнюса",
+    "download_url": "https://fantasy-worlds.net/lib/id24141/download/",
+    "url": "https://fantasy-worlds.net/lib/id24141/",
+    "match_score": 0.692,
+    "method": "aggressive"
+  },
+  "2410": {
+    "fw_id": "15481",
+    "title": "Простые волшебные вещи",
+    "download_url": "https://fantasy-worlds.net/lib/id15481/download/",
+    "url": "https://fantasy-worlds.net/lib/id15481/",
+    "match_score": 0.731,
+    "method": "aggressive"
+  },
+  "2396": {
+    "fw_id": "3208",
+    "title": "Жалобная книга",
+    "download_url": "https://fantasy-worlds.net/lib/id3208/download/",
+    "url": "https://fantasy-worlds.net/lib/id3208/",
+    "match_score": 0.727,
+    "method": "aggressive"
+  },
+  "35255": {
+    "fw_id": "15488",
+    "title": "Мизери",
+    "download_url": "https://fantasy-worlds.net/lib/id15488/download/",
+    "url": "https://fantasy-worlds.net/lib/id15488/",
+    "match_score": 0.727,
+    "method": "aggressive"
+  },
+  "84": {
+    "fw_id": "4100",
+    "title": "Глаз кота",
+    "download_url": "https://fantasy-worlds.net/lib/id4100/download/",
+    "url": "https://fantasy-worlds.net/lib/id4100/",
+    "match_score": 0.733,
+    "method": "aggressive"
+  },
+  "4087": {
+    "fw_id": null
+  },
+  "419937": {
+    "fw_id": "22162",
+    "title": "Летос",
+    "download_url": "https://fantasy-worlds.net/lib/id22162/download/",
+    "url": "https://fantasy-worlds.net/lib/id22162/",
+    "match_score": 0.743,
+    "method": "aggressive"
+  },
+  "56092": {
+    "fw_id": "13681",
+    "title": "Таинственный Рыцарь",
+    "download_url": "https://fantasy-worlds.net/lib/id13681/download/",
+    "url": "https://fantasy-worlds.net/lib/id13681/",
+    "match_score": 1.0,
+    "method": "aggressive"
+  },
+  "34784": {
+    "fw_id": "21295",
+    "title": "Сказки о рыбаках и рыбках",
+    "download_url": "https://fantasy-worlds.net/lib/id21295/download/",
+    "url": "https://fantasy-worlds.net/lib/id21295/",
+    "match_score": 0.731,
+    "method": "aggressive"
+  },
+  "2411": {
+    "fw_id": "125",
+    "title": "Властелин Морморы",
+    "download_url": "https://fantasy-worlds.net/lib/id125/download/",
+    "url": "https://fantasy-worlds.net/lib/id125/",
+    "match_score": 0.691,
+    "method": "aggressive"
+  },
+  "34924": {
+    "fw_id": "27440",
+    "title": "Лето кончится не скоро",
+    "download_url": "https://fantasy-worlds.net/lib/id27440/download/",
+    "url": "https://fantasy-worlds.net/lib/id27440/",
+    "match_score": 1.0
+  },
+  "410031": {
+    "fw_id": "26681",
+    "title": "Гранетанцор",
+    "download_url": "https://fantasy-worlds.net/lib/id26681/download/",
+    "url": "https://fantasy-worlds.net/lib/id26681/",
+    "match_score": 0.753,
+    "method": "aggressive"
+  },
+  "2401": {
+    "fw_id": "12493",
+    "title": "Большая телега",
+    "download_url": "https://fantasy-worlds.net/lib/id12493/download/",
+    "url": "https://fantasy-worlds.net/lib/id12493/",
+    "match_score": 0.673,
+    "method": "aggressive"
+  },
+  "206169": {
+    "fw_id": "24850",
+    "title": "Клыки и когти эскадрильи",
+    "download_url": "https://fantasy-worlds.net/lib/id24850/download/",
+    "url": "https://fantasy-worlds.net/lib/id24850/",
+    "match_score": 0.948,
+    "method": "aggressive"
+  },
+  "52179": {
+    "fw_id": "35624",
+    "title": "Цветы для Элджернона (перевод Сергея Таска)",
+    "download_url": "https://fantasy-worlds.net/lib/id35624/download/",
+    "url": "https://fantasy-worlds.net/lib/id35624/",
+    "match_score": 1.0
+  },
+  "2978": {
+    "fw_id": "121",
+    "title": "Крещение огнем",
+    "download_url": "https://fantasy-worlds.net/lib/id121/download/",
+    "url": "https://fantasy-worlds.net/lib/id121/",
+    "match_score": 0.673,
+    "method": "aggressive"
+  },
+  "12453": {
+    "fw_id": "4831",
+    "title": "Половина жизни",
+    "download_url": "https://fantasy-worlds.net/lib/id4831/download/",
+    "url": "https://fantasy-worlds.net/lib/id4831/",
+    "match_score": 0.7,
+    "method": "aggressive"
+  },
+  "6146": {
+    "fw_id": "13729",
+    "title": "У нас всегда будет Париж",
+    "download_url": "https://fantasy-worlds.net/lib/id13729/download/",
+    "url": "https://fantasy-worlds.net/lib/id13729/",
+    "match_score": 0.71,
+    "method": "aggressive"
+  },
+  "2977": {
+    "fw_id": "110",
+    "title": "Меч предназначения",
+    "download_url": "https://fantasy-worlds.net/lib/id110/download/",
+    "url": "https://fantasy-worlds.net/lib/id110/",
+    "match_score": 1.0
+  },
+  "2973": {
+    "fw_id": "21113",
+    "title": "Сезон гроз",
+    "download_url": "https://fantasy-worlds.net/lib/id21113/download/",
+    "url": "https://fantasy-worlds.net/lib/id21113/",
+    "match_score": 0.733,
+    "method": "aggressive"
+  },
+  "2182": {
+    "fw_id": "21211",
+    "title": "В темном-темном космосе (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id21211/download/",
+    "url": "https://fantasy-worlds.net/lib/id21211/",
+    "match_score": 0.68,
+    "method": "aggressive"
+  },
+  "2988": {
+    "fw_id": "34540",
+    "title": "Последнее желание (иллюстрированное издание 2017 года)",
+    "download_url": "https://fantasy-worlds.net/lib/id34540/download/",
+    "url": "https://fantasy-worlds.net/lib/id34540/",
+    "match_score": 1.0
+  },
+  "2975": {
+    "fw_id": "18603",
+    "title": "Свет вечный",
+    "download_url": "https://fantasy-worlds.net/lib/id18603/download/",
+    "url": "https://fantasy-worlds.net/lib/id18603/",
+    "match_score": 0.824,
+    "method": "aggressive"
+  },
+  "2976": {
+    "fw_id": "21113",
+    "title": "Сезон гроз",
+    "download_url": "https://fantasy-worlds.net/lib/id21113/download/",
+    "url": "https://fantasy-worlds.net/lib/id21113/",
+    "match_score": 0.682,
+    "method": "aggressive"
+  },
+  "2983": {
+    "fw_id": "19385",
+    "title": "Ведьмак",
+    "download_url": "https://fantasy-worlds.net/lib/id19385/download/",
+    "url": "https://fantasy-worlds.net/lib/id19385/",
+    "match_score": 1.0
+  },
+  "2985": {
+    "fw_id": "16111",
+    "title": "Змея",
+    "download_url": "https://fantasy-worlds.net/lib/id16111/download/",
+    "url": "https://fantasy-worlds.net/lib/id16111/",
+    "match_score": 0.8,
+    "method": "aggressive"
+  },
+  "12444": {
+    "fw_id": "4800",
+    "title": "Котел",
+    "download_url": "https://fantasy-worlds.net/lib/id4800/download/",
+    "url": "https://fantasy-worlds.net/lib/id4800/",
+    "match_score": 0.743,
+    "method": "aggressive"
+  },
+  "2986": {
+    "fw_id": "18603",
+    "title": "Свет вечный",
+    "download_url": "https://fantasy-worlds.net/lib/id18603/download/",
+    "url": "https://fantasy-worlds.net/lib/id18603/",
+    "match_score": 0.753,
+    "method": "aggressive"
+  },
+  "2984": {
+    "fw_id": "25498",
+    "title": "Бестиарий. Создания света, мрака, полумрака и тьмы",
+    "download_url": "https://fantasy-worlds.net/lib/id25498/download/",
+    "url": "https://fantasy-worlds.net/lib/id25498/",
+    "match_score": 0.713,
+    "method": "aggressive"
+  },
+  "2144": {
+    "fw_id": "23232",
+    "title": "Координаты чудес",
+    "download_url": "https://fantasy-worlds.net/lib/id23232/download/",
+    "url": "https://fantasy-worlds.net/lib/id23232/",
+    "match_score": 0.723,
+    "method": "aggressive"
+  },
+  "2148": {
+    "fw_id": "21856",
+    "title": "Лавка старинных диковин",
+    "download_url": "https://fantasy-worlds.net/lib/id21856/download/",
+    "url": "https://fantasy-worlds.net/lib/id21856/",
+    "match_score": 0.673,
+    "method": "aggressive"
+  },
+  "6171": {
+    "fw_id": "23290",
+    "title": "Тени грядущего зла (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id23290/download/",
+    "url": "https://fantasy-worlds.net/lib/id23290/",
+    "match_score": 0.769,
+    "method": "aggressive"
+  },
+  "1356853": {
+    "fw_id": null,
+    "method": "aggressive"
+  },
+  "544155": {
+    "fw_id": "29144",
+    "title": "Талорис",
+    "download_url": "https://fantasy-worlds.net/lib/id29144/download/",
+    "url": "https://fantasy-worlds.net/lib/id29144/",
+    "match_score": 0.8,
+    "method": "aggressive"
+  },
+  "6054": {
+    "fw_id": "13763",
+    "title": "Давайте все убьем Констанцию",
+    "download_url": "https://fantasy-worlds.net/lib/id13763/download/",
+    "url": "https://fantasy-worlds.net/lib/id13763/",
+    "match_score": 0.85,
+    "method": "aggressive"
+  },
+  "6109": {
+    "fw_id": "13764",
+    "title": "Лед и пламя",
+    "download_url": "https://fantasy-worlds.net/lib/id13764/download/",
+    "url": "https://fantasy-worlds.net/lib/id13764/",
+    "match_score": 0.682,
+    "method": "aggressive"
+  },
+  "2192": {
+    "fw_id": "19875",
+    "title": "Осколки космоса (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id19875/download/",
+    "url": "https://fantasy-worlds.net/lib/id19875/",
+    "match_score": 0.688,
+    "method": "aggressive"
+  },
+  "2205": {
+    "fw_id": "21856",
+    "title": "Лавка старинных диковин",
+    "download_url": "https://fantasy-worlds.net/lib/id21856/download/",
+    "url": "https://fantasy-worlds.net/lib/id21856/",
+    "match_score": 0.824,
+    "method": "aggressive"
+  },
+  "2987": {
+    "fw_id": "25498",
+    "title": "Бестиарий. Создания света, мрака, полумрака и тьмы",
+    "download_url": "https://fantasy-worlds.net/lib/id25498/download/",
+    "url": "https://fantasy-worlds.net/lib/id25498/",
+    "match_score": 0.82,
+    "method": "aggressive"
+  },
+  "6115": {
+    "fw_id": "13764",
+    "title": "Лед и пламя",
+    "download_url": "https://fantasy-worlds.net/lib/id13764/download/",
+    "url": "https://fantasy-worlds.net/lib/id13764/",
+    "match_score": 0.727,
+    "method": "aggressive"
+  },
+  "6101": {
+    "fw_id": "35471",
+    "title": "Механизмы радости (сборник, новые переводы)",
+    "download_url": "https://fantasy-worlds.net/lib/id35471/download/",
+    "url": "https://fantasy-worlds.net/lib/id35471/",
+    "match_score": 0.727,
+    "method": "aggressive"
+  },
+  "6077": {
+    "fw_id": "13759",
+    "title": "Канун всех святых",
+    "download_url": "https://fantasy-worlds.net/lib/id13759/download/",
+    "url": "https://fantasy-worlds.net/lib/id13759/",
+    "match_score": 0.769,
+    "method": "aggressive"
+  },
+  "2099": {
+    "fw_id": "1172",
+    "title": "Великая охота",
+    "download_url": "https://fantasy-worlds.net/lib/id1172/download/",
+    "url": "https://fantasy-worlds.net/lib/id1172/",
+    "match_score": 0.895,
+    "method": "aggressive"
+  },
+  "29984": {
+    "fw_id": "24690",
+    "title": "Миры Уильяма Тенна. Человеческий аспект",
+    "download_url": "https://fantasy-worlds.net/lib/id24690/download/",
+    "url": "https://fantasy-worlds.net/lib/id24690/",
+    "match_score": 0.661,
+    "method": "aggressive"
+  },
+  "2199": {
+    "fw_id": "15558",
+    "title": "Обмен разумов",
+    "download_url": "https://fantasy-worlds.net/lib/id15558/download/",
+    "url": "https://fantasy-worlds.net/lib/id15558/",
+    "match_score": 0.686,
+    "method": "aggressive"
+  },
+  "2141": {
+    "fw_id": "19872",
+    "title": "Проблема туземцев (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id19872/download/",
+    "url": "https://fantasy-worlds.net/lib/id19872/",
+    "match_score": 1.0
+  },
+  "6123": {
+    "fw_id": "13757",
+    "title": "Марсианские хроники. Полное издание",
+    "download_url": "https://fantasy-worlds.net/lib/id13757/download/",
+    "url": "https://fantasy-worlds.net/lib/id13757/",
+    "match_score": 0.925,
+    "method": "aggressive"
+  },
+  "6130": {
+    "fw_id": "13761",
+    "title": "Зеленые тени, Белый Кит",
+    "download_url": "https://fantasy-worlds.net/lib/id13761/download/",
+    "url": "https://fantasy-worlds.net/lib/id13761/",
+    "match_score": 0.7,
+    "method": "aggressive"
+  },
+  "6119": {
+    "fw_id": "20352",
+    "title": "Калейдоскоп",
+    "download_url": "https://fantasy-worlds.net/lib/id20352/download/",
+    "url": "https://fantasy-worlds.net/lib/id20352/",
+    "match_score": 0.809,
+    "method": "aggressive"
+  },
+  "2173": {
+    "fw_id": "37609",
+    "title": "Принесите мне голову Прекрасного принца (перевод Николая Кудряшева)",
+    "download_url": "https://fantasy-worlds.net/lib/id37609/download/",
+    "url": "https://fantasy-worlds.net/lib/id37609/",
+    "match_score": 0.733,
+    "method": "aggressive"
+  },
+  "12108": {
+    "fw_id": "28376",
+    "title": "Поступили в продажу золотые рыбки (Сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id28376/download/",
+    "url": "https://fantasy-worlds.net/lib/id28376/",
+    "match_score": 1.0
+  },
+  "2169": {
+    "fw_id": "23232",
+    "title": "Координаты чудес",
+    "download_url": "https://fantasy-worlds.net/lib/id23232/download/",
+    "url": "https://fantasy-worlds.net/lib/id23232/",
+    "match_score": 0.68,
+    "method": "aggressive"
+  },
+  "6333": {
+    "fw_id": "13728",
+    "title": "Лето, прощай",
+    "download_url": "https://fantasy-worlds.net/lib/id13728/download/",
+    "url": "https://fantasy-worlds.net/lib/id13728/",
+    "match_score": 0.727,
+    "method": "aggressive"
+  },
+  "3303": {
+    "fw_id": "5072",
+    "title": "Голем",
+    "download_url": "https://fantasy-worlds.net/lib/id5072/download/",
+    "url": "https://fantasy-worlds.net/lib/id5072/",
+    "match_score": 0.743,
+    "method": "aggressive"
+  },
+  "9583": {
+    "fw_id": "36787",
+    "title": "Дверь в стене (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id36787/download/",
+    "url": "https://fantasy-worlds.net/lib/id36787/",
+    "match_score": 1.0
+  },
+  "622": {
+    "fw_id": "21625",
+    "title": "Темная игра смерти",
+    "download_url": "https://fantasy-worlds.net/lib/id21625/download/",
+    "url": "https://fantasy-worlds.net/lib/id21625/",
+    "match_score": 0.75,
+    "method": "aggressive"
+  },
+  "6187": {
+    "fw_id": "13760",
+    "title": "Смерть - дело одинокое",
+    "download_url": "https://fantasy-worlds.net/lib/id13760/download/",
+    "url": "https://fantasy-worlds.net/lib/id13760/",
+    "match_score": 0.747,
+    "method": "aggressive"
+  },
+  "79095": {
+    "fw_id": null,
+    "method": "aggressive"
+  },
+  "6335": {
+    "fw_id": "13761",
+    "title": "Зеленые тени, Белый Кит",
+    "download_url": "https://fantasy-worlds.net/lib/id13761/download/",
+    "url": "https://fantasy-worlds.net/lib/id13761/",
+    "match_score": 0.836,
+    "method": "aggressive"
+  },
+  "10774": {
+    "fw_id": "4319",
+    "title": "До скорого",
+    "download_url": "https://fantasy-worlds.net/lib/id4319/download/",
+    "url": "https://fantasy-worlds.net/lib/id4319/",
+    "match_score": 0.779,
+    "method": "aggressive"
+  },
+  "31715": {
+    "fw_id": null,
+    "method": "aggressive"
+  },
+  "6137": {
+    "fw_id": "33825",
+    "title": "Темный карнавал (сборник, перевод Марины Воронежской)",
+    "download_url": "https://fantasy-worlds.net/lib/id33825/download/",
+    "url": "https://fantasy-worlds.net/lib/id33825/",
+    "match_score": 0.688,
+    "method": "aggressive"
+  },
+  "10793": {
+    "fw_id": "35095",
+    "title": "«Профессор накрылся!» и прочие фантастические неприятности (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id35095/download/",
+    "url": "https://fantasy-worlds.net/lib/id35095/",
+    "match_score": 0.874,
+    "method": "aggressive"
+  },
+  "3269": {
+    "fw_id": "5070",
+    "title": "Из воспоминаний Ийона Тихого",
+    "download_url": "https://fantasy-worlds.net/lib/id5070/download/",
+    "url": "https://fantasy-worlds.net/lib/id5070/",
+    "match_score": 1.0,
+    "method": "aggressive"
+  },
+  "2974": {
+    "fw_id": "111",
+    "title": "Кровь эльфов",
+    "download_url": "https://fantasy-worlds.net/lib/id111/download/",
+    "url": "https://fantasy-worlds.net/lib/id111/",
+    "match_score": 0.686,
+    "method": "aggressive"
+  },
+  "6157": {
+    "fw_id": "13732",
+    "title": "451° по Фаренгейту (перевод Татьяны Шинкарь)",
+    "download_url": "https://fantasy-worlds.net/lib/id13732/download/",
+    "url": "https://fantasy-worlds.net/lib/id13732/",
+    "match_score": 0.677,
+    "method": "aggressive"
+  },
+  "894": {
+    "fw_id": "14796",
+    "title": "Норби и захватчики",
+    "download_url": "https://fantasy-worlds.net/lib/id14796/download/",
+    "url": "https://fantasy-worlds.net/lib/id14796/",
+    "match_score": 0.85,
+    "method": "aggressive"
+  },
+  "2096": {
+    "fw_id": "27720",
+    "title": "Абсолютное оружие (Сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id27720/download/",
+    "url": "https://fantasy-worlds.net/lib/id27720/",
+    "match_score": 1.0
+  },
+  "4165": {
+    "fw_id": null,
+    "method": "aggressive"
+  },
+  "6140": {
+    "fw_id": "28235",
+    "title": "Истории о динозаврах (Сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id28235/download/",
+    "url": "https://fantasy-worlds.net/lib/id28235/",
+    "match_score": 0.727,
+    "method": "aggressive"
+  },
+  "68772": {
+    "fw_id": null,
+    "method": "aggressive"
+  },
+  "8268": {
+    "fw_id": "13749",
+    "title": "Электрическое тело пою! (Сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id13749/download/",
+    "url": "https://fantasy-worlds.net/lib/id13749/",
+    "match_score": 1.0
+  },
+  "17805": {
+    "fw_id": "36209",
+    "title": "Магическое свидание",
+    "download_url": "https://fantasy-worlds.net/lib/id36209/download/",
+    "url": "https://fantasy-worlds.net/lib/id36209/",
+    "match_score": 0.9,
+    "method": "aggressive"
+  },
+  "64447": {
+    "fw_id": "24550",
+    "title": "Арена, Кукольный театр и Добро пожаловать в сумасшедший дом!",
+    "download_url": "https://fantasy-worlds.net/lib/id24550/download/",
+    "url": "https://fantasy-worlds.net/lib/id24550/",
+    "match_score": 1.0
+  },
+  "6147": {
+    "fw_id": "13749",
+    "title": "Электрическое тело пою! (Сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id13749/download/",
+    "url": "https://fantasy-worlds.net/lib/id13749/",
+    "match_score": 0.677,
+    "method": "aggressive"
+  },
+  "6127": {
+    "fw_id": "30589",
+    "title": "Гринтаун. Мишурный город",
+    "download_url": "https://fantasy-worlds.net/lib/id30589/download/",
+    "url": "https://fantasy-worlds.net/lib/id30589/",
+    "match_score": 0.769,
+    "method": "aggressive"
+  },
+  "816": {
+    "fw_id": "4245",
+    "title": "Дэвид Старр – космический рейнджер",
+    "download_url": "https://fantasy-worlds.net/lib/id4245/download/",
+    "url": "https://fantasy-worlds.net/lib/id4245/",
+    "match_score": 0.743,
+    "method": "aggressive"
+  },
+  "19152": {
+    "fw_id": null,
+    "method": "aggressive"
+  },
+  "4926": {
+    "fw_id": "1714",
+    "title": "Игра Эндера",
+    "download_url": "https://fantasy-worlds.net/lib/id1714/download/",
+    "url": "https://fantasy-worlds.net/lib/id1714/",
+    "match_score": 0.98,
+    "method": "aggressive"
+  },
+  "6142": {
+    "fw_id": "25554",
+    "title": "Высоко в небеса: 100 рассказов",
+    "download_url": "https://fantasy-worlds.net/lib/id25554/download/",
+    "url": "https://fantasy-worlds.net/lib/id25554/",
+    "match_score": 0.8,
+    "method": "aggressive"
+  },
+  "2615": {
+    "fw_id": "3482",
+    "title": "Мир Смерти против флибустьеров",
+    "download_url": "https://fantasy-worlds.net/lib/id3482/download/",
+    "url": "https://fantasy-worlds.net/lib/id3482/",
+    "match_score": 0.713,
+    "method": "aggressive"
+  },
+  "1525": {
+    "fw_id": "3695",
+    "title": "Ночь в тоскливом октябре",
+    "download_url": "https://fantasy-worlds.net/lib/id3695/download/",
+    "url": "https://fantasy-worlds.net/lib/id3695/",
+    "match_score": 0.69,
+    "method": "aggressive"
+  },
+  "12918": {
+    "fw_id": "26828",
+    "title": "День гнева (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id26828/download/",
+    "url": "https://fantasy-worlds.net/lib/id26828/",
+    "match_score": 1.0
+  },
+  "6108": {
+    "fw_id": "13745",
+    "title": "Человек в картинках (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id13745/download/",
+    "url": "https://fantasy-worlds.net/lib/id13745/",
+    "match_score": 0.723,
+    "method": "aggressive"
+  },
+  "10792": {
+    "fw_id": "35095",
+    "title": "«Профессор накрылся!» и прочие фантастические неприятности (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id35095/download/",
+    "url": "https://fantasy-worlds.net/lib/id35095/",
+    "match_score": 1.0
+  },
+  "2170": {
+    "fw_id": "37374",
+    "title": "Машина желаний (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id37374/download/",
+    "url": "https://fantasy-worlds.net/lib/id37374/",
+    "match_score": 0.688,
+    "method": "aggressive"
+  },
+  "3093": {
+    "fw_id": "33136",
+    "title": "Испытание на прочность",
+    "download_url": "https://fantasy-worlds.net/lib/id33136/download/",
+    "url": "https://fantasy-worlds.net/lib/id33136/",
+    "match_score": 0.818,
+    "method": "aggressive"
+  },
+  "10798": {
+    "fw_id": "4319",
+    "title": "До скорого",
+    "download_url": "https://fantasy-worlds.net/lib/id4319/download/",
+    "url": "https://fantasy-worlds.net/lib/id4319/",
+    "match_score": 1.0
+  },
+  "6846": {
+    "fw_id": "4338",
+    "title": "Посетители",
+    "download_url": "https://fantasy-worlds.net/lib/id4338/download/",
+    "url": "https://fantasy-worlds.net/lib/id4338/",
+    "match_score": 0.716,
+    "method": "aggressive"
+  },
+  "10516": {
+    "fw_id": "26941",
+    "title": "Без своей жизни. Упасть замертво (Сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id26941/download/",
+    "url": "https://fantasy-worlds.net/lib/id26941/",
+    "match_score": 0.779,
+    "method": "aggressive"
+  },
+  "2102": {
+    "fw_id": "31425",
+    "title": "Хождение Джоэниса. Оптимальный вариант (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id31425/download/",
+    "url": "https://fantasy-worlds.net/lib/id31425/",
+    "match_score": 0.782,
+    "method": "aggressive"
+  },
+  "3267": {
+    "fw_id": "5072",
+    "title": "Голем",
+    "download_url": "https://fantasy-worlds.net/lib/id5072/download/",
+    "url": "https://fantasy-worlds.net/lib/id5072/",
+    "match_score": 0.743,
+    "method": "aggressive"
+  },
+  "6125": {
+    "fw_id": "25554",
+    "title": "Высоко в небеса: 100 рассказов",
+    "download_url": "https://fantasy-worlds.net/lib/id25554/download/",
+    "url": "https://fantasy-worlds.net/lib/id25554/",
+    "match_score": 0.669,
+    "method": "aggressive"
+  },
+  "10525": {
+    "fw_id": "2922",
+    "title": "Братство Талисмана",
+    "download_url": "https://fantasy-worlds.net/lib/id2922/download/",
+    "url": "https://fantasy-worlds.net/lib/id2922/",
+    "match_score": 0.76,
+    "method": "aggressive"
+  },
+  "3116": {
+    "fw_id": "24906",
+    "title": "Черное и белое (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id24906/download/",
+    "url": "https://fantasy-worlds.net/lib/id24906/",
+    "match_score": 0.7,
+    "method": "aggressive"
+  },
+  "7094": {
+    "fw_id": "14653",
+    "title": "Хозяин Проливов",
+    "download_url": "https://fantasy-worlds.net/lib/id14653/download/",
+    "url": "https://fantasy-worlds.net/lib/id14653/",
+    "match_score": 0.853,
+    "method": "aggressive"
+  },
+  "340": {
+    "fw_id": "16532",
+    "title": "Оно",
+    "download_url": "https://fantasy-worlds.net/lib/id16532/download/",
+    "url": "https://fantasy-worlds.net/lib/id16532/",
+    "match_score": 0.8,
+    "method": "aggressive"
+  },
+  "10772": {
+    "fw_id": "33938",
+    "title": "«Робот-зазнайка» и другие фантастические истории (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id33938/download/",
+    "url": "https://fantasy-worlds.net/lib/id33938/",
+    "match_score": 1.0
+  },
+  "9581": {
+    "fw_id": "4608",
+    "title": "Мистер Блетсуорси на острове Рэмполь",
+    "download_url": "https://fantasy-worlds.net/lib/id4608/download/",
+    "url": "https://fantasy-worlds.net/lib/id4608/",
+    "match_score": 0.713,
+    "method": "aggressive"
+  },
+  "198673": {
+    "fw_id": "15482",
+    "title": "Вий",
+    "download_url": "https://fantasy-worlds.net/lib/id15482/download/",
+    "url": "https://fantasy-worlds.net/lib/id15482/",
+    "match_score": 0.8,
+    "method": "aggressive"
+  },
+  "2149": {
+    "fw_id": "27721",
+    "title": "Билет на планету Транай",
+    "download_url": "https://fantasy-worlds.net/lib/id27721/download/",
+    "url": "https://fantasy-worlds.net/lib/id27721/",
+    "match_score": 0.691,
+    "method": "aggressive"
+  },
+  "8749": {
+    "fw_id": "34170",
+    "title": "Маска Красной Смерти (Сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id34170/download/",
+    "url": "https://fantasy-worlds.net/lib/id34170/",
+    "match_score": 1.0
+  },
+  "10770": {
+    "fw_id": "4504",
+    "title": "Источник миров",
+    "download_url": "https://fantasy-worlds.net/lib/id4504/download/",
+    "url": "https://fantasy-worlds.net/lib/id4504/",
+    "match_score": 0.75,
+    "method": "aggressive"
+  },
+  "72136": {
+    "fw_id": null,
+    "method": "aggressive"
+  },
+  "6148": {
+    "fw_id": "34064",
+    "title": "Самые знаменитые произведения писателя в одном томе (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id34064/download/",
+    "url": "https://fantasy-worlds.net/lib/id34064/",
+    "match_score": 0.76,
+    "method": "aggressive"
+  },
+  "2120": {
+    "fw_id": "27721",
+    "title": "Билет на планету Транай",
+    "download_url": "https://fantasy-worlds.net/lib/id27721/download/",
+    "url": "https://fantasy-worlds.net/lib/id27721/",
+    "match_score": 0.718,
+    "method": "aggressive"
+  },
+  "824": {
+    "fw_id": "4255",
+    "title": "Я, робот (Сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id4255/download/",
+    "url": "https://fantasy-worlds.net/lib/id4255/",
+    "match_score": 1.0,
+    "method": "aggressive"
+  },
+  "2090": {
+    "fw_id": "15493",
+    "title": "Обитаемый остров",
+    "download_url": "https://fantasy-worlds.net/lib/id15493/download/",
+    "url": "https://fantasy-worlds.net/lib/id15493/",
+    "match_score": 0.723,
+    "method": "aggressive"
+  },
+  "892": {
+    "fw_id": "27753",
+    "title": "Академия. Вторая трилогия (Сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id27753/download/",
+    "url": "https://fantasy-worlds.net/lib/id27753/",
+    "match_score": 0.836,
+    "method": "aggressive"
+  },
+  "35343": {
+    "fw_id": "8239",
+    "title": "Листопад",
+    "download_url": "https://fantasy-worlds.net/lib/id8239/download/",
+    "url": "https://fantasy-worlds.net/lib/id8239/",
+    "match_score": 0.743,
+    "method": "aggressive"
+  },
+  "70655": {
+    "fw_id": null,
+    "method": "aggressive"
+  },
+  "27256": {
+    "fw_id": "28431",
+    "title": "Эридан (Сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id28431/download/",
+    "url": "https://fantasy-worlds.net/lib/id28431/",
+    "match_score": 0.7,
+    "method": "aggressive"
+  },
+  "7097": {
+    "fw_id": "4254",
+    "title": "Кому в навьем царстве жить хорошо",
+    "download_url": "https://fantasy-worlds.net/lib/id4254/download/",
+    "url": "https://fantasy-worlds.net/lib/id4254/",
+    "match_score": 0.71,
+    "method": "aggressive"
+  },
+  "7473": {
+    "fw_id": "13758",
+    "title": "Надвигается беда",
+    "download_url": "https://fantasy-worlds.net/lib/id13758/download/",
+    "url": "https://fantasy-worlds.net/lib/id13758/",
+    "match_score": 0.7,
+    "method": "aggressive"
+  },
+  "29203": {
+    "fw_id": "26069",
+    "title": "Неоконченные предания Нуменора и Средиземья",
+    "download_url": "https://fantasy-worlds.net/lib/id26069/download/",
+    "url": "https://fantasy-worlds.net/lib/id26069/",
+    "match_score": 0.85
+  },
+  "1693": {
+    "fw_id": "992",
+    "title": "Властелин колец",
+    "download_url": "https://fantasy-worlds.net/lib/id992/download/",
+    "url": "https://fantasy-worlds.net/lib/id992/",
+    "match_score": 1.0
+  },
+  "502648": {
+    "fw_id": "35662",
+    "title": "Космер: Тайная история (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id35662/download/",
+    "url": "https://fantasy-worlds.net/lib/id35662/",
+    "match_score": 1.0
+  },
+  "4133": {
+    "fw_id": "28630",
+    "title": "Пламя и кровь. Пляска смерти",
+    "download_url": "https://fantasy-worlds.net/lib/id28630/download/",
+    "url": "https://fantasy-worlds.net/lib/id28630/",
+    "match_score": 0.7,
+    "method": "aggressive"
+  },
+  "17792": {
+    "fw_id": "24739",
+    "title": "Мир Полудня (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id24739/download/",
+    "url": "https://fantasy-worlds.net/lib/id24739/",
+    "match_score": 1.0
+  },
+  "43133": {
+    "fw_id": "15483",
+    "title": "Вечера на хуторе близ Диканьки",
+    "download_url": "https://fantasy-worlds.net/lib/id15483/download/",
+    "url": "https://fantasy-worlds.net/lib/id15483/",
+    "match_score": 1.0,
+    "method": "aggressive"
+  },
+  "226921": {
+    "fw_id": null,
+    "method": "aggressive"
+  },
+  "16101": {
+    "fw_id": "21300",
+    "title": "Струна и люстра",
+    "download_url": "https://fantasy-worlds.net/lib/id21300/download/",
+    "url": "https://fantasy-worlds.net/lib/id21300/",
+    "match_score": 0.673,
+    "method": "aggressive"
+  },
+  "2959": {
+    "fw_id": "19385",
+    "title": "Ведьмак",
+    "download_url": "https://fantasy-worlds.net/lib/id19385/download/",
+    "url": "https://fantasy-worlds.net/lib/id19385/",
+    "match_score": 1.0
+  },
+  "38045": {
+    "fw_id": "4627",
+    "title": "Отель «У погибшего альпиниста»",
+    "download_url": "https://fantasy-worlds.net/lib/id4627/download/",
+    "url": "https://fantasy-worlds.net/lib/id4627/",
+    "match_score": 0.7,
+    "method": "aggressive"
+  },
+  "7087": {
+    "fw_id": "14826",
+    "title": "Валгалла",
+    "download_url": "https://fantasy-worlds.net/lib/id14826/download/",
+    "url": "https://fantasy-worlds.net/lib/id14826/",
+    "match_score": 0.8
+  },
+  "1991": {
+    "fw_id": "21029",
+    "title": "Наука Плоского мира. Книга 3. Часы Дарвина",
+    "download_url": "https://fantasy-worlds.net/lib/id21029/download/",
+    "url": "https://fantasy-worlds.net/lib/id21029/",
+    "match_score": 0.836
+  },
+  "188169": {
+    "fw_id": "16655",
+    "title": "Страх Мудреца",
+    "download_url": "https://fantasy-worlds.net/lib/id16655/download/",
+    "url": "https://fantasy-worlds.net/lib/id16655/",
+    "match_score": 0.631,
+    "method": "aggressive"
+  },
+  "919368": {
+    "fw_id": null,
+    "method": "aggressive"
+  },
+  "92": {
+    "fw_id": "1808",
+    "title": "Гиперион",
+    "download_url": "https://fantasy-worlds.net/lib/id1808/download/",
+    "url": "https://fantasy-worlds.net/lib/id1808/",
+    "match_score": 1.0
+  },
+  "43266": {
+    "fw_id": "15482",
+    "title": "Вий",
+    "download_url": "https://fantasy-worlds.net/lib/id15482/download/",
+    "url": "https://fantasy-worlds.net/lib/id15482/",
+    "match_score": 0.64,
+    "method": "aggressive"
+  },
+  "402728": {
+    "fw_id": "1808",
+    "title": "Гиперион",
+    "download_url": "https://fantasy-worlds.net/lib/id1808/download/",
+    "url": "https://fantasy-worlds.net/lib/id1808/",
+    "match_score": 1.0
+  },
+  "28988": {
+    "fw_id": "13757",
+    "title": "Марсианские хроники. Полное издание",
+    "download_url": "https://fantasy-worlds.net/lib/id13757/download/",
+    "url": "https://fantasy-worlds.net/lib/id13757/",
+    "match_score": 1.0,
+    "method": "aggressive"
+  },
+  "127105": {
+    "fw_id": "29834",
+    "title": "Немного ненависти",
+    "download_url": "https://fantasy-worlds.net/lib/id29834/download/",
+    "url": "https://fantasy-worlds.net/lib/id29834/",
+    "match_score": 0.753,
+    "method": "aggressive"
+  },
+  "10879": {
+    "fw_id": "4810",
+    "title": "Наследник",
+    "download_url": "https://fantasy-worlds.net/lib/id4810/download/",
+    "url": "https://fantasy-worlds.net/lib/id4810/",
+    "match_score": 0.733,
+    "method": "aggressive"
+  },
+  "155739": {
+    "fw_id": "15520",
+    "title": "Дети капитана Гранта",
+    "download_url": "https://fantasy-worlds.net/lib/id15520/download/",
+    "url": "https://fantasy-worlds.net/lib/id15520/",
+    "match_score": 0.8,
+    "method": "aggressive"
+  },
+  "4696": {
+    "fw_id": "2306",
+    "title": "Академия",
+    "download_url": "https://fantasy-worlds.net/lib/id2306/download/",
+    "url": "https://fantasy-worlds.net/lib/id2306/",
+    "match_score": 1.0
+  },
+  "72": {
+    "fw_id": "271",
+    "title": "Кровь Амбера",
+    "download_url": "https://fantasy-worlds.net/lib/id271/download/",
+    "url": "https://fantasy-worlds.net/lib/id271/",
+    "match_score": 0.857
+  },
+  "204782": {
+    "fw_id": "12491",
+    "title": "Страж",
+    "download_url": "https://fantasy-worlds.net/lib/id12491/download/",
+    "url": "https://fantasy-worlds.net/lib/id12491/",
+    "match_score": 1.0
+  },
+  "3650": {
+    "fw_id": "36297",
+    "title": "Наука Гарри Поттера",
+    "download_url": "https://fantasy-worlds.net/lib/id36297/download/",
+    "url": "https://fantasy-worlds.net/lib/id36297/",
+    "match_score": 0.8,
+    "method": "aggressive"
+  },
+  "155273": {
+    "fw_id": "23787",
+    "title": "Ангелы Ойкумены",
+    "download_url": "https://fantasy-worlds.net/lib/id23787/download/",
+    "url": "https://fantasy-worlds.net/lib/id23787/",
+    "match_score": 0.925
+  },
+  "7918": {
+    "fw_id": "13757",
+    "title": "Марсианские хроники. Полное издание",
+    "download_url": "https://fantasy-worlds.net/lib/id13757/download/",
+    "url": "https://fantasy-worlds.net/lib/id13757/",
+    "match_score": 0.949,
+    "method": "aggressive"
+  },
+  "2168": {
+    "fw_id": "23929",
+    "title": "Миры Роберта Шекли. Книга 1",
+    "download_url": "https://fantasy-worlds.net/lib/id23929/download/",
+    "url": "https://fantasy-worlds.net/lib/id23929/",
+    "match_score": 0.647,
+    "method": "aggressive"
+  },
+  "63846": {
+    "fw_id": "20866",
+    "title": "Город драконов",
+    "download_url": "https://fantasy-worlds.net/lib/id20866/download/",
+    "url": "https://fantasy-worlds.net/lib/id20866/",
+    "match_score": 0.711,
+    "method": "aggressive"
+  },
+  "30752": {
+    "fw_id": "37153",
+    "title": "Смешенье (новая редакция перевода)",
+    "download_url": "https://fantasy-worlds.net/lib/id37153/download/",
+    "url": "https://fantasy-worlds.net/lib/id37153/",
+    "match_score": 0.733,
+    "method": "aggressive"
+  },
+  "17105": {
+    "fw_id": "12024",
+    "title": "Гарпия",
+    "download_url": "https://fantasy-worlds.net/lib/id12024/download/",
+    "url": "https://fantasy-worlds.net/lib/id12024/",
+    "match_score": 0.8,
+    "method": "aggressive"
+  },
+  "6414": {
+    "fw_id": "1555",
+    "title": "Танцы на снегу",
+    "download_url": "https://fantasy-worlds.net/lib/id1555/download/",
+    "url": "https://fantasy-worlds.net/lib/id1555/",
+    "match_score": 0.76,
+    "method": "aggressive"
+  },
+  "495341": {
+    "fw_id": "25285",
+    "title": "Сказания Меекханского пограничья. Восток – Запад",
+    "download_url": "https://fantasy-worlds.net/lib/id25285/download/",
+    "url": "https://fantasy-worlds.net/lib/id25285/",
+    "match_score": 1.0,
+    "method": "aggressive"
+  },
+  "11238": {
+    "fw_id": "24120",
+    "title": "Хогбены, гномы, демоны, а также роботы, инопланетяне и прочие захватывающие неприятности",
+    "download_url": "https://fantasy-worlds.net/lib/id24120/download/",
+    "url": "https://fantasy-worlds.net/lib/id24120/",
+    "match_score": 0.894,
+    "method": "aggressive"
+  },
+  "5385": {
+    "fw_id": "31229",
+    "title": "Барраяр (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id31229/download/",
+    "url": "https://fantasy-worlds.net/lib/id31229/",
+    "match_score": 0.98,
+    "method": "aggressive"
+  },
+  "2433": {
+    "fw_id": "3483",
+    "title": "Мир Смерти и твари из преисподней",
+    "download_url": "https://fantasy-worlds.net/lib/id3483/download/",
+    "url": "https://fantasy-worlds.net/lib/id3483/",
+    "match_score": 1.0
+  },
+  "463": {
+    "fw_id": "12973",
+    "title": "Шутиха",
+    "download_url": "https://fantasy-worlds.net/lib/id12973/download/",
+    "url": "https://fantasy-worlds.net/lib/id12973/",
+    "match_score": 0.7,
+    "method": "aggressive"
+  },
+  "30920": {
+    "fw_id": "5069",
+    "title": "Звездные дневники Ийона Тихого",
+    "download_url": "https://fantasy-worlds.net/lib/id5069/download/",
+    "url": "https://fantasy-worlds.net/lib/id5069/",
+    "match_score": 1.0
+  },
+  "39324": {
+    "fw_id": "3831",
+    "title": "Сэр Найджел Лоринг",
+    "download_url": "https://fantasy-worlds.net/lib/id3831/download/",
+    "url": "https://fantasy-worlds.net/lib/id3831/",
+    "match_score": 0.7,
+    "method": "aggressive"
+  },
+  "7468": {
+    "fw_id": "593",
+    "title": "Белорские хроники (Сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id593/download/",
+    "url": "https://fantasy-worlds.net/lib/id593/",
+    "match_score": 0.812,
+    "method": "aggressive"
+  },
+  "2951": {
+    "fw_id": "14141",
+    "title": "Троя. Грозовой щит",
+    "download_url": "https://fantasy-worlds.net/lib/id14141/download/",
+    "url": "https://fantasy-worlds.net/lib/id14141/",
+    "match_score": 1.0
+  },
+  "49092": {
+    "fw_id": "38279",
+    "title": "Мифы Ктулху (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id38279/download/",
+    "url": "https://fantasy-worlds.net/lib/id38279/",
+    "match_score": 1.0,
+    "method": "aggressive"
+  },
+  "448949": {
+    "fw_id": "124",
+    "title": "Хроники Ехо",
+    "download_url": "https://fantasy-worlds.net/lib/id124/download/",
+    "url": "https://fantasy-worlds.net/lib/id124/",
+    "match_score": 0.733,
+    "method": "aggressive"
+  },
+  "2917": {
+    "fw_id": "379",
+    "title": "Друсс-Легенда",
+    "download_url": "https://fantasy-worlds.net/lib/id379/download/",
+    "url": "https://fantasy-worlds.net/lib/id379/",
+    "match_score": 0.733,
+    "method": "aggressive"
+  },
+  "9430": {
+    "fw_id": "19618",
+    "title": "Ветер и искры",
+    "download_url": "https://fantasy-worlds.net/lib/id19618/download/",
+    "url": "https://fantasy-worlds.net/lib/id19618/",
+    "match_score": 1.0
+  },
+  "27289": {
+    "fw_id": "13821",
+    "title": "День триффидов",
+    "download_url": "https://fantasy-worlds.net/lib/id13821/download/",
+    "url": "https://fantasy-worlds.net/lib/id13821/",
+    "match_score": 0.889,
+    "method": "aggressive"
+  },
+  "11239": {
+    "fw_id": "4501",
+    "title": "Пять рассказов о Гэллегере",
+    "download_url": "https://fantasy-worlds.net/lib/id4501/download/",
+    "url": "https://fantasy-worlds.net/lib/id4501/",
+    "match_score": 0.775,
+    "method": "aggressive"
+  },
+  "3201": {
+    "fw_id": "95",
+    "title": "Тёмный Охотник",
+    "download_url": "https://fantasy-worlds.net/lib/id95/download/",
+    "url": "https://fantasy-worlds.net/lib/id95/",
+    "match_score": 0.716,
+    "method": "aggressive"
+  },
+  "3315": {
+    "fw_id": "5053",
+    "title": "Рассказы о пилоте Пирксе (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id5053/download/",
+    "url": "https://fantasy-worlds.net/lib/id5053/",
+    "match_score": 1.0
+  },
+  "10883": {
+    "fw_id": "23702",
+    "title": "Доктор Павлыш",
+    "download_url": "https://fantasy-worlds.net/lib/id23702/download/",
+    "url": "https://fantasy-worlds.net/lib/id23702/",
+    "match_score": 1.0
+  },
+  "10181": {
+    "fw_id": "31911",
+    "title": "Дорога домой",
+    "download_url": "https://fantasy-worlds.net/lib/id31911/download/",
+    "url": "https://fantasy-worlds.net/lib/id31911/",
+    "match_score": 0.811,
+    "method": "aggressive"
+  },
+  "93505": {
+    "fw_id": "94",
+    "title": "Под Знаком Мантикоры",
+    "download_url": "https://fantasy-worlds.net/lib/id94/download/",
+    "url": "https://fantasy-worlds.net/lib/id94/",
+    "match_score": 0.933
+  },
+  "103850": {
+    "fw_id": "4674",
+    "title": "Ходячий замок",
+    "download_url": "https://fantasy-worlds.net/lib/id4674/download/",
+    "url": "https://fantasy-worlds.net/lib/id4674/",
+    "match_score": 1.0
+  },
+  "1154": {
+    "fw_id": "12015",
+    "title": "Сумерки мира",
+    "download_url": "https://fantasy-worlds.net/lib/id12015/download/",
+    "url": "https://fantasy-worlds.net/lib/id12015/",
+    "match_score": 0.686,
+    "method": "aggressive"
+  },
+  "1936": {
+    "fw_id": "2270",
+    "title": "Звёзды — холодные игрушки",
+    "download_url": "https://fantasy-worlds.net/lib/id2270/download/",
+    "url": "https://fantasy-worlds.net/lib/id2270/",
+    "match_score": 1.0
+  },
+  "2699": {
+    "fw_id": "1182",
+    "title": "Нож сновидений",
+    "download_url": "https://fantasy-worlds.net/lib/id1182/download/",
+    "url": "https://fantasy-worlds.net/lib/id1182/",
+    "match_score": 0.713,
+    "method": "aggressive"
+  },
+  "16446": {
+    "fw_id": "12953",
+    "title": "Страх",
+    "download_url": "https://fantasy-worlds.net/lib/id12953/download/",
+    "url": "https://fantasy-worlds.net/lib/id12953/",
+    "match_score": 0.76,
+    "method": "aggressive"
+  },
+  "7022": {
+    "fw_id": "22641",
+    "title": "Война с «Миром»",
+    "download_url": "https://fantasy-worlds.net/lib/id22641/download/",
+    "url": "https://fantasy-worlds.net/lib/id22641/",
+    "match_score": 0.7,
+    "method": "aggressive"
+  },
+  "10817": {
+    "fw_id": "1995",
+    "title": "Линия грез",
+    "download_url": "https://fantasy-worlds.net/lib/id1995/download/",
+    "url": "https://fantasy-worlds.net/lib/id1995/",
+    "match_score": 1.0
+  },
+  "180371": {
+    "fw_id": "12938",
+    "title": "Дом в котором...",
+    "download_url": "https://fantasy-worlds.net/lib/id12938/download/",
+    "url": "https://fantasy-worlds.net/lib/id12938/",
+    "match_score": 1.0
+  },
+  "47946": {
+    "fw_id": "16743",
+    "title": "Стократ",
+    "download_url": "https://fantasy-worlds.net/lib/id16743/download/",
+    "url": "https://fantasy-worlds.net/lib/id16743/",
+    "match_score": 0.836,
+    "method": "aggressive"
+  },
+  "23963": {
+    "fw_id": "537",
+    "title": "Врата Птолемея",
+    "download_url": "https://fantasy-worlds.net/lib/id537/download/",
+    "url": "https://fantasy-worlds.net/lib/id537/",
+    "match_score": 0.655,
+    "method": "aggressive"
+  },
+  "398522": {
+    "fw_id": "26831",
+    "title": "Космоолухи: рядом. Том 1",
+    "download_url": "https://fantasy-worlds.net/lib/id26831/download/",
+    "url": "https://fantasy-worlds.net/lib/id26831/",
+    "match_score": 1.0
+  },
+  "38221": {
+    "fw_id": "24739",
+    "title": "Мир Полудня (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id24739/download/",
+    "url": "https://fantasy-worlds.net/lib/id24739/",
+    "match_score": 0.782,
+    "method": "aggressive"
+  },
+  "424": {
+    "fw_id": "1908",
+    "title": "Тёмная Башня",
+    "download_url": "https://fantasy-worlds.net/lib/id1908/download/",
+    "url": "https://fantasy-worlds.net/lib/id1908/",
+    "match_score": 1.0
+  },
+  "602239": {
+    "fw_id": "36089",
+    "title": "Воспоминания о прошлом Земли. Трилогия (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id36089/download/",
+    "url": "https://fantasy-worlds.net/lib/id36089/",
+    "match_score": 0.862,
+    "method": "aggressive"
+  },
+  "43122": {
+    "fw_id": "28973",
+    "title": "Лезвие бритвы. Звездные корабли. Обсерватория Нур-и-Дешт. Озеро горных духов (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id28973/download/",
+    "url": "https://fantasy-worlds.net/lib/id28973/",
+    "match_score": 0.7,
+    "method": "aggressive"
+  },
+  "242782": {
+    "fw_id": "4980",
+    "title": "Пространство Откровения",
+    "download_url": "https://fantasy-worlds.net/lib/id4980/download/",
+    "url": "https://fantasy-worlds.net/lib/id4980/",
+    "match_score": 0.822,
+    "method": "aggressive"
+  },
+  "2811": {
+    "fw_id": null,
+    "method": "aggressive"
+  },
+  "35342": {
+    "fw_id": "33270",
+    "title": "Карма. Том 2",
+    "download_url": "https://fantasy-worlds.net/lib/id33270/download/",
+    "url": "https://fantasy-worlds.net/lib/id33270/",
+    "match_score": 0.76,
+    "method": "aggressive"
+  },
+  "24789": {
+    "fw_id": "7638",
+    "title": "Слово о Драконе",
+    "download_url": "https://fantasy-worlds.net/lib/id7638/download/",
+    "url": "https://fantasy-worlds.net/lib/id7638/",
+    "match_score": 1.0,
+    "method": "aggressive"
+  },
+  "433085": {
+    "fw_id": "12978",
+    "title": "Эпоха мертвых. Прорыв",
+    "download_url": "https://fantasy-worlds.net/lib/id12978/download/",
+    "url": "https://fantasy-worlds.net/lib/id12978/",
+    "match_score": 0.836
+  },
+  "5714": {
+    "fw_id": "5509",
+    "title": "Джонни-Мнемоник",
+    "download_url": "https://fantasy-worlds.net/lib/id5509/download/",
+    "url": "https://fantasy-worlds.net/lib/id5509/",
+    "match_score": 0.733,
+    "method": "aggressive"
+  },
+  "1074922": {
+    "fw_id": "31248",
+    "title": "Проблема с миром",
+    "download_url": "https://fantasy-worlds.net/lib/id31248/download/",
+    "url": "https://fantasy-worlds.net/lib/id31248/",
+    "match_score": 0.7,
+    "method": "aggressive"
+  },
+  "7580": {
+    "fw_id": "704",
+    "title": "Рыцарь двух миров",
+    "download_url": "https://fantasy-worlds.net/lib/id704/download/",
+    "url": "https://fantasy-worlds.net/lib/id704/",
+    "match_score": 0.857
+  },
+  "30569": {
+    "fw_id": "20042",
+    "title": "Многорукий бог далайна",
+    "download_url": "https://fantasy-worlds.net/lib/id20042/download/",
+    "url": "https://fantasy-worlds.net/lib/id20042/",
+    "match_score": 1.0
+  },
+  "3756": {
+    "fw_id": "449",
+    "title": "Тьма",
+    "download_url": "https://fantasy-worlds.net/lib/id449/download/",
+    "url": "https://fantasy-worlds.net/lib/id449/",
+    "match_score": 0.8,
+    "method": "aggressive"
+  },
+  "7419": {
+    "fw_id": "24304",
+    "title": "Легенды древнего Хенинга (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id24304/download/",
+    "url": "https://fantasy-worlds.net/lib/id24304/",
+    "match_score": 0.727,
+    "method": "aggressive"
+  },
+  "17877": {
+    "fw_id": "5393",
+    "title": "Дюна",
+    "download_url": "https://fantasy-worlds.net/lib/id5393/download/",
+    "url": "https://fantasy-worlds.net/lib/id5393/",
+    "match_score": 0.85
+  },
+  "9965": {
+    "fw_id": "13807",
+    "title": "2001: Космическая одиссея",
+    "download_url": "https://fantasy-worlds.net/lib/id13807/download/",
+    "url": "https://fantasy-worlds.net/lib/id13807/",
+    "match_score": 1.0
+  },
+  "2004": {
+    "fw_id": "14953",
+    "title": "Техану. Последнее из сказаний о Земноморье",
+    "download_url": "https://fantasy-worlds.net/lib/id14953/download/",
+    "url": "https://fantasy-worlds.net/lib/id14953/",
+    "match_score": 1.0,
+    "method": "aggressive"
+  },
+  "15411": {
+    "fw_id": "1994",
+    "title": "Геном",
+    "download_url": "https://fantasy-worlds.net/lib/id1994/download/",
+    "url": "https://fantasy-worlds.net/lib/id1994/",
+    "match_score": 1.0
+  },
+  "322657": {
+    "fw_id": "31319",
+    "title": "Дань псам. Том 2",
+    "download_url": "https://fantasy-worlds.net/lib/id31319/download/",
+    "url": "https://fantasy-worlds.net/lib/id31319/",
+    "match_score": 0.733,
+    "method": "aggressive"
+  },
+  "1151": {
+    "fw_id": "12791",
+    "title": "Кукольных дел мастер",
+    "download_url": "https://fantasy-worlds.net/lib/id12791/download/",
+    "url": "https://fantasy-worlds.net/lib/id12791/",
+    "match_score": 0.7,
+    "method": "aggressive"
+  },
+  "31518": {
+    "fw_id": "31319",
+    "title": "Дань псам. Том 2",
+    "download_url": "https://fantasy-worlds.net/lib/id31319/download/",
+    "url": "https://fantasy-worlds.net/lib/id31319/",
+    "match_score": 0.733,
+    "method": "aggressive"
+  },
+  "21904": {
+    "fw_id": "13212",
+    "title": "Властелин",
+    "download_url": "https://fantasy-worlds.net/lib/id13212/download/",
+    "url": "https://fantasy-worlds.net/lib/id13212/",
+    "match_score": 0.733,
+    "method": "aggressive"
+  },
+  "3997": {
+    "fw_id": "32175",
+    "title": "Королева Солнца (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id32175/download/",
+    "url": "https://fantasy-worlds.net/lib/id32175/",
+    "match_score": 1.0
+  },
+  "30938": {
+    "fw_id": "30095",
+    "title": "Кибериада. Сказки роботов (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id30095/download/",
+    "url": "https://fantasy-worlds.net/lib/id30095/",
+    "match_score": 1.0
+  },
+  "4672": {
+    "fw_id": "22867",
+    "title": "Эндер в изгнании",
+    "download_url": "https://fantasy-worlds.net/lib/id22867/download/",
+    "url": "https://fantasy-worlds.net/lib/id22867/",
+    "match_score": 0.88,
+    "method": "aggressive"
+  },
+  "398305": {
+    "fw_id": "18489",
+    "title": "Ловец человеков",
+    "download_url": "https://fantasy-worlds.net/lib/id18489/download/",
+    "url": "https://fantasy-worlds.net/lib/id18489/",
+    "match_score": 0.625,
+    "method": "aggressive"
+  },
+  "4349": {
+    "fw_id": "35349",
+    "title": "Золотые анклавы",
+    "download_url": "https://fantasy-worlds.net/lib/id35349/download/",
+    "url": "https://fantasy-worlds.net/lib/id35349/",
+    "match_score": 0.84,
+    "method": "aggressive"
+  },
+  "10876": {
+    "fw_id": "17046",
+    "title": "Полые холмы",
+    "download_url": "https://fantasy-worlds.net/lib/id17046/download/",
+    "url": "https://fantasy-worlds.net/lib/id17046/",
+    "match_score": 0.632,
+    "method": "aggressive"
+  },
+  "190114": {
+    "fw_id": "35126",
+    "title": "Соломон Кейн и другие герои (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id35126/download/",
+    "url": "https://fantasy-worlds.net/lib/id35126/",
+    "match_score": 0.625,
+    "method": "aggressive"
+  },
+  "31372": {
+    "fw_id": "3758",
+    "title": "Добрые предзнаменования",
+    "download_url": "https://fantasy-worlds.net/lib/id3758/download/",
+    "url": "https://fantasy-worlds.net/lib/id3758/",
+    "match_score": 1.0,
+    "method": "aggressive"
+  },
+  "10880": {
+    "fw_id": "5049",
+    "title": "Возвращение в Гусляр (рассказы)",
+    "download_url": "https://fantasy-worlds.net/lib/id5049/download/",
+    "url": "https://fantasy-worlds.net/lib/id5049/",
+    "match_score": 1.0
+  },
+  "36264": {
+    "fw_id": "29428",
+    "title": "Крысиный король",
+    "download_url": "https://fantasy-worlds.net/lib/id29428/download/",
+    "url": "https://fantasy-worlds.net/lib/id29428/",
+    "match_score": 0.673,
+    "method": "aggressive"
+  },
+  "43497": {
+    "fw_id": "33997",
+    "title": "Приманка для призраков",
+    "download_url": "https://fantasy-worlds.net/lib/id33997/download/",
+    "url": "https://fantasy-worlds.net/lib/id33997/",
+    "match_score": 0.667,
+    "method": "aggressive"
+  },
+  "10850": {
+    "fw_id": "14065",
+    "title": "Галактический вихрь",
+    "download_url": "https://fantasy-worlds.net/lib/id14065/download/",
+    "url": "https://fantasy-worlds.net/lib/id14065/",
+    "match_score": 0.786
+  },
+  "16939": {
+    "fw_id": "34686",
+    "title": "Джек из Тени (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id34686/download/",
+    "url": "https://fantasy-worlds.net/lib/id34686/",
+    "match_score": 1.0
+  },
+  "23375": {
+    "fw_id": "2753",
+    "title": "Восстание",
+    "download_url": "https://fantasy-worlds.net/lib/id2753/download/",
+    "url": "https://fantasy-worlds.net/lib/id2753/",
+    "match_score": 0.7,
+    "method": "aggressive"
+  },
+  "1255": {
+    "fw_id": "4224",
+    "title": "Ночной Дозор",
+    "download_url": "https://fantasy-worlds.net/lib/id4224/download/",
+    "url": "https://fantasy-worlds.net/lib/id4224/",
+    "match_score": 1.0
+  },
+  "5039": {
+    "fw_id": "13732",
+    "title": "451° по Фаренгейту (перевод Татьяны Шинкарь)",
+    "download_url": "https://fantasy-worlds.net/lib/id13732/download/",
+    "url": "https://fantasy-worlds.net/lib/id13732/",
+    "match_score": 1.0
+  },
+  "1260": {
+    "fw_id": "2088",
+    "title": "Дневной дозор",
+    "download_url": "https://fantasy-worlds.net/lib/id2088/download/",
+    "url": "https://fantasy-worlds.net/lib/id2088/",
+    "match_score": 1.0
+  },
+  "18": {
+    "fw_id": "260",
+    "title": "Девять принцев Амбера",
+    "download_url": "https://fantasy-worlds.net/lib/id260/download/",
+    "url": "https://fantasy-worlds.net/lib/id260/",
+    "match_score": 1.0
+  },
+  "3652": {
+    "fw_id": "4590",
+    "title": "Гарри Поттер и Тайная комната",
+    "download_url": "https://fantasy-worlds.net/lib/id4590/download/",
+    "url": "https://fantasy-worlds.net/lib/id4590/",
+    "match_score": 0.98,
+    "method": "aggressive"
+  },
+  "7164": {
+    "fw_id": "1549",
+    "title": "Черновик",
+    "download_url": "https://fantasy-worlds.net/lib/id1549/download/",
+    "url": "https://fantasy-worlds.net/lib/id1549/",
+    "match_score": 1.0
+  },
+  "1276": {
+    "fw_id": "2089",
+    "title": "Сумеречный Дозор",
+    "download_url": "https://fantasy-worlds.net/lib/id2089/download/",
+    "url": "https://fantasy-worlds.net/lib/id2089/",
+    "match_score": 1.0
+  },
+  "80145": {
+    "fw_id": "12974",
+    "title": "Кровь и железо",
+    "download_url": "https://fantasy-worlds.net/lib/id12974/download/",
+    "url": "https://fantasy-worlds.net/lib/id12974/",
+    "match_score": 1.0
+  },
+  "3655": {
+    "fw_id": null
+  },
+  "3699": {
+    "fw_id": null
+  },
+  "1257": {
+    "fw_id": "1553",
+    "title": "Фальшивые зеркала",
+    "download_url": "https://fantasy-worlds.net/lib/id1553/download/",
+    "url": "https://fantasy-worlds.net/lib/id1553/",
+    "match_score": 1.0
+  },
+  "2965": {
+    "fw_id": "122",
+    "title": "Башня ласточки",
+    "download_url": "https://fantasy-worlds.net/lib/id122/download/",
+    "url": "https://fantasy-worlds.net/lib/id122/",
+    "match_score": 1.0
+  },
+  "2966": {
+    "fw_id": "123",
+    "title": "Владычица озера",
+    "download_url": "https://fantasy-worlds.net/lib/id123/download/",
+    "url": "https://fantasy-worlds.net/lib/id123/",
+    "match_score": 1.0
+  },
+  "12167": {
+    "fw_id": "2091",
+    "title": "Последний Дозор",
+    "download_url": "https://fantasy-worlds.net/lib/id2091/download/",
+    "url": "https://fantasy-worlds.net/lib/id2091/",
+    "match_score": 1.0
+  },
+  "1274": {
+    "fw_id": "21496",
+    "title": "Визиты: Осенние визиты. Спектр. Кредо",
+    "download_url": "https://fantasy-worlds.net/lib/id21496/download/",
+    "url": "https://fantasy-worlds.net/lib/id21496/",
+    "match_score": 1.0
+  },
+  "12580": {
+    "fw_id": "1544",
+    "title": "Чистовик",
+    "download_url": "https://fantasy-worlds.net/lib/id1544/download/",
+    "url": "https://fantasy-worlds.net/lib/id1544/",
+    "match_score": 1.0
+  },
+  "3204": {
+    "fw_id": "14456",
+    "title": "Крадущийся в тени",
+    "download_url": "https://fantasy-worlds.net/lib/id14456/download/",
+    "url": "https://fantasy-worlds.net/lib/id14456/",
+    "match_score": 1.0
+  },
+  "1243": {
+    "fw_id": "2270",
+    "title": "Звёзды — холодные игрушки",
+    "download_url": "https://fantasy-worlds.net/lib/id2270/download/",
+    "url": "https://fantasy-worlds.net/lib/id2270/",
+    "match_score": 1.0
+  },
+  "4351": {
+    "fw_id": "501",
+    "title": "Метро 2033",
+    "download_url": "https://fantasy-worlds.net/lib/id501/download/",
+    "url": "https://fantasy-worlds.net/lib/id501/",
+    "match_score": 1.0
+  },
+  "4670": {
+    "fw_id": null
+  },
+  "3205": {
+    "fw_id": "14457",
+    "title": "Джанга с тенями",
+    "download_url": "https://fantasy-worlds.net/lib/id14457/download/",
+    "url": "https://fantasy-worlds.net/lib/id14457/",
+    "match_score": 1.0
+  },
+  "1223": {
+    "fw_id": "31914",
+    "title": "Книга гор: Рыцари сорока островов. Лорд с планеты Земля. Мальчик и тьма (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id31914/download/",
+    "url": "https://fantasy-worlds.net/lib/id31914/",
+    "match_score": 1.0
+  },
+  "319": {
+    "fw_id": "1902",
+    "title": "Стрелок",
+    "download_url": "https://fantasy-worlds.net/lib/id1902/download/",
+    "url": "https://fantasy-worlds.net/lib/id1902/",
+    "match_score": 1.0
+  },
+  "3206": {
+    "fw_id": "14458",
+    "title": "Вьюга теней",
+    "download_url": "https://fantasy-worlds.net/lib/id14458/download/",
+    "url": "https://fantasy-worlds.net/lib/id14458/",
+    "match_score": 1.0
+  },
+  "32": {
+    "fw_id": "266",
+    "title": "Владения Хаоса",
+    "download_url": "https://fantasy-worlds.net/lib/id266/download/",
+    "url": "https://fantasy-worlds.net/lib/id266/",
+    "match_score": 1.0
+  },
+  "1252": {
+    "fw_id": "2271",
+    "title": "Звездная тень",
+    "download_url": "https://fantasy-worlds.net/lib/id2271/download/",
+    "url": "https://fantasy-worlds.net/lib/id2271/",
+    "match_score": 1.0
+  },
+  "15067": {
+    "fw_id": "13821",
+    "title": "День триффидов",
+    "download_url": "https://fantasy-worlds.net/lib/id13821/download/",
+    "url": "https://fantasy-worlds.net/lib/id13821/",
+    "match_score": 0.964,
+    "method": "aggressive"
+  },
+  "1164": {
+    "fw_id": "285",
+    "title": "Алмазный Меч, Деревянный Меч. Том 2",
+    "download_url": "https://fantasy-worlds.net/lib/id285/download/",
+    "url": "https://fantasy-worlds.net/lib/id285/",
+    "match_score": 1.0
+  },
+  "9457": {
+    "fw_id": "2361",
+    "title": "Война Миров",
+    "download_url": "https://fantasy-worlds.net/lib/id2361/download/",
+    "url": "https://fantasy-worlds.net/lib/id2361/",
+    "match_score": 1.0
+  },
+  "1254": {
+    "fw_id": "1995",
+    "title": "Линия грез",
+    "download_url": "https://fantasy-worlds.net/lib/id1995/download/",
+    "url": "https://fantasy-worlds.net/lib/id1995/",
+    "match_score": 1.0
+  },
+  "1259": {
+    "fw_id": "1994",
+    "title": "Геном",
+    "download_url": "https://fantasy-worlds.net/lib/id1994/download/",
+    "url": "https://fantasy-worlds.net/lib/id1994/",
+    "match_score": 1.0
+  },
+  "2431": {
+    "fw_id": "30",
+    "title": "Волкодав",
+    "download_url": "https://fantasy-worlds.net/lib/id30/download/",
+    "url": "https://fantasy-worlds.net/lib/id30/",
+    "match_score": 1.0
+  },
+  "7182": {
+    "fw_id": "36477",
+    "title": "Двадцать тысяч лье под водой (перевод Елены Савиной)",
+    "download_url": "https://fantasy-worlds.net/lib/id36477/download/",
+    "url": "https://fantasy-worlds.net/lib/id36477/",
+    "match_score": 1.0
+  },
+  "134421": {
+    "fw_id": "29814",
+    "title": "Огнепад: Ложная слепота. Зеро. Боги насекомых. Полковник. Эхопраксия (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id29814/download/",
+    "url": "https://fantasy-worlds.net/lib/id29814/",
+    "match_score": 1.0
+  },
+  "291": {
+    "fw_id": "15490",
+    "title": "Сияние",
+    "download_url": "https://fantasy-worlds.net/lib/id15490/download/",
+    "url": "https://fantasy-worlds.net/lib/id15490/",
+    "match_score": 1.0
+  },
+  "31104": {
+    "fw_id": "32396",
+    "title": "Vita Nostra. Работа над ошибками",
+    "download_url": "https://fantasy-worlds.net/lib/id32396/download/",
+    "url": "https://fantasy-worlds.net/lib/id32396/",
+    "match_score": 1.0
+  },
+  "10179": {
+    "fw_id": "199",
+    "title": "Безымянный раб",
+    "download_url": "https://fantasy-worlds.net/lib/id199/download/",
+    "url": "https://fantasy-worlds.net/lib/id199/",
+    "match_score": 1.0
+  },
+  "197819": {
+    "fw_id": "12491",
+    "title": "Страж",
+    "download_url": "https://fantasy-worlds.net/lib/id12491/download/",
+    "url": "https://fantasy-worlds.net/lib/id12491/",
+    "match_score": 1.0
+  },
+  "1239": {
+    "fw_id": "14441",
+    "title": "Императоры иллюзий",
+    "download_url": "https://fantasy-worlds.net/lib/id14441/download/",
+    "url": "https://fantasy-worlds.net/lib/id14441/",
+    "match_score": 1.0
+  },
+  "4555": {
+    "fw_id": "13529",
+    "title": "Искатели ветра",
+    "download_url": "https://fantasy-worlds.net/lib/id13529/download/",
+    "url": "https://fantasy-worlds.net/lib/id13529/",
+    "match_score": 1.0
+  },
+  "9452": {
+    "fw_id": "2365",
+    "title": "Машина времени",
+    "download_url": "https://fantasy-worlds.net/lib/id2365/download/",
+    "url": "https://fantasy-worlds.net/lib/id2365/",
+    "match_score": 1.0
+  },
+  "357": {
+    "fw_id": "1903",
+    "title": "Извлечение троих",
+    "download_url": "https://fantasy-worlds.net/lib/id1903/download/",
+    "url": "https://fantasy-worlds.net/lib/id1903/",
+    "match_score": 1.0
+  },
+  "10134": {
+    "fw_id": "13146",
+    "title": "Американские боги",
+    "download_url": "https://fantasy-worlds.net/lib/id13146/download/",
+    "url": "https://fantasy-worlds.net/lib/id13146/",
+    "match_score": 1.0
+  },
+  "2796": {
+    "fw_id": "4307",
+    "title": "Звездный десант",
+    "download_url": "https://fantasy-worlds.net/lib/id4307/download/",
+    "url": "https://fantasy-worlds.net/lib/id4307/",
+    "match_score": 1.0
+  },
+  "1165": {
+    "fw_id": "286",
+    "title": "Рождение Мага",
+    "download_url": "https://fantasy-worlds.net/lib/id286/download/",
+    "url": "https://fantasy-worlds.net/lib/id286/",
+    "match_score": 1.0
+  },
+  "1261": {
+    "fw_id": "1555",
+    "title": "Танцы на снегу",
+    "download_url": "https://fantasy-worlds.net/lib/id1555/download/",
+    "url": "https://fantasy-worlds.net/lib/id1555/",
+    "match_score": 1.0
+  },
+  "3": {
+    "fw_id": "1811",
+    "title": "Восход Эндимиона",
+    "download_url": "https://fantasy-worlds.net/lib/id1811/download/",
+    "url": "https://fantasy-worlds.net/lib/id1811/",
+    "match_score": 1.0
+  },
+  "1998": {
+    "fw_id": null
+  },
+  "523215": {
+    "fw_id": "22111",
+    "title": "Марсианин",
+    "download_url": "https://fantasy-worlds.net/lib/id22111/download/",
+    "url": "https://fantasy-worlds.net/lib/id22111/",
+    "match_score": 1.0
+  },
+  "6901": {
+    "fw_id": "2921",
+    "title": "Заповедник гоблинов",
+    "download_url": "https://fantasy-worlds.net/lib/id2921/download/",
+    "url": "https://fantasy-worlds.net/lib/id2921/",
+    "match_score": 1.0
+  },
+  "326": {
+    "fw_id": "18648",
+    "title": "Кладбище домашних животных",
+    "download_url": "https://fantasy-worlds.net/lib/id18648/download/",
+    "url": "https://fantasy-worlds.net/lib/id18648/",
+    "match_score": 1.0
+  },
+  "1710": {
+    "fw_id": "1452",
+    "title": "Цвет волшебства",
+    "download_url": "https://fantasy-worlds.net/lib/id1452/download/",
+    "url": "https://fantasy-worlds.net/lib/id1452/",
+    "match_score": 1.0
+  },
+  "11060": {
+    "fw_id": "91",
+    "title": "Ветер Полыни",
+    "download_url": "https://fantasy-worlds.net/lib/id91/download/",
+    "url": "https://fantasy-worlds.net/lib/id91/",
+    "match_score": 1.0
+  },
+  "2800": {
+    "fw_id": "30933",
+    "title": "Пасынки Вселенной. История будущего. Книга 2 (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id30933/download/",
+    "url": "https://fantasy-worlds.net/lib/id30933/",
+    "match_score": 1.0
+  },
+  "355": {
+    "fw_id": "16532",
+    "title": "Оно",
+    "download_url": "https://fantasy-worlds.net/lib/id16532/download/",
+    "url": "https://fantasy-worlds.net/lib/id16532/",
+    "match_score": 1.0
+  },
+  "3063": {
+    "fw_id": "4863",
+    "title": "Голова профессора Доуэля",
+    "download_url": "https://fantasy-worlds.net/lib/id4863/download/",
+    "url": "https://fantasy-worlds.net/lib/id4863/",
+    "match_score": 1.0
+  },
+  "1251": {
+    "fw_id": "1134",
+    "title": "Холодные берега",
+    "download_url": "https://fantasy-worlds.net/lib/id1134/download/",
+    "url": "https://fantasy-worlds.net/lib/id1134/",
+    "match_score": 1.0
+  },
+  "10180": {
+    "fw_id": "201",
+    "title": "Наемник его величества",
+    "download_url": "https://fantasy-worlds.net/lib/id201/download/",
+    "url": "https://fantasy-worlds.net/lib/id201/",
+    "match_score": 1.0
+  },
+  "1902": {
+    "fw_id": "31914",
+    "title": "Книга гор: Рыцари сорока островов. Лорд с планеты Земля. Мальчик и тьма (сборник)",
+    "download_url": "https://fantasy-worlds.net/lib/id31914/download/",
+    "url": "https://fantasy-worlds.net/lib/id31914/",
+    "match_score": 1.0
+  }
+}

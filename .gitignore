@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+.env.*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Crawl caches (large, regenerate with scripts/)
+data/raw/
+data/books/fb2/
+
+# Logs
+*.log
+data/processed/*.log
+
+# OS
+Thumbs.db
+.DS_Store
