@@ -1,6 +1,8 @@
-/* Bookfinder — warm literary dark theme */
+/* Bookfinder — warm literary theme (dark + light) */
 
-:root {
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
   --bg: #090a0f;
   --bg-soft: #0f1118;
   --surface: #151821;
@@ -15,13 +17,64 @@
   --accent-hover: #e4b56a;
   --accent-soft: rgba(212, 160, 84, 0.14);
   --accent-glow: rgba(212, 160, 84, 0.25);
+  --accent-on: #1a1208;
   --link: #8ec5ff;
   --link-hover: #b3d9ff;
   --rating-high: #6bc4a6;
+  --header-bg: rgba(9, 10, 15, 0.82);
+  --hero-bg: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+  --body-bg:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(212, 160, 84, 0.08), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(100, 130, 200, 0.06), transparent),
+    var(--bg);
+  --shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  --src-fl: #a8c4ff;
+  --src-ll: #ffb380;
+  --src-fw: #8fd4a0;
+  --src-kb: #c9a0ff;
+  --src-bm: #ff9ec4;
+  --src-lr: #7ee8e8;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f4f1ea;
+  --bg-soft: #ebe6dc;
+  --surface: #fffcf7;
+  --surface-hover: #f3ede3;
+  --surface-raised: #ffffff;
+  --border: rgba(26, 29, 38, 0.08);
+  --border-strong: rgba(26, 29, 38, 0.14);
+  --text: #1a1d26;
+  --text-secondary: #4a5162;
+  --text-muted: #7a8194;
+  --accent: #a67c2e;
+  --accent-hover: #8f6820;
+  --accent-soft: rgba(166, 124, 46, 0.12);
+  --accent-glow: rgba(166, 124, 46, 0.2);
+  --accent-on: #fffdf8;
+  --link: #1d5fbf;
+  --link-hover: #124785;
+  --rating-high: #1f7a5a;
+  --header-bg: rgba(244, 241, 234, 0.88);
+  --hero-bg: linear-gradient(180deg, #fffcf7 0%, #f4f1ea 100%);
+  --body-bg:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(166, 124, 46, 0.07), transparent),
+    radial-gradient(ellipse 50% 35% at 100% 0%, rgba(100, 130, 200, 0.05), transparent),
+    var(--bg);
+  --shadow: 0 10px 32px rgba(26, 29, 38, 0.08);
+  --src-fl: #3a5fbf;
+  --src-ll: #c45f10;
+  --src-fw: #2d7a45;
+  --src-kb: #6b42a8;
+  --src-bm: #b8326a;
+  --src-lr: #0d7a7a;
+}
+
+:root {
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
-  --shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
   --font-ui: "Inter", system-ui, sans-serif;
   --font-display: "Fraunces", Georgia, serif;
   --header-h: auto;
@@ -45,11 +98,9 @@ body {
   font-size: 15px;
   line-height: 1.5;
   color: var(--text);
-  background:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(212, 160, 84, 0.08), transparent),
-    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(100, 130, 200, 0.06), transparent),
-    var(--bg);
+  background: var(--body-bg);
   -webkit-font-smoothing: antialiased;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 a {
@@ -88,8 +139,40 @@ a:hover {
   top: 0;
   z-index: 100;
   backdrop-filter: blur(16px);
-  background: rgba(9, 10, 15, 0.82);
+  background: var(--header-bg);
   border-bottom: 1px solid var(--border);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.theme-toggle {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  padding: 0;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--text-secondary);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease, transform 0.12s ease;
+}
+
+.theme-toggle:hover {
+  color: var(--accent-hover);
+  background: var(--accent-soft);
+  border-color: rgba(212, 160, 84, 0.35);
+  transform: scale(1.04);
 }
 
 .header-inner {
@@ -204,6 +287,7 @@ a:hover {
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow);
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .panel-filters {
@@ -583,8 +667,8 @@ button.link:hover {
 
 .rating-pill.high {
   color: var(--rating-high);
-  border-color: rgba(107, 196, 166, 0.35);
-  background: rgba(107, 196, 166, 0.1);
+  border-color: color-mix(in srgb, var(--rating-high) 35%, transparent);
+  background: color-mix(in srgb, var(--rating-high) 12%, transparent);
 }
 
 .source-badges {
@@ -605,12 +689,12 @@ button.link:hover {
   color: var(--text-secondary);
 }
 
-.src-badge.fl { color: #a8c4ff; border-color: rgba(168, 196, 255, 0.25); }
-.src-badge.ll { color: #ffb380; border-color: rgba(255, 179, 128, 0.25); }
-.src-badge.fw { color: #8fd4a0; border-color: rgba(143, 212, 160, 0.25); }
-.src-badge.kb { color: #c9a0ff; border-color: rgba(201, 160, 255, 0.25); }
-.src-badge.bm { color: #ff9ec4; border-color: rgba(255, 158, 196, 0.25); }
-.src-badge.lr { color: #7ee8e8; border-color: rgba(126, 232, 232, 0.25); }
+.src-badge.fl { color: var(--src-fl); }
+.src-badge.ll { color: var(--src-ll); }
+.src-badge.fw { color: var(--src-fw); }
+.src-badge.kb { color: var(--src-kb); }
+.src-badge.bm { color: var(--src-bm); }
+.src-badge.lr { color: var(--src-lr); }
 
 /* Hints */
 .legend-hints {
@@ -700,14 +784,21 @@ button.link:hover {
 
 /* Book page */
 .book-page {
-  background:
-    radial-gradient(ellipse 70% 45% at 20% -10%, rgba(212, 160, 84, 0.1), transparent),
-    var(--bg);
+  background: var(--body-bg);
 }
 
 .book-hero {
   border-bottom: 1px solid var(--border);
-  background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+  background: var(--hero-bg);
+  transition: background 0.2s ease;
+}
+
+.book-hero-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
 }
 
 .book-hero-inner {
@@ -720,7 +811,7 @@ button.link:hover {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   font-size: 0.88rem;
   font-weight: 500;
   color: var(--text-secondary);
@@ -857,7 +948,7 @@ button.link:hover {
 .rating-stars button.active {
   background: var(--accent);
   border-color: var(--accent);
-  color: #1a1208;
+  color: var(--accent-on);
   font-weight: 600;
 }
 
@@ -886,15 +977,15 @@ button.link:hover {
   padding: 0.6rem 1.1rem;
   font-weight: 600;
   font-size: 0.9rem;
-  color: #1a1208;
-  background: linear-gradient(135deg, var(--accent) 0%, #c4923f 100%);
+  color: var(--accent-on);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
   border-radius: var(--radius-sm);
   box-shadow: 0 4px 16px var(--accent-glow);
   transition: transform 0.12s ease, box-shadow 0.12s ease;
 }
 
 .download-btn:hover {
-  color: #1a1208;
+  color: var(--accent-on);
   transform: translateY(-1px);
   box-shadow: 0 6px 20px var(--accent-glow);
 }

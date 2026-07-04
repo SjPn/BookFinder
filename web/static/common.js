@@ -1,4 +1,41 @@
 const USER_ID_KEY = 'bookfinder_user_id';
+const THEME_KEY = 'bookfinder_theme';
+
+function getTheme() {
+  return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+}
+
+function setTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem(THEME_KEY, theme);
+  syncThemeToggle();
+}
+
+function toggleTheme() {
+  setTheme(getTheme() === 'dark' ? 'light' : 'dark');
+}
+
+function syncThemeToggle() {
+  const dark = getTheme() === 'dark';
+  for (const btn of document.querySelectorAll('[data-theme-toggle]')) {
+    btn.textContent = dark ? '☀' : '🌙';
+    btn.setAttribute('aria-label', dark ? 'Включить светлую тему' : 'Включить тёмную тему');
+    btn.title = dark ? 'Светлая тема' : 'Тёмная тема';
+  }
+}
+
+function initThemeToggle() {
+  syncThemeToggle();
+  for (const btn of document.querySelectorAll('[data-theme-toggle]')) {
+    btn.addEventListener('click', toggleTheme);
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initThemeToggle);
+} else {
+  initThemeToggle();
+}
 
 function getUserId() {
   let id = localStorage.getItem(USER_ID_KEY);

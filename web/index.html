@@ -8,7 +8,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/static/style.css?v=20260704f">
+  <script>
+    (function () {
+      var key = 'bookfinder_theme';
+      var theme = localStorage.getItem(key);
+      if (theme !== 'light' && theme !== 'dark') {
+        theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <link rel="stylesheet" href="/static/style.css?v=20260704g">
 </head>
 <body class="catalog-page">
   <header class="site-header">
@@ -20,7 +30,10 @@
         </a>
         <p class="brand-tagline">Каталог фантастики и фэнтези</p>
       </div>
-      <div id="stats" class="stats-row" aria-live="polite"></div>
+      <div class="header-actions">
+        <div id="stats" class="stats-row" aria-live="polite"></div>
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Переключить тему">☀</button>
+      </div>
     </div>
   </header>
 
@@ -92,7 +105,7 @@
     </section>
   </main>
 
-  <script src="/static/common.js?v=20260704f"></script>
-  <script src="/static/app.js?v=20260704f"></script>
+  <script src="/static/common.js?v=20260704g"></script>
+  <script src="/static/app.js?v=20260704g"></script>
 </body>
 </html>
