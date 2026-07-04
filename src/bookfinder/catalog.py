@@ -9,6 +9,7 @@ from pathlib import Path
 
 from rapidfuzz import fuzz
 
+from bookfinder.genre_filter import is_catalog_genre
 from bookfinder.runtime_catalog import TOKEN_DB_NAME, normalize_search_text, word_stem
 from bookfinder.user_ratings import community_stats_index
 
@@ -104,7 +105,8 @@ def reload_works() -> list[dict]:
 def genre_counts() -> list[dict]:
     path = DATA / "genres.json"
     if path.exists():
-        return json.loads(path.read_text(encoding="utf-8"))
+        items = json.loads(path.read_text(encoding="utf-8"))
+        return [item for item in items if is_catalog_genre(item.get("name", ""), item.get("count", 0))]
 
     counts: dict[str, int] = {}
     works = load_works()
@@ -120,6 +122,7 @@ def genre_counts() -> list[dict]:
             "weight": round(count / total, 4),
         }
         for name, count in sorted(counts.items(), key=lambda item: item[0].casefold())
+        if is_catalog_genre(name, count)
     ]
 
 

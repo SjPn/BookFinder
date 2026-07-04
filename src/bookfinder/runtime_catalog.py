@@ -26,8 +26,10 @@ INDEX_FIELDS = (
     "loveread",
 )
 
-_TOKEN_SPLIT = re.compile(r"[\s+.,;:!?\-\"«»()\[\]/]+")
+from bookfinder.genre_filter import is_catalog_genre
+
 TOKEN_DB_NAME = "works_tokens.db"
+_TOKEN_SPLIT = re.compile(r"[\s+.,;:!?\-\"«»()\[\]/]+")
 
 
 def normalize_search_text(text: str) -> str:
@@ -122,6 +124,16 @@ def write_runtime_catalog(works: list[dict], out_dir: Path) -> dict:
             if genre:
                 genre_counts[genre] = genre_counts.get(genre, 0) + 1
 
+    for i, work in enumerate(index):
+        index[i] = {
+            **work,
+            "genres": [g for g in work.get("genres", []) if is_catalog_genre(g, genre_counts.get(g, 0))],
+        }
+
+    filtered_counts = {
+        name: count for name, count in genre_counts.items() if is_catalog_genre(name, count)
+    }
+
     dump = lambda payload: json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / "works_index.json").write_text(dump(index), encoding="utf-8")
@@ -134,7 +146,7 @@ def write_runtime_catalog(works: list[dict], out_dir: Path) -> dict:
             "count": count,
             "weight": round(count / total, 4),
         }
-        for name, count in sorted(genre_counts.items(), key=lambda item: item[0].casefold())
+        for name, count in sorted(filtered_counts.items(), key=lambda item: item[0].casefold())
     ]
     (out_dir / "genres.json").write_text(dump(genres), encoding="utf-8")
     token_rows = build_token_db(index, out_dir / TOKEN_DB_NAME)
@@ -148,4 +160,6 @@ def write_runtime_catalog(works: list[dict], out_dir: Path) -> dict:
         "works": len(index),
         "with_description": len(details),
         "genres": len(genres),
+        "genres_raw": len(genre_counts),
+        "genres_dropped": len(genre_counts) - len(filtered_counts),
     }
