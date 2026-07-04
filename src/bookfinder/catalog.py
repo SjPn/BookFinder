@@ -1,7 +1,8 @@
 from __future__ import annotations
 
 import json
-import math
+import re
+import unicodedata
 from functools import lru_cache
 from pathlib import Path
 
@@ -11,6 +12,7 @@ from bookfinder.user_ratings import community_stats_index
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data" / "processed"
+_TOKEN_SPLIT = re.compile(r"[\s+.,;:!?\-\"«»()\[\]/]+")
 
 
 @lru_cache
@@ -24,9 +26,18 @@ def load_works() -> list[dict]:
 
 def reload_works() -> list[dict]:
     load_works.cache_clear()
+    genre_counts.cache_clear()
+    _work_search_tokens.cache_clear()
     return load_works()
 
 
+def warmup_catalog() -> None:
+    load_works()
+    genre_counts()
+    _work_search_tokens()
+
+
+@lru_cache
 def genre_counts() -> list[dict]:
     counts: dict[str, int] = {}
     for work in load_works():
@@ -48,8 +59,70 @@ def _genre_set(work: dict) -> set[str]:
     return {g.lower() for g in work.get("genres", []) if g}
 
 
+def _normalize_text(text: str) -> str:
+    text = unicodedata.normalize("NFKC", text or "")
+    text = text.replace("+", " ")
+    return re.sub(r"\s+", " ", text).strip().casefold()
+
+
+def _normalize_query(query: str) -> str:
+    return _normalize_text(query)
+
+
 def _query_words(query: str) -> list[str]:
-    return [word for word in query.lower().split() if len(word) >= 2]
+    normalized = _normalize_query(query)
+    if not normalized:
+        return []
+    return [word for word in _TOKEN_SPLIT.split(normalized) if len(word) >= 2]
+
+
+def _extract_tokens(text: str) -> set[str]:
+    tokens: set[str] = set()
+    for word in _TOKEN_SPLIT.split(_normalize_text(text)):
+        if len(word) < 2:
+            continue
+        tokens.add(word)
+        stem = _word_stem(word)
+        if stem and len(stem) >= 4:
+            tokens.add(stem)
+    return tokens
+
+
+@lru_cache
+def _work_search_tokens() -> tuple[list[dict], tuple[frozenset[str], ...]]:
+    works = load_works()
+    token_sets: list[frozenset[str]] = []
+    for work in works:
+        description = (work.get("description") or "")[:800]
+        blob = " ".join(
+            [
+                work.get("title", ""),
+                " ".join(work.get("authors", [])),
+                " ".join(work.get("genres", [])),
+                description,
+            ]
+        )
+        token_sets.append(frozenset(_extract_tokens(blob)))
+    return works, tuple(token_sets)
+
+
+def _candidate_indices(words: list[str]) -> set[int] | None:
+    if not words:
+        return None
+
+    _, token_sets = _work_search_tokens()
+    candidates: set[int] | None = None
+    for word in words:
+        stem = _word_stem(word)
+        word_hits = {
+            index
+            for index, tokens in enumerate(token_sets)
+            if word in tokens or (stem and stem in tokens)
+        }
+        if not word_hits:
+            return set()
+        candidates = word_hits if candidates is None else candidates & word_hits
+    return candidates or set()
 
 
 def _word_stem(word: str) -> str:
@@ -61,26 +134,43 @@ def _word_stem(word: str) -> str:
     return word[:-1]
 
 
-def _stem_in_text(word: str, text: str) -> bool:
-    stem = _word_stem(word)
-    if stem and stem in text:
+def _token_matches(word: str, token: str) -> bool:
+    if token == word:
         return True
-    return word in text
+    if len(word) <= 3:
+        return False
+    stem = _word_stem(word)
+    token_stem = _word_stem(token)
+    if stem and token_stem and stem == token_stem:
+        return True
+    if stem and len(stem) >= 4 and token.startswith(stem):
+        return True
+    return False
+
+
+def _stem_in_text(word: str, text: str) -> bool:
+    for token in _TOKEN_SPLIT.split(_normalize_text(text)):
+        if len(token) < 2:
+            continue
+        if _token_matches(word, token):
+            return True
+    return False
 
 
 def _text_score(query: str, work: dict) -> float:
     if not query:
         return 1.0
 
-    q = query.lower().strip()
+    q = _normalize_query(query)
     if not q:
         return 1.0
 
-    title = work.get("title", "").lower()
-    authors = " ".join(work.get("authors", [])).lower()
-    genres = " ".join(work.get("genres", [])).lower()
+    title = _normalize_text(work.get("title", ""))
+    authors = _normalize_text(" ".join(work.get("authors", [])))
+    genres = _normalize_text(" ".join(work.get("genres", [])))
+    description = _normalize_text((work.get("description") or "")[:800])
     haystack = f"{title} {authors}"
-    full = f"{haystack} {genres}"
+    full = f"{haystack} {genres} {description}"
     words = _query_words(q)
 
     if len(words) >= 2:
@@ -90,6 +180,14 @@ def _text_score(query: str, work: dict) -> float:
             return 0.98
         if all(_stem_in_text(word, haystack) for word in words):
             return 0.93
+        if all(_stem_in_text(word, full) for word in words):
+            return 0.78
+        matched = sum(1 for word in words if _stem_in_text(word, full))
+        if matched >= len(words) - 1 and matched >= 2:
+            return 0.65 + 0.08 * matched
+        title_ratio = fuzz.token_sort_ratio(q, title) / 100
+        if title_ratio >= 0.72:
+            return title_ratio * 0.88
         return 0.0
 
     word = words[0] if words else q
@@ -142,14 +240,21 @@ def search_works(
     match: str = "any",
     limit: int = 100,
 ) -> dict:
-    works = load_works()
+    works, _ = _work_search_tokens()
     total = len(works) or 1
     selected = [g.strip() for g in (genres or []) if g and g.strip()]
     counts = {item["name"]: item["count"] for item in genre_counts()}
     community = community_stats_index()
+    words = _query_words(query)
+    candidates = _candidate_indices(words) if len(words) >= 2 else None
 
     scored: list[tuple[float, dict]] = []
-    for work in works:
+    if candidates is not None:
+        work_iter = (works[index] for index in candidates)
+    else:
+        work_iter = works
+
+    for work in work_iter:
         text_score = _text_score(query, work)
         if query and text_score < 0.55:
             continue

@@ -6,9 +6,10 @@ const genreListEl = document.getElementById('genre-list');
 const filterWeightsEl = document.getElementById('filter-weights');
 const resultMetaEl = document.getElementById('result-meta');
 
-const ASSET_V = '20260704c';
+const ASSET_V = '20260704d';
 let searchLimit = 200;
 let lastSearchTotal = 0;
+let searchSeq = 0;
 
 let allGenres = [];
 let searchTimer = null;
@@ -123,12 +124,27 @@ function buildSearchUrl(limit = searchLimit) {
   return `/api/search?${params.toString()}`;
 }
 
+function formatResultMeta(data, rows) {
+  const selected = selectedGenres();
+  let meta = `Найдено: ${data.total ?? 0}`;
+  if (rows.length < data.total) {
+    meta += `, показано ${rows.length}`;
+  }
+  if (selected.length) {
+    meta += ` · фильтр: ${selected.length} жанр(ов)`;
+  }
+  return meta;
+}
+
 async function runSearch(resetLimit = true) {
   if (resetLimit) searchLimit = 200;
+  const seq = ++searchSeq;
+  resultMetaEl.textContent = 'Поиск…';
   const data = await apiJson(buildSearchUrl());
+  if (seq !== searchSeq) return;
   const rows = data.items || [];
   lastSearchTotal = data.total || 0;
-  resultMetaEl.textContent = `Найдено: ${data.total}${rows.length < data.total ? `, показано ${rows.length}` : ''}`;
+  resultMetaEl.textContent = formatResultMeta(data, rows);
   const loadMoreRow = document.getElementById('load-more-row');
   const loadMoreBtn = document.getElementById('load-more');
   if (loadMoreRow && loadMoreBtn) {
@@ -190,6 +206,13 @@ document.getElementById('load-more')?.addEventListener('click', async () => {
     resultMetaEl.textContent = `Ошибка: ${err.message}`;
     console.error(err);
   }
+});
+
+document.getElementById('clear-genres')?.addEventListener('click', () => {
+  for (const input of genreListEl.querySelectorAll('input[type=checkbox]:checked')) {
+    input.checked = false;
+  }
+  scheduleSearch();
 });
 
 queryEl.addEventListener('input', scheduleSearch);
