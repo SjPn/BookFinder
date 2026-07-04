@@ -6,8 +6,9 @@ from fastapi import FastAPI, Query
 from fastapi.responses import FileResponse, RedirectResponse, Response
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
+from starlette.concurrency import run_in_threadpool
 
-from bookfinder.catalog import genre_counts, load_works, reload_works, search_works, similar_works
+from bookfinder.catalog import genre_counts, get_work, load_works, reload_works, search_works, similar_works
 from bookfinder.parsers import fantasy_worlds as fw
 from bookfinder.reviews_store import get_reviews_for_work
 from bookfinder.user_ratings import delete_user_rating, get_user_rating, set_user_rating, work_user_stats
@@ -34,7 +35,7 @@ def work_page(work_id: str) -> FileResponse:
 
 
 @app.get("/api/stats")
-def stats() -> dict:
+async def stats() -> dict:
     works = load_works()
     report_path = Path(__file__).resolve().parents[2] / "data" / "processed" / "merge_report.json"
     report = {}
@@ -42,18 +43,15 @@ def stats() -> dict:
         import json
 
         report = json.loads(report_path.read_text(encoding="utf-8"))
-    genres: set[str] = set()
-    for w in works:
-        genres.update(w.get("genres", []))
     return {
         "works_count": len(works),
-        "genres_count": len(genres),
+        "genres_count": len(genre_counts()),
         "merge": report,
     }
 
 
 @app.get("/api/top")
-def top(
+async def top(
     limit: int = Query(100, ge=1, le=500),
     genre: str | None = None,
     subgenre: str | None = None,
@@ -61,36 +59,42 @@ def top(
     match: str = Query("any", pattern="^(any|all)$"),
 ) -> list[dict]:
     selected = [g for g in [subgenre, genre] if g and g.strip()]
-    result = search_works(query=q or "", genres=selected, match=match, limit=limit)
+    result = await run_in_threadpool(
+        search_works,
+        query=q or "",
+        genres=selected,
+        match=match,
+        limit=limit,
+    )
     return result["items"]
 
 
 @app.get("/api/search")
-def search(
+async def search(
     q: str = "",
     genres: list[str] = Query(default=[]),
     match: str = Query("any", pattern="^(any|all)$"),
     limit: int = Query(200, ge=1, le=1000),
 ) -> dict:
-    return search_works(query=q, genres=genres, match=match, limit=limit)
+    return await run_in_threadpool(search_works, query=q, genres=genres, match=match, limit=limit)
 
 
 @app.get("/api/genres")
-def genres() -> list[dict]:
+async def genres() -> list[dict]:
     return genre_counts()
 
 
 @app.get("/api/works/{work_id}")
-def work_detail(work_id: str) -> dict:
-    for w in load_works():
-        if w["id"] == work_id:
-            return w
+async def work_detail(work_id: str) -> dict:
+    work = get_work(work_id)
+    if work:
+        return work
     return {"error": "not found"}
 
 
 @app.get("/api/works/{work_id}/similar")
-def work_similar(work_id: str, limit: int = Query(12, ge=1, le=50)) -> list[dict]:
-    return similar_works(work_id, limit)
+async def work_similar(work_id: str, limit: int = Query(12, ge=1, le=50)) -> list[dict]:
+    return await run_in_threadpool(similar_works, work_id, limit)
 
 
 @app.get("/api/works/{work_id}/reviews")

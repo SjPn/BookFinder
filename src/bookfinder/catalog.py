@@ -14,30 +14,94 @@ ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data" / "processed"
 _TOKEN_SPLIT = re.compile(r"[\s+.,;:!?\-\"«»()\[\]/]+")
 
+LIST_ITEM_FIELDS = (
+    "id",
+    "title",
+    "authors",
+    "genres",
+    "year",
+    "aggregate_rating",
+    "source_origin",
+    "download_url",
+    "fb2_local",
+    "fantlab",
+    "livelib",
+    "fantasy_worlds",
+    "kubikus",
+    "bookmix",
+    "loveread",
+)
+
+
+def _annotate_search_fields(work: dict) -> None:
+    if "_full" in work:
+        return
+    title = _normalize_text(work.get("title", ""))
+    authors = _normalize_text(" ".join(work.get("authors", [])))
+    genres = _normalize_text(" ".join(work.get("genres", [])))
+    blurb = _normalize_text(work.get("search_blurb", ""))
+    work["_title"] = title
+    work["_authors"] = authors
+    work["_genres"] = genres
+    work["_full"] = f"{title} {authors} {genres} {blurb}"
+    work["_title_tokens"] = tuple(token for token in _TOKEN_SPLIT.split(title) if len(token) >= 2)
+    work["_author_tokens"] = tuple(token for token in _TOKEN_SPLIT.split(authors) if len(token) >= 2)
+    work["_full_tokens"] = tuple(token for token in _TOKEN_SPLIT.split(work["_full"]) if len(token) >= 2)
+
 
 @lru_cache
 def load_works() -> list[dict]:
-    for name in ("expanded_works.json", "merged_works.json"):
+    for name in ("works_index.json", "expanded_works.json", "merged_works.json"):
         path = DATA / name
         if path.exists():
-            return json.loads(path.read_text(encoding="utf-8"))
+            works = json.loads(path.read_text(encoding="utf-8"))
+            if name != "works_index.json":
+                details_path = DATA / "works_details.json"
+                for work in works:
+                    if details_path.exists():
+                        work.pop("description", None)
+                        work.pop("description_source", None)
+            for work in works:
+                _annotate_search_fields(work)
+            return works
     return []
+
+
+@lru_cache
+def load_work_details() -> dict[str, dict]:
+    path = DATA / "works_details.json"
+    if not path.exists():
+        return {}
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+@lru_cache
+def works_by_id() -> dict[str, dict]:
+    return {work["id"]: work for work in load_works()}
 
 
 def reload_works() -> list[dict]:
     load_works.cache_clear()
+    load_work_details.cache_clear()
+    works_by_id.cache_clear()
     genre_counts.cache_clear()
+    _search_cached.cache_clear()
     return load_works()
 
 
 @lru_cache
 def genre_counts() -> list[dict]:
+    path = DATA / "genres.json"
+    if path.exists():
+        return json.loads(path.read_text(encoding="utf-8"))
+
     counts: dict[str, int] = {}
-    for work in load_works():
+    works = load_works()
+    for work in works:
         for genre in work.get("genres", []):
             if genre:
                 counts[genre] = counts.get(genre, 0) + 1
-    total = len(load_works()) or 1
+    total = len(works) or 1
     return [
         {
             "name": name,
@@ -46,6 +110,17 @@ def genre_counts() -> list[dict]:
         }
         for name, count in sorted(counts.items(), key=lambda item: item[0].casefold())
     ]
+
+
+def get_work(work_id: str) -> dict | None:
+    work = works_by_id().get(work_id)
+    if not work:
+        return None
+    item = {key: value for key, value in work.items() if not str(key).startswith("_") and key != "search_blurb"}
+    details = load_work_details().get(work_id)
+    if details:
+        item.update(details)
+    return item
 
 
 def _genre_set(work: dict) -> set[str]:
@@ -92,6 +167,13 @@ def _token_matches(word: str, token: str) -> bool:
     return False
 
 
+def _stem_in_tokens(word: str, tokens: tuple[str, ...]) -> bool:
+    for token in tokens:
+        if _token_matches(word, token):
+            return True
+    return False
+
+
 def _stem_in_text(word: str, text: str) -> bool:
     for token in _TOKEN_SPLIT.split(_normalize_text(text)):
         if len(token) < 2:
@@ -99,6 +181,11 @@ def _stem_in_text(word: str, text: str) -> bool:
         if _token_matches(word, token):
             return True
     return False
+
+
+def _search_fields(work: dict) -> tuple[str, str, str, str]:
+    _annotate_search_fields(work)
+    return work["_title"], work["_authors"], work["_genres"], work["_full"]
 
 
 def _text_score(query: str, work: dict) -> float:
@@ -109,24 +196,26 @@ def _text_score(query: str, work: dict) -> float:
     if not q:
         return 1.0
 
-    title = _normalize_text(work.get("title", ""))
-    authors = _normalize_text(" ".join(work.get("authors", [])))
-    genres = _normalize_text(" ".join(work.get("genres", [])))
-    description = _normalize_text((work.get("description") or "")[:800])
-    haystack = f"{title} {authors}"
-    full = f"{haystack} {genres} {description}"
+    _annotate_search_fields(work)
+    title = work["_title"]
+    authors = work["_authors"]
+    genres = work["_genres"]
+    full = work["_full"]
+    title_tokens = work["_title_tokens"]
+    author_tokens = work["_author_tokens"]
+    full_tokens = work["_full_tokens"]
     words = _query_words(q)
 
     if len(words) >= 2:
         if q in title:
             return 1.0
-        if all(_stem_in_text(word, title) for word in words):
+        if all(_stem_in_tokens(word, title_tokens) for word in words):
             return 0.98
-        if all(_stem_in_text(word, haystack) for word in words):
+        if all(_stem_in_tokens(word, title_tokens + author_tokens) for word in words):
             return 0.93
-        if all(_stem_in_text(word, full) for word in words):
+        if all(_stem_in_tokens(word, full_tokens) for word in words):
             return 0.78
-        matched = sum(1 for word in words if _stem_in_text(word, full))
+        matched = sum(1 for word in words if _stem_in_tokens(word, full_tokens))
         if matched >= len(words) - 1 and matched >= 2:
             return 0.65 + 0.08 * matched
         title_ratio = fuzz.token_sort_ratio(q, title) / 100
@@ -137,13 +226,13 @@ def _text_score(query: str, work: dict) -> float:
     word = words[0] if words else q
     if q in title:
         return 1.0
-    if _stem_in_text(word, title):
+    if _stem_in_tokens(word, title_tokens):
         return 0.92
-    if q in authors or _stem_in_text(word, authors):
+    if q in authors or _stem_in_tokens(word, author_tokens):
         return 0.9
     if q in genres or _stem_in_text(word, genres):
         return 0.85
-    if q in full or _stem_in_text(word, full):
+    if q in full or _stem_in_tokens(word, full_tokens):
         return 0.82
 
     title_ratio = fuzz.ratio(q, title) / 100
@@ -178,7 +267,51 @@ def _genre_match_score(filter_genre: str, work_genres: list[str]) -> float:
     return best
 
 
-def search_works(
+def _slim_work(
+    work: dict,
+    *,
+    relevance: float,
+    text_score: float,
+    genre_matches: dict[str, float],
+    community_rating: dict | None,
+) -> dict:
+    item = {key: work[key] for key in LIST_ITEM_FIELDS if key in work}
+    item["relevance"] = round(relevance * 100, 1)
+    item["text_score"] = round(text_score, 3)
+    item["genre_matches"] = genre_matches
+    item["matched_genres"] = list(genre_matches.keys())
+    item["community_rating"] = community_rating
+    return item
+
+
+def _build_filter_stats(
+    selected: list[str],
+    counts: dict[str, int],
+    total: int,
+    all_matches: list[dict],
+) -> list[dict]:
+    filters: list[dict] = []
+    for genre in selected:
+        catalog_count = counts.get(genre, 0)
+        if not catalog_count:
+            for name, count in counts.items():
+                if genre.lower() in name.lower() or name.lower() in genre.lower():
+                    catalog_count = max(catalog_count, count)
+        results_count = sum(1 for item in all_matches if genre in item.get("genre_matches", {}))
+        result_share = results_count / len(all_matches) if all_matches else 0.0
+        filters.append(
+            {
+                "name": genre,
+                "catalog_count": catalog_count,
+                "catalog_weight": round(catalog_count / total, 4),
+                "results_count": results_count,
+                "result_share": round(result_share, 4),
+            }
+        )
+    return filters
+
+
+def _search_works_impl(
     query: str = "",
     genres: list[str] | None = None,
     match: str = "any",
@@ -189,6 +322,27 @@ def search_works(
     selected = [g.strip() for g in (genres or []) if g and g.strip()]
     counts = {item["name"]: item["count"] for item in genre_counts()}
     community = community_stats_index()
+
+    if not query and not selected:
+        top = sorted(works, key=lambda work: -(work.get("aggregate_rating") or 0))[:limit]
+        items = [
+            _slim_work(
+                work,
+                relevance=(work.get("aggregate_rating") or 0) / 100,
+                text_score=1.0,
+                genre_matches={},
+                community_rating=community.get(work["id"]),
+            )
+            for work in top
+        ]
+        return {
+            "total": len(works),
+            "query": query,
+            "selected_genres": selected,
+            "match_mode": match,
+            "filters": [],
+            "items": items,
+        }
 
     scored: list[tuple[float, dict]] = []
     for work in works:
@@ -209,24 +363,25 @@ def search_works(
             elif not genre_matches:
                 continue
 
-        if selected:
-            genre_relevance = sum(genre_matches.values()) / len(selected)
-        else:
-            genre_relevance = 1.0
-
+        genre_relevance = sum(genre_matches.values()) / len(selected) if selected else 1.0
         rating_norm = (work.get("aggregate_rating") or 0) / 100
         if query:
             relevance = text_score * 0.78 + genre_relevance * 0.12 + rating_norm * 0.10
         else:
             relevance = genre_relevance * 0.55 + text_score * 0.30 + rating_norm * 0.15
 
-        item = dict(work)
-        item["relevance"] = round(relevance * 100, 1)
-        item["text_score"] = round(text_score, 3)
-        item["genre_matches"] = genre_matches
-        item["matched_genres"] = list(genre_matches.keys())
-        item["community_rating"] = community.get(work["id"])
-        scored.append((relevance, item))
+        scored.append(
+            (
+                relevance,
+                _slim_work(
+                    work,
+                    relevance=relevance,
+                    text_score=text_score,
+                    genre_matches=genre_matches,
+                    community_rating=community.get(work["id"]),
+                ),
+            )
+        )
 
     if query:
         scored.sort(
@@ -238,59 +393,61 @@ def search_works(
         )
     else:
         scored.sort(key=lambda pair: (-pair[0], -(pair[1].get("aggregate_rating") or 0)))
+
     all_matches = [item for _, item in scored]
     items = all_matches[:limit]
-
-    filters: list[dict] = []
-    for genre in selected:
-        catalog_count = counts.get(genre, 0)
-        if not catalog_count:
-            for name, count in counts.items():
-                if genre.lower() in name.lower() or name.lower() in genre.lower():
-                    catalog_count = max(catalog_count, count)
-        results_count = sum(1 for item in all_matches if genre in item.get("genre_matches", {}))
-        result_share = results_count / len(all_matches) if all_matches else 0.0
-        filters.append(
-            {
-                "name": genre,
-                "catalog_count": catalog_count,
-                "catalog_weight": round(catalog_count / total, 4),
-                "results_count": results_count,
-                "result_share": round(result_share, 4),
-            }
-        )
-
     return {
         "total": len(all_matches),
         "query": query,
         "selected_genres": selected,
         "match_mode": match,
-        "filters": filters,
+        "filters": _build_filter_stats(selected, counts, total, all_matches),
         "items": items,
     }
 
 
+@lru_cache(maxsize=128)
+def _search_cached(query: str, genres: tuple[str, ...], match: str, limit: int) -> str:
+    return json.dumps(
+        _search_works_impl(query=query, genres=list(genres), match=match, limit=limit),
+        ensure_ascii=False,
+        separators=(",", ":"),
+    )
+
+
+def search_works(
+    query: str = "",
+    genres: list[str] | None = None,
+    match: str = "any",
+    limit: int = 100,
+) -> dict:
+    genres_key = tuple(sorted(g.strip() for g in (genres or []) if g and g.strip()))
+    payload = _search_cached(query.strip(), genres_key, match, limit)
+    return json.loads(payload)
+
+
 def similar_works(work_id: str, limit: int = 12) -> list[dict]:
-    works = load_works()
-    base = next((w for w in works if w["id"] == work_id), None)
+    base = works_by_id().get(work_id)
     if not base:
         return []
 
     base_authors = {a.lower() for a in base.get("authors", [])}
     base_genres = _genre_set(base)
-    base_title = base.get("title", "").lower()
+    base_title = base["_title"]
 
     scored: list[tuple[float, dict]] = []
-    for w in works:
-        if w["id"] == work_id:
+    for work in load_works():
+        if work["id"] == work_id:
             continue
-        genres = _genre_set(w)
+        genres = _genre_set(work)
         genre_score = len(base_genres & genres) / max(len(base_genres | genres), 1)
-        author_score = 1.0 if base_authors & {a.lower() for a in w.get("authors", [])} else 0.0
-        title_score = fuzz.token_sort_ratio(base_title, w.get("title", "").lower()) / 100
+        author_score = 1.0 if base_authors & {a.lower() for a in work.get("authors", [])} else 0.0
+        _annotate_search_fields(work)
+        title = work["_title"]
+        title_score = fuzz.token_sort_ratio(base_title, title) / 100
         score = genre_score * 0.45 + author_score * 0.35 + title_score * 0.2
         if score >= 0.25:
-            scored.append((score, w))
+            scored.append((score, {key: work[key] for key in LIST_ITEM_FIELDS if key in work}))
 
-    scored.sort(key=lambda x: x[0], reverse=True)
-    return [w for _, w in scored[:limit]]
+    scored.sort(key=lambda pair: pair[0], reverse=True)
+    return [item for _, item in scored[:limit]]

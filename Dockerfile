@@ -20,4 +20,4 @@ ENV PORT=8000
 
 EXPOSE 8000
 
-CMD uvicorn bookfinder.api:app --host ${HOST} --port ${PORT}
+CMD uvicorn bookfinder.api:app --host ${HOST} --port ${PORT} --workers 1

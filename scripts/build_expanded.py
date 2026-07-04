@@ -27,6 +27,7 @@ from bookfinder.ratings import (
     clean_loveread_block,
     valid_rating,
 )
+from bookfinder.runtime_catalog import write_runtime_catalog
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
@@ -459,6 +460,7 @@ def main() -> None:
     )
 
     (OUT / "expanded_works.json").write_text(json.dumps(expanded, ensure_ascii=False, indent=2), encoding="utf-8")
+    runtime = write_runtime_catalog(expanded, OUT)
     summary = {
         "fantlab_merged": len(merged),
         "fw_only_added": added,
@@ -479,6 +481,7 @@ def main() -> None:
         "loveread_only_added": loveread_added,
         "readrate_indexed": len(readrate),
         "rating_policy": "parsed sources only, min votes: fantlab=10, livelib=5, fw=10, kubikus=10, bookmix=5, loveread=5 views",
+        "runtime_catalog": runtime,
     }
     (OUT / "expanded_report.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps(summary, ensure_ascii=False, indent=2))

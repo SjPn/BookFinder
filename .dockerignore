@@ -1,0 +1,8 @@
+data/processed/expanded_works.json
+data/processed/merged_works.json
+data/raw/
+data/books/
+.git/
+__pycache__/
+*.pyc
+.venv/
