@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Cache-Control" content="no-cache">
   <title>Bookfinder</title>
-  <link rel="stylesheet" href="/static/style.css?v=20260703b">
+  <link rel="stylesheet" href="/static/style.css?v=20260704">
 </head>
 <body>
   <header>
@@ -32,6 +32,13 @@
           <input id="query" type="search" placeholder="Название, автор, жанр…" autocomplete="off">
         </label>
         <p id="result-meta" class="result-meta"></p>
+        <p class="legend-hints muted">
+          <span class="hint-tip" tabindex="0" data-tip="Сводная оценка 0–10 по FantLab, LiveLib, FW, Кубикус, BookMix и LoveRead (учитываются только источники с достаточным числом голосов).">Рейтинг</span>
+          ·
+          <span class="hint-tip" tabindex="0" data-tip="Насколько книга подходит под текст поиска и выбранные жанры: чем выше, тем ближе к запросу.">Релевантность</span>
+          ·
+          <span class="hint-tip" tabindex="0" data-tip="Средняя оценка читателей Bookfinder (1–10), которую ставят на странице книги.">Оценка портала</span>
+        </p>
       </div>
       <table id="table">
         <thead>
@@ -39,8 +46,9 @@
             <th>#</th>
             <th>Название</th>
             <th>Автор</th>
-            <th>Рейтинг <span class="th-hint" title="Сводная оценка с FantLab / LiveLib / FW (≥10 голосов)">?</span></th>
-            <th>Релев. <span class="th-hint" title="Насколько книга подходит под ваш поиск и фильтры жанров">?</span></th>
+            <th>Рейтинг <span class="hint-tip th-hint" tabindex="0" data-tip="Сводная оценка 0–10 по внешним источникам (FantLab, LiveLib, FW и др.)">?</span></th>
+            <th>Портал <span class="hint-tip th-hint" tabindex="0" data-tip="Средняя оценка читателей Bookfinder на странице книги">?</span></th>
+            <th>Релев. <span class="hint-tip th-hint" tabindex="0" data-tip="Близость к вашему поиску и фильтрам жанров (0–100)">?</span></th>
             <th>Источники</th>
             <th>Жанры</th>
             <th></th>
@@ -50,7 +58,7 @@
       </table>
     </section>
   </main>
-  <script src="/static/common.js?v=20260703b"></script>
-  <script src="/static/app.js?v=20260703b"></script>
+  <script src="/static/common.js?v=20260704"></script>
+  <script src="/static/app.js?v=20260704"></script>
 </body>
 </html>

@@ -12,6 +12,7 @@ MIN_VOTES: dict[str, int] = {
     "fantasy_worlds": 10,
     "kubikus": 10,
     "bookmix": 5,
+    "loveread": 5,
 }
 
 RATING_MAX: dict[str, float] = {
@@ -20,6 +21,7 @@ RATING_MAX: dict[str, float] = {
     "fantasy_worlds": 10.0,
     "kubikus": 5.0,
     "bookmix": 5.0,
+    "loveread": 5.0,
 }
 
 
@@ -85,3 +87,7 @@ def clean_kubikus_block(block: dict[str, Any] | None) -> dict[str, Any] | None:
 
 def clean_bookmix_block(block: dict[str, Any] | None) -> dict[str, Any] | None:
     return clean_source_block("bookmix", block)
+
+
+def clean_loveread_block(block: dict[str, Any] | None) -> dict[str, Any] | None:
+    return clean_source_block("loveread", block)

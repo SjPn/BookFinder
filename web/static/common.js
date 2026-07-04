@@ -20,7 +20,16 @@ function esc(s) {
 }
 
 function formatAggregateRating(value) {
-  return value == null ? '—' : value;
+  if (value == null) return '—';
+  const n = Number(value);
+  if (Number.isNaN(n)) return '—';
+  const scaled = n > 10 ? n / 10 : n;
+  return `${scaled.toFixed(1)}/10`;
+}
+
+function formatCommunityRating(stats) {
+  if (!stats?.count) return '—';
+  return `${Number(stats.average).toFixed(1)}/10 (${stats.count})`;
 }
 
 function saveCatalogState() {

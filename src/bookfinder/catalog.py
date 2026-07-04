@@ -7,6 +7,8 @@ from pathlib import Path
 
 from rapidfuzz import fuzz
 
+from bookfinder.user_ratings import community_stats_index
+
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data" / "processed"
 
@@ -97,6 +99,7 @@ def search_works(
     total = len(works) or 1
     selected = [g.strip() for g in (genres or []) if g and g.strip()]
     counts = {item["name"]: item["count"] for item in genre_counts()}
+    community = community_stats_index()
 
     scored: list[tuple[float, dict]] = []
     for work in works:
@@ -130,6 +133,7 @@ def search_works(
         item["text_score"] = round(text_score, 3)
         item["genre_matches"] = genre_matches
         item["matched_genres"] = list(genre_matches.keys())
+        item["community_rating"] = community.get(work["id"])
         scored.append((relevance, item))
 
     scored.sort(key=lambda pair: (-pair[0], -(pair[1].get("aggregate_rating") or 0)))

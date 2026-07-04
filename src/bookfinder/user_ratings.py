@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 from datetime import datetime, timezone
+from functools import lru_cache
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -56,6 +57,7 @@ def set_user_rating(user_id: str, work_id: str, rating: int) -> dict:
             }
         )
     _save_raw(data)
+    reload_community_stats()
     return {"user_id": user_id, "work_id": work_id, "rating": rating, "updated_at": now}
 
 
@@ -67,15 +69,32 @@ def delete_user_rating(user_id: str, work_id: str) -> bool:
         return False
     data["ratings"] = new_rows
     _save_raw(data)
+    reload_community_stats()
     return True
 
 
 def work_user_stats(work_id: str) -> dict:
-    values = [
-        int(row["rating"])
-        for row in _load_raw().get("ratings", [])
-        if row.get("work_id") == work_id and isinstance(row.get("rating"), (int, float))
-    ]
-    if not values:
-        return {"count": 0, "average": None}
-    return {"count": len(values), "average": round(sum(values) / len(values), 2)}
+    return community_stats_index().get(work_id, {"count": 0, "average": None})
+
+
+@lru_cache
+def community_stats_index() -> dict[str, dict]:
+    buckets: dict[str, list[int]] = {}
+    for row in _load_raw().get("ratings", []):
+        work_id = row.get("work_id")
+        rating = row.get("rating")
+        if not work_id or not isinstance(rating, (int, float)):
+            continue
+        buckets.setdefault(str(work_id), []).append(int(rating))
+    index: dict[str, dict] = {}
+    for work_id, values in buckets.items():
+        index[work_id] = {
+            "count": len(values),
+            "average": round(sum(values) / len(values), 2),
+        }
+    return index
+
+
+def reload_community_stats() -> dict[str, dict]:
+    community_stats_index.cache_clear()
+    return community_stats_index()

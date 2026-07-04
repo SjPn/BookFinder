@@ -24,6 +24,7 @@ from bookfinder.ratings import (
     clean_fw_block,
     clean_kubikus_block,
     clean_ll_block,
+    clean_loveread_block,
     valid_rating,
 )
 
@@ -229,6 +230,9 @@ def _source_triples(entry: dict) -> list[tuple[str, float, int | None]]:
     bm_info = entry.get("bookmix")
     if bm_info and bm_info.get("rating") is not None:
         sources.append(("bookmix", float(bm_info["rating"]), bm_info.get("votes")))
+    lr_info = entry.get("loveread")
+    if lr_info and lr_info.get("rating") is not None:
+        sources.append(("loveread", float(lr_info["rating"]), lr_info.get("votes")))
     return sources
 
 
@@ -266,6 +270,10 @@ def sanitize_entry(entry: dict, fl_api: dict[str, dict]) -> dict:
         entry["bookmix"] = clean_bookmix_block(entry["bookmix"])
         if not entry["bookmix"]:
             entry.pop("bookmix", None)
+    if entry.get("loveread"):
+        entry["loveread"] = clean_loveread_block(entry["loveread"])
+        if not entry["loveread"]:
+            entry.pop("loveread", None)
     if entry.get("fantlab_link"):
         link = entry["fantlab_link"]
         if valid_rating("fantlab", link.get("rating"), link.get("votes")):
@@ -301,10 +309,12 @@ def main() -> None:
     fl_api = load_fl_api()
     kubikus_records = load_source_records(OUT / "kubikus_books.json", "kubikus")
     bookmix_records = load_source_records(OUT / "bookmix_books.json", "bookmix")
+    loveread_records = load_source_records(OUT / "loveread_books.json", "loveread")
     readrate = {item["external_id"]: item for item in load_json(OUT / "readrate_books.json")}
 
     used_kubikus: set[str] = set()
     used_bookmix: set[str] = set()
+    used_loveread: set[str] = set()
     used_fw_ids = {
         str(entry.get("fantasy_worlds", {}).get("id"))
         for entry in merged
@@ -326,6 +336,12 @@ def main() -> None:
             row["bookmix"] = source_block(bm_match)
             if bm_match.genres:
                 row["genres"] = list(dict.fromkeys([*(row.get("genres") or []), *bm_match.genres]))
+        lr_match = match_external(row, loveread_records, used_loveread)
+        if lr_match:
+            used_loveread.add(lr_match.external_id)
+            row["loveread"] = source_block(lr_match)
+            if lr_match.genres:
+                row["genres"] = list(dict.fromkeys([*(row.get("genres") or []), *lr_match.genres]))
         if not row.get("download_url"):
             fw_book = find_fw_catalog_match(row["title"], row.get("authors", []), catalog, used_fw_ids)
             if fw_book:
@@ -374,7 +390,7 @@ def main() -> None:
         if entry.get("aggregate_rating") is not None:
             rated_added += 1
 
-    kubikus_added = bookmix_added = 0
+    kubikus_added = bookmix_added = loveread_added = 0
     for record in kubikus_records:
         if record.external_id in used_kubikus:
             continue
@@ -419,6 +435,29 @@ def main() -> None:
             bookmix_added += 1
             used_bookmix.add(record.external_id)
 
+    for record in loveread_records:
+        if record.external_id in used_loveread:
+            continue
+        if record.rating is None:
+            continue
+        fw_book = find_fw_catalog_match(record.title, record.authors, catalog, used_fw_ids)
+        entry = {
+            "id": str(uuid.uuid5(uuid.NAMESPACE_URL, f"loveread:{record.external_id}")),
+            "title": record.title,
+            "authors": record.authors,
+            "genres": record.genres,
+            "loveread": source_block(record),
+            "source_origin": "loveread",
+        }
+        if fw_book:
+            used_fw_ids.add(str(fw_book["id"]))
+            attach_fw_download(entry, fw_book)
+        entry = sanitize_entry(entry, fl_api)
+        if entry.get("aggregate_rating") is not None or entry.get("download_url"):
+            expanded.append(entry)
+            loveread_added += 1
+            used_loveread.add(record.external_id)
+
     expanded.sort(
         key=lambda item: (item.get("aggregate_rating") is None, -(item.get("aggregate_rating") or 0)),
     )
@@ -439,8 +478,11 @@ def main() -> None:
         "bookmix_indexed": len(bookmix_records),
         "bookmix_matched": len(used_bookmix),
         "bookmix_only_added": bookmix_added,
+        "loveread_indexed": len(loveread_records),
+        "loveread_matched": len(used_loveread),
+        "loveread_only_added": loveread_added,
         "readrate_indexed": len(readrate),
-        "rating_policy": "parsed sources only, min votes: fantlab=10, livelib=5, fw=10, kubikus=10, bookmix=5",
+        "rating_policy": "parsed sources only, min votes: fantlab=10, livelib=5, fw=10, kubikus=10, bookmix=5, loveread=5 views",
     }
     (OUT / "expanded_report.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps(summary, ensure_ascii=False, indent=2))

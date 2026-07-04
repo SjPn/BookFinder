@@ -76,6 +76,36 @@ tr:hover { background: #1a1f2a; cursor: pointer; }
 button.link { background: none; border: none; color: #7eb6ff; cursor: pointer; }
 #d-downloads a { color: #7eb6ff; margin-right: 0.75rem; }
 .muted { color: #8b95a8; font-size: 0.85rem; }
+.legend-hints { margin: 0.35rem 0 0; font-size: 0.82rem; }
+.hint-tip {
+  position: relative;
+  cursor: help;
+  border-bottom: 1px dotted #6b7588;
+}
+.hint-tip::after {
+  content: attr(data-tip);
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 0.45rem);
+  z-index: 20;
+  width: min(18rem, 70vw);
+  padding: 0.45rem 0.55rem;
+  border-radius: 6px;
+  background: #111722;
+  border: 1px solid #3a4254;
+  color: #e8eaed;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.12s ease;
+}
+.hint-tip:hover::after,
+.hint-tip:focus::after,
+.hint-tip:focus-visible::after {
+  opacity: 1;
+}
 .th-hint {
   display: inline-block;
   width: 1rem;
@@ -86,8 +116,9 @@ button.link { background: none; border: none; color: #7eb6ff; cursor: pointer; }
   background: #2d3a52;
   color: #aeb6c2;
   font-size: 0.7rem;
-  cursor: help;
+  border-bottom: none;
 }
+.th-hint::after { left: 50%; transform: translateX(-50%); }
 .help-block { font-size: 0.85rem; color: #9aa3b2; line-height: 1.45; }
 .user-rating { margin: 0.5rem 0 0.75rem; }
 .user-rating label { display: block; font-size: 0.85rem; color: #aeb6c2; margin-bottom: 0.35rem; }

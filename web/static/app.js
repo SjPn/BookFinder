@@ -6,7 +6,7 @@ const genreListEl = document.getElementById('genre-list');
 const filterWeightsEl = document.getElementById('filter-weights');
 const resultMetaEl = document.getElementById('result-meta');
 
-const ASSET_V = '20260703';
+const ASSET_V = '20260704';
 
 let allGenres = [];
 let searchTimer = null;
@@ -132,7 +132,7 @@ async function runSearch() {
     const tr = document.createElement('tr');
     tr.dataset.workId = w.id;
     const href = workUrl(w.id);
-    const sources = [w.fantlab ? 'FL' : null, w.livelib ? 'LL' : null, w.fantasy_worlds ? 'FW' : null, w.kubikus ? 'KB' : null, w.bookmix ? 'BM' : null]
+    const sources = [w.fantlab ? 'FL' : null, w.livelib ? 'LL' : null, w.fantasy_worlds ? 'FW' : null, w.kubikus ? 'KB' : null, w.bookmix ? 'BM' : null, w.loveread ? 'LR' : null]
       .filter(Boolean)
       .join('+');
     tr.innerHTML = `
@@ -140,6 +140,7 @@ async function runSearch() {
       <td><a class="row-link" href="${href}">${esc(w.title)}</a></td>
       <td>${esc((w.authors || []).join(', '))}</td>
       <td>${formatAggregateRating(w.aggregate_rating)}</td>
+      <td>${formatCommunityRating(w.community_rating)}</td>
       <td>${w.relevance ?? '—'}</td>
       <td>${sources || '—'}</td>
       <td class="genre-cell">${formatGenreMatches(w)}</td>

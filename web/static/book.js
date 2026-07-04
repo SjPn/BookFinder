@@ -76,6 +76,7 @@ function renderSources(w) {
   if (w.fantasy_worlds?.url) links.push(`<a href="${esc(w.fantasy_worlds.url)}" target="_blank" rel="noopener">Fantasy-Worlds</a>`);
   if (w.kubikus?.url) links.push(`<a href="${esc(w.kubikus.url)}" target="_blank" rel="noopener">Кубикус</a>`);
   if (w.bookmix?.url) links.push(`<a href="${esc(w.bookmix.url)}" target="_blank" rel="noopener">BookMix</a>`);
+  if (w.loveread?.url) links.push(`<a href="${esc(w.loveread.url)}" target="_blank" rel="noopener">LoveRead</a>`);
   el.innerHTML = links.length ? `Карточки: ${links.join(' · ')}` : '';
 }
 
@@ -95,8 +96,8 @@ async function renderWork(w) {
     descEl.textContent = '';
   }
 
-  document.getElementById('d-rating').textContent =
-    `Сводный: ${formatAggregateRating(w.aggregate_rating)} | FantLab: ${w.fantlab?.rating ?? '—'} | LiveLib: ${w.livelib?.rating ?? '—'} | FW: ${w.fantasy_worlds?.rating ?? '—'} | Кубикус: ${w.kubikus?.rating ?? '—'} | BookMix: ${w.bookmix?.rating ?? '—'}`;
+  document.getElementById('d-rating').innerHTML =
+    `Сводный: ${formatAggregateRating(w.aggregate_rating)} | FantLab: ${w.fantlab?.rating ?? '—'} | LiveLib: ${w.livelib?.rating ?? '—'} | FW: ${w.fantasy_worlds?.rating ?? '—'} | Кубикус: ${w.kubikus?.rating ?? '—'} | BookMix: ${w.bookmix?.rating ?? '—'} | LoveRead: ${w.loveread?.rating ?? '—'}`;
 
   const dl = document.getElementById('d-downloads');
   const fwId = w.fantasy_worlds?.id;
@@ -118,7 +119,7 @@ async function renderWork(w) {
     : (w.relevance != null ? `Релевантность поиска: ${w.relevance}` : '');
 
   document.getElementById('d-relevance').innerHTML = relevanceText
-    ? `${esc(relevanceText)}<br><span class="muted">Рейтинг — качество по данным источников. Релевантность — насколько книга подходит под ваш запрос в каталоге.</span>`
+    ? `${esc(relevanceText)}<br><span class="muted"><span class="hint-tip" tabindex="0" data-tip="Сводная оценка качества книги по FantLab, LiveLib, FW и другим источникам (шкала 0–10).">Рейтинг</span> — качество по данным источников. <span class="hint-tip" tabindex="0" data-tip="Число 0–100: насколько книга подходит под ваш поиск и фильтры жанров в каталоге.">Релевантность</span> — насколько книга подходит под ваш запрос.</span>`
     : '';
 
   document.getElementById('d-genres').innerHTML = (w.genres || []).length
@@ -146,7 +147,7 @@ async function renderWork(w) {
       const li = document.createElement('li');
       const a = document.createElement('a');
       a.href = workUrl(s.id);
-      const rating = s.aggregate_rating != null ? ` · ${s.aggregate_rating}` : '';
+      const rating = s.aggregate_rating != null ? ` · ${formatAggregateRating(s.aggregate_rating)}` : '';
       a.textContent = `${s.title} — ${(s.authors || []).join(', ')}${rating}`;
       li.appendChild(a);
       similarEl.appendChild(li);
@@ -161,7 +162,7 @@ async function renderWork(w) {
     } else {
       reviewsEl.innerHTML = `<p class="reviews-count">Показано ${rev.reviews.length}${rev.count > rev.reviews.length ? ` из ${rev.count}` : ''}</p>` +
         rev.reviews.map((r) => {
-        const src = { fantasy_worlds: 'FW', fantlab: 'FantLab', livelib: 'LiveLib', kubikus: 'Кубикус', bookmix: 'BookMix' }[r.source] || r.source;
+        const src = { fantasy_worlds: 'FW', fantlab: 'FantLab', livelib: 'LiveLib', kubikus: 'Кубикус', bookmix: 'BookMix', loveread: 'LoveRead' }[r.source] || r.source;
         const author = r.author ? esc(r.author) : 'Аноним';
         const date = r.date ? ` · ${esc(r.date)}` : '';
         const link = r.url ? ` <a href="${esc(r.url)}" target="_blank" rel="noopener">источник</a>` : '';
