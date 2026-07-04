@@ -7,17 +7,12 @@ from fastapi.responses import FileResponse, RedirectResponse, Response
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
-from bookfinder.catalog import genre_counts, load_works, reload_works, search_works, similar_works, warmup_catalog
+from bookfinder.catalog import genre_counts, load_works, reload_works, search_works, similar_works
 from bookfinder.parsers import fantasy_worlds as fw
 from bookfinder.reviews_store import get_reviews_for_work
 from bookfinder.user_ratings import delete_user_rating, get_user_rating, set_user_rating, work_user_stats
 
 app = FastAPI(title="Bookfinder", version="0.1.0")
-
-
-@app.on_event("startup")
-def _warmup() -> None:
-    warmup_catalog()
 
 WEB = Path(__file__).resolve().parents[2] / "web"
 DATA = Path(__file__).resolve().parents[2] / "data"

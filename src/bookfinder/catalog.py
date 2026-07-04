@@ -27,14 +27,7 @@ def load_works() -> list[dict]:
 def reload_works() -> list[dict]:
     load_works.cache_clear()
     genre_counts.cache_clear()
-    _work_search_tokens.cache_clear()
     return load_works()
-
-
-def warmup_catalog() -> None:
-    load_works()
-    genre_counts()
-    _work_search_tokens()
 
 
 @lru_cache
@@ -74,55 +67,6 @@ def _query_words(query: str) -> list[str]:
     if not normalized:
         return []
     return [word for word in _TOKEN_SPLIT.split(normalized) if len(word) >= 2]
-
-
-def _extract_tokens(text: str) -> set[str]:
-    tokens: set[str] = set()
-    for word in _TOKEN_SPLIT.split(_normalize_text(text)):
-        if len(word) < 2:
-            continue
-        tokens.add(word)
-        stem = _word_stem(word)
-        if stem and len(stem) >= 4:
-            tokens.add(stem)
-    return tokens
-
-
-@lru_cache
-def _work_search_tokens() -> tuple[list[dict], tuple[frozenset[str], ...]]:
-    works = load_works()
-    token_sets: list[frozenset[str]] = []
-    for work in works:
-        description = (work.get("description") or "")[:800]
-        blob = " ".join(
-            [
-                work.get("title", ""),
-                " ".join(work.get("authors", [])),
-                " ".join(work.get("genres", [])),
-                description,
-            ]
-        )
-        token_sets.append(frozenset(_extract_tokens(blob)))
-    return works, tuple(token_sets)
-
-
-def _candidate_indices(words: list[str]) -> set[int] | None:
-    if not words:
-        return None
-
-    _, token_sets = _work_search_tokens()
-    candidates: set[int] | None = None
-    for word in words:
-        stem = _word_stem(word)
-        word_hits = {
-            index
-            for index, tokens in enumerate(token_sets)
-            if word in tokens or (stem and stem in tokens)
-        }
-        if not word_hits:
-            return set()
-        candidates = word_hits if candidates is None else candidates & word_hits
-    return candidates or set()
 
 
 def _word_stem(word: str) -> str:
@@ -240,21 +184,14 @@ def search_works(
     match: str = "any",
     limit: int = 100,
 ) -> dict:
-    works, _ = _work_search_tokens()
+    works = load_works()
     total = len(works) or 1
     selected = [g.strip() for g in (genres or []) if g and g.strip()]
     counts = {item["name"]: item["count"] for item in genre_counts()}
     community = community_stats_index()
-    words = _query_words(query)
-    candidates = _candidate_indices(words) if len(words) >= 2 else None
 
     scored: list[tuple[float, dict]] = []
-    if candidates is not None:
-        work_iter = (works[index] for index in candidates)
-    else:
-        work_iter = works
-
-    for work in work_iter:
+    for work in works:
         text_score = _text_score(query, work)
         if query and text_score < 0.55:
             continue
