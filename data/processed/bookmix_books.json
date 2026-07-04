@@ -29,18 +29,24 @@
     "source": "bookmix",
     "external_id": "4173372",
     "title": "Такая невозможная жизнь",
-    "authors": [],
-    "rating": null,
-    "rating_max": 10.0,
-    "vote_count": null,
-    "rank": 2,
+    "authors": [
+      "Мэтт Хейг"
+    ],
+    "rating": 4.9,
+    "rating_max": 5.0,
+    "vote_count": 10,
+    "rank": null,
     "work_type": null,
     "year": null,
     "url": "https://bookmix.ru/book.phtml?id=4173372",
-    "genres": [],
+    "genres": [
+      "Классическая и современная проза"
+    ],
     "normalized_title": "такая невозможная жизнь",
-    "normalized_authors": [],
-    "normalized_score": null,
+    "normalized_authors": [
+      "мэтт хейг"
+    ],
+    "normalized_score": 98.00000000000001,
     "lists": [
       "best2026"
     ]
@@ -75,18 +81,27 @@
     "source": "bookmix",
     "external_id": "4232504",
     "title": "Хроники пепельной весны",
-    "authors": [],
-    "rating": null,
-    "rating_max": 10.0,
-    "vote_count": null,
-    "rank": 4,
+    "authors": [
+      "Анна Старобинец"
+    ],
+    "rating": 4.6,
+    "rating_max": 5.0,
+    "vote_count": 11,
+    "rank": null,
     "work_type": null,
     "year": null,
     "url": "https://bookmix.ru/book.phtml?id=4232504",
-    "genres": [],
+    "genres": [
+      "Русская фантастика",
+      "пони",
+      "скрытые люди",
+      "люди островов"
+    ],
     "normalized_title": "хроники пепельной весны",
-    "normalized_authors": [],
-    "normalized_score": null,
+    "normalized_authors": [
+      "анна старобинец"
+    ],
+    "normalized_score": 92.0,
     "lists": [
       "best2026"
     ]

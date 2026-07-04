@@ -440,7 +440,6 @@ def main() -> None:
             continue
         if record.rating is None:
             continue
-        fw_book = find_fw_catalog_match(record.title, record.authors, catalog, used_fw_ids)
         entry = {
             "id": str(uuid.uuid5(uuid.NAMESPACE_URL, f"loveread:{record.external_id}")),
             "title": record.title,
@@ -449,11 +448,8 @@ def main() -> None:
             "loveread": source_block(record),
             "source_origin": "loveread",
         }
-        if fw_book:
-            used_fw_ids.add(str(fw_book["id"]))
-            attach_fw_download(entry, fw_book)
         entry = sanitize_entry(entry, fl_api)
-        if entry.get("aggregate_rating") is not None or entry.get("download_url"):
+        if entry.get("aggregate_rating") is not None:
             expanded.append(entry)
             loveread_added += 1
             used_loveread.add(record.external_id)

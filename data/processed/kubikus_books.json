@@ -1570,5 +1570,862 @@
     ],
     "normalized_score": 89.39999999999999,
     "lists": []
+  },
+  {
+    "source": "kubikus",
+    "external_id": "17005",
+    "title": "Анима 1",
+    "authors": [
+      "Вова Бо",
+      "Вова Бо"
+    ],
+    "rating": null,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": null,
+    "work_type": null,
+    "year": null,
+    "url": "http://www.kubikus.ru/textinfo.asp?txid=17005",
+    "genres": [
+      "Боевая",
+      "Божественная",
+      "Городское",
+      "Фэнтези"
+    ],
+    "normalized_title": "анима",
+    "normalized_authors": [
+      "вова бо"
+    ],
+    "normalized_score": null,
+    "lists": []
+  },
+  {
+    "source": "kubikus",
+    "external_id": "17004",
+    "title": "Варщик",
+    "authors": [
+      "Кочеровский Артем",
+      "Кочеровский Артем"
+    ],
+    "rating": null,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": null,
+    "work_type": null,
+    "year": null,
+    "url": "http://www.kubikus.ru/textinfo.asp?txid=17004",
+    "genres": [
+      "Боевая",
+      "Городское",
+      "Попаданцы",
+      "Современность",
+      "Уся"
+    ],
+    "normalized_title": "варщик",
+    "normalized_authors": [
+      "кочеровский артем"
+    ],
+    "normalized_score": null,
+    "lists": []
+  },
+  {
+    "source": "kubikus",
+    "external_id": "17003",
+    "title": "Осада 1",
+    "authors": [
+      "Садов Сергей",
+      "Садов Сергей",
+      "обсудить  на форуме"
+    ],
+    "rating": 1.66,
+    "rating_max": 5.0,
+    "vote_count": 3,
+    "rank": null,
+    "work_type": null,
+    "year": null,
+    "url": "http://www.kubikus.ru/textinfo.asp?txid=17003",
+    "genres": [
+      "Боевая",
+      "Героическая (боевая)",
+      "Фэнтези"
+    ],
+    "normalized_title": "осада",
+    "normalized_authors": [
+      "обсудить на форуме",
+      "садов сергей"
+    ],
+    "normalized_score": 33.199999999999996,
+    "lists": []
+  },
+  {
+    "source": "kubikus",
+    "external_id": "17002",
+    "title": "Эволюция Генри",
+    "authors": [
+      "Ильин Владимир Tagern",
+      "Ильин Владимир Tagern"
+    ],
+    "rating": null,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": null,
+    "work_type": null,
+    "year": null,
+    "url": "http://www.kubikus.ru/textinfo.asp?txid=17002",
+    "genres": [
+      "Боевая",
+      "Научная фантастика",
+      "РеалРПГ",
+      "Современность"
+    ],
+    "normalized_title": "эволюция генри",
+    "normalized_authors": [
+      "ильин владимир tagern"
+    ],
+    "normalized_score": null,
+    "lists": []
+  },
+  {
+    "source": "kubikus",
+    "external_id": "17001",
+    "title": "Ловец знаний",
+    "authors": [
+      "Романович Роман",
+      "Романович Роман"
+    ],
+    "rating": null,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": null,
+    "work_type": null,
+    "year": null,
+    "url": "http://www.kubikus.ru/textinfo.asp?txid=17001",
+    "genres": [
+      "Боевая",
+      "Божественная",
+      "Мечи и шпаги",
+      "Путь мага",
+      "Уся",
+      "Фэнтези"
+    ],
+    "normalized_title": "ловец знаний",
+    "normalized_authors": [
+      "романович роман"
+    ],
+    "normalized_score": null,
+    "lists": []
+  },
+  {
+    "source": "kubikus",
+    "external_id": "17000",
+    "title": "Напряжение",
+    "authors": [
+      "Ильин Владимир Tagern",
+      "Ильин Владимир Tagern"
+    ],
+    "rating": null,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": null,
+    "work_type": null,
+    "year": null,
+    "url": "http://www.kubikus.ru/textinfo.asp?txid=17000",
+    "genres": [
+      "Боевая",
+      "Бояр аниме",
+      "Героическая (боевая)",
+      "Путь мага",
+      "Современность",
+      "Юмористическая"
+    ],
+    "normalized_title": "напряжение",
+    "normalized_authors": [
+      "ильин владимир tagern"
+    ],
+    "normalized_score": null,
+    "lists": []
+  },
+  {
+    "source": "kubikus",
+    "external_id": "16999",
+    "title": "Грань будущего",
+    "authors": [
+      "Сакурадзаки Хироси",
+      "Сакурадзаки Хироси"
+    ],
+    "rating": null,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": null,
+    "work_type": null,
+    "year": null,
+    "url": "http://www.kubikus.ru/textinfo.asp?txid=16999",
+    "genres": [
+      "Боевая",
+      "Научная фантастика",
+      "Путь воина",
+      "Темпоральная фантастика."
+    ],
+    "normalized_title": "грань будущего",
+    "normalized_authors": [
+      "сакурадзаки хироси"
+    ],
+    "normalized_score": null,
+    "lists": []
+  },
+  {
+    "source": "kubikus",
+    "external_id": "16998",
+    "title": "До Адама",
+    "authors": [
+      "Лондон Джек",
+      "Лондон Джек",
+      "обсудить  на форуме"
+    ],
+    "rating": null,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": null,
+    "work_type": null,
+    "year": null,
+    "url": "http://www.kubikus.ru/textinfo.asp?txid=16998",
+    "genres": [
+      "Научная фантастика",
+      "Темпоральная фантастика."
+    ],
+    "normalized_title": "до адама",
+    "normalized_authors": [
+      "лондон джек",
+      "обсудить на форуме"
+    ],
+    "normalized_score": null,
+    "lists": []
+  },
+  {
+    "source": "kubikus",
+    "external_id": "16997",
+    "title": "Доминик Каррера. Академия",
+    "authors": [
+      "Колесников Дмитрий",
+      "Колесников Дмитрий"
+    ],
+    "rating": null,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": null,
+    "work_type": null,
+    "year": null,
+    "url": "http://www.kubikus.ru/textinfo.asp?txid=16997",
+    "genres": [
+      "Боевая",
+      "Научная фантастика",
+      "Попаданцы",
+      "Путь мага",
+      "Современность",
+      "Техномагия"
+    ],
+    "normalized_title": "доминик каррера академия",
+    "normalized_authors": [
+      "колесников дмитрий"
+    ],
+    "normalized_score": null,
+    "lists": []
+  },
+  {
+    "source": "kubikus",
+    "external_id": "16996",
+    "title": "Доминик Каррера",
+    "authors": [
+      "Колесников Дмитрий",
+      "Колесников Дмитрий"
+    ],
+    "rating": null,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": null,
+    "work_type": null,
+    "year": null,
+    "url": "http://www.kubikus.ru/textinfo.asp?txid=16996",
+    "genres": [
+      "Боевая",
+      "Попаданцы",
+      "Современность",
+      "Техномагия"
+    ],
+    "normalized_title": "доминик каррера",
+    "normalized_authors": [
+      "колесников дмитрий"
+    ],
+    "normalized_score": null,
+    "lists": []
+  },
+  {
+    "source": "kubikus",
+    "external_id": "16995",
+    "title": "Всё, что тебе нужно — это убивать",
+    "authors": [
+      "Сакурадзаки Хироси",
+      "Сакурадзаки Хироси"
+    ],
+    "rating": null,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": null,
+    "work_type": null,
+    "year": null,
+    "url": "http://www.kubikus.ru/textinfo.asp?txid=16995",
+    "genres": [
+      "Боевая",
+      "Научная фантастика",
+      "Одномирье",
+      "Путь воина",
+      "Темпоральная фантастика."
+    ],
+    "normalized_title": "все что тебе нужно это убивать",
+    "normalized_authors": [
+      "сакурадзаки хироси"
+    ],
+    "normalized_score": null,
+    "lists": []
+  },
+  {
+    "source": "kubikus",
+    "external_id": "16994",
+    "title": "Пять жизней Читера",
+    "authors": [
+      "Каменистый Артем",
+      "Каменистый Артем"
+    ],
+    "rating": null,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": null,
+    "work_type": null,
+    "year": null,
+    "url": "http://www.kubikus.ru/textinfo.asp?txid=16994",
+    "genres": [
+      "Боевая",
+      "ЛитРПГ",
+      "Путь воина",
+      "РеалРПГ",
+      "Современность"
+    ],
+    "normalized_title": "пять жизней читера",
+    "normalized_authors": [
+      "каменистый артем"
+    ],
+    "normalized_score": null,
+    "lists": []
+  },
+  {
+    "source": "kubikus",
+    "external_id": "16993",
+    "title": "Матабар",
+    "authors": [
+      "Клеванский",
+      "Клеванский"
+    ],
+    "rating": null,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": null,
+    "work_type": null,
+    "year": null,
+    "url": "http://www.kubikus.ru/textinfo.asp?txid=16993",
+    "genres": [
+      "Боевая",
+      "Паропанк",
+      "Путь воина",
+      "Фэнтези"
+    ],
+    "normalized_title": "матабар",
+    "normalized_authors": [
+      "клеванский"
+    ],
+    "normalized_score": null,
+    "lists": []
+  },
+  {
+    "source": "kubikus",
+    "external_id": "16992",
+    "title": "Сердце дракона II",
+    "authors": [
+      "Клеванский",
+      "Клеванский"
+    ],
+    "rating": null,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": null,
+    "work_type": null,
+    "year": null,
+    "url": "http://www.kubikus.ru/textinfo.asp?txid=16992",
+    "genres": [
+      "Боевая",
+      "Героическая (боевая)",
+      "Мечи и шпаги",
+      "Попаданцы",
+      "Путь воина",
+      "Уся"
+    ],
+    "normalized_title": "сердце дракона ii",
+    "normalized_authors": [
+      "клеванский"
+    ],
+    "normalized_score": null,
+    "lists": []
+  },
+  {
+    "source": "kubikus",
+    "external_id": "16991",
+    "title": "Сердце дракона I",
+    "authors": [
+      "Клеванский",
+      "Клеванский"
+    ],
+    "rating": null,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": null,
+    "work_type": null,
+    "year": null,
+    "url": "http://www.kubikus.ru/textinfo.asp?txid=16991",
+    "genres": [
+      "Боевая",
+      "Героическая (боевая)",
+      "Мечи и шпаги",
+      "Попаданцы",
+      "Путь воина",
+      "Уся",
+      "Фэнтези"
+    ],
+    "normalized_title": "сердце дракона i",
+    "normalized_authors": [
+      "клеванский"
+    ],
+    "normalized_score": null,
+    "lists": []
+  },
+  {
+    "source": "kubikus",
+    "external_id": "16990",
+    "title": "Теряя маски",
+    "authors": [
+      "Метельский",
+      "Метельский"
+    ],
+    "rating": null,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": null,
+    "work_type": null,
+    "year": null,
+    "url": "http://www.kubikus.ru/textinfo.asp?txid=16990",
+    "genres": [
+      "Боевая",
+      "Бояр аниме",
+      "Попаданцы",
+      "Фэнтези"
+    ],
+    "normalized_title": "теряя маски",
+    "normalized_authors": [
+      "метельский"
+    ],
+    "normalized_score": null,
+    "lists": []
+  },
+  {
+    "source": "kubikus",
+    "external_id": "16989",
+    "title": "Меняя маски",
+    "authors": [
+      "Метельский",
+      "Метельский"
+    ],
+    "rating": null,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": null,
+    "work_type": null,
+    "year": null,
+    "url": "http://www.kubikus.ru/textinfo.asp?txid=16989",
+    "genres": [
+      "Боевая",
+      "Бояр аниме",
+      "Попаданцы",
+      "Путь воина",
+      "Путь мага",
+      "Фэнтези"
+    ],
+    "normalized_title": "меняя маски",
+    "normalized_authors": [
+      "метельский"
+    ],
+    "normalized_score": null,
+    "lists": []
+  },
+  {
+    "source": "kubikus",
+    "external_id": "16988",
+    "title": "Реконкистадоры",
+    "authors": [
+      "Лео Сухов",
+      "Лео Сухов"
+    ],
+    "rating": null,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": null,
+    "work_type": null,
+    "year": null,
+    "url": "http://www.kubikus.ru/textinfo.asp?txid=16988",
+    "genres": [
+      "Боевая",
+      "Попаданцы",
+      "РеалРПГ",
+      "Юмористическая"
+    ],
+    "normalized_title": "реконкистадоры",
+    "normalized_authors": [
+      "лео сухов"
+    ],
+    "normalized_score": null,
+    "lists": []
+  },
+  {
+    "source": "kubikus",
+    "external_id": "16987",
+    "title": "Опасное соседство",
+    "authors": [
+      "Лео Сухов",
+      "Лео Сухов"
+    ],
+    "rating": null,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": null,
+    "work_type": null,
+    "year": null,
+    "url": "http://www.kubikus.ru/textinfo.asp?txid=16987",
+    "genres": [
+      "Боевая",
+      "Попаданцы",
+      "РеалРПГ",
+      "Юмористическая"
+    ],
+    "normalized_title": "опасное соседство",
+    "normalized_authors": [
+      "лео сухов"
+    ],
+    "normalized_score": null,
+    "lists": []
+  },
+  {
+    "source": "kubikus",
+    "external_id": "16986",
+    "title": "Последний довод королей",
+    "authors": [
+      "Лео Сухов",
+      "Лео Сухов"
+    ],
+    "rating": null,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": null,
+    "work_type": null,
+    "year": null,
+    "url": "http://www.kubikus.ru/textinfo.asp?txid=16986",
+    "genres": [
+      "Боевая",
+      "Попаданцы",
+      "РеалРПГ",
+      "Юмористическая"
+    ],
+    "normalized_title": "последний довод королей",
+    "normalized_authors": [
+      "лео сухов"
+    ],
+    "normalized_score": null,
+    "lists": []
+  },
+  {
+    "source": "kubikus",
+    "external_id": "16985",
+    "title": "На пути прогресса",
+    "authors": [
+      "Лео Сухов",
+      "Лео Сухов"
+    ],
+    "rating": null,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": null,
+    "work_type": null,
+    "year": null,
+    "url": "http://www.kubikus.ru/textinfo.asp?txid=16985",
+    "genres": [
+      "Боевая",
+      "Попаданцы",
+      "РеалРПГ",
+      "Юмористическая"
+    ],
+    "normalized_title": "на пути прогресса",
+    "normalized_authors": [
+      "лео сухов"
+    ],
+    "normalized_score": null,
+    "lists": []
+  },
+  {
+    "source": "kubikus",
+    "external_id": "16984",
+    "title": "Беззаконие и отвага",
+    "authors": [
+      "Лео Сухов",
+      "Лео Сухов"
+    ],
+    "rating": null,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": null,
+    "work_type": null,
+    "year": null,
+    "url": "http://www.kubikus.ru/textinfo.asp?txid=16984",
+    "genres": [
+      "Героическая (боевая)",
+      "Попаданцы",
+      "РеалРПГ",
+      "Юмористическая"
+    ],
+    "normalized_title": "беззаконие и отвага",
+    "normalized_authors": [
+      "лео сухов"
+    ],
+    "normalized_score": null,
+    "lists": []
+  },
+  {
+    "source": "kubikus",
+    "external_id": "16983",
+    "title": "Общественный договор",
+    "authors": [
+      "Лео Сухов",
+      "Лео Сухов"
+    ],
+    "rating": null,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": null,
+    "work_type": null,
+    "year": null,
+    "url": "http://www.kubikus.ru/textinfo.asp?txid=16983",
+    "genres": [
+      "Героическая (боевая)",
+      "Попаданцы",
+      "РеалРПГ",
+      "Юмористическая"
+    ],
+    "normalized_title": "общественный договор",
+    "normalized_authors": [
+      "лео сухов"
+    ],
+    "normalized_score": null,
+    "lists": []
+  },
+  {
+    "source": "kubikus",
+    "external_id": "16982",
+    "title": "Зов ааори",
+    "authors": [
+      "Лео Сухов",
+      "Лео Сухов"
+    ],
+    "rating": null,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": null,
+    "work_type": null,
+    "year": null,
+    "url": "http://www.kubikus.ru/textinfo.asp?txid=16982",
+    "genres": [
+      "Боевая",
+      "Героическая (боевая)",
+      "Путь воина",
+      "Путь мага",
+      "Фэнтези"
+    ],
+    "normalized_title": "зов ааори",
+    "normalized_authors": [
+      "лео сухов"
+    ],
+    "normalized_score": null,
+    "lists": []
+  },
+  {
+    "source": "kubikus",
+    "external_id": "16981",
+    "title": "Познавший правила",
+    "authors": [
+      "Лео Сухов",
+      "Лео Сухов"
+    ],
+    "rating": null,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": null,
+    "work_type": null,
+    "year": null,
+    "url": "http://www.kubikus.ru/textinfo.asp?txid=16981",
+    "genres": [],
+    "normalized_title": "познавший правила",
+    "normalized_authors": [
+      "лео сухов"
+    ],
+    "normalized_score": null,
+    "lists": []
+  },
+  {
+    "source": "kubikus",
+    "external_id": "16980",
+    "title": "Искупление грехов",
+    "authors": [
+      "Лео Сухов",
+      "Лео Сухов"
+    ],
+    "rating": null,
+    "rating_max": 5.0,
+    "vote_count": null,
+    "rank": null,
+    "work_type": null,
+    "year": null,
+    "url": "http://www.kubikus.ru/textinfo.asp?txid=16980",
+    "genres": [
+      "Боевая",
+      "Героическая (боевая)",
+      "Фэнтези"
+    ],
+    "normalized_title": "искупление грехов",
+    "normalized_authors": [
+      "лео сухов"
+    ],
+    "normalized_score": null,
+    "lists": []
+  },
+  {
+    "source": "kubikus",
+    "external_id": "16979",
+    "title": "Безымянные слуги",
+    "authors": [
+      "Лео Сухов",
+      "Лео Сухов"
+    ],
+    "rating": 5.0,
+    "rating_max": 5.0,
+    "vote_count": 1,
+    "rank": null,
+    "work_type": null,
+    "year": null,
+    "url": "http://www.kubikus.ru/textinfo.asp?txid=16979",
+    "genres": [
+      "Боевая",
+      "Героическая (боевая)",
+      "Фэнтези"
+    ],
+    "normalized_title": "безымянные слуги",
+    "normalized_authors": [
+      "лео сухов"
+    ],
+    "normalized_score": 100.0,
+    "lists": []
+  },
+  {
+    "source": "kubikus",
+    "external_id": "16978",
+    "title": "Пустая могила",
+    "authors": [
+      "Страуд Джонатан",
+      "Страуд Джонатан"
+    ],
+    "rating": 1.56,
+    "rating_max": 5.0,
+    "vote_count": 23,
+    "rank": null,
+    "work_type": null,
+    "year": null,
+    "url": "http://www.kubikus.ru/textinfo.asp?txid=16978",
+    "genres": [
+      "Альтернативная история",
+      "Боевая",
+      "Городское",
+      "Детективная",
+      "Детская Ф&Ф",
+      "Мистическая"
+    ],
+    "normalized_title": "пустая могила",
+    "normalized_authors": [
+      "страуд джонатан"
+    ],
+    "normalized_score": 31.2,
+    "lists": []
+  },
+  {
+    "source": "kubikus",
+    "external_id": "16977",
+    "title": "Крадущаяся тень",
+    "authors": [
+      "Страуд Джонатан",
+      "Страуд Джонатан"
+    ],
+    "rating": 1.34,
+    "rating_max": 5.0,
+    "vote_count": 23,
+    "rank": null,
+    "work_type": null,
+    "year": null,
+    "url": "http://www.kubikus.ru/textinfo.asp?txid=16977",
+    "genres": [
+      "Альтернативная история",
+      "Боевая",
+      "Городское",
+      "Детективная",
+      "Детская Ф&Ф",
+      "Мистическая"
+    ],
+    "normalized_title": "крадущаяся тень",
+    "normalized_authors": [
+      "страуд джонатан"
+    ],
+    "normalized_score": 26.8,
+    "lists": []
+  },
+  {
+    "source": "kubikus",
+    "external_id": "16976",
+    "title": "Призрачный двойник",
+    "authors": [
+      "Страуд Джонатан",
+      "Страуд Джонатан"
+    ],
+    "rating": 1.34,
+    "rating_max": 5.0,
+    "vote_count": 23,
+    "rank": null,
+    "work_type": null,
+    "year": null,
+    "url": "http://www.kubikus.ru/textinfo.asp?txid=16976",
+    "genres": [
+      "Альтернативная история",
+      "Боевая",
+      "Городское",
+      "Детективная",
+      "Детская Ф&Ф",
+      "Мистическая"
+    ],
+    "normalized_title": "призрачный двойник",
+    "normalized_authors": [
+      "страуд джонатан"
+    ],
+    "normalized_score": 26.8,
+    "lists": []
   }
 ]
