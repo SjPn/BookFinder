@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import re
 
-MIN_GENRE_COUNT = 3
+MIN_GENRE_COUNT = 10
 
 GENRE_WORDS = {
     "фантастика",
