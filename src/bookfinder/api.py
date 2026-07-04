@@ -70,7 +70,7 @@ def search(
     q: str = "",
     genres: list[str] = Query(default=[]),
     match: str = Query("any", pattern="^(any|all)$"),
-    limit: int = Query(100, ge=1, le=500),
+    limit: int = Query(200, ge=1, le=1000),
 ) -> dict:
     return search_works(query=q, genres=genres, match=match, limit=limit)
 

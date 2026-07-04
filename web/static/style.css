@@ -77,6 +77,17 @@ button.link { background: none; border: none; color: #7eb6ff; cursor: pointer; }
 #d-downloads a { color: #7eb6ff; margin-right: 0.75rem; }
 .muted { color: #8b95a8; font-size: 0.85rem; }
 .legend-hints { margin: 0.35rem 0 0; font-size: 0.82rem; }
+.load-more-row { margin: 0.35rem 0 0.75rem; }
+.load-more-row button.link {
+  background: none;
+  border: 1px solid #3a4254;
+  color: #7eb6ff;
+  cursor: pointer;
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  font: inherit;
+}
+.load-more-row button.link:hover { border-color: #7eb6ff; }
 .hint-tip {
   position: relative;
   cursor: help;

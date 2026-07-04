@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Cache-Control" content="no-cache">
   <title>Bookfinder</title>
-  <link rel="stylesheet" href="/static/style.css?v=20260704">
+  <link rel="stylesheet" href="/static/style.css?v=20260704b">
 </head>
 <body>
   <header>
@@ -32,6 +32,9 @@
           <input id="query" type="search" placeholder="Название, автор, жанр…" autocomplete="off">
         </label>
         <p id="result-meta" class="result-meta"></p>
+        <p id="load-more-row" class="load-more-row hidden">
+          <button type="button" id="load-more" class="link">Показать ещё</button>
+        </p>
         <p class="legend-hints muted">
           <span class="hint-tip" tabindex="0" data-tip="Сводная оценка 0–10 по FantLab, LiveLib, FW, Кубикус, BookMix и LoveRead (учитываются только источники с достаточным числом голосов).">Рейтинг</span>
           ·
@@ -58,7 +61,7 @@
       </table>
     </section>
   </main>
-  <script src="/static/common.js?v=20260704"></script>
-  <script src="/static/app.js?v=20260704"></script>
+  <script src="/static/common.js?v=20260704b"></script>
+  <script src="/static/app.js?v=20260704b"></script>
 </body>
 </html>

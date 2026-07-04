@@ -6,7 +6,9 @@ const genreListEl = document.getElementById('genre-list');
 const filterWeightsEl = document.getElementById('filter-weights');
 const resultMetaEl = document.getElementById('result-meta');
 
-const ASSET_V = '20260704';
+const ASSET_V = '20260704b';
+let searchLimit = 200;
+let lastSearchTotal = 0;
 
 let allGenres = [];
 let searchTimer = null;
@@ -109,22 +111,34 @@ async function loadGenres() {
   applyCatalogState(restoreCatalogState());
 }
 
-function buildSearchUrl() {
+function buildSearchUrl(limit = searchLimit) {
   const params = new URLSearchParams();
   const q = queryEl.value.trim();
   if (q) params.set('q', q);
   params.set('match', matchMode());
-  params.set('limit', '200');
+  params.set('limit', String(limit));
   for (const genre of selectedGenres()) {
     params.append('genres', genre);
   }
   return `/api/search?${params.toString()}`;
 }
 
-async function runSearch() {
+async function runSearch(resetLimit = true) {
+  if (resetLimit) searchLimit = 200;
   const data = await apiJson(buildSearchUrl());
   const rows = data.items || [];
+  lastSearchTotal = data.total || 0;
   resultMetaEl.textContent = `Найдено: ${data.total}${rows.length < data.total ? `, показано ${rows.length}` : ''}`;
+  const loadMoreRow = document.getElementById('load-more-row');
+  const loadMoreBtn = document.getElementById('load-more');
+  if (loadMoreRow && loadMoreBtn) {
+    if (rows.length < data.total) {
+      loadMoreRow.classList.remove('hidden');
+      loadMoreBtn.textContent = `Показать ещё (${Math.min(200, data.total - rows.length)} из ${data.total - rows.length})`;
+    } else {
+      loadMoreRow.classList.add('hidden');
+    }
+  }
   renderFilterWeights(data.filters || [], data.total || 0);
 
   tbody.innerHTML = '';
@@ -161,12 +175,22 @@ tbody.addEventListener('click', (e) => {
 function scheduleSearch() {
   clearTimeout(searchTimer);
   searchTimer = setTimeout(() => {
-    runSearch().catch((err) => {
+    runSearch(true).catch((err) => {
       resultMetaEl.textContent = `Ошибка: ${err.message}`;
       console.error(err);
     });
   }, 250);
 }
+
+document.getElementById('load-more')?.addEventListener('click', async () => {
+  searchLimit = Math.min(searchLimit + 200, lastSearchTotal, 1000);
+  try {
+    await runSearch(false);
+  } catch (err) {
+    resultMetaEl.textContent = `Ошибка: ${err.message}`;
+    console.error(err);
+  }
+});
 
 queryEl.addEventListener('input', scheduleSearch);
 genreFilterEl.addEventListener('input', () => renderGenres(genreFilterEl.value));

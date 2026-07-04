@@ -48,28 +48,75 @@ def _genre_set(work: dict) -> set[str]:
     return {g.lower() for g in work.get("genres", []) if g}
 
 
+def _query_words(query: str) -> list[str]:
+    return [word for word in query.lower().split() if len(word) >= 2]
+
+
+def _word_stem(word: str) -> str:
+    word = word.strip().lower()
+    if len(word) <= 4:
+        return word
+    if len(word) >= 7:
+        return word[:-2]
+    return word[:-1]
+
+
+def _stem_in_text(word: str, text: str) -> bool:
+    stem = _word_stem(word)
+    if stem and stem in text:
+        return True
+    return word in text
+
+
 def _text_score(query: str, work: dict) -> float:
     if not query:
         return 1.0
 
     q = query.lower().strip()
+    if not q:
+        return 1.0
+
     title = work.get("title", "").lower()
     authors = " ".join(work.get("authors", [])).lower()
     genres = " ".join(work.get("genres", [])).lower()
+    haystack = f"{title} {authors} {genres}"
+
     if q in title:
         return 1.0
+    if any(_stem_in_text(word, title) for word in _query_words(q)):
+        return 0.92
     if q in authors:
         return 0.95
-    if q in genres:
+    if any(_stem_in_text(word, authors) for word in _query_words(q)):
         return 0.9
-    if q in f"{title} {authors} {genres}":
+    if q in genres:
         return 0.85
+    if q in haystack:
+        return 0.82
 
-    return max(
-        fuzz.partial_ratio(q, title) / 100,
-        fuzz.partial_ratio(q, authors) / 100,
-        fuzz.partial_ratio(q, genres) / 100,
-    )
+    words = _query_words(q)
+    if words:
+        if all(_stem_in_text(word, title) for word in words):
+            return 0.9
+        if all(_stem_in_text(word, haystack) for word in words):
+            return 0.86
+        if any(_stem_in_text(word, title) for word in words):
+            return 0.82
+
+    # Avoid partial_ratio on titles: it confuses similar words (e.g. страшный/странный).
+    title_ratio = fuzz.ratio(q, title) / 100
+    if title_ratio >= 0.72:
+        return title_ratio * 0.9
+
+    author_ratio = fuzz.ratio(q, authors) / 100 if authors else 0.0
+    if author_ratio >= 0.78:
+        return author_ratio * 0.85
+
+    genre_ratio = fuzz.ratio(q, genres) / 100 if genres else 0.0
+    if genre_ratio >= 0.82:
+        return genre_ratio * 0.75
+
+    return 0.0
 
 
 def _genre_match_score(filter_genre: str, work_genres: list[str]) -> float:
@@ -104,7 +151,7 @@ def search_works(
     scored: list[tuple[float, dict]] = []
     for work in works:
         text_score = _text_score(query, work)
-        if query and text_score < 0.42:
+        if query and text_score < 0.55:
             continue
 
         genre_matches: dict[str, float] = {}
@@ -126,7 +173,10 @@ def search_works(
             genre_relevance = 1.0
 
         rating_norm = (work.get("aggregate_rating") or 0) / 100
-        relevance = genre_relevance * 0.55 + text_score * 0.30 + rating_norm * 0.15
+        if query:
+            relevance = text_score * 0.78 + genre_relevance * 0.12 + rating_norm * 0.10
+        else:
+            relevance = genre_relevance * 0.55 + text_score * 0.30 + rating_norm * 0.15
 
         item = dict(work)
         item["relevance"] = round(relevance * 100, 1)
@@ -136,7 +186,16 @@ def search_works(
         item["community_rating"] = community.get(work["id"])
         scored.append((relevance, item))
 
-    scored.sort(key=lambda pair: (-pair[0], -(pair[1].get("aggregate_rating") or 0)))
+    if query:
+        scored.sort(
+            key=lambda pair: (
+                -pair[1].get("text_score", 0),
+                -pair[0],
+                -(pair[1].get("aggregate_rating") or 0),
+            ),
+        )
+    else:
+        scored.sort(key=lambda pair: (-pair[0], -(pair[1].get("aggregate_rating") or 0)))
     all_matches = [item for _, item in scored]
     items = all_matches[:limit]
 
