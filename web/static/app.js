@@ -6,7 +6,7 @@ const genreListEl = document.getElementById('genre-list');
 const filterWeightsEl = document.getElementById('filter-weights');
 const resultMetaEl = document.getElementById('result-meta');
 
-const ASSET_V = '20260704d';
+const ASSET_V = '20260704e';
 let searchLimit = 200;
 let lastSearchTotal = 0;
 let searchSeq = 0;

@@ -2,12 +2,14 @@ from __future__ import annotations
 
 import json
 import re
+import sqlite3
 import unicodedata
 from functools import lru_cache
 from pathlib import Path
 
 from rapidfuzz import fuzz
 
+from bookfinder.runtime_catalog import TOKEN_DB_NAME, normalize_search_text, word_stem
 from bookfinder.user_ratings import community_stats_index
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -33,20 +35,27 @@ LIST_ITEM_FIELDS = (
 )
 
 
-def _annotate_search_fields(work: dict) -> None:
-    if "_full" in work:
-        return
-    title = _normalize_text(work.get("title", ""))
-    authors = _normalize_text(" ".join(work.get("authors", [])))
-    genres = _normalize_text(" ".join(work.get("genres", [])))
-    blurb = _normalize_text(work.get("search_blurb", ""))
-    work["_title"] = title
-    work["_authors"] = authors
-    work["_genres"] = genres
-    work["_full"] = f"{title} {authors} {genres} {blurb}"
-    work["_title_tokens"] = tuple(token for token in _TOKEN_SPLIT.split(title) if len(token) >= 2)
-    work["_author_tokens"] = tuple(token for token in _TOKEN_SPLIT.split(authors) if len(token) >= 2)
-    work["_full_tokens"] = tuple(token for token in _TOKEN_SPLIT.split(work["_full"]) if len(token) >= 2)
+class TokenIndex:
+    def __init__(self, db_path: Path) -> None:
+        self._conn = sqlite3.connect(f"file:{db_path.as_posix()}?mode=ro", uri=True, check_same_thread=False)
+
+    def lookup(self, token: str) -> tuple[int, ...]:
+        rows = self._conn.execute(
+            "SELECT rowid FROM token_hits WHERE token = ?",
+            (token,),
+        ).fetchall()
+        return tuple(row[0] for row in rows)
+
+    def close(self) -> None:
+        self._conn.close()
+
+
+@lru_cache
+def _token_index() -> TokenIndex | None:
+    path = DATA / TOKEN_DB_NAME
+    if not path.exists():
+        return None
+    return TokenIndex(path)
 
 
 @lru_cache
@@ -61,8 +70,6 @@ def load_works() -> list[dict]:
                     if details_path.exists():
                         work.pop("description", None)
                         work.pop("description_source", None)
-            for work in works:
-                _annotate_search_fields(work)
             return works
     return []
 
@@ -81,11 +88,15 @@ def works_by_id() -> dict[str, dict]:
 
 
 def reload_works() -> list[dict]:
+    index = _token_index()
+    if index is not None:
+        index.close()
     load_works.cache_clear()
     load_work_details.cache_clear()
     works_by_id.cache_clear()
     genre_counts.cache_clear()
     _search_cached.cache_clear()
+    _token_index.cache_clear()
     return load_works()
 
 
@@ -116,7 +127,7 @@ def get_work(work_id: str) -> dict | None:
     work = works_by_id().get(work_id)
     if not work:
         return None
-    item = {key: value for key, value in work.items() if not str(key).startswith("_") and key != "search_blurb"}
+    item = {key: value for key, value in work.items() if key != "search_blurb"}
     details = load_work_details().get(work_id)
     if details:
         item.update(details)
@@ -128,9 +139,7 @@ def _genre_set(work: dict) -> set[str]:
 
 
 def _normalize_text(text: str) -> str:
-    text = unicodedata.normalize("NFKC", text or "")
-    text = text.replace("+", " ")
-    return re.sub(r"\s+", " ", text).strip().casefold()
+    return normalize_search_text(text)
 
 
 def _normalize_query(query: str) -> str:
@@ -145,12 +154,38 @@ def _query_words(query: str) -> list[str]:
 
 
 def _word_stem(word: str) -> str:
-    word = word.strip().lower()
-    if len(word) <= 4:
-        return word
-    if len(word) >= 7:
-        return word[:-2]
-    return word[:-1]
+    return word_stem(word)
+
+
+def _token_keys(word: str) -> set[str]:
+    keys = {word}
+    stem = _word_stem(word)
+    if stem and len(stem) >= 4:
+        keys.add(stem)
+    return keys
+
+
+def _candidate_rowids(words: list[str]) -> set[int] | None:
+    if not words:
+        return None
+
+    index = _token_index()
+    if index is None:
+        return None
+
+    candidates: set[int] | None = None
+    for word in words:
+        hits: set[int] = set()
+        for key in _token_keys(word):
+            hits.update(index.lookup(key))
+        if not hits:
+            return set()
+        candidates = hits if candidates is None else candidates & hits
+    return candidates or set()
+
+
+def _tokenize(text: str) -> tuple[str, ...]:
+    return tuple(token for token in _TOKEN_SPLIT.split(_normalize_text(text)) if len(token) >= 2)
 
 
 def _token_matches(word: str, token: str) -> bool:
@@ -174,21 +209,24 @@ def _stem_in_tokens(word: str, tokens: tuple[str, ...]) -> bool:
     return False
 
 
-def _stem_in_text(word: str, text: str) -> bool:
-    for token in _TOKEN_SPLIT.split(_normalize_text(text)):
-        if len(token) < 2:
-            continue
-        if _token_matches(word, token):
-            return True
-    return False
+def _work_tokens(work: dict) -> tuple[tuple[str, ...], tuple[str, ...], tuple[str, ...], str, str, str, str]:
+    title = _normalize_text(work.get("title", ""))
+    authors = _normalize_text(" ".join(work.get("authors", [])))
+    genres = _normalize_text(" ".join(work.get("genres", [])))
+    blurb = _normalize_text(work.get("search_blurb", ""))
+    full = f"{title} {authors} {genres} {blurb}"
+    return (
+        _tokenize(title),
+        _tokenize(authors),
+        _tokenize(full),
+        title,
+        authors,
+        genres,
+        full,
+    )
 
 
-def _search_fields(work: dict) -> tuple[str, str, str, str]:
-    _annotate_search_fields(work)
-    return work["_title"], work["_authors"], work["_genres"], work["_full"]
-
-
-def _text_score(query: str, work: dict) -> float:
+def _text_score(query: str, work: dict, cached: tuple | None = None) -> float:
     if not query:
         return 1.0
 
@@ -196,14 +234,11 @@ def _text_score(query: str, work: dict) -> float:
     if not q:
         return 1.0
 
-    _annotate_search_fields(work)
-    title = work["_title"]
-    authors = work["_authors"]
-    genres = work["_genres"]
-    full = work["_full"]
-    title_tokens = work["_title_tokens"]
-    author_tokens = work["_author_tokens"]
-    full_tokens = work["_full_tokens"]
+    if cached is None:
+        title_tokens, author_tokens, full_tokens, title, authors, genres, full = _work_tokens(work)
+    else:
+        title_tokens, author_tokens, full_tokens, title, authors, genres, full = cached
+
     words = _query_words(q)
 
     if len(words) >= 2:
@@ -230,7 +265,7 @@ def _text_score(query: str, work: dict) -> float:
         return 0.92
     if q in authors or _stem_in_tokens(word, author_tokens):
         return 0.9
-    if q in genres or _stem_in_text(word, genres):
+    if q in genres:
         return 0.85
     if q in full or _stem_in_tokens(word, full_tokens):
         return 0.82
@@ -242,10 +277,6 @@ def _text_score(query: str, work: dict) -> float:
     author_ratio = fuzz.ratio(q, authors) / 100 if authors else 0.0
     if author_ratio >= 0.78:
         return author_ratio * 0.85
-
-    genre_ratio = fuzz.ratio(q, genres) / 100 if genres else 0.0
-    if genre_ratio >= 0.82:
-        return genre_ratio * 0.75
 
     return 0.0
 
@@ -311,6 +342,23 @@ def _build_filter_stats(
     return filters
 
 
+def _iter_search_works(query: str, works: list[dict]):
+    if not query:
+        for work in works:
+            yield work
+        return
+
+    words = _query_words(query)
+    candidates = _candidate_rowids(words)
+    if candidates is not None:
+        for rowid in candidates:
+            yield works[rowid]
+        return
+
+    for work in works:
+        yield work
+
+
 def _search_works_impl(
     query: str = "",
     genres: list[str] | None = None,
@@ -324,7 +372,6 @@ def _search_works_impl(
     community = community_stats_index()
 
     if not query and not selected:
-        top = sorted(works, key=lambda work: -(work.get("aggregate_rating") or 0))[:limit]
         items = [
             _slim_work(
                 work,
@@ -333,7 +380,7 @@ def _search_works_impl(
                 genre_matches={},
                 community_rating=community.get(work["id"]),
             )
-            for work in top
+            for work in works[:limit]
         ]
         return {
             "total": len(works),
@@ -345,8 +392,9 @@ def _search_works_impl(
         }
 
     scored: list[tuple[float, dict]] = []
-    for work in works:
-        text_score = _text_score(query, work)
+    for work in _iter_search_works(query, works):
+        token_cache = _work_tokens(work) if query else None
+        text_score = _text_score(query, work, token_cache)
         if query and text_score < 0.55:
             continue
 
@@ -406,7 +454,7 @@ def _search_works_impl(
     }
 
 
-@lru_cache(maxsize=128)
+@lru_cache(maxsize=256)
 def _search_cached(query: str, genres: tuple[str, ...], match: str, limit: int) -> str:
     return json.dumps(
         _search_works_impl(query=query, genres=list(genres), match=match, limit=limit),
@@ -433,7 +481,7 @@ def similar_works(work_id: str, limit: int = 12) -> list[dict]:
 
     base_authors = {a.lower() for a in base.get("authors", [])}
     base_genres = _genre_set(base)
-    base_title = base["_title"]
+    base_title = _normalize_text(base.get("title", ""))
 
     scored: list[tuple[float, dict]] = []
     for work in load_works():
@@ -442,8 +490,7 @@ def similar_works(work_id: str, limit: int = 12) -> list[dict]:
         genres = _genre_set(work)
         genre_score = len(base_genres & genres) / max(len(base_genres | genres), 1)
         author_score = 1.0 if base_authors & {a.lower() for a in work.get("authors", [])} else 0.0
-        _annotate_search_fields(work)
-        title = work["_title"]
+        title = _normalize_text(work.get("title", ""))
         title_score = fuzz.token_sort_ratio(base_title, title) / 100
         score = genre_score * 0.45 + author_score * 0.35 + title_score * 0.2
         if score >= 0.25:
