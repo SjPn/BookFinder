@@ -80,6 +80,23 @@ function renderSources(w) {
   el.innerHTML = links.length ? `Карточки: ${links.join(' · ')}` : '';
 }
 
+function renderRatingGrid(w) {
+  const items = [
+    { label: 'Сводный', value: formatAggregateRating(w.aggregate_rating), highlight: true },
+    { label: 'FantLab', value: w.fantlab?.rating ?? '—' },
+    { label: 'LiveLib', value: w.livelib?.rating ?? '—' },
+    { label: 'FW', value: w.fantasy_worlds?.rating ?? '—' },
+    { label: 'Кубикус', value: w.kubikus?.rating ?? '—' },
+    { label: 'BookMix', value: w.bookmix?.rating ?? '—' },
+    { label: 'LoveRead', value: w.loveread?.rating ?? '—' },
+  ];
+  return items.map((item) => {
+    const val = typeof item.value === 'number' ? `${item.value}/10` : item.value;
+    const cls = item.highlight ? 'rating-card highlight' : 'rating-card';
+    return `<div class="${cls}"><span class="label">${esc(item.label)}</span><span class="value">${esc(String(val))}</span></div>`;
+  }).join('');
+}
+
 async function renderWork(w) {
   document.title = `${w.title} — Bookfinder`;
   document.getElementById('d-title').textContent = w.title;
@@ -96,8 +113,7 @@ async function renderWork(w) {
     descEl.textContent = '';
   }
 
-  document.getElementById('d-rating').innerHTML =
-    `Сводный: ${formatAggregateRating(w.aggregate_rating)} | FantLab: ${w.fantlab?.rating ?? '—'} | LiveLib: ${w.livelib?.rating ?? '—'} | FW: ${w.fantasy_worlds?.rating ?? '—'} | Кубикус: ${w.kubikus?.rating ?? '—'} | BookMix: ${w.bookmix?.rating ?? '—'} | LoveRead: ${w.loveread?.rating ?? '—'}`;
+  document.getElementById('d-rating').innerHTML = renderRatingGrid(w);
 
   const dl = document.getElementById('d-downloads');
   const fwId = w.fantasy_worlds?.id;

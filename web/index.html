@@ -5,64 +5,94 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Cache-Control" content="no-cache">
   <title>Bookfinder</title>
-  <link rel="stylesheet" href="/static/style.css?v=20260704e">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css?v=20260704f">
 </head>
-<body>
-  <header>
-    <h1>Bookfinder</h1>
-    <p id="stats"></p>
+<body class="catalog-page">
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-block">
+        <a class="brand" href="/">
+          <span class="brand-mark" aria-hidden="true">📚</span>
+          <span class="brand-text">Bookfinder</span>
+        </a>
+        <p class="brand-tagline">Каталог фантастики и фэнтези</p>
+      </div>
+      <div id="stats" class="stats-row" aria-live="polite"></div>
+    </div>
   </header>
-  <main>
-    <aside>
-      <div class="panel">
-        <label class="field-label" for="genre-filter">Фильтр жанров</label>
-        <input id="genre-filter" type="search" placeholder="Найти жанр…" autocomplete="off">
-        <div class="match-mode">
-          <label><input type="radio" name="match" value="any" checked> любой</label>
-          <label><input type="radio" name="match" value="all"> все</label>
-          <button type="button" id="clear-genres" class="link subtle">Сбросить жанры</button>
+
+  <main class="catalog-layout">
+    <aside class="filters-sidebar">
+      <div class="panel panel-filters">
+        <div class="panel-head">
+          <h2 class="panel-title">Жанры</h2>
+          <button type="button" id="clear-genres" class="btn-text">Сбросить</button>
+        </div>
+        <label class="sr-only" for="genre-filter">Поиск жанра</label>
+        <input id="genre-filter" class="input" type="search" placeholder="Найти жанр…" autocomplete="off">
+        <div class="match-mode" role="group" aria-label="Режим фильтра жанров">
+          <label class="chip-radio"><input type="radio" name="match" value="any" checked><span>любой</span></label>
+          <label class="chip-radio"><input type="radio" name="match" value="all"><span>все</span></label>
         </div>
         <div id="genre-list" class="genre-list"></div>
       </div>
-      <div id="filter-weights" class="filter-weights hidden"></div>
+      <div id="filter-weights" class="panel filter-weights hidden"></div>
     </aside>
-    <section class="results">
-      <div class="toolbar">
-        <label class="search-field">
-          <span>Поиск книг</span>
-          <input id="query" type="search" placeholder="Название, автор, жанр…" autocomplete="off">
+
+    <section class="results-section">
+      <div class="search-hero panel">
+        <label class="search-field" for="query">
+          <span class="field-label">Поиск книг</span>
+          <div class="search-input-wrap">
+            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+              <path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <input id="query" class="input input-search" type="search" placeholder="Название, автор или жанр…" autocomplete="off">
+          </div>
         </label>
-        <p id="result-meta" class="result-meta"></p>
-        <p id="load-more-row" class="load-more-row hidden">
-          <button type="button" id="load-more" class="link">Показать ещё</button>
-        </p>
+        <div class="search-meta">
+          <p id="result-meta" class="result-meta"></p>
+          <p id="load-more-row" class="load-more-row hidden">
+            <button type="button" id="load-more" class="btn-secondary">Показать ещё</button>
+          </p>
+        </div>
         <p class="legend-hints muted">
-          <span class="hint-tip" tabindex="0" data-tip="Сводная оценка 0–10 по FantLab, LiveLib, FW, Кубикус, BookMix и LoveRead (учитываются только источники с достаточным числом голосов).">Рейтинг</span>
-          ·
-          <span class="hint-tip" tabindex="0" data-tip="Насколько книга подходит под текст поиска и выбранные жанры: чем выше, тем ближе к запросу.">Релевантность</span>
-          ·
-          <span class="hint-tip" tabindex="0" data-tip="Средняя оценка читателей Bookfinder (1–10), которую ставят на странице книги.">Оценка портала</span>
+          <span class="hint-tip" tabindex="0" data-tip="Сводная оценка 0–10 по FantLab, LiveLib, FW, Кубикус, BookMix и LoveRead.">Рейтинг</span>
+          <span class="hint-sep">·</span>
+          <span class="hint-tip" tabindex="0" data-tip="Насколько книга подходит под текст поиска и выбранные жанры (0–100).">Релевантность</span>
+          <span class="hint-sep">·</span>
+          <span class="hint-tip" tabindex="0" data-tip="Средняя оценка читателей Bookfinder на странице книги.">Оценка портала</span>
         </p>
       </div>
-      <table id="table">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Название</th>
-            <th>Автор</th>
-            <th>Рейтинг <span class="hint-tip th-hint" tabindex="0" data-tip="Сводная оценка 0–10 по внешним источникам (FantLab, LiveLib, FW и др.)">?</span></th>
-            <th>Портал <span class="hint-tip th-hint" tabindex="0" data-tip="Средняя оценка читателей Bookfinder на странице книги">?</span></th>
-            <th>Релев. <span class="hint-tip th-hint" tabindex="0" data-tip="Близость к вашему поиску и фильтрам жанров (0–100)">?</span></th>
-            <th>Источники</th>
-            <th>Жанры</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+
+      <div class="table-shell panel">
+        <div class="table-scroll">
+          <table id="table" class="data-table">
+            <thead>
+              <tr>
+                <th class="col-num">#</th>
+                <th class="col-title">Название</th>
+                <th class="col-author">Автор</th>
+                <th class="col-rating">Рейтинг <span class="hint-tip th-hint" tabindex="0" data-tip="Сводная оценка 0–10 по внешним источникам">?</span></th>
+                <th class="col-portal">Портал <span class="hint-tip th-hint" tabindex="0" data-tip="Средняя оценка читателей Bookfinder">?</span></th>
+                <th class="col-rel">Релев. <span class="hint-tip th-hint" tabindex="0" data-tip="Близость к запросу и фильтрам (0–100)">?</span></th>
+                <th class="col-src">Источники</th>
+                <th class="col-genres">Жанры</th>
+                <th class="col-go" aria-label="Открыть"></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
     </section>
   </main>
-  <script src="/static/common.js?v=20260704e"></script>
-  <script src="/static/app.js?v=20260704e"></script>
+
+  <script src="/static/common.js?v=20260704f"></script>
+  <script src="/static/app.js?v=20260704f"></script>
 </body>
 </html>

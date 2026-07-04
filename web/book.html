@@ -5,44 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Cache-Control" content="no-cache">
   <title>Bookfinder — книга</title>
-  <link rel="stylesheet" href="/static/style.css?v=20260704">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css?v=20260704f">
 </head>
 <body class="book-page">
-  <header>
-    <p class="back-row"><a href="/" class="back-link" id="back-link">← Вернуться в каталог</a></p>
-    <h1 id="d-title">Загрузка…</h1>
-    <p id="d-authors" class="book-authors"></p>
+  <header class="book-hero">
+    <div class="book-hero-inner">
+      <a href="/" class="back-link" id="back-link">← Каталог</a>
+      <h1 id="d-title" class="book-title">Загрузка…</h1>
+      <p id="d-authors" class="book-authors"></p>
+    </div>
   </header>
+
   <main class="book-main">
-    <section class="book-panel" id="d-description-panel">
-      <h2>Аннотация</h2>
-      <p id="d-description" class="book-description muted">Загрузка…</p>
-    </section>
-    <section class="book-panel">
-      <h2>Рейтинги <span class="hint-tip th-hint" tabindex="0" data-tip="Сводная оценка 0–10 по внешним источникам. Ниже — ваша личная оценка и средняя читателей Bookfinder.">?</span></h2>
-      <p id="d-rating"></p>
-      <div id="d-user-rating" class="user-rating"></div>
-    </section>
-    <section class="book-panel">
-      <h2>Скачивание</h2>
-      <p id="d-downloads"></p>
-      <p id="d-sources" class="sources-row"></p>
-    </section>
-    <section class="book-panel">
-      <h2>Жанры</h2>
-      <p id="d-genres"></p>
-      <p id="d-relevance" class="help-block"></p>
-    </section>
-    <section class="book-panel">
-      <h2>Комментарии с сайтов</h2>
-      <div id="d-reviews" class="reviews-block muted">Загрузка…</div>
-    </section>
-    <section class="book-panel">
-      <h2>Похожие книги</h2>
-      <ul id="similar"></ul>
-    </section>
+    <div class="book-grid">
+      <section class="book-panel book-panel-wide" id="d-description-panel">
+        <h2 class="panel-title">Аннотация</h2>
+        <p id="d-description" class="book-description muted">Загрузка…</p>
+      </section>
+
+      <section class="book-panel">
+        <h2 class="panel-title">Рейтинги <span class="hint-tip th-hint" tabindex="0" data-tip="Сводная оценка по внешним источникам и оценка читателей Bookfinder.">?</span></h2>
+        <div id="d-rating" class="rating-grid"></div>
+        <div id="d-user-rating" class="user-rating"></div>
+      </section>
+
+      <section class="book-panel">
+        <h2 class="panel-title">Скачивание</h2>
+        <div id="d-downloads" class="download-row"></div>
+        <p id="d-sources" class="sources-row muted"></p>
+      </section>
+
+      <section class="book-panel">
+        <h2 class="panel-title">Жанры</h2>
+        <div id="d-genres" class="badge-row"></div>
+        <p id="d-relevance" class="help-block"></p>
+      </section>
+
+      <section class="book-panel book-panel-wide">
+        <h2 class="panel-title">Комментарии с сайтов</h2>
+        <div id="d-reviews" class="reviews-block muted">Загрузка…</div>
+      </section>
+
+      <section class="book-panel book-panel-wide">
+        <h2 class="panel-title">Похожие книги</h2>
+        <ul id="similar" class="similar-list"></ul>
+      </section>
+    </div>
   </main>
-  <script src="/static/common.js?v=20260704"></script>
-  <script src="/static/book.js?v=20260704"></script>
+
+  <script src="/static/common.js?v=20260704f"></script>
+  <script src="/static/book.js?v=20260704f"></script>
 </body>
 </html>

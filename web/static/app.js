@@ -6,7 +6,7 @@ const genreListEl = document.getElementById('genre-list');
 const filterWeightsEl = document.getElementById('filter-weights');
 const resultMetaEl = document.getElementById('result-meta');
 
-const ASSET_V = '20260704e';
+const ASSET_V = '20260704f';
 let searchLimit = 200;
 let lastSearchTotal = 0;
 let searchSeq = 0;
@@ -100,10 +100,36 @@ function openWork(workId) {
   window.location.assign(workUrl(workId));
 }
 
+function formatSourceBadges(work) {
+  const map = [
+    ['fl', work.fantlab, 'FL'],
+    ['ll', work.livelib, 'LL'],
+    ['fw', work.fantasy_worlds, 'FW'],
+    ['kb', work.kubikus, 'KB'],
+    ['bm', work.bookmix, 'BM'],
+    ['lr', work.loveread, 'LR'],
+  ];
+  const badges = map.filter(([, src]) => src).map(([cls, , label]) => `<span class="src-badge ${cls}">${label}</span>`);
+  return badges.length ? `<span class="source-badges">${badges.join('')}</span>` : '—';
+}
+
+function formatRatingPill(value) {
+  const text = formatAggregateRating(value);
+  if (text === '—') return text;
+  const num = parseFloat(text);
+  const high = !Number.isNaN(num) && num >= 7.5 ? ' high' : '';
+  return `<span class="rating-pill${high}">${text}</span>`;
+}
+
 async function loadStats() {
   const s = await apiJson('/api/stats');
   const m = s.merge || {};
-  statsEl.textContent = `Книг: ${s.works_count} | Жанров: ${s.genres_count} | Склейка LL: ${m.match_rate_on_cached_percent ?? '—'}% | FW: ${m.fw_matched ?? '—'}`;
+  statsEl.innerHTML = `
+    <span class="stat-chip accent"><strong>${s.works_count?.toLocaleString('ru-RU') ?? '—'}</strong> книг</span>
+    <span class="stat-chip"><strong>${s.genres_count?.toLocaleString('ru-RU') ?? '—'}</strong> жанров</span>
+    <span class="stat-chip"><strong>${m.match_rate_on_cached_percent ?? '—'}%</strong> LL</span>
+    <span class="stat-chip"><strong>${m.fw_matched ?? '—'}</strong> FW</span>
+  `;
 }
 
 async function loadGenres() {
@@ -140,8 +166,10 @@ async function runSearch(resetLimit = true) {
   if (resetLimit) searchLimit = 200;
   const seq = ++searchSeq;
   resultMetaEl.textContent = 'Поиск…';
+  resultMetaEl.classList.add('loading');
   const data = await apiJson(buildSearchUrl());
   if (seq !== searchSeq) return;
+  resultMetaEl.classList.remove('loading');
   const rows = data.items || [];
   lastSearchTotal = data.total || 0;
   resultMetaEl.textContent = formatResultMeta(data, rows);
@@ -162,19 +190,17 @@ async function runSearch(resetLimit = true) {
     const tr = document.createElement('tr');
     tr.dataset.workId = w.id;
     const href = workUrl(w.id);
-    const sources = [w.fantlab ? 'FL' : null, w.livelib ? 'LL' : null, w.fantasy_worlds ? 'FW' : null, w.kubikus ? 'KB' : null, w.bookmix ? 'BM' : null, w.loveread ? 'LR' : null]
-      .filter(Boolean)
-      .join('+');
+    const sources = formatSourceBadges(w);
     tr.innerHTML = `
-      <td>${i + 1}</td>
-      <td><a class="row-link" href="${href}">${esc(w.title)}</a></td>
-      <td>${esc((w.authors || []).join(', '))}</td>
-      <td>${formatAggregateRating(w.aggregate_rating)}</td>
-      <td>${formatCommunityRating(w.community_rating)}</td>
-      <td>${w.relevance ?? '—'}</td>
-      <td>${sources || '—'}</td>
-      <td class="genre-cell">${formatGenreMatches(w)}</td>
-      <td><a class="link" href="${href}" aria-label="Открыть">→</a></td>
+      <td class="col-num">${i + 1}</td>
+      <td class="col-title"><a class="row-link" href="${href}">${esc(w.title)}</a></td>
+      <td class="col-author">${esc((w.authors || []).join(', '))}</td>
+      <td class="col-rating">${formatRatingPill(w.aggregate_rating)}</td>
+      <td class="col-portal">${formatCommunityRating(w.community_rating)}</td>
+      <td class="col-rel">${w.relevance ?? '—'}</td>
+      <td class="col-src">${sources}</td>
+      <td class="col-genres genre-cell">${formatGenreMatches(w)}</td>
+      <td class="col-go"><a class="link" href="${href}" aria-label="Открыть">→</a></td>
     `;
     tbody.appendChild(tr);
   });
@@ -226,7 +252,7 @@ async function init() {
     await Promise.all([loadGenres(), loadStats()]);
     await runSearch();
   } catch (err) {
-    statsEl.textContent = `Ошибка загрузки: ${err.message}`;
+    statsEl.innerHTML = `<span class="stat-chip">Ошибка: ${esc(err.message)}</span>`;
     console.error(err);
   }
 }
