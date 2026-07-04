@@ -79,31 +79,31 @@ def _text_score(query: str, work: dict) -> float:
     title = work.get("title", "").lower()
     authors = " ".join(work.get("authors", [])).lower()
     genres = " ".join(work.get("genres", [])).lower()
-    haystack = f"{title} {authors} {genres}"
+    haystack = f"{title} {authors}"
+    full = f"{haystack} {genres}"
+    words = _query_words(q)
 
+    if len(words) >= 2:
+        if q in title:
+            return 1.0
+        if all(_stem_in_text(word, title) for word in words):
+            return 0.98
+        if all(_stem_in_text(word, haystack) for word in words):
+            return 0.93
+        return 0.0
+
+    word = words[0] if words else q
     if q in title:
         return 1.0
-    if any(_stem_in_text(word, title) for word in _query_words(q)):
+    if _stem_in_text(word, title):
         return 0.92
-    if q in authors:
-        return 0.95
-    if any(_stem_in_text(word, authors) for word in _query_words(q)):
+    if q in authors or _stem_in_text(word, authors):
         return 0.9
-    if q in genres:
+    if q in genres or _stem_in_text(word, genres):
         return 0.85
-    if q in haystack:
+    if q in full or _stem_in_text(word, full):
         return 0.82
 
-    words = _query_words(q)
-    if words:
-        if all(_stem_in_text(word, title) for word in words):
-            return 0.9
-        if all(_stem_in_text(word, haystack) for word in words):
-            return 0.86
-        if any(_stem_in_text(word, title) for word in words):
-            return 0.82
-
-    # Avoid partial_ratio on titles: it confuses similar words (e.g. страшный/странный).
     title_ratio = fuzz.ratio(q, title) / 100
     if title_ratio >= 0.72:
         return title_ratio * 0.9
