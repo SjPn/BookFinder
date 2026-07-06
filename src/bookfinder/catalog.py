@@ -98,6 +98,8 @@ def reload_works() -> list[dict]:
     genre_counts.cache_clear()
     _search_cached.cache_clear()
     _token_index.cache_clear()
+    _genre_work_ids.cache_clear()
+    _author_work_ids.cache_clear()
     return load_works()
 
 
@@ -477,25 +479,90 @@ def search_works(
     return json.loads(payload)
 
 
+@lru_cache
+def _genre_work_ids() -> dict[str, frozenset[str]]:
+    index: dict[str, set[str]] = {}
+    for work in load_works():
+        work_id = work["id"]
+        for genre in work.get("genres", []):
+            if genre:
+                index.setdefault(genre.lower(), set()).add(work_id)
+    return {genre: frozenset(ids) for genre, ids in index.items()}
+
+
+@lru_cache
+def _author_work_ids() -> dict[str, frozenset[str]]:
+    index: dict[str, set[str]] = {}
+    for work in load_works():
+        work_id = work["id"]
+        for author in work.get("authors", []):
+            if author:
+                index.setdefault(author.lower(), set()).add(work_id)
+    return {author: frozenset(ids) for author, ids in index.items()}
+
+
+def _similar_candidate_ids(work_id: str, base_genres: set[str], base_authors: set[str]) -> set[str]:
+    candidates: set[str] = set()
+    genre_index = _genre_work_ids()
+    for genre in base_genres:
+        candidates.update(genre_index.get(genre, ()))
+    author_index = _author_work_ids()
+    for author in base_authors:
+        candidates.update(author_index.get(author, ()))
+    candidates.discard(work_id)
+    return candidates
+
+
+def _score_similar_work(
+    work: dict,
+    base_genres: set[str],
+    base_authors: set[str],
+    base_title: str,
+    *,
+    with_title: bool = True,
+) -> float:
+    genres = _genre_set(work)
+    genre_score = len(base_genres & genres) / max(len(base_genres | genres), 1)
+    author_score = 1.0 if base_authors & {a.lower() for a in work.get("authors", [])} else 0.0
+    if not with_title:
+        return genre_score * 0.45 + author_score * 0.35
+    title = _normalize_text(work.get("title", ""))
+    title_score = fuzz.token_sort_ratio(base_title, title) / 100
+    return genre_score * 0.45 + author_score * 0.35 + title_score * 0.2
+
+
 def similar_works(work_id: str, limit: int = 12) -> list[dict]:
     base = works_by_id().get(work_id)
     if not base:
         return []
 
-    base_authors = {a.lower() for a in base.get("authors", [])}
+    base_authors = {a.lower() for a in base.get("authors", []) if a}
     base_genres = _genre_set(base)
     base_title = _normalize_text(base.get("title", ""))
+    by_id = works_by_id()
+
+    candidate_ids = _similar_candidate_ids(work_id, base_genres, base_authors)
+    if not candidate_ids:
+        return []
+
+    if len(candidate_ids) > 400:
+        prelim: list[tuple[float, str]] = []
+        for candidate_id in candidate_ids:
+            work = by_id.get(candidate_id)
+            if not work:
+                continue
+            partial = _score_similar_work(work, base_genres, base_authors, base_title, with_title=False)
+            if partial >= 0.1:
+                prelim.append((partial, candidate_id))
+        prelim.sort(key=lambda pair: pair[0], reverse=True)
+        candidate_ids = {candidate_id for _, candidate_id in prelim[:200]}
 
     scored: list[tuple[float, dict]] = []
-    for work in load_works():
-        if work["id"] == work_id:
+    for candidate_id in candidate_ids:
+        work = by_id.get(candidate_id)
+        if not work:
             continue
-        genres = _genre_set(work)
-        genre_score = len(base_genres & genres) / max(len(base_genres | genres), 1)
-        author_score = 1.0 if base_authors & {a.lower() for a in work.get("authors", [])} else 0.0
-        title = _normalize_text(work.get("title", ""))
-        title_score = fuzz.token_sort_ratio(base_title, title) / 100
-        score = genre_score * 0.45 + author_score * 0.35 + title_score * 0.2
+        score = _score_similar_work(work, base_genres, base_authors, base_title)
         if score >= 0.25:
             scored.append((score, {key: work[key] for key in LIST_ITEM_FIELDS if key in work}))
 

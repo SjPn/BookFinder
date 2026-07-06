@@ -97,7 +97,7 @@ function renderRatingGrid(w) {
   }).join('');
 }
 
-async function renderWork(w) {
+function renderWorkCore(w) {
   document.title = `${w.title} — Bookfinder`;
   document.getElementById('d-title').textContent = w.title;
   document.getElementById('d-authors').textContent = (w.authors || []).join(', ') || 'Автор не указан';
@@ -142,55 +142,75 @@ async function renderWork(w) {
     ? (w.genres || []).map((g) => `<span class="badge">${esc(g)}</span>`).join('')
     : '<span class="muted">Жанры не указаны</span>';
 
-  try {
-    const userId = getUserId();
-    const ratingData = await apiJson(
-      `/api/works/${w.id}/user-rating?user_id=${encodeURIComponent(userId)}`,
-    );
-    renderUserRating(w.id, ratingData);
-  } catch (err) {
-    document.getElementById('d-user-rating').innerHTML = '<p class="muted">Не удалось загрузить личную оценку</p>';
-    console.error(err);
-  }
+  document.getElementById('d-user-rating').innerHTML = '<p class="muted">Загрузка…</p>';
+  document.getElementById('similar').innerHTML = '<li class="muted">Загрузка…</li>';
+  document.getElementById('d-reviews').innerHTML = '<p class="muted">Загрузка…</p>';
+}
 
-  const sim = await apiJson(`/api/works/${w.id}/similar`);
+function renderSimilarList(sim) {
   const similarEl = document.getElementById('similar');
   similarEl.innerHTML = '';
   if (!sim.length) {
     similarEl.innerHTML = '<li class="muted">Похожих книг не найдено</li>';
+    return;
+  }
+  sim.forEach((s) => {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = workUrl(s.id);
+    const rating = s.aggregate_rating != null ? ` · ${formatAggregateRating(s.aggregate_rating)}` : '';
+    a.textContent = `${s.title} — ${(s.authors || []).join(', ')}${rating}`;
+    li.appendChild(a);
+    similarEl.appendChild(li);
+  });
+}
+
+function renderReviewsBlock(rev) {
+  const reviewsEl = document.getElementById('d-reviews');
+  if (!rev.reviews?.length) {
+    reviewsEl.innerHTML = '<p class="muted">Комментариев с FantLab, LiveLib и Fantasy-Worlds пока нет для этой книги.</p>';
+    return;
+  }
+  reviewsEl.innerHTML = `<p class="reviews-count">Показано ${rev.reviews.length}${rev.count > rev.reviews.length ? ` из ${rev.count}` : ''}</p>` +
+    rev.reviews.map((r) => {
+      const src = { fantasy_worlds: 'FW', fantlab: 'FantLab', livelib: 'LiveLib', kubikus: 'Кубикус', bookmix: 'BookMix', loveread: 'LoveRead' }[r.source] || r.source;
+      const author = r.author ? esc(r.author) : 'Аноним';
+      const date = r.date ? ` · ${esc(r.date)}` : '';
+      const link = r.url ? ` <a href="${esc(r.url)}" target="_blank" rel="noopener">источник</a>` : '';
+      return `<article class="review-item">
+        <div class="review-meta"><span class="review-source">${esc(src)}</span>${author}${date}${link}</div>
+        <div class="review-text">${esc(r.text)}</div>
+      </article>`;
+    }).join('');
+}
+
+async function loadWorkExtras(w) {
+  const userId = getUserId();
+  const [ratingResult, similarResult, reviewsResult] = await Promise.allSettled([
+    apiJson(`/api/works/${w.id}/user-rating?user_id=${encodeURIComponent(userId)}`),
+    apiJson(`/api/works/${w.id}/similar`),
+    apiJson(`/api/works/${w.id}/reviews?limit=15`),
+  ]);
+
+  if (ratingResult.status === 'fulfilled') {
+    renderUserRating(w.id, ratingResult.value);
   } else {
-    sim.forEach((s) => {
-      const li = document.createElement('li');
-      const a = document.createElement('a');
-      a.href = workUrl(s.id);
-      const rating = s.aggregate_rating != null ? ` · ${formatAggregateRating(s.aggregate_rating)}` : '';
-      a.textContent = `${s.title} — ${(s.authors || []).join(', ')}${rating}`;
-      li.appendChild(a);
-      similarEl.appendChild(li);
-    });
+    document.getElementById('d-user-rating').innerHTML = '<p class="muted">Не удалось загрузить личную оценку</p>';
+    console.error(ratingResult.reason);
   }
 
-  const reviewsEl = document.getElementById('d-reviews');
-  try {
-    const rev = await apiJson(`/api/works/${w.id}/reviews?limit=15`);
-    if (!rev.reviews?.length) {
-      reviewsEl.innerHTML = '<p class="muted">Комментариев с FantLab, LiveLib и Fantasy-Worlds пока нет для этой книги.</p>';
-    } else {
-      reviewsEl.innerHTML = `<p class="reviews-count">Показано ${rev.reviews.length}${rev.count > rev.reviews.length ? ` из ${rev.count}` : ''}</p>` +
-        rev.reviews.map((r) => {
-        const src = { fantasy_worlds: 'FW', fantlab: 'FantLab', livelib: 'LiveLib', kubikus: 'Кубикус', bookmix: 'BookMix', loveread: 'LoveRead' }[r.source] || r.source;
-        const author = r.author ? esc(r.author) : 'Аноним';
-        const date = r.date ? ` · ${esc(r.date)}` : '';
-        const link = r.url ? ` <a href="${esc(r.url)}" target="_blank" rel="noopener">источник</a>` : '';
-        return `<article class="review-item">
-          <div class="review-meta"><span class="review-source">${esc(src)}</span>${author}${date}${link}</div>
-          <div class="review-text">${esc(r.text)}</div>
-        </article>`;
-      }).join('');
-    }
-  } catch (err) {
-    reviewsEl.innerHTML = '<p class="muted">Не удалось загрузить отзывы</p>';
-    console.error(err);
+  if (similarResult.status === 'fulfilled') {
+    renderSimilarList(similarResult.value);
+  } else {
+    document.getElementById('similar').innerHTML = '<li class="muted">Не удалось загрузить похожие книги</li>';
+    console.error(similarResult.reason);
+  }
+
+  if (reviewsResult.status === 'fulfilled') {
+    renderReviewsBlock(reviewsResult.value);
+  } else {
+    document.getElementById('d-reviews').innerHTML = '<p class="muted">Не удалось загрузить отзывы</p>';
+    console.error(reviewsResult.reason);
   }
 }
 
@@ -210,7 +230,8 @@ async function init() {
       showError('Такой книги нет в каталоге');
       return;
     }
-    await renderWork(w);
+    renderWorkCore(w);
+    loadWorkExtras(w);
   } catch (err) {
     showError(err.message);
     console.error(err);

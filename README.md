@@ -31,3 +31,7 @@ data/processed/   — JSON каталог
 ```
 
 `data/raw/` и `data/books/fb2/` в `.gitignore` — не коммитятся.
+
+## Планы
+
+[docs/PLANS.md](docs/PLANS.md) — дорожная карта, в т.ч. **«ДНК книги»** (профиль книги, рекомендации, локальная Ollama).

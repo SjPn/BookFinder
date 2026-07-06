@@ -8,7 +8,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 from starlette.concurrency import run_in_threadpool
 
-from bookfinder.catalog import genre_counts, get_work, load_works, reload_works, search_works, similar_works
+from bookfinder.catalog import genre_counts, get_work, load_works, reload_works, search_works, similar_works, works_by_id
 from bookfinder.parsers import fantasy_worlds as fw
 from bookfinder.reviews_store import get_reviews_for_work
 from bookfinder.user_ratings import delete_user_rating, get_user_rating, set_user_rating, work_user_stats
@@ -86,7 +86,7 @@ async def genres() -> list[dict]:
 
 @app.get("/api/works/{work_id}")
 async def work_detail(work_id: str) -> dict:
-    work = get_work(work_id)
+    work = await run_in_threadpool(get_work, work_id)
     if work:
         return work
     return {"error": "not found"}
@@ -98,13 +98,15 @@ async def work_similar(work_id: str, limit: int = Query(12, ge=1, le=50)) -> lis
 
 
 @app.get("/api/works/{work_id}/reviews")
-def work_reviews(work_id: str, limit: int = Query(15, ge=1, le=30)) -> dict:
-    fw_id = None
-    for w in load_works():
-        if w["id"] == work_id:
-            fw_id = (w.get("fantasy_worlds") or {}).get("id")
-            break
-    return get_reviews_for_work(work_id, limit, fw_id=str(fw_id) if fw_id else None)
+async def work_reviews(work_id: str, limit: int = Query(15, ge=1, le=30)) -> dict:
+    work = works_by_id().get(work_id)
+    fw_id = (work.get("fantasy_worlds") or {}).get("id") if work else None
+    return await run_in_threadpool(
+        get_reviews_for_work,
+        work_id,
+        limit,
+        str(fw_id) if fw_id else None,
+    )
 
 
 class UserRatingBody(BaseModel):

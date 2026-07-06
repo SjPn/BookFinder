@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+from functools import lru_cache
 from pathlib import Path
 
 from bookfinder.parsers.reviews import dedupe_reviews
@@ -24,20 +25,24 @@ def _save(path: Path, data: dict) -> None:
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
+@lru_cache
 def load_fw_reviews_by_id() -> dict[str, list[dict]]:
     return _load(FW_BY_ID)
 
 
 def save_fw_reviews_by_id(data: dict[str, list[dict]]) -> None:
     _save(FW_BY_ID, data)
+    load_fw_reviews_by_id.cache_clear()
 
 
+@lru_cache
 def load_work_reviews() -> dict[str, dict]:
     return _load(WORKS_FILE)
 
 
 def save_work_reviews(data: dict[str, dict]) -> None:
     _save(WORKS_FILE, data)
+    load_work_reviews.cache_clear()
 
 
 def get_reviews_for_work(work_id: str, limit: int = 15, fw_id: str | None = None) -> dict:
