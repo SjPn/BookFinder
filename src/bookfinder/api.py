@@ -8,7 +8,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 from starlette.concurrency import run_in_threadpool
 
-from bookfinder.catalog import genre_counts, get_work, load_works, reload_works, search_works, similar_works, works_by_id
+from bookfinder.catalog import genre_counts, get_work, reload_works, search_works, similar_works, works_count
 from bookfinder.parsers import fantasy_worlds as fw
 from bookfinder.reviews_store import get_reviews_for_work
 from bookfinder.user_ratings import delete_user_rating, get_user_rating, set_user_rating, work_user_stats
@@ -36,7 +36,6 @@ def work_page(work_id: str) -> FileResponse:
 
 @app.get("/api/stats")
 async def stats() -> dict:
-    works = load_works()
     report_path = Path(__file__).resolve().parents[2] / "data" / "processed" / "merge_report.json"
     report = {}
     if report_path.exists():
@@ -44,7 +43,7 @@ async def stats() -> dict:
 
         report = json.loads(report_path.read_text(encoding="utf-8"))
     return {
-        "works_count": len(works),
+        "works_count": works_count(),
         "genres_count": len(genre_counts()),
         "merge": report,
     }
@@ -99,8 +98,14 @@ async def work_similar(work_id: str, limit: int = Query(12, ge=1, le=50)) -> lis
 
 @app.get("/api/works/{work_id}/reviews")
 async def work_reviews(work_id: str, limit: int = Query(15, ge=1, le=30)) -> dict:
-    work = works_by_id().get(work_id)
-    fw_id = (work.get("fantasy_worlds") or {}).get("id") if work else None
+    from bookfinder.catalog_db import CatalogStore
+
+    store = CatalogStore(DATA)
+    fw_id = store.get_work_fw_id(work_id) if store.available() else None
+    if fw_id is None:
+        work = await run_in_threadpool(get_work, work_id)
+        if work:
+            fw_id = (work.get("fantasy_worlds") or {}).get("id")
     return await run_in_threadpool(
         get_reviews_for_work,
         work_id,
@@ -147,5 +152,5 @@ def download_fw(book_id: str) -> Response:
 
 @app.post("/api/reload")
 def api_reload() -> dict:
-    works = reload_works()
-    return {"works_count": len(works)}
+    count = reload_works()
+    return {"works_count": count}

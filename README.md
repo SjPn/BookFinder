@@ -10,7 +10,7 @@ export PYTHONPATH=src   # Windows: set PYTHONPATH=src
 python run.py
 ```
 
-Каталог: `data/processed/expanded_works.json`.
+Каталог в проде: **`data/processed/catalog.db`** (SQLite). В git — **`catalog.db.gz`** (~38 MB); при старте распаковывается автоматически.
 
 ## Сборка каталога
 
@@ -18,6 +18,7 @@ python run.py
 export PYTHONPATH=src
 python scripts/build_merged.py
 python scripts/build_expanded.py
+python scripts/export_runtime_catalog.py
 python scripts/embed_work_reviews.py
 ```
 
@@ -27,7 +28,7 @@ python scripts/embed_work_reviews.py
 src/bookfinder/   — API, парсеры, matcher
 web/              — UI
 scripts/          — краулеры и сборка каталога
-data/processed/   — JSON каталог
+data/processed/   — catalog.db, genres.json, отзывы
 ```
 
 `data/raw/` и `data/books/fb2/` в `.gitignore` — не коммитятся.

@@ -2,15 +2,13 @@ from __future__ import annotations
 
 import json
 import re
-import sqlite3
-import unicodedata
 from functools import lru_cache
 from pathlib import Path
 
 from rapidfuzz import fuzz
 
-from bookfinder.genre_filter import is_catalog_genre
-from bookfinder.runtime_catalog import TOKEN_DB_NAME, normalize_search_text, word_stem
+from bookfinder.catalog_db import CatalogStore
+from bookfinder.runtime_catalog import normalize_search_text, word_stem
 from bookfinder.user_ratings import community_stats_index
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -35,48 +33,60 @@ LIST_ITEM_FIELDS = (
     "loveread",
 )
 
+_store = CatalogStore(DATA)
 
-class TokenIndex:
-    def __init__(self, db_path: Path) -> None:
-        self._conn = sqlite3.connect(f"file:{db_path.as_posix()}?mode=ro", uri=True, check_same_thread=False)
 
-    def lookup(self, token: str) -> tuple[int, ...]:
-        rows = self._conn.execute(
-            "SELECT rowid FROM token_hits WHERE token = ?",
-            (token,),
-        ).fetchall()
-        return tuple(row[0] for row in rows)
-
-    def close(self) -> None:
-        self._conn.close()
+def _using_db() -> bool:
+    return _store.available()
 
 
 @lru_cache
-def _token_index() -> TokenIndex | None:
-    path = DATA / TOKEN_DB_NAME
-    if not path.exists():
-        return None
-    return TokenIndex(path)
-
-
-@lru_cache
-def load_works() -> list[dict]:
+def _load_works_json() -> list[dict]:
+    """Legacy fallback when catalog.db is missing (local dev only)."""
     for name in ("works_index.json", "expanded_works.json", "merged_works.json"):
         path = DATA / name
         if path.exists():
             works = json.loads(path.read_text(encoding="utf-8"))
             if name != "works_index.json":
                 details_path = DATA / "works_details.json"
-                for work in works:
-                    if details_path.exists():
-                        work.pop("description", None)
-                        work.pop("description_source", None)
+                if details_path.exists():
+                    details = json.loads(details_path.read_text(encoding="utf-8"))
+                    for work in works:
+                        work.update(details.get(work["id"], {}))
             return works
     return []
 
 
+def load_works() -> list[dict]:
+    if _using_db():
+        raise RuntimeError("load_works() loads entire catalog into RAM; use catalog.db queries instead")
+    return _load_works_json()
+
+
+def works_count() -> int:
+    if _using_db():
+        return _store.count_works()
+    return len(_load_works_json())
+
+
+def works_by_id() -> dict[str, dict]:
+    if _using_db():
+        raise RuntimeError("works_by_id() loads entire catalog into RAM; use get_work() instead")
+    return {work["id"]: work for work in _load_works_json()}
+
+
+def reload_works() -> int:
+    _store.close_thread()
+    _load_works_json.cache_clear()
+    _load_work_details_json.cache_clear()
+    genre_counts.cache_clear()
+    _search_cached.cache_clear()
+    _genre_name_cache.cache_clear()
+    return works_count()
+
+
 @lru_cache
-def load_work_details() -> dict[str, dict]:
+def _load_work_details_json() -> dict[str, dict]:
     path = DATA / "works_details.json"
     if not path.exists():
         return {}
@@ -84,57 +94,32 @@ def load_work_details() -> dict[str, dict]:
 
 
 @lru_cache
-def works_by_id() -> dict[str, dict]:
-    return {work["id"]: work for work in load_works()}
-
-
-def reload_works() -> list[dict]:
-    index = _token_index()
-    if index is not None:
-        index.close()
-    load_works.cache_clear()
-    load_work_details.cache_clear()
-    works_by_id.cache_clear()
-    genre_counts.cache_clear()
-    _search_cached.cache_clear()
-    _token_index.cache_clear()
-    _genre_indexes.cache_clear()
-    return load_works()
-
-
-@lru_cache
 def genre_counts() -> list[dict]:
+    if _using_db():
+        return _store.list_genres()
     path = DATA / "genres.json"
     if path.exists():
-        items = json.loads(path.read_text(encoding="utf-8"))
-        return [item for item in items if is_catalog_genre(item.get("name", ""), item.get("count", 0))]
-
+        return json.loads(path.read_text(encoding="utf-8"))
+    total = len(_load_works_json()) or 1
     counts: dict[str, int] = {}
-    works = load_works()
-    for work in works:
+    for work in _load_works_json():
         for genre in work.get("genres", []):
             if genre:
                 counts[genre] = counts.get(genre, 0) + 1
-    total = len(works) or 1
     return [
-        {
-            "name": name,
-            "count": count,
-            "weight": round(count / total, 4),
-        }
+        {"name": name, "count": count, "weight": round(count / total, 4)}
         for name, count in sorted(counts.items(), key=lambda item: item[0].casefold())
-        if is_catalog_genre(name, count)
     ]
 
 
 def get_work(work_id: str) -> dict | None:
+    if _using_db():
+        return _store.get_work(work_id)
     work = works_by_id().get(work_id)
     if not work:
         return None
     item = {key: value for key, value in work.items() if key != "search_blurb"}
-    details = load_work_details().get(work_id)
-    if details:
-        item.update(details)
+    item.update(_load_work_details_json().get(work_id, {}))
     return item
 
 
@@ -146,12 +131,8 @@ def _normalize_text(text: str) -> str:
     return normalize_search_text(text)
 
 
-def _normalize_query(query: str) -> str:
-    return _normalize_text(query)
-
-
 def _query_words(query: str) -> list[str]:
-    normalized = _normalize_query(query)
+    normalized = _normalize_text(query)
     if not normalized:
         return []
     return [word for word in _TOKEN_SPLIT.split(normalized) if len(word) >= 2]
@@ -172,20 +153,79 @@ def _token_keys(word: str) -> set[str]:
 def _candidate_rowids(words: list[str]) -> set[int] | None:
     if not words:
         return None
-
-    index = _token_index()
-    if index is None:
+    if not _using_db():
         return None
 
     candidates: set[int] | None = None
     for word in words:
         hits: set[int] = set()
         for key in _token_keys(word):
-            hits.update(index.lookup(key))
+            hits.update(_store.lookup_tokens(key))
         if not hits:
             return set()
         candidates = hits if candidates is None else candidates & hits
     return candidates or set()
+
+
+@lru_cache
+def _genre_name_cache() -> list[str]:
+    if _using_db():
+        return _store.genre_names()
+    return [item["name"] for item in genre_counts()]
+
+
+def _resolve_genre_rowids(genre: str) -> frozenset[int]:
+    key = genre.lower().strip()
+    if not key:
+        return frozenset()
+    if _using_db():
+        exact = _store.rowids_for_genre_lower(key)
+        if exact:
+            return exact
+        partial = _store.rowids_for_genre_substring(key)
+        if partial:
+            return partial
+        best_name = ""
+        best_score = 0.0
+        for name in _genre_name_cache():
+            score = fuzz.partial_ratio(key, name.lower()) / 100
+            if score >= 0.88 and score > best_score:
+                best_score = score
+                best_name = name
+        if best_name:
+            return _store.rowids_for_genre_lower(best_name.casefold())
+        return frozenset()
+
+    index = _legacy_genre_row_ids()
+    if key in index:
+        return index[key]
+    for name, rowids in index.items():
+        if key in name or name in key:
+            return rowids
+    return frozenset()
+
+
+@lru_cache
+def _legacy_genre_row_ids() -> dict[str, frozenset[int]]:
+    index: dict[str, set[int]] = {}
+    for rowid, work in enumerate(_load_works_json()):
+        for genre in work.get("genres", []):
+            if genre:
+                index.setdefault(genre.lower(), set()).add(rowid)
+    return {genre: frozenset(ids) for genre, ids in index.items()}
+
+
+def _genre_filter_rowids(selected: list[str], match: str) -> set[int] | None:
+    if not selected:
+        return None
+    sets = [set(_resolve_genre_rowids(genre)) for genre in selected]
+    if match == "all":
+        if not sets:
+            return set()
+        result = set.intersection(*sets)
+    else:
+        result = set().union(*sets)
+    return result
 
 
 def _tokenize(text: str) -> tuple[str, ...]:
@@ -207,10 +247,7 @@ def _token_matches(word: str, token: str) -> bool:
 
 
 def _stem_in_tokens(word: str, tokens: tuple[str, ...]) -> bool:
-    for token in tokens:
-        if _token_matches(word, token):
-            return True
-    return False
+    return any(_token_matches(word, token) for token in tokens)
 
 
 def _work_tokens(work: dict) -> tuple[tuple[str, ...], tuple[str, ...], tuple[str, ...], str, str, str, str]:
@@ -234,7 +271,7 @@ def _text_score(query: str, work: dict, cached: tuple | None = None) -> float:
     if not query:
         return 1.0
 
-    q = _normalize_query(query)
+    q = _normalize_text(query)
     if not q:
         return 1.0
 
@@ -295,7 +332,7 @@ def _genre_match_score(filter_genre: str, work_genres: list[str]) -> float:
         hay = genre.lower()
         if hay == needle:
             return 1.0
-        elif needle in hay or hay in needle:
+        if needle in hay or hay in needle:
             best = max(best, 0.88)
         else:
             best = max(best, fuzz.partial_ratio(needle, hay) / 100 * 0.72)
@@ -346,67 +383,39 @@ def _build_filter_stats(
     return filters
 
 
-def _resolve_genre_rowids(genre: str, index: dict[str, frozenset[int]]) -> frozenset[int]:
-    key = genre.lower().strip()
-    if not key:
-        return frozenset()
-    if key in index:
-        return index[key]
-    for name, rowids in index.items():
-        if key in name or name in key:
-            return rowids
-    best_rowids: set[int] = set()
-    best_score = 0.0
-    for name, rowids in index.items():
-        score = fuzz.partial_ratio(key, name) / 100
-        if score >= 0.88 and score > best_score:
-            best_score = score
-            best_rowids = set(rowids)
-    return frozenset(best_rowids)
-
-
-def _genre_filter_rowids(selected: list[str], match: str) -> set[int] | None:
-    if not selected:
-        return None
-    index = _genre_row_ids()
-    sets = [set(_resolve_genre_rowids(genre, index)) for genre in selected]
-    if match == "all":
-        if not sets:
-            return set()
-        result = set.intersection(*sets)
-    else:
-        result = set().union(*sets)
-    return result
-
-
-def _iter_search_works(
-    query: str,
-    works: list[dict],
-    *,
-    genre_rowids: set[int] | None = None,
-):
+def _iter_search_rowids(query: str, genre_rowids: set[int] | None) -> list[int]:
     if not query:
         if genre_rowids is not None:
-            for rowid in genre_rowids:
-                yield works[rowid]
-            return
-        for work in works:
-            yield work
-        return
+            return sorted(genre_rowids)
+        if _using_db():
+            return []
+        return list(range(len(_load_works_json())))
 
     words = _query_words(query)
     candidates = _candidate_rowids(words)
     if candidates is not None:
         if genre_rowids is not None:
             candidates &= genre_rowids
-        for rowid in candidates:
-            yield works[rowid]
-        return
+        return sorted(candidates)
 
-    for rowid, work in enumerate(works):
+    if _using_db():
+        return []
+
+    rowids: list[int] = []
+    for rowid in range(len(_load_works_json())):
         if genre_rowids is not None and rowid not in genre_rowids:
             continue
-        yield work
+        rowids.append(rowid)
+    return rowids
+
+
+def _works_for_rowids(rowids: list[int]) -> list[dict]:
+    if not rowids:
+        return []
+    if _using_db():
+        return _store.get_works_by_rowids(rowids)
+    works = _load_works_json()
+    return [works[rowid] for rowid in rowids if 0 <= rowid < len(works)]
 
 
 def _search_works_impl(
@@ -415,10 +424,9 @@ def _search_works_impl(
     match: str = "any",
     limit: int = 100,
 ) -> dict:
-    works = load_works()
-    total = len(works) or 1
+    total = works_count() or 1
     selected = [g.strip() for g in (genres or []) if g and g.strip()]
-    counts = {item["name"]: item["count"] for item in genre_counts()}
+    counts = _store.genre_catalog_counts() if _using_db() else {item["name"]: item["count"] for item in genre_counts()}
     community = community_stats_index()
     genre_rowids = _genre_filter_rowids(selected, match)
 
@@ -433,6 +441,7 @@ def _search_works_impl(
         }
 
     if not query and not selected:
+        works = _store.top_works(limit) if _using_db() else _load_works_json()[:limit]
         items = [
             _slim_work(
                 work,
@@ -441,10 +450,10 @@ def _search_works_impl(
                 genre_matches={},
                 community_rating=community.get(work["id"]),
             )
-            for work in works[:limit]
+            for work in works
         ]
         return {
-            "total": len(works),
+            "total": works_count(),
             "query": query,
             "selected_genres": selected,
             "match_mode": match,
@@ -452,8 +461,13 @@ def _search_works_impl(
             "items": items,
         }
 
+    if not query and genre_rowids is not None and _using_db():
+        rowids = sorted(genre_rowids)
+    else:
+        rowids = _iter_search_rowids(query, genre_rowids)
+
     scored: list[tuple[float, dict]] = []
-    for work in _iter_search_works(query, works, genre_rowids=genre_rowids):
+    for work in _works_for_rowids(rowids):
         token_cache = _work_tokens(work) if query else None
         text_score = _text_score(query, work, token_cache)
         if query and text_score < 0.55:
@@ -504,18 +518,17 @@ def _search_works_impl(
         scored.sort(key=lambda pair: (-pair[0], -(pair[1].get("aggregate_rating") or 0)))
 
     all_matches = [item for _, item in scored]
-    items = all_matches[:limit]
     return {
         "total": len(all_matches),
         "query": query,
         "selected_genres": selected,
         "match_mode": match,
         "filters": _build_filter_stats(selected, counts, total, all_matches),
-        "items": items,
+        "items": all_matches[:limit],
     }
 
 
-@lru_cache(maxsize=256)
+@lru_cache(maxsize=512)
 def _search_cached(query: str, genres: tuple[str, ...], match: str, limit: int) -> str:
     return json.dumps(
         _search_works_impl(query=query, genres=list(genres), match=match, limit=limit),
@@ -533,55 +546,6 @@ def search_works(
     genres_key = tuple(sorted(g.strip() for g in (genres or []) if g and g.strip()))
     payload = _search_cached(query.strip(), genres_key, match, limit)
     return json.loads(payload)
-
-
-@lru_cache
-def _genre_indexes() -> tuple[dict[str, frozenset[int]], dict[str, frozenset[str]]]:
-    by_rowid: dict[str, set[int]] = {}
-    by_id: dict[str, set[str]] = {}
-    for rowid, work in enumerate(load_works()):
-        work_id = work["id"]
-        for genre in work.get("genres", []):
-            if not genre:
-                continue
-            key = genre.lower()
-            by_rowid.setdefault(key, set()).add(rowid)
-            by_id.setdefault(key, set()).add(work_id)
-    return (
-        {genre: frozenset(ids) for genre, ids in by_rowid.items()},
-        {genre: frozenset(ids) for genre, ids in by_id.items()},
-    )
-
-
-def _genre_row_ids() -> dict[str, frozenset[int]]:
-    return _genre_indexes()[0]
-
-
-def _genre_work_ids() -> dict[str, frozenset[str]]:
-    return _genre_indexes()[1]
-
-
-@lru_cache
-def _author_work_ids() -> dict[str, frozenset[str]]:
-    index: dict[str, set[str]] = {}
-    for work in load_works():
-        work_id = work["id"]
-        for author in work.get("authors", []):
-            if author:
-                index.setdefault(author.lower(), set()).add(work_id)
-    return {author: frozenset(ids) for author, ids in index.items()}
-
-
-def _similar_candidate_ids(work_id: str, base_genres: set[str], base_authors: set[str]) -> set[str]:
-    candidates: set[str] = set()
-    genre_index = _genre_work_ids()
-    for genre in base_genres:
-        candidates.update(genre_index.get(genre, ()))
-    author_index = _author_work_ids()
-    for author in base_authors:
-        candidates.update(author_index.get(author, ()))
-    candidates.discard(work_id)
-    return candidates
 
 
 def _score_similar_work(
@@ -603,16 +567,26 @@ def _score_similar_work(
 
 
 def similar_works(work_id: str, limit: int = 12) -> list[dict]:
-    base = works_by_id().get(work_id)
+    base = get_work(work_id)
     if not base:
         return []
 
     base_authors = {a.lower() for a in base.get("authors", []) if a}
     base_genres = _genre_set(base)
     base_title = _normalize_text(base.get("title", ""))
-    by_id = works_by_id()
 
-    candidate_ids = _similar_candidate_ids(work_id, base_genres, base_authors)
+    if _using_db():
+        candidate_ids = _store.similar_candidate_ids(work_id, base_genres, base_authors)
+        candidates = _store.get_works_by_ids(candidate_ids)
+        by_id = {work["id"]: work for work in candidates}
+    else:
+        by_id = works_by_id()
+        candidate_ids = set()
+        for genre in base_genres:
+            for wid in _legacy_genre_work_ids().get(genre, ()):
+                candidate_ids.add(wid)
+        candidate_ids.discard(work_id)
+
     if not candidate_ids:
         return []
 
@@ -639,3 +613,14 @@ def similar_works(work_id: str, limit: int = 12) -> list[dict]:
 
     scored.sort(key=lambda pair: pair[0], reverse=True)
     return [item for _, item in scored[:limit]]
+
+
+@lru_cache
+def _legacy_genre_work_ids() -> dict[str, frozenset[str]]:
+    index: dict[str, set[str]] = {}
+    for work in _load_works_json():
+        work_id = work["id"]
+        for genre in work.get("genres", []):
+            if genre:
+                index.setdefault(genre.lower(), set()).add(work_id)
+    return {genre: frozenset(ids) for genre, ids in index.items()}

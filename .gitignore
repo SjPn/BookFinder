@@ -16,6 +16,9 @@ venv/
 data/raw/
 data/books/fb2/
 data/processed/reviews/fw_by_id.json
+data/processed/catalog.db
+data/processed/catalog.db-wal
+data/processed/catalog.db-shm
 data/processed/http_cookies/
 data/processed/fetch_circuit.json
 

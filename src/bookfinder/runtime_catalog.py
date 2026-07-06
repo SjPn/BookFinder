@@ -106,60 +106,31 @@ def build_token_db(works: list[dict], db_path: Path) -> int:
 
 
 def write_runtime_catalog(works: list[dict], out_dir: Path) -> dict:
-    index = [build_index_entry(work) for work in works]
-    index.sort(
-        key=lambda item: (-(item.get("aggregate_rating") or 0), item.get("title", "").casefold()),
-    )
-    details: dict[str, dict] = {}
-    genre_counts: dict[str, int] = {}
+    from bookfinder.catalog_db import CATALOG_DB_NAME, CatalogStore, build_catalog_db
 
-    for work in works:
-        work_id = work["id"]
-        if work.get("description"):
-            details[work_id] = {
-                "description": work["description"],
-                "description_source": work.get("description_source"),
+    out_dir.mkdir(parents=True, exist_ok=True)
+    summary = build_catalog_db(works, out_dir)
+
+    # Small JSON files for tooling / fallback genre list
+    genres = CatalogStore(out_dir).list_genres() if (out_dir / CATALOG_DB_NAME).exists() else []
+    if not genres:
+        genre_counts: dict[str, int] = {}
+        for work in works:
+            for genre in work.get("genres", []):
+                if genre:
+                    genre_counts[genre] = genre_counts.get(genre, 0) + 1
+        total = len(works) or 1
+        genres = [
+            {
+                "name": name,
+                "count": count,
+                "weight": round(count / total, 4),
             }
-        for genre in work.get("genres", []):
-            if genre:
-                genre_counts[genre] = genre_counts.get(genre, 0) + 1
-
-    for i, work in enumerate(index):
-        index[i] = {
-            **work,
-            "genres": [g for g in work.get("genres", []) if is_catalog_genre(g, genre_counts.get(g, 0))],
-        }
-
-    filtered_counts = {
-        name: count for name, count in genre_counts.items() if is_catalog_genre(name, count)
-    }
+            for name, count in sorted(genre_counts.items(), key=lambda item: item[0].casefold())
+            if is_catalog_genre(name, count)
+        ]
 
     dump = lambda payload: json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
-    out_dir.mkdir(parents=True, exist_ok=True)
-    (out_dir / "works_index.json").write_text(dump(index), encoding="utf-8")
-    (out_dir / "works_details.json").write_text(dump(details), encoding="utf-8")
-
-    total = len(index) or 1
-    genres = [
-        {
-            "name": name,
-            "count": count,
-            "weight": round(count / total, 4),
-        }
-        for name, count in sorted(filtered_counts.items(), key=lambda item: item[0].casefold())
-    ]
     (out_dir / "genres.json").write_text(dump(genres), encoding="utf-8")
-    token_rows = build_token_db(index, out_dir / TOKEN_DB_NAME)
-
-    return {
-        "index_bytes": (out_dir / "works_index.json").stat().st_size,
-        "details_bytes": (out_dir / "works_details.json").stat().st_size,
-        "genres_bytes": (out_dir / "genres.json").stat().st_size,
-        "token_db_bytes": (out_dir / TOKEN_DB_NAME).stat().st_size,
-        "token_rows": token_rows,
-        "works": len(index),
-        "with_description": len(details),
-        "genres": len(genres),
-        "genres_raw": len(genre_counts),
-        "genres_dropped": len(genre_counts) - len(filtered_counts),
-    }
+    summary["genres_bytes"] = (out_dir / "genres.json").stat().st_size
+    return summary

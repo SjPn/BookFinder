@@ -1,5 +1,9 @@
 data/processed/expanded_works.json
 data/processed/merged_works.json
+data/processed/works_index.json
+data/processed/works_details.json
+data/processed/works_tokens.db
+data/processed/catalog.db
 data/raw/
 data/books/
 .git/
