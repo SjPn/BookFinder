@@ -98,8 +98,7 @@ def reload_works() -> list[dict]:
     genre_counts.cache_clear()
     _search_cached.cache_clear()
     _token_index.cache_clear()
-    _genre_work_ids.cache_clear()
-    _author_work_ids.cache_clear()
+    _genre_indexes.cache_clear()
     return load_works()
 
 
@@ -295,7 +294,7 @@ def _genre_match_score(filter_genre: str, work_genres: list[str]) -> float:
     for genre in work_genres:
         hay = genre.lower()
         if hay == needle:
-            best = max(best, 1.0)
+            return 1.0
         elif needle in hay or hay in needle:
             best = max(best, 0.88)
         else:
@@ -347,8 +346,50 @@ def _build_filter_stats(
     return filters
 
 
-def _iter_search_works(query: str, works: list[dict]):
+def _resolve_genre_rowids(genre: str, index: dict[str, frozenset[int]]) -> frozenset[int]:
+    key = genre.lower().strip()
+    if not key:
+        return frozenset()
+    if key in index:
+        return index[key]
+    for name, rowids in index.items():
+        if key in name or name in key:
+            return rowids
+    best_rowids: set[int] = set()
+    best_score = 0.0
+    for name, rowids in index.items():
+        score = fuzz.partial_ratio(key, name) / 100
+        if score >= 0.88 and score > best_score:
+            best_score = score
+            best_rowids = set(rowids)
+    return frozenset(best_rowids)
+
+
+def _genre_filter_rowids(selected: list[str], match: str) -> set[int] | None:
+    if not selected:
+        return None
+    index = _genre_row_ids()
+    sets = [set(_resolve_genre_rowids(genre, index)) for genre in selected]
+    if match == "all":
+        if not sets:
+            return set()
+        result = set.intersection(*sets)
+    else:
+        result = set().union(*sets)
+    return result
+
+
+def _iter_search_works(
+    query: str,
+    works: list[dict],
+    *,
+    genre_rowids: set[int] | None = None,
+):
     if not query:
+        if genre_rowids is not None:
+            for rowid in genre_rowids:
+                yield works[rowid]
+            return
         for work in works:
             yield work
         return
@@ -356,11 +397,15 @@ def _iter_search_works(query: str, works: list[dict]):
     words = _query_words(query)
     candidates = _candidate_rowids(words)
     if candidates is not None:
+        if genre_rowids is not None:
+            candidates &= genre_rowids
         for rowid in candidates:
             yield works[rowid]
         return
 
-    for work in works:
+    for rowid, work in enumerate(works):
+        if genre_rowids is not None and rowid not in genre_rowids:
+            continue
         yield work
 
 
@@ -375,6 +420,17 @@ def _search_works_impl(
     selected = [g.strip() for g in (genres or []) if g and g.strip()]
     counts = {item["name"]: item["count"] for item in genre_counts()}
     community = community_stats_index()
+    genre_rowids = _genre_filter_rowids(selected, match)
+
+    if genre_rowids is not None and not genre_rowids:
+        return {
+            "total": 0,
+            "query": query,
+            "selected_genres": selected,
+            "match_mode": match,
+            "filters": _build_filter_stats(selected, counts, total, []),
+            "items": [],
+        }
 
     if not query and not selected:
         items = [
@@ -397,7 +453,7 @@ def _search_works_impl(
         }
 
     scored: list[tuple[float, dict]] = []
-    for work in _iter_search_works(query, works):
+    for work in _iter_search_works(query, works, genre_rowids=genre_rowids):
         token_cache = _work_tokens(work) if query else None
         text_score = _text_score(query, work, token_cache)
         if query and text_score < 0.55:
@@ -480,14 +536,29 @@ def search_works(
 
 
 @lru_cache
-def _genre_work_ids() -> dict[str, frozenset[str]]:
-    index: dict[str, set[str]] = {}
-    for work in load_works():
+def _genre_indexes() -> tuple[dict[str, frozenset[int]], dict[str, frozenset[str]]]:
+    by_rowid: dict[str, set[int]] = {}
+    by_id: dict[str, set[str]] = {}
+    for rowid, work in enumerate(load_works()):
         work_id = work["id"]
         for genre in work.get("genres", []):
-            if genre:
-                index.setdefault(genre.lower(), set()).add(work_id)
-    return {genre: frozenset(ids) for genre, ids in index.items()}
+            if not genre:
+                continue
+            key = genre.lower()
+            by_rowid.setdefault(key, set()).add(rowid)
+            by_id.setdefault(key, set()).add(work_id)
+    return (
+        {genre: frozenset(ids) for genre, ids in by_rowid.items()},
+        {genre: frozenset(ids) for genre, ids in by_id.items()},
+    )
+
+
+def _genre_row_ids() -> dict[str, frozenset[int]]:
+    return _genre_indexes()[0]
+
+
+def _genre_work_ids() -> dict[str, frozenset[str]]:
+    return _genre_indexes()[1]
 
 
 @lru_cache
