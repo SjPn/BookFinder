@@ -6,6 +6,7 @@ __pycache__/
 venv/
 .env
 .env.*
+!.env.example
 
 # IDE
 .idea/
@@ -25,6 +26,10 @@ data/processed/fetch_circuit.json
 # Logs
 *.log
 data/processed/*.log
+
+# DNA pipeline (local Ollama machine; regenerate with scripts/build_dna.py)
+data/processed/dna/
+data/processed/dna_progress.json
 
 # Deploy configs (local only)
 deploy/

@@ -216,7 +216,19 @@ class CatalogStore:
         rows = self._connect().execute("SELECT name FROM catalog_genres").fetchall()
         return [row["name"] for row in rows]
 
-    def similar_candidate_ids(
+    def list_work_ids(self, *, limit: int = 0, only_fb2: bool = False) -> list[str]:
+        query = """
+            SELECT id FROM works
+        """
+        params: list[object] = []
+        if only_fb2:
+            query += " WHERE fb2_local = 1"
+        query += " ORDER BY aggregate_rating DESC, title COLLATE NOCASE"
+        if limit > 0:
+            query += " LIMIT ?"
+            params.append(limit)
+        rows = self._connect().execute(query, params).fetchall()
+        return [str(row["id"]) for row in rows]
         self,
         work_id: str,
         genre_lowers: set[str],

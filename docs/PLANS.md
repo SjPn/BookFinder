@@ -221,9 +221,11 @@
 
 #### Фаза 0 — инфраструктура
 
-- [ ] `src/bookfinder/ollama_client.py`
-- [ ] JSON Schema / Pydantic-модель `BookDNA`
-- [ ] `scripts/build_dna.py --limit 500 --sources annotation`
+- [x] `src/bookfinder/ollama_client.py`
+- [x] Pydantic-модель `BookDNA` (`book_dna.py`)
+- [x] `scripts/build_dna.py`
+- [x] `scripts/check_ollama.py`
+- [x] `docs/OLLAMA_SETUP.md`, `docs/DNA_SCHEMA.md`
 - [ ] Пилот на 500–1000 книг
 
 #### Фаза 1 — MVP (аннотация + Ollama)

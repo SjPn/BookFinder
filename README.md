@@ -35,4 +35,13 @@ data/processed/   — catalog.db, genres.json, отзывы
 
 ## Планы
 
-[docs/PLANS.md](docs/PLANS.md) — дорожная карта, в т.ч. **«ДНК книги»** (профиль книги, рекомендации, локальная Ollama).
+- [docs/PLANS.md](docs/PLANS.md) — дорожная карта, **«ДНК книги»**
+- [docs/OLLAMA_SETUP.md](docs/OLLAMA_SETUP.md) — перенос на ПК с Ollama
+- [docs/DNA_SCHEMA.md](docs/DNA_SCHEMA.md) — оси, мэтчинг, рекомендации
+
+### ДНК (Ollama, локально)
+
+```bash
+python scripts/check_ollama.py
+python scripts/build_dna.py --only-fb2 --limit 50
+```
