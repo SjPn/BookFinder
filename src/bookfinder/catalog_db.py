@@ -229,6 +229,8 @@ class CatalogStore:
             params.append(limit)
         rows = self._connect().execute(query, params).fetchall()
         return [str(row["id"]) for row in rows]
+
+    def similar_candidate_ids(
         self,
         work_id: str,
         genre_lowers: set[str],
