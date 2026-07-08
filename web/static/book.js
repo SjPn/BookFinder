@@ -160,12 +160,6 @@ function renderWorkCore(w) {
   document.getElementById('d-reviews').innerHTML = '<p class="muted">Загрузка…</p>';
 }
 
-  document.getElementById('d-user-rating').innerHTML = '<p class="muted">Загрузка…</p>';
-  document.getElementById('similar').innerHTML = '<li class="muted">Загрузка…</li>';
-  document.getElementById('d-reviews').innerHTML = '<p class="muted">Загрузка…</p>';
-  document.getElementById('d-dna-panel').hidden = true;
-}
-
 function renderDnaAxes(axes, axisLabels) {
   const entries = Object.entries(axes || {})
     .map(([key, value]) => ({
