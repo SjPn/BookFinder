@@ -61,6 +61,13 @@ def get_reviews_for_work(work_id: str, limit: int = 15, fw_id: str | None = None
     }
 
 
+def work_ids_with_reviews(*, limit: int = 0) -> list[str]:
+    ids = [work_id for work_id, entry in load_work_reviews().items() if int(entry.get("count") or 0) > 0]
+    if limit > 0:
+        return ids[:limit]
+    return ids
+
+
 def set_work_reviews(work_id: str, reviews: list[dict], sources_tried: list[str]) -> None:
     data = load_work_reviews()
     merged = dedupe_reviews(reviews)

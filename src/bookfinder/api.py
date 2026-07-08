@@ -9,6 +9,8 @@ from pydantic import BaseModel, Field
 from starlette.concurrency import run_in_threadpool
 
 from bookfinder.catalog import genre_counts, get_work, reload_works, search_works, similar_works, works_count
+from bookfinder.dna_similarity import DNA_MODES
+from bookfinder.dna_service import dna_available, get_dna_public, similar_works_dna
 from bookfinder.parsers import fantasy_worlds as fw
 from bookfinder.reviews_store import get_reviews_for_work
 from bookfinder.user_ratings import delete_user_rating, get_user_rating, set_user_rating, work_user_stats
@@ -92,8 +94,40 @@ async def work_detail(work_id: str) -> dict:
 
 
 @app.get("/api/works/{work_id}/similar")
-async def work_similar(work_id: str, limit: int = Query(12, ge=1, le=50)) -> list[dict]:
+async def work_similar(
+    work_id: str,
+    limit: int = Query(12, ge=1, le=50),
+    mode: str = Query("auto"),
+) -> list[dict]:
+    selected_mode = mode.strip().casefold()
+    if selected_mode == "legacy":
+        return await run_in_threadpool(similar_works, work_id, limit)
+
+    use_dna = selected_mode in DNA_MODES or selected_mode == "auto"
+    if use_dna and dna_available():
+        dna_mode = "ideas" if selected_mode == "auto" else selected_mode
+        dna_items = await run_in_threadpool(similar_works_dna, work_id, mode=dna_mode, limit=limit)
+        if dna_items:
+            return dna_items
+        if selected_mode != "auto":
+            # Explicit DNA mode requested but no neighbors/profiles yet — fall back.
+            return await run_in_threadpool(similar_works, work_id, limit)
+        return await run_in_threadpool(similar_works, work_id, limit)
+
     return await run_in_threadpool(similar_works, work_id, limit)
+
+
+@app.get("/api/works/{work_id}/dna")
+async def work_dna(work_id: str) -> dict:
+    payload = await run_in_threadpool(get_dna_public, work_id)
+    if payload:
+        return payload
+    return {"error": "not found", "work_id": work_id}
+
+
+@app.get("/api/dna/modes")
+async def dna_modes() -> dict:
+    return {"modes": list(DNA_MODES), "available": dna_available()}
 
 
 @app.get("/api/works/{work_id}/reviews")

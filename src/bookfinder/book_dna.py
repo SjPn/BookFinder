@@ -172,7 +172,7 @@ def build_dna_prompt(
 {reviews_block}
 
 ФРАГМЕНТ ТЕКСТА (начало / середина / конец):
-{text_block[:12000]}
+{text_block[:8000]}
 
 ЗАДАЧА:
 1. Оцени ВСЕ оси шкалой 1–10 (целые числа).
@@ -200,15 +200,19 @@ labels: hero (тип героя), ending (open|bittersweet|happy|tragic|ambiguou
 
 
 def embedding_text(profile: BookDNAProfile) -> str:
-  parts = [
-      profile.title,
-      ", ".join(profile.authors),
-      profile.ai_tagline,
-      profile.ai_summary,
-      ", ".join(profile.themes),
-      profile.labels.hero,
-      profile.labels.conflict,
-      profile.labels.setting,
-      profile.labels.tone,
-  ]
-  return "\n".join(part for part in parts if part).strip()
+    summary = profile.reviews_summary
+    parts = [
+        profile.title,
+        ", ".join(profile.authors),
+        profile.ai_tagline,
+        profile.ai_summary,
+        ", ".join(profile.themes),
+        profile.labels.hero,
+        profile.labels.conflict,
+        profile.labels.setting,
+        profile.labels.tone,
+        ", ".join(summary.praised),
+        ", ".join(summary.criticized),
+        ", ".join(summary.emotions),
+    ]
+    return "\n".join(part for part in parts if part).strip()

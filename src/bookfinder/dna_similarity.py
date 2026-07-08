@@ -17,7 +17,6 @@ GLOBAL_BLEND = {
     "genre": 0.05,
 }
 
-# Per-mode axis weights (only listed axes contribute; normalized internally).
 SIMILARITY_MODES: dict[str, dict[str, float]] = {
     "atmosphere": {
         "darkness": 2.0,
@@ -64,6 +63,8 @@ SIMILARITY_MODES: dict[str, dict[str, float]] = {
         "humor": 1.0,
     },
 }
+
+DNA_MODES = ("overall", *SIMILARITY_MODES.keys())
 
 
 def _axes_dict(profile: BookDNAProfile) -> dict[str, int]:
@@ -122,6 +123,24 @@ def cosine_similarity(left: list[float], right: list[float]) -> float:
     return dot / (norm_left * norm_right)
 
 
+def reviews_similarity(left: BookDNAProfile, right: BookDNAProfile) -> float:
+    left_summary = left.reviews_summary
+    right_summary = right.reviews_summary
+    praised = themes_jaccard(left_summary.praised, right_summary.praised)
+    criticized = themes_jaccard(left_summary.criticized, right_summary.criticized)
+    emotions = themes_jaccard(left_summary.emotions, right_summary.emotions)
+    parts = [score for score in (praised, criticized, emotions) if score > 0]
+    if not parts:
+        return 0.0
+    return sum(parts) / len(parts)
+
+
+def genre_similarity(left_genres: set[str], right_genres: set[str]) -> float:
+    if not left_genres or not right_genres:
+        return 0.0
+    return len(left_genres & right_genres) / len(left_genres | right_genres)
+
+
 def label_similarity(left: BookDNAProfile, right: BookDNAProfile) -> float:
     fields = ("hero", "ending", "conflict", "setting", "tone", "pov")
     scores: list[float] = []
@@ -145,14 +164,21 @@ def combined_similarity(
     left: BookDNAProfile,
     right: BookDNAProfile,
     mode: str = "overall",
+    *,
+    left_genres: set[str] | None = None,
+    right_genres: set[str] | None = None,
 ) -> float:
     """Score 0..1 for ranking recommendations."""
     if mode == "overall":
+        genre_score = 0.0
+        if left_genres is not None and right_genres is not None:
+            genre_score = genre_similarity(left_genres, right_genres)
         parts = [
             GLOBAL_BLEND["embedding"] * cosine_similarity(left.embedding or [], right.embedding or []),
             GLOBAL_BLEND["themes"] * themes_jaccard(left.themes, right.themes),
             GLOBAL_BLEND["axes"] * axes_similarity(left, right, mode="overall"),
-            GLOBAL_BLEND["genre"] * 0.0,
+            GLOBAL_BLEND["reviews"] * reviews_similarity(left, right),
+            GLOBAL_BLEND["genre"] * genre_score,
         ]
         return sum(parts)
 

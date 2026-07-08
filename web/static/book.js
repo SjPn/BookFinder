@@ -1,5 +1,18 @@
 const workId = decodeURIComponent(window.location.pathname.replace(/^\/work\//, ''));
 
+const SIMILAR_MODE_LABELS = {
+  ideas: 'По идеям',
+  atmosphere: 'По атмосфере',
+  emotions: 'По эмоциям',
+  dynamics: 'По динамике',
+  gameplay: 'По геймплею',
+  style: 'По стилю',
+  overall: 'Общее',
+  legacy: 'По жанрам',
+};
+
+let currentSimilarMode = 'auto';
+
 async function saveUserRating(id, rating) {
   const userId = getUserId();
   return apiJson(`/api/works/${id}/user-rating`, {
@@ -147,6 +160,109 @@ function renderWorkCore(w) {
   document.getElementById('d-reviews').innerHTML = '<p class="muted">Загрузка…</p>';
 }
 
+  document.getElementById('d-user-rating').innerHTML = '<p class="muted">Загрузка…</p>';
+  document.getElementById('similar').innerHTML = '<li class="muted">Загрузка…</li>';
+  document.getElementById('d-reviews').innerHTML = '<p class="muted">Загрузка…</p>';
+  document.getElementById('d-dna-panel').hidden = true;
+}
+
+function renderDnaAxes(axes, axisLabels) {
+  const entries = Object.entries(axes || {})
+    .map(([key, value]) => ({
+      key,
+      label: (axisLabels && axisLabels[key]) || key,
+      value: Number(value) || 0,
+    }))
+    .sort((a, b) => b.value - a.value)
+    .slice(0, 10);
+
+  return entries.map((item) => {
+    const width = Math.max(8, Math.round((item.value / 10) * 100));
+    return `<div class="dna-axis">
+      <div class="dna-axis-head"><span>${esc(item.label)}</span><span>${item.value}/10</span></div>
+      <div class="dna-axis-bar"><span style="width:${width}%"></span></div>
+    </div>`;
+  }).join('');
+}
+
+function renderDnaReviewsSummary(summary) {
+  const praised = (summary?.praised || []).filter(Boolean);
+  const criticized = (summary?.criticized || []).filter(Boolean);
+  const emotions = (summary?.emotions || []).filter(Boolean);
+  if (!praised.length && !criticized.length && !emotions.length) {
+    return '';
+  }
+  const parts = [];
+  if (praised.length) parts.push(`<p><strong>Хвалят:</strong> ${esc(praised.join(', '))}</p>`);
+  if (criticized.length) parts.push(`<p><strong>Ругают:</strong> ${esc(criticized.join(', '))}</p>`);
+  if (emotions.length) parts.push(`<p><strong>Эмоции:</strong> ${esc(emotions.join(', '))}</p>`);
+  return `<div class="dna-reviews-box">${parts.join('')}</div>`;
+}
+
+function renderDnaBlock(dna) {
+  const panel = document.getElementById('d-dna-panel');
+  if (!dna || dna.error) {
+    panel.hidden = true;
+    return;
+  }
+
+  panel.hidden = false;
+  document.getElementById('d-dna-tagline').textContent = dna.ai_tagline || '';
+  const summaryEl = document.getElementById('d-dna-summary');
+  if (dna.ai_summary) {
+    summaryEl.classList.remove('muted');
+    summaryEl.textContent = dna.ai_summary;
+  } else {
+    summaryEl.classList.add('muted');
+    summaryEl.textContent = '';
+  }
+
+  document.getElementById('d-dna-axes').innerHTML = renderDnaAxes(dna.axes, dna.axis_labels);
+  document.getElementById('d-dna-themes').innerHTML = (dna.themes || []).length
+    ? (dna.themes || []).map((theme) => `<span class="badge">${esc(theme)}</span>`).join('')
+    : '';
+  document.getElementById('d-dna-reviews-summary').innerHTML = renderDnaReviewsSummary(dna.reviews_summary);
+}
+
+function renderSimilarModes(modes, activeMode) {
+  const box = document.getElementById('similar-modes');
+  const available = (modes || []).filter((mode) => mode !== 'overall');
+  if (!available.length) {
+    box.hidden = true;
+    box.innerHTML = '';
+    return;
+  }
+
+  box.hidden = false;
+  box.innerHTML = '';
+  available.forEach((mode) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'similar-mode-btn';
+    if (mode === activeMode) btn.classList.add('active');
+    btn.textContent = SIMILAR_MODE_LABELS[mode] || mode;
+    btn.onclick = async () => {
+      currentSimilarMode = mode;
+      renderSimilarModes(available, mode);
+      await loadSimilarList(mode);
+    };
+    box.appendChild(btn);
+  });
+}
+
+async function loadSimilarList(mode = currentSimilarMode) {
+  const similarEl = document.getElementById('similar');
+  similarEl.innerHTML = '<li class="muted">Загрузка…</li>';
+  try {
+    const query = mode && mode !== 'auto' ? `?mode=${encodeURIComponent(mode)}` : '';
+    const sim = await apiJson(`/api/works/${workId}/similar${query}`);
+    renderSimilarList(sim);
+  } catch (err) {
+    similarEl.innerHTML = '<li class="muted">Не удалось загрузить похожие книги</li>';
+    console.error(err);
+  }
+}
+
 function renderSimilarList(sim) {
   const similarEl = document.getElementById('similar');
   similarEl.innerHTML = '';
@@ -159,7 +275,8 @@ function renderSimilarList(sim) {
     const a = document.createElement('a');
     a.href = workUrl(s.id);
     const rating = s.aggregate_rating != null ? ` · ${formatAggregateRating(s.aggregate_rating)}` : '';
-    a.textContent = `${s.title} — ${(s.authors || []).join(', ')}${rating}`;
+    const dnaScore = s.dna_score != null ? ` · ДНК ${Math.round(s.dna_score * 100)}%` : '';
+    a.textContent = `${s.title} — ${(s.authors || []).join(', ')}${rating}${dnaScore}`;
     li.appendChild(a);
     similarEl.appendChild(li);
   });
@@ -186,8 +303,9 @@ function renderReviewsBlock(rev) {
 
 async function loadWorkExtras(w) {
   const userId = getUserId();
-  const [ratingResult, similarResult, reviewsResult] = await Promise.allSettled([
+  const [ratingResult, dnaResult, similarResult, reviewsResult] = await Promise.allSettled([
     apiJson(`/api/works/${w.id}/user-rating?user_id=${encodeURIComponent(userId)}`),
+    apiJson(`/api/works/${w.id}/dna`),
     apiJson(`/api/works/${w.id}/similar`),
     apiJson(`/api/works/${w.id}/reviews?limit=15`),
   ]);
@@ -197,6 +315,15 @@ async function loadWorkExtras(w) {
   } else {
     document.getElementById('d-user-rating').innerHTML = '<p class="muted">Не удалось загрузить личную оценку</p>';
     console.error(ratingResult.reason);
+  }
+
+  if (dnaResult.status === 'fulfilled' && !dnaResult.value.error) {
+    currentSimilarMode = 'ideas';
+    renderDnaBlock(dnaResult.value);
+    renderSimilarModes(dnaResult.value.modes || [], currentSimilarMode);
+  } else {
+    document.getElementById('d-dna-panel').hidden = true;
+    document.getElementById('similar-modes').hidden = true;
   }
 
   if (similarResult.status === 'fulfilled') {

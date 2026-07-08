@@ -51,7 +51,8 @@ copy .env.example .env
 
 1. Скачать: https://ollama.com/download  
 2. Запустить Ollama (должен слушать `http://127.0.0.1:11434`)
-3. Скачать модели:
+3. В `.env` указать `LLM_BACKEND=ollama`
+4. Скачать модели:
 
 ```powershell
 ollama pull qwen2.5:7b
@@ -76,8 +77,8 @@ $env:PYTHONPATH="src"
 # если есть только catalog.db.gz:
 python -c "from pathlib import Path; from bookfinder.catalog_db import ensure_catalog_db; ensure_catalog_db(Path('data/processed'))"
 
-# проверка Ollama
-python scripts/check_ollama.py
+# проверка LLM (Ollama или LM Studio)
+python scripts/check_llm.py
 ```
 
 ## 4. Сборка ДНК книги

@@ -18,7 +18,7 @@
       document.documentElement.setAttribute('data-theme', theme);
     })();
   </script>
-  <link rel="stylesheet" href="/static/style.css?v=20260706a">
+  <link rel="stylesheet" href="/static/style.css?v=20260707a">
 </head>
 <body class="book-page">
   <header class="book-hero">
@@ -57,19 +57,31 @@
         <p id="d-relevance" class="help-block"></p>
       </section>
 
+      <section class="book-panel book-panel-wide" id="d-dna-panel" hidden>
+        <h2 class="panel-title">ДНК книги <span class="hint-tip th-hint" tabindex="0" data-tip="Профиль ощущений и идей книги, построенный локальной моделью.">?</span></h2>
+        <p id="d-dna-tagline" class="dna-tagline"></p>
+        <p id="d-dna-summary" class="dna-summary muted"></p>
+        <div id="d-dna-axes" class="dna-axes"></div>
+        <div id="d-dna-themes" class="badge-row"></div>
+        <div id="d-dna-reviews-summary" class="dna-reviews-summary"></div>
+      </section>
+
       <section class="book-panel book-panel-wide">
         <h2 class="panel-title">Комментарии с сайтов</h2>
         <div id="d-reviews" class="reviews-block muted">Загрузка…</div>
       </section>
 
       <section class="book-panel book-panel-wide">
-        <h2 class="panel-title">Похожие книги</h2>
+        <div class="similar-header">
+          <h2 class="panel-title">Похожие книги</h2>
+          <div id="similar-modes" class="similar-modes" hidden></div>
+        </div>
         <ul id="similar" class="similar-list"></ul>
       </section>
     </div>
   </main>
 
-  <script src="/static/common.js?v=20260706a"></script>
-  <script src="/static/book.js?v=20260706a"></script>
+  <script src="/static/common.js?v=20260707a"></script>
+  <script src="/static/book.js?v=20260707a"></script>
 </body>
 </html>

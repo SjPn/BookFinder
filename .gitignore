@@ -27,9 +27,17 @@ data/processed/fetch_circuit.json
 *.log
 data/processed/*.log
 
-# DNA pipeline (local Ollama machine; regenerate with scripts/build_dna.py)
+# DNA pipeline (full profiles local-only; index/neighbors are deployable)
 data/processed/dna/
 data/processed/dna_progress.json
+data/processed/dna_build.lock
+data/processed/dna_full_status.json
+data/processed/dna_demo_*.json
+data/processed/dna_demo_out.txt
+data/processed/dna_similar_demo.json
+
+# Local-only data (never commit)
+data/local/
 
 # Deploy configs (local only)
 deploy/

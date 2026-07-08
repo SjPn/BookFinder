@@ -12,6 +12,7 @@ from bookfinder.book_dna import BookDNAProfile, DNA_VERSION, PROMPT_VERSION
 ROOT = Path(__file__).resolve().parents[2]
 DNA_DIR = ROOT / "data" / "processed" / "dna"
 DNA_INDEX = ROOT / "data" / "processed" / "dna_index.json"
+DNA_NEIGHBORS = ROOT / "data" / "processed" / "dna_neighbors.json"
 DNA_PROGRESS = ROOT / "data" / "processed" / "dna_progress.json"
 _UNSAFE = re.compile(r"[^\w.\-]+")
 
@@ -66,6 +67,24 @@ def should_skip(work_id: str, *, force: bool) -> bool:
     return int(data.get("version", 0)) == DNA_VERSION and data.get("prompt_version") == PROMPT_VERSION
 
 
+def load_index() -> dict[str, Any] | None:
+    if not DNA_INDEX.exists():
+        return None
+    return json.loads(DNA_INDEX.read_text(encoding="utf-8"))
+
+
+def load_neighbors() -> dict[str, Any] | None:
+    if not DNA_NEIGHBORS.exists():
+        return None
+    return json.loads(DNA_NEIGHBORS.read_text(encoding="utf-8"))
+
+
+def save_neighbors(payload: dict[str, Any]) -> Path:
+    DNA_NEIGHBORS.parent.mkdir(parents=True, exist_ok=True)
+    DNA_NEIGHBORS.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    return DNA_NEIGHBORS
+
+
 def build_index() -> dict[str, Any]:
     DNA_DIR.mkdir(parents=True, exist_ok=True)
     items: list[dict[str, Any]] = []
@@ -83,6 +102,8 @@ def build_index() -> dict[str, Any]:
                 "axes": profile.axes.model_dump(),
                 "themes": profile.themes,
                 "ai_tagline": profile.ai_tagline,
+                "ai_summary": profile.ai_summary,
+                "reviews_summary": profile.reviews_summary.model_dump(),
                 "has_embedding": bool(profile.embedding),
                 "sources": profile.sources.model_dump(),
                 "updated_at": profile.updated_at,

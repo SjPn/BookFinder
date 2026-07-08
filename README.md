@@ -37,6 +37,7 @@ data/processed/   — catalog.db, genres.json, отзывы
 
 - [docs/PLANS.md](docs/PLANS.md) — дорожная карта, **«ДНК книги»**
 - [docs/OLLAMA_SETUP.md](docs/OLLAMA_SETUP.md) — перенос на ПК с Ollama
+- [docs/LM_STUDIO_SETUP.md](docs/LM_STUDIO_SETUP.md) — LM Studio (локальный LLM)
 - [docs/DNA_SCHEMA.md](docs/DNA_SCHEMA.md) — оси, мэтчинг, рекомендации
 
 ### ДНК (Ollama, локально)
