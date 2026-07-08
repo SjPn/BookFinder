@@ -103,6 +103,8 @@ def build_index() -> dict[str, Any]:
                 "themes": profile.themes,
                 "ai_tagline": profile.ai_tagline,
                 "ai_summary": profile.ai_summary,
+                "reader_badge": profile.reader_badge,
+                "ai_overview": profile.ai_overview,
                 "reviews_summary": profile.reviews_summary.model_dump(),
                 "has_embedding": bool(profile.embedding),
                 "sources": profile.sources.model_dump(),

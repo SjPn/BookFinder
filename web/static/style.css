@@ -1072,6 +1072,29 @@ button.link:hover {
   color: var(--accent-hover);
 }
 
+.similar-item {
+  padding: 0.55rem 0.65rem;
+  border-radius: var(--radius-sm);
+  transition: background 0.12s ease;
+}
+
+.similar-match-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+
+.similar-match-tag {
+  display: inline-block;
+  padding: 0.12rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  background: var(--bg-soft);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
 .similar-header {
   display: flex;
   flex-wrap: wrap;
@@ -1159,6 +1182,83 @@ button.link:hover {
 
 .dna-reviews-box p:last-child {
   margin-bottom: 0;
+}
+
+.book-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.85rem;
+}
+
+.book-action-btn {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.84rem;
+  cursor: pointer;
+}
+
+.book-action-btn:hover,
+.book-action-btn.active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.book-overview p {
+  margin: 0 0 0.85rem;
+  line-height: 1.6;
+}
+
+.book-overview p:last-child {
+  margin-bottom: 0;
+}
+
+.dna-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.35rem;
+}
+
+.dna-reader-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  border: 1px solid rgba(212, 160, 84, 0.25);
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.dna-axis {
+  cursor: pointer;
+}
+
+.dna-axis:hover .dna-axis-bar span {
+  filter: brightness(1.08);
+}
+
+.dna-axis-hint {
+  margin-left: 0.2rem;
+  font-size: 0.72rem;
+}
+
+.dna-disclaimer {
+  margin: 0.85rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.dna-disclaimer a {
+  color: var(--accent);
 }
 
 a.row-link,

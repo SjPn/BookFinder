@@ -153,6 +153,8 @@ def analyze_work(
         themes=list(payload.get("themes") or []),
         ai_tagline=str(payload.get("ai_tagline") or "").strip(),
         ai_summary=str(payload.get("ai_summary") or "").strip(),
+        reader_badge=str(payload.get("reader_badge") or "").strip(),
+        ai_overview=list(payload.get("ai_overview") or []),
         reviews_summary=DNAReviewsSummary.model_validate(payload.get("reviews_summary") or {}),
         sources=DNASources(
             annotation=0.85 if catalog_description else 0.0,

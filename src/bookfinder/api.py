@@ -30,6 +30,11 @@ def favicon() -> FileResponse:
     return FileResponse(WEB / "static" / "favicon.svg", media_type="image/svg+xml")
 
 
+@app.get("/dna")
+def dna_about_page() -> FileResponse:
+    return FileResponse(WEB / "dna.html", headers=NO_CACHE)
+
+
 @app.get("/")
 def index() -> FileResponse:
     return FileResponse(WEB / "index.html", headers=NO_CACHE)

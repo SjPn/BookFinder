@@ -19,7 +19,7 @@
       document.documentElement.setAttribute('data-theme', theme);
     })();
   </script>
-  <link rel="stylesheet" href="/static/style.css?v=20260708a">
+  <link rel="stylesheet" href="/static/style.css?v=20260708b">
 </head>
 <body class="book-page">
   <header class="book-hero">
@@ -30,6 +30,7 @@
       </div>
       <h1 id="d-title" class="book-title">Загрузка…</h1>
       <p id="d-authors" class="book-authors"></p>
+      <div id="d-actions" class="book-hero-actions"></div>
     </div>
   </header>
 
@@ -38,6 +39,11 @@
       <section class="book-panel book-panel-wide" id="d-description-panel">
         <h2 class="panel-title">Аннотация</h2>
         <p id="d-description" class="book-description muted">Загрузка…</p>
+      </section>
+
+      <section class="book-panel book-panel-wide" id="d-overview-panel" hidden>
+        <h2 class="panel-title">Обзор <span class="hint-tip th-hint" tabindex="0" data-tip="Краткий пересказ без спойлеров финала, собранный локальной моделью.">?</span></h2>
+        <div id="d-overview" class="book-overview"></div>
       </section>
 
       <section class="book-panel">
@@ -59,12 +65,19 @@
       </section>
 
       <section class="book-panel book-panel-wide" id="d-dna-panel" hidden>
-        <h2 class="panel-title">ДНК книги <span class="hint-tip th-hint" tabindex="0" data-tip="Профиль ощущений и идей книги, построенный локальной моделью.">?</span></h2>
+        <div class="dna-panel-head">
+          <h2 class="panel-title">ДНК книги <span class="hint-tip th-hint" tabindex="0" data-tip="Профиль ощущений и идей книги, построенный локальной моделью.">?</span></h2>
+          <span id="d-dna-badge" class="dna-reader-badge" hidden></span>
+        </div>
         <p id="d-dna-tagline" class="dna-tagline"></p>
         <p id="d-dna-summary" class="dna-summary muted"></p>
         <div id="d-dna-axes" class="dna-axes"></div>
         <div id="d-dna-themes" class="badge-row"></div>
         <div id="d-dna-reviews-summary" class="dna-reviews-summary"></div>
+        <p class="dna-disclaimer muted">
+          Профиль собран локальной моделью по аннотациям и отзывам. Ваши файлы на устройстве не читаются.
+          <a href="/dna">Подробнее о ДНК</a>
+        </p>
       </section>
 
       <section class="book-panel book-panel-wide">
@@ -82,7 +95,7 @@
     </div>
   </main>
 
-  <script src="/static/common.js?v=20260708a"></script>
-  <script src="/static/book.js?v=20260708a"></script>
+  <script src="/static/common.js?v=20260708b"></script>
+  <script src="/static/book.js?v=20260708b"></script>
 </body>
 </html>

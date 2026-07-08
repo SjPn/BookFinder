@@ -1,5 +1,7 @@
 const USER_ID_KEY = 'bookfinder_user_id';
 const THEME_KEY = 'bookfinder_theme';
+const FAVORITES_KEY = 'bookfinder_favorites';
+const HIDDEN_WORKS_KEY = 'bookfinder_hidden_works';
 
 function getTheme() {
   return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
@@ -98,4 +100,45 @@ function workUrl(workId) {
 function navigateToWork(workId) {
   saveCatalogState();
   window.location.href = workUrl(workId);
+}
+
+function readIdList(key) {
+  try {
+    const raw = localStorage.getItem(key);
+    const parsed = raw ? JSON.parse(raw) : [];
+    return Array.isArray(parsed) ? parsed.filter(Boolean) : [];
+  } catch {
+    return [];
+  }
+}
+
+function writeIdList(key, ids) {
+  localStorage.setItem(key, JSON.stringify([...new Set(ids)]));
+}
+
+function isFavoriteWork(workId) {
+  return readIdList(FAVORITES_KEY).includes(workId);
+}
+
+function toggleFavoriteWork(workId) {
+  const ids = readIdList(FAVORITES_KEY);
+  const next = ids.includes(workId) ? ids.filter((id) => id !== workId) : [...ids, workId];
+  writeIdList(FAVORITES_KEY, next);
+  return next.includes(workId);
+}
+
+function isHiddenWork(workId) {
+  return readIdList(HIDDEN_WORKS_KEY).includes(workId);
+}
+
+function toggleHiddenWork(workId) {
+  const ids = readIdList(HIDDEN_WORKS_KEY);
+  const next = ids.includes(workId) ? ids.filter((id) => id !== workId) : [...ids, workId];
+  writeIdList(HIDDEN_WORKS_KEY, next);
+  return next.includes(workId);
+}
+
+function filterHiddenWorks(items) {
+  const hidden = new Set(readIdList(HIDDEN_WORKS_KEY));
+  return (items || []).filter((item) => !hidden.has(item.id));
 }

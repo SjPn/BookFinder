@@ -5,7 +5,7 @@ from __future__ import annotations
 import math
 from typing import Iterable
 
-from bookfinder.book_dna import ALL_AXES, BookDNAProfile
+from bookfinder.book_dna import ALL_AXES, AXIS_LABELS_RU, BookDNAProfile
 
 # Global blend for overall DNA score (used when mode=overall).
 GLOBAL_BLEND = {
@@ -201,3 +201,36 @@ def combined_similarity(
         return 0.50 * axis_score + 0.30 * embed_score + 0.20 * label_score
 
     return 0.5 * axis_score + 0.3 * embed_score + 0.2 * theme_score
+
+
+def match_axis_labels(
+    left: BookDNAProfile,
+    right: BookDNAProfile,
+    mode: str = "ideas",
+    *,
+    limit: int = 3,
+) -> list[str]:
+    """Top axis labels explaining why two books match in a given mode."""
+    left_axes = _axes_dict(left)
+    right_axes = _axes_dict(right)
+    spec = SIMILARITY_MODES.get(mode, {})
+    keys = [key for key in spec if key in ALL_AXES] if spec else list(ALL_AXES)
+
+    scored: list[tuple[float, str]] = []
+    for key in keys:
+        left_value = int(left_axes.get(key, 5))
+        right_value = int(right_axes.get(key, 5))
+        if left_value < 5 or right_value < 5:
+            continue
+        closeness = 1.0 - abs(left_value - right_value) / 9.0
+        strength = (left_value + right_value) / 20.0
+        weight = spec.get(key, 1.0) if spec else 1.0
+        scored.append((closeness * strength * weight, key))
+
+    scored.sort(key=lambda pair: pair[0], reverse=True)
+    labels: list[str] = []
+    for _, key in scored[:limit]:
+        label = AXIS_LABELS_RU.get(key, key)
+        if label not in labels:
+            labels.append(label)
+    return labels
