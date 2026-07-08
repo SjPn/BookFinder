@@ -16,6 +16,7 @@ COPY data/processed/catalog.db.gz data/processed/catalog.db.gz
 COPY data/processed/genres.json data/processed/genres.json
 COPY data/processed/reviews/ data/processed/reviews/
 COPY data/processed/user_ratings.json data/processed/user_ratings.json
+COPY data/processed/dna_index.json data/processed/dna_index.json
 
 ENV PYTHONPATH=/app/src
 

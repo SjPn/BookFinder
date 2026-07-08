@@ -25,6 +25,11 @@ WEB.mkdir(exist_ok=True)
 app.mount("/static", StaticFiles(directory=WEB / "static"), name="static")
 
 
+@app.get("/favicon.ico", include_in_schema=False)
+def favicon() -> FileResponse:
+    return FileResponse(WEB / "static" / "favicon.svg", media_type="image/svg+xml")
+
+
 @app.get("/")
 def index() -> FileResponse:
     return FileResponse(WEB / "index.html", headers=NO_CACHE)
