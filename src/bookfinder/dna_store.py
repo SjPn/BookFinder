@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import re
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -14,6 +15,7 @@ DNA_DIR = ROOT / "data" / "processed" / "dna"
 DNA_INDEX = ROOT / "data" / "processed" / "dna_index.json"
 DNA_NEIGHBORS = ROOT / "data" / "processed" / "dna_neighbors.json"
 DNA_PROGRESS = ROOT / "data" / "processed" / "dna_progress.json"
+DNA_HEARTBEAT = ROOT / "data" / "processed" / "dna_heartbeat.json"
 _UNSAFE = re.compile(r"[^\w.\-]+")
 
 
@@ -54,9 +56,23 @@ def save_progress(progress: dict[str, str]) -> None:
     DNA_PROGRESS.write_text(json.dumps(progress, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
-def should_skip(work_id: str, *, force: bool) -> bool:
+def progress_failed(progress: dict[str, str], work_id: str) -> bool:
+    return str(progress.get(work_id) or "").startswith("fail:")
+
+
+def should_skip(
+    work_id: str,
+    *,
+    force: bool,
+    skip_failed: bool = False,
+    progress: dict[str, str] | None = None,
+) -> bool:
     if force:
         return False
+    if skip_failed:
+        state = progress if progress is not None else load_progress()
+        if progress_failed(state, work_id):
+            return True
     path = profile_path(work_id)
     if not path.exists():
         return False
@@ -65,6 +81,31 @@ def should_skip(work_id: str, *, force: bool) -> bool:
     except json.JSONDecodeError:
         return False
     return int(data.get("version", 0)) == DNA_VERSION and data.get("prompt_version") == PROMPT_VERSION
+
+
+def touch_heartbeat(
+    *,
+    work_id: str = "",
+    note: str = "",
+    profiles_ok: int | None = None,
+) -> None:
+    payload = {
+        "updated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
+        "work_id": work_id,
+        "note": note,
+        "profiles_ok": profiles_ok,
+    }
+    DNA_HEARTBEAT.parent.mkdir(parents=True, exist_ok=True)
+    DNA_HEARTBEAT.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def read_heartbeat() -> dict[str, Any] | None:
+    if not DNA_HEARTBEAT.exists():
+        return None
+    try:
+        return json.loads(DNA_HEARTBEAT.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return None
 
 
 def load_index() -> dict[str, Any] | None:

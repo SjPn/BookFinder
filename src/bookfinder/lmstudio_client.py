@@ -22,8 +22,8 @@ class LMStudioClient:
         host: str | None = None,
         chat_model: str | None = None,
         embed_model: str | None = None,
-        timeout_sec: float = 180.0,
-        max_retries: int = 3,
+        timeout_sec: float = 90.0,
+        max_retries: int = 2,
     ) -> None:
         base = (host or os.environ.get("LMSTUDIO_HOST") or DEFAULT_HOST).rstrip("/")
         self.host = base if base.endswith("/v1") else f"{base}/v1"
@@ -31,7 +31,9 @@ class LMStudioClient:
         self.embed_model = embed_model or os.environ.get("LMSTUDIO_EMBED_MODEL") or DEFAULT_EMBED_MODEL
         self.timeout_sec = timeout_sec
         self.max_retries = max_retries
-        self._client = httpx.Client(timeout=self.timeout_sec)
+        self._client = httpx.Client(
+            timeout=httpx.Timeout(connect=10.0, read=timeout_sec, write=30.0, pool=10.0)
+        )
 
     def close(self) -> None:
         self._client.close()

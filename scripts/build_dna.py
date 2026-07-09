@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import multiprocessing as mp
 import sys
 import time
 from pathlib import Path
@@ -25,7 +26,16 @@ from bookfinder.book_dna import (
 )
 from bookfinder.catalog import get_work, works_count
 from bookfinder.catalog_db import CatalogStore, ensure_catalog_db
-from bookfinder.dna_store import DNA_DIR, build_index, load_progress, profile_path, save_profile, save_progress, should_skip
+from bookfinder.dna_store import (
+    DNA_DIR,
+    build_index,
+    load_progress,
+    profile_path,
+    save_profile,
+    save_progress,
+    should_skip,
+    touch_heartbeat,
+)
 from bookfinder.fb2_text import load_fb2_sample
 from bookfinder.llm_client import create_llm_client
 from bookfinder.ollama_client import OllamaError, extract_json_object
@@ -72,7 +82,7 @@ def iter_work_ids(
         if only_fb2:
             ensure_catalog_db(DATA)
             fb2_ids = set(STORE.list_work_ids(limit=0, only_fb2=True))
-            ids = [work_id for work_id in ids if work_id in fb2_ids]
+            ids = [wid for wid in ids if wid in fb2_ids]
             if limit > 0:
                 return ids[:limit]
         return ids
@@ -208,14 +218,90 @@ def analyze_work_with_fallback(
     raise last_error or RuntimeError(f"Failed to analyze {work_id}")
 
 
+def _child_analyze(
+    conn,
+    work_id: str,
+    *,
+    use_reviews: bool,
+    use_text: bool,
+    backend: str,
+    chat_model: str,
+    embed_model: str,
+) -> None:
+    """Run LLM analysis in an isolated process (can be killed on timeout)."""
+    try:
+        with create_llm_client(
+            backend=backend or None,
+            chat_model=chat_model or None,
+            embed_model=embed_model or None,
+        ) as client:
+            profile = analyze_work_with_fallback(
+                client,
+                work_id,
+                use_reviews=use_reviews,
+                use_text=use_text,
+            )
+        conn.send({"profile": profile.model_dump()})
+    except Exception as exc:  # noqa: BLE001 - child must report any failure
+        conn.send({"error": f"{type(exc).__name__}: {exc}"})
+    finally:
+        conn.close()
+
+
+def analyze_work_isolated(
+    work_id: str,
+    *,
+    use_reviews: bool,
+    use_text: bool,
+    backend: str,
+    chat_model: str,
+    embed_model: str,
+    max_seconds: float,
+) -> BookDNAProfile:
+    ctx = mp.get_context("spawn")
+    parent_conn, child_conn = ctx.Pipe(duplex=False)
+    proc = ctx.Process(
+        target=_child_analyze,
+        args=(child_conn, work_id),
+        kwargs={
+            "use_reviews": use_reviews,
+            "use_text": use_text,
+            "backend": backend,
+            "chat_model": chat_model,
+            "embed_model": embed_model,
+        },
+        daemon=True,
+    )
+    proc.start()
+    child_conn.close()
+    try:
+        if not parent_conn.poll(max_seconds):
+            proc.terminate()
+            proc.join(10)
+            raise OllamaError(f"timeout after {int(max_seconds)}s")
+        result = parent_conn.recv()
+        proc.join(10)
+        if proc.is_alive():
+            proc.terminate()
+            proc.join(5)
+        if result.get("error"):
+            raise OllamaError(str(result["error"]))
+        return BookDNAProfile.model_validate(result["profile"])
+    finally:
+        parent_conn.close()
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Build book DNA profiles with local LLM")
-    parser.add_argument("--limit", type=int, default=0, help="Max books to process (0 = all)")
+    parser.add_argument("--limit", type=int, default=0, help="Max books to scan in queue (0 = all)")
+    parser.add_argument("--max-new", type=int, default=0, help="Stop after N successful new profiles (0 = no cap)")
     parser.add_argument("--work-id", default="", help="Process a single work id")
     parser.add_argument("--only-fb2", action="store_true", help="Only books with local FB2")
     parser.add_argument("--only-with-reviews", action="store_true", help="Only books with saved reviews")
     parser.add_argument("--force", action="store_true", help="Rebuild even if profile exists")
+    parser.add_argument("--skip-failed", action="store_true", help="Skip work ids marked fail: in progress")
     parser.add_argument("--delay", type=float, default=0.0, help="Pause between books (seconds)")
+    parser.add_argument("--max-book-seconds", type=float, default=120.0, help="Hard timeout per book")
     parser.add_argument("--backend", default="", help="ollama or lmstudio (default: LLM_BACKEND env)")
     parser.add_argument("--chat-model", default="")
     parser.add_argument("--embed-model", default="")
@@ -242,6 +328,7 @@ def main() -> None:
     progress = load_progress()
     ok = skip = fail = 0
     catalog_total = works_count()
+    profiles_before = count_profiles()
 
     with create_llm_client(
         backend=args.backend or None,
@@ -251,34 +338,47 @@ def main() -> None:
         client.ensure_models()
         print(
             f"LLM OK ({client.host}). Каталог: {catalog_total}. "
-            f"Уже готово: {count_profiles()}. Очередь: {len(work_ids)}",
+            f"Уже готово: {profiles_before}. Очередь: {len(work_ids)}. "
+            f"skip_failed={args.skip_failed} max_new={args.max_new} book_timeout={args.max_book_seconds}s",
             flush=True,
         )
+        touch_heartbeat(note="batch_start", profiles_ok=profiles_before)
 
         for idx, work_id in enumerate(work_ids, start=1):
-            if should_skip(work_id, force=args.force):
+            if args.max_new > 0 and ok >= args.max_new:
+                print(f"stop: reached --max-new {args.max_new}", flush=True)
+                break
+
+            if should_skip(work_id, force=args.force, skip_failed=args.skip_failed, progress=progress):
                 skip += 1
-                if skip == 1 or skip % 100 == 0:
-                    print(format_progress(
-                        catalog_total=catalog_total,
-                        pass_ok=ok,
-                        pass_skip=skip,
-                        pass_fail=fail,
-                        queue_pos=idx,
-                        queue_total=len(work_ids),
-                    ), flush=True)
+                if skip == 1 or skip % 250 == 0:
+                    print(
+                        format_progress(
+                            catalog_total=catalog_total,
+                            pass_ok=ok,
+                            pass_skip=skip,
+                            pass_fail=fail,
+                            queue_pos=idx,
+                            queue_total=len(work_ids),
+                        ),
+                        flush=True,
+                    )
                 continue
 
             title = work_id
+            touch_heartbeat(work_id=work_id, note="processing", profiles_ok=count_profiles())
             try:
                 work = get_work(work_id)
                 if work:
                     title = str(work.get("title") or work_id)
-                profile = analyze_work_with_fallback(
-                    client,
+                profile = analyze_work_isolated(
                     work_id,
                     use_reviews=not args.no_reviews,
                     use_text=not args.no_text,
+                    backend=args.backend or "",
+                    chat_model=args.chat_model or client.chat_model,
+                    embed_model=args.embed_model or client.embed_model,
+                    max_seconds=args.max_book_seconds,
                 )
                 save_profile(profile)
                 progress[work_id] = "ok"
@@ -292,6 +392,7 @@ def main() -> None:
                     queue_total=len(work_ids),
                 )
                 print(f"ok {title} | {progress_text}", flush=True)
+                touch_heartbeat(work_id=work_id, note="ok", profiles_ok=count_profiles())
             except (OllamaError, ValueError, json.JSONDecodeError) as exc:
                 progress[work_id] = f"fail:{exc}"
                 fail += 1
@@ -304,6 +405,7 @@ def main() -> None:
                     queue_total=len(work_ids),
                 )
                 print(f"fail {title} | {progress_text}: {exc}", flush=True)
+                touch_heartbeat(work_id=work_id, note="fail", profiles_ok=count_profiles())
 
             if idx % 5 == 0:
                 save_progress(progress)
@@ -324,6 +426,7 @@ def main() -> None:
 
     save_progress(progress)
     index = build_index()
+    touch_heartbeat(note="batch_done", profiles_ok=count_profiles())
     print(
         json.dumps(
             {
