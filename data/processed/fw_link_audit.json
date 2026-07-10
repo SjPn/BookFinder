@@ -1,0 +1,3736 @@
+{
+  "count": 248,
+  "items": [
+    {
+      "work_id": "3dcd3fbe-847e-524d-9be1-04808f9d9b02",
+      "title": "За три истории до Летописи",
+      "authors": [
+        "Александра Пушкина"
+      ],
+      "fw_id": "22150",
+      "fw_title": "Три",
+      "fw_authors": [
+        "Сара Лотц"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "3d84d438-08ce-546b-8c00-2224a255e874",
+      "title": "Отражения",
+      "authors": [
+        "Анюта Соколова"
+      ],
+      "fw_id": "1250",
+      "fw_title": "Закон отражения",
+      "fw_authors": [
+        "Анна Клименко"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "a8726e72-0a38-5b2b-b758-be0847801a72",
+      "title": "Гарри Поттер. Полное собрание (комплект из 7 книг)",
+      "authors": [
+        "Джоан К. Роулинг"
+      ],
+      "fw_id": "37847",
+      "fw_title": "Павшая луна: комплект из 2 книг",
+      "fw_authors": [
+        "Джеймс Роллинс"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "389dae48-522e-5541-b50c-dd8493336397",
+      "title": "Таинственный незнакомец",
+      "authors": [
+        "Марк Твен"
+      ],
+      "fw_id": "20098",
+      "fw_title": "Таинство",
+      "fw_authors": [
+        "Клайв Баркер"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "48881570-89a4-5d68-9f39-dd3bc1477bc7",
+      "title": "Жажда жизни. Биографический роман о Винсенте Ван Гоге",
+      "authors": [
+        "Ирвинг Стоун"
+      ],
+      "fw_id": "20239",
+      "fw_title": "Жажда",
+      "fw_authors": [
+        "Кристофер Пайк"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "efd37e9a-e27b-5736-a463-bb2858bb4bf8",
+      "title": "Лжец!",
+      "authors": [
+        "Айзек Азимов"
+      ],
+      "fw_id": "4245",
+      "fw_title": "Дэвид Старр – космический рейнджер",
+      "fw_authors": [
+        "Айзек Азимов"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.5111,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "bad01211-d951-51a5-9083-9bd84c6c2904",
+      "title": "Дары волхвов",
+      "authors": [
+        "О. Генри"
+      ],
+      "fw_id": "20786",
+      "fw_title": "Волк",
+      "fw_authors": [
+        "Генри Лайон Олди"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "9da5875a-94d4-5b48-bc38-0f78270efb9a",
+      "title": "Два капитана",
+      "authors": [
+        "Вениамин Каверин"
+      ],
+      "fw_id": "34877",
+      "fw_title": "Два капитана",
+      "fw_authors": [
+        "Андрей Ермошин"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "0de6cebf-d3d8-5bc7-a331-0ab27ee7deb1",
+      "title": "Испытание",
+      "authors": [
+        "Станислав Лем"
+      ],
+      "fw_id": "33136",
+      "fw_title": "Испытание на прочность",
+      "fw_authors": [
+        "Александр Ярославцев"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "c6abca53-f85a-5870-86fe-74440ba6fbc1",
+      "title": "Смерть в доме",
+      "authors": [
+        "Клиффорд Саймак"
+      ],
+      "fw_id": "26941",
+      "fw_title": "Без своей жизни. Упасть замертво (Сборник)",
+      "fw_authors": [
+        "Клиффорд Саймак"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.65,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "5405ab1f-4e94-52e7-b04b-96c1dd162237",
+      "title": "Доминик Каррера. Академия",
+      "authors": [
+        "Колесников Дмитрий",
+        "Колесников Дмитрий"
+      ],
+      "fw_id": "20977",
+      "fw_title": "К-10",
+      "fw_authors": [
+        "Олег Дивов"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "48ac2145-da93-50f6-9e98-e11bec185fa9",
+      "title": "С неба упали три яблока",
+      "authors": [
+        "Наринэ Абгарян"
+      ],
+      "fw_id": "34614",
+      "fw_title": "Ева",
+      "fw_authors": [
+        "Сона Абгарян"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.5346,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "ca791924-c9a9-5f66-a0a8-756f2785b054",
+      "title": "Под алыми небесами",
+      "authors": [
+        "Марк Салливан"
+      ],
+      "fw_id": "21746",
+      "fw_title": "Небеса",
+      "fw_authors": [
+        "Александра Адорнетто"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "6ca03934-6db0-5bd1-be65-c10735be31e7",
+      "title": "Убийство в &quot;Восточном экспрессе&quot;",
+      "authors": [
+        "Агата Кристи"
+      ],
+      "fw_id": "14019",
+      "fw_title": "2024-й",
+      "fw_authors": [
+        "Юрий Никитин"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "a35777f2-d8f1-5aa6-8f71-7e33be64d6af",
+      "title": "Над кукушкиным гнездом",
+      "authors": [
+        "Кен Кизи"
+      ],
+      "fw_id": "21870",
+      "fw_title": "Ад",
+      "fw_authors": [
+        "Алексей Кацай"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "3e3f3791-69ba-535e-b971-6f5cd9c0a772",
+      "title": "Таинственный остров",
+      "authors": [
+        "Жюль Верн"
+      ],
+      "fw_id": "17447",
+      "fw_title": "Остров",
+      "fw_authors": [
+        "Ширли Рейн"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "9e1759c4-204e-525c-8cab-ee2c964c00bf",
+      "title": "Ведьма-Хранительница",
+      "authors": [
+        "Ольга Громыко"
+      ],
+      "fw_id": "20481",
+      "fw_title": "Хранитель",
+      "fw_authors": [
+        "Ольга Голотвина"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "3db82e21-dda7-56cb-bf2a-b7490ef7e877",
+      "title": "Сердце дракона II",
+      "authors": [
+        "Клеванский",
+        "Клеванский"
+      ],
+      "fw_id": "27058",
+      "fw_title": "Сердце дракона",
+      "fw_authors": [
+        "Евгений Гаглоев"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "6e4c464e-c46c-5795-853c-6911a07c952a",
+      "title": "Легендариум Средиземья",
+      "authors": [
+        "Дж. Р. Р. Толкин"
+      ],
+      "fw_id": "26069",
+      "fw_title": "Неоконченные предания Нуменора и Средиземья",
+      "fw_authors": [
+        "Дж. Р. Р. Толкин"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7937,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "12a2e85e-f03f-5cb5-af3e-e437b3c0ce61",
+      "title": "Гордость и предубеждение",
+      "authors": [
+        "Джейн Остен"
+      ],
+      "fw_id": "132",
+      "fw_title": "Падение",
+      "fw_authors": [
+        "Джейн Рэйб"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "039193e2-270f-5b65-bf46-92e6f473d2f5",
+      "title": "Легенды и мифы Древней Греции",
+      "authors": [
+        "Н. А. Кун"
+      ],
+      "fw_id": "22250",
+      "fw_title": "Легенды",
+      "fw_authors": [
+        "Коллектив авторов"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "e5d21941-2542-5eb5-8ed2-71e8bf48a41f",
+      "title": "Морфий. Записки юного врача",
+      "authors": [
+        "Михаил Булгаков"
+      ],
+      "fw_id": "17468",
+      "fw_title": "Мор",
+      "fw_authors": [
+        "Павел Корнев"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "6e381501-97d2-54f4-a313-85684941e657",
+      "title": "Профессия: ведьма",
+      "authors": [
+        "Ольга Громыко"
+      ],
+      "fw_id": "17324",
+      "fw_title": "Ведьма",
+      "fw_authors": [
+        "Дональд Маккуин"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "18ae7ce7-20a0-50c1-9ff2-205531e18c8e",
+      "title": "Источник",
+      "authors": [
+        "Айн Рэнд"
+      ],
+      "fw_id": "16577",
+      "fw_title": "Источник Шиюна",
+      "fw_authors": [
+        "Кэролайн Черри"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "62c36b70-0b0e-54ba-8048-5f56299946b4",
+      "title": "Яма",
+      "authors": [
+        "А. И. Куприн"
+      ],
+      "fw_id": "35537",
+      "fw_title": "Магическое безумие",
+      "fw_authors": [
+        "К. Ф. Брин"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "945f3d3b-0d51-564f-8d8a-325b4438a0ac",
+      "title": "Пигмалион",
+      "authors": [
+        "Бернард Шоу"
+      ],
+      "fw_id": "24491",
+      "fw_title": "Человек из двух времен. Дворец вечности. Миллион завтра [Сборник]",
+      "fw_authors": [
+        "Боб Шоу"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.5742,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "d96b33af-db30-5b1f-b202-d9adf9e14b20",
+      "title": "Песнь Льда и Огня",
+      "authors": [
+        "Джордж Р. Р. Мартин"
+      ],
+      "fw_id": "28630",
+      "fw_title": "Пламя и кровь. Пляска смерти",
+      "fw_authors": [
+        "Джордж Мартин"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.725,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "6a4e9912-5a57-5ad5-81ff-cd2ee12e062a",
+      "title": "Если наступит завтра",
+      "authors": [
+        "Сидни Шелдон"
+      ],
+      "fw_id": "39392",
+      "fw_title": "Если",
+      "fw_authors": [
+        "Марина Белкина"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "3bd47238-a79a-529b-ae3b-139210c92aae",
+      "title": "Женщины",
+      "authors": [
+        "Кристин Ханна"
+      ],
+      "fw_id": "34684",
+      "fw_title": "Страшные сказки Женщины в белом",
+      "fw_authors": [
+        "Крис Пристли"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "277edca9-62da-5735-9866-33d04eb2093e",
+      "title": "Коронация, или Последний из романов",
+      "authors": [
+        "Борис Акунин"
+      ],
+      "fw_id": "12517",
+      "fw_title": "Лед",
+      "fw_authors": [
+        "Владимир Сорокин"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "d984ef3f-7af1-5cc2-98b5-589325406586",
+      "title": "Петр Первый",
+      "authors": [
+        "Алексей Николаевич Толстой"
+      ],
+      "fw_id": "35591",
+      "fw_title": "Первый",
+      "fw_authors": [
+        "Михаил Савич"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "30cba6c7-c22b-5f06-a0ae-add08e79ee28",
+      "title": "Записки врача",
+      "authors": [
+        "Викентий Вересаев"
+      ],
+      "fw_id": "13862",
+      "fw_title": "Иск",
+      "fw_authors": [
+        "Зиновий Юрьев"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "46df803d-60d4-5f04-9942-e7decc691e17",
+      "title": "Суета вокруг дивана",
+      "authors": [
+        "Аркадий и Борис Стругацкие"
+      ],
+      "fw_id": "4621",
+      "fw_title": "Извне",
+      "fw_authors": [
+        "Аркадий и Борис Стругацкие"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6333,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "bff6bafa-4a19-5b35-b983-9d333b92772c",
+      "title": "Девушка с татуировкой дракона",
+      "authors": [
+        "Стиг Ларссон"
+      ],
+      "fw_id": "3570",
+      "fw_title": "Дракон",
+      "fw_authors": [
+        "Стивен Браст"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "18e60eef-7641-5047-9eee-f62ba2b4067b",
+      "title": "Нечто большее",
+      "authors": [
+        "Анджей Сапковский"
+      ],
+      "fw_id": "121",
+      "fw_title": "Крещение огнем",
+      "fw_authors": [
+        "Анджей Сапковский"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "5149bbbd-dc7a-53f9-8538-6377635978d2",
+      "title": "Великий Кристалл",
+      "authors": [
+        "Владислав Крапивин"
+      ],
+      "fw_id": "21300",
+      "fw_title": "Струна и люстра",
+      "fw_authors": [
+        "Владислав Крапивин"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "e843f668-725a-59e1-8512-d4f679572b0c",
+      "title": "Овод",
+      "authors": [
+        "Этель Лилиан Войнич"
+      ],
+      "fw_id": "37290",
+      "fw_title": "Проводник, или Пять кедровых орешков",
+      "fw_authors": [
+        "Елена Ива"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "0a4de563-63f2-538c-89eb-d53a059271b5",
+      "title": "Обыкновенная история",
+      "authors": [
+        "И. А. Гончаров"
+      ],
+      "fw_id": "34292",
+      "fw_title": "Тор",
+      "fw_authors": [
+        "Денис Моргунов"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "bddfd88a-0c97-5621-aff8-c4103e8ccdb7",
+      "title": "Перевал",
+      "authors": [
+        "Кир Булычев"
+      ],
+      "fw_id": "37670",
+      "fw_title": "Стражница Сумеречного перевала",
+      "fw_authors": [
+        "Кира Стрельникова"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "013768df-ef80-5318-9567-d62b0b9083df",
+      "title": "НИИЧАВО",
+      "authors": [
+        "Аркадий и Борис Стругацкие"
+      ],
+      "fw_id": "4627",
+      "fw_title": "Отель «У погибшего альпиниста»",
+      "fw_authors": [
+        "Аркадий и Борис Стругацкие"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.5757,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "6fa9484f-58ea-57f0-b575-7383956375e4",
+      "title": "Енох Роот",
+      "authors": [
+        "Нил Стивенсон"
+      ],
+      "fw_id": "37153",
+      "fw_title": "Смешенье (новая редакция перевода)",
+      "fw_authors": [
+        "Нил Стивенсон"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.5841,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "64c43830-71a6-5633-9e66-a8d4771f2339",
+      "title": "Сто лет тому вперёд",
+      "authors": [
+        "Кир Булычев"
+      ],
+      "fw_id": "2109",
+      "fw_title": "Гостья из будущего",
+      "fw_authors": [
+        "Кир Булычев"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6464,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "fc57a6b8-fdc3-5105-bbc9-80a26434014e",
+      "title": "У войны не женское лицо",
+      "authors": [
+        "Светлана Алексиевич"
+      ],
+      "fw_id": "20925",
+      "fw_title": "Лицо войны",
+      "fw_authors": [
+        "Алексей Бобл"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "86a71d0d-9705-57b0-85be-6be2f1d86c26",
+      "title": "Галактическая история",
+      "authors": [
+        "Айзек Азимов"
+      ],
+      "fw_id": "14826",
+      "fw_title": "Валгалла",
+      "fw_authors": [
+        "Айзек Азимов"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6017,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "1bef5e6d-0fd3-5992-9895-29240b0dbe12",
+      "title": "Остров сокровищ",
+      "authors": [
+        "Роберт Льюис Стивенсон"
+      ],
+      "fw_id": "10299",
+      "fw_title": "Остров",
+      "fw_authors": [
+        "Дуглас Престон"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "95a200ab-53c9-53ba-bacd-62685fec29c4",
+      "title": "Белорийский цикл о ведьме Вольхе",
+      "authors": [
+        "Ольга Громыко"
+      ],
+      "fw_id": "593",
+      "fw_title": "Белорские хроники (Сборник)",
+      "fw_authors": [
+        "Ольга Громыко"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7643,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "e90bb96b-6d48-520d-baed-1532713950cd",
+      "title": "Плоский мир",
+      "authors": [
+        "Терри Пратчетт"
+      ],
+      "fw_id": "21029",
+      "fw_title": "Наука Плоского мира. Книга 3. Часы Дарвина",
+      "fw_authors": [
+        "Терри Пратчетт"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6802,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "413635a8-488d-53dd-87b1-212e9d07987e",
+      "title": "Смерть Ахиллеса",
+      "authors": [
+        "Борис Акунин"
+      ],
+      "fw_id": "15934",
+      "fw_title": "Насмерть",
+      "fw_authors": [
+        "Борис  Громов"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "384f6d2f-2b5f-549e-a12f-7900068d7067",
+      "title": "Можно попросить Нину?",
+      "authors": [
+        "Кир Булычев"
+      ],
+      "fw_id": "4831",
+      "fw_title": "Половина жизни",
+      "fw_authors": [
+        "Кир Булычев"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.725,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "a7d3a504-417d-5e77-bb94-4b08c35e2661",
+      "title": "Хроника Убийцы Короля",
+      "authors": [
+        "Патрик Ротфусс"
+      ],
+      "fw_id": "16655",
+      "fw_title": "Страх Мудреца",
+      "fw_authors": [
+        "Патрик Ротфусс"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6615,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "289dd40a-a16d-5d3e-80ff-b80dfcef422f",
+      "title": "Миргород",
+      "authors": [
+        "Николай Гоголь"
+      ],
+      "fw_id": "15482",
+      "fw_title": "Вий",
+      "fw_authors": [
+        "Николай Гоголь"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.55,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "df3b2a3b-e140-5ef5-b4c3-0d910f8f6833",
+      "title": "Страшная месть",
+      "authors": [
+        "Николай Гоголь"
+      ],
+      "fw_id": "15483",
+      "fw_title": "Вечера на хуторе близ Диканьки",
+      "fw_authors": [
+        "Николай Гоголь"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.575,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "89e56ed8-13cb-5339-95df-edbf16326fa5",
+      "title": "Будет ласковый дождь",
+      "authors": [
+        "Рэй Брэдбери"
+      ],
+      "fw_id": "13729",
+      "fw_title": "У нас всегда будет Париж",
+      "fw_authors": [
+        "Рэй Брэдбери"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7339,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "26d402ee-40ce-5346-80bb-a39fa10422eb",
+      "title": "Осада 1",
+      "authors": [
+        "Садов Сергей",
+        "Садов Сергей",
+        "обсудить  на форуме"
+      ],
+      "fw_id": "16399",
+      "fw_title": "Осада рая",
+      "fw_authors": [
+        "Андрей Буторин"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "d5b682db-7c0d-5fd9-bec7-b798402f3fc7",
+      "title": "Таэль",
+      "authors": [
+        "Ольга Таир"
+      ],
+      "fw_id": "16614",
+      "fw_title": "На взлет идут штрафные батальоны. Со Второй Мировой – на Первую Галактическую",
+      "fw_authors": [
+        "Олег  Таругин"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "75fbcae3-5e48-5437-96b0-ea8b823b3f82",
+      "title": "Земной Круг",
+      "authors": [
+        "Джо Аберкромби"
+      ],
+      "fw_id": "29834",
+      "fw_title": "Немного ненависти",
+      "fw_authors": [
+        "Джо Аберкромби"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7735,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "219a939e-3970-569f-8337-e47b43864c59",
+      "title": "Алиса Селезнёва",
+      "authors": [
+        "Кир Булычев"
+      ],
+      "fw_id": "4810",
+      "fw_title": "Наследник",
+      "fw_authors": [
+        "Кир Булычев"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7556,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "db4c6ee6-99e2-53b2-812d-ca3c377c6c6e",
+      "title": "Предел возможного",
+      "authors": [
+        "Анджей Сапковский"
+      ],
+      "fw_id": "21113",
+      "fw_title": "Сезон гроз",
+      "fw_authors": [
+        "Анджей Сапковский"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7556,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "7f779482-4344-5ccb-ba0a-e78f90cb5029",
+      "title": "Капитан Немо",
+      "authors": [
+        "Жюль Верн"
+      ],
+      "fw_id": "15520",
+      "fw_title": "Дети капитана Гранта",
+      "fw_authors": [
+        "Жюль Верн"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.8167,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "35a1ee03-6a58-5838-bf31-ba46e2f4f4cd",
+      "title": "Сын",
+      "authors": [
+        "Филипп Майер"
+      ],
+      "fw_id": "17365",
+      "fw_title": "Сыны Фенриса",
+      "fw_authors": [
+        "Ли Лайтнер"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "acb7ecd0-6128-5b70-a175-e469493a8331",
+      "title": "Глас",
+      "authors": [
+        "Алексей Пехов"
+      ],
+      "fw_id": "14457",
+      "fw_title": "Джанга с тенями",
+      "fw_authors": [
+        "Алексей Пехов"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6237,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "38a66d29-c553-5a21-8b13-1723d332442b",
+      "title": "Братство Кольца",
+      "authors": [
+        "Дж. Р. Р. Толкин"
+      ],
+      "fw_id": "25800",
+      "fw_title": "Хранители Кольца",
+      "fw_authors": [
+        "Дж. Р. Р. Толкин"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.8167,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "5fc4ef92-b660-5ea1-a08a-af2e379773c2",
+      "title": "Гуси-гуси, га-га-га...",
+      "authors": [
+        "Владислав Крапивин"
+      ],
+      "fw_id": "27460",
+      "fw_title": "Ампула Грина",
+      "fw_authors": [
+        "Владислав Крапивин"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7395,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "2a79ad6e-97f6-5852-81e1-f7c971fbb7b6",
+      "title": "Кое-что задаром",
+      "authors": [
+        "Роберт Шекли"
+      ],
+      "fw_id": "21211",
+      "fw_title": "В темном-темном космосе (сборник)",
+      "fw_authors": [
+        "Роберт Шекли"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7067,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "3c2c595f-5e30-52e6-b073-d9bb49d1cb9c",
+      "title": "Марсианин",
+      "authors": [
+        "Рэй Брэдбери"
+      ],
+      "fw_id": "13757",
+      "fw_title": "Марсианские хроники. Полное издание",
+      "fw_authors": [
+        "Рэй  Брэдбери"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.8036,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "9848221d-adeb-5991-a342-b49c5fb68e57",
+      "title": "Bookship. Последний книжный магазин во Вселенной",
+      "authors": [
+        "Мария Закрученко"
+      ],
+      "fw_id": "26174",
+      "fw_title": "После",
+      "fw_authors": [
+        "Андрей Круз"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "d7ee9e0a-46f9-5f18-a965-53c3f23bc9b8",
+      "title": "Разоблачение Оливера Райана",
+      "authors": [
+        "Лиз Ньюджент"
+      ],
+      "fw_id": "27892",
+      "fw_title": "Разоблачение",
+      "fw_authors": [
+        "Дженнифер МакМахон"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "b5ed2e23-98c0-5ded-bccb-07fe27cb466a",
+      "title": "Послушай, как падают листья",
+      "authors": [
+        "Ольга Громыко"
+      ],
+      "fw_id": "8239",
+      "fw_title": "Листопад",
+      "fw_authors": [
+        "Ольга Громыко"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6765,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "f2f62295-2e5c-5c00-bf1b-9acc259288a4",
+      "title": "Немного жертвенности",
+      "authors": [
+        "Анджей Сапковский"
+      ],
+      "fw_id": "21113",
+      "fw_title": "Сезон гроз",
+      "fw_authors": [
+        "Анджей Сапковский"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6333,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "8f5a2a60-7975-594c-9e89-c879259e38cd",
+      "title": "Время секонд хэнд",
+      "authors": [
+        "Светлана Алексиевич"
+      ],
+      "fw_id": "38772",
+      "fw_title": "Время «Ч»",
+      "fw_authors": [
+        "Михаил Алексеев"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "fa94c492-d311-5588-a0f0-d35fdf4ee92b",
+      "title": "Тополиная рубашка",
+      "authors": [
+        "Владислав Крапивин"
+      ],
+      "fw_id": "15178",
+      "fw_title": "Тополята",
+      "fw_authors": [
+        "Владислав Крапивин"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.714,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "69fc6937-91bd-5059-a629-c1355f6265db",
+      "title": "Корона профессора Козарина",
+      "authors": [
+        "Кир Булычев"
+      ],
+      "fw_id": "4800",
+      "fw_title": "Котел",
+      "fw_authors": [
+        "Кир Булычев"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.5565,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "02e789db-a5bf-51fa-a28f-ef6c01e991f9",
+      "title": "Кукла на троне",
+      "authors": [
+        "Роман Суржиков"
+      ],
+      "fw_id": "930",
+      "fw_title": "Трон",
+      "fw_authors": [
+        "Максим Димов"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "ac3d98d9-f77f-533d-9ae8-a50b7b9f983f",
+      "title": "Дети синего фламинго",
+      "authors": [
+        "Владислав Крапивин"
+      ],
+      "fw_id": "21298",
+      "fw_title": "Оранжевый портрет с крапинками",
+      "fw_authors": [
+        "Владислав Крапивин"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7329,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "12f38dc6-4e64-5a70-8685-a36e484ff55a",
+      "title": "Хроники Амбера",
+      "authors": [
+        "Роджер Желязны"
+      ],
+      "fw_id": "36422",
+      "fw_title": "Девять принцев Амбера. Ружья Авалона (сборник)",
+      "fw_authors": [
+        "Роджер Желязны"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.78,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "6f0faa71-0978-50b3-be1b-f96a419096ae",
+      "title": "Возвращение",
+      "authors": [
+        "Эрих Мария Ремарк"
+      ],
+      "fw_id": "28736",
+      "fw_title": "Темная лошадка. Возвращение",
+      "fw_authors": [
+        "Мария Архангельская"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "1a6704a3-082f-5ea6-9993-8d721de74d53",
+      "title": "Меньшее Зло",
+      "authors": [
+        "Анджей Сапковский"
+      ],
+      "fw_id": "16111",
+      "fw_title": "Змея",
+      "fw_authors": [
+        "Анджей Сапковский"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.67,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "a16513fd-2aa6-5ac0-b5ae-51bdd6207f3f",
+      "title": "Янмэйская охота",
+      "authors": [
+        "Роман Суржиков"
+      ],
+      "fw_id": "19446",
+      "fw_title": "Охота",
+      "fw_authors": [
+        "Роман Глушков"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "b24f9a7d-2e12-5ebf-93b3-60037ad7318a",
+      "title": "Вечер накануне Ивана Купала. Быль, рассказанная дьячком ***ской церкви",
+      "authors": [
+        "Николай Гоголь"
+      ],
+      "fw_id": "15482",
+      "fw_title": "Вий",
+      "fw_authors": [
+        "Николай Гоголь"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.4985,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "fbeb6b05-aca0-58e1-8aa9-be1becaf31c4",
+      "title": "Гарри Поттер",
+      "authors": [
+        "Дж. К. Роулинг"
+      ],
+      "fw_id": "36297",
+      "fw_title": "Наука Гарри Поттера",
+      "fw_authors": [
+        "Джон Чейз"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "7c7fcca1-ec9f-505b-b74d-28afcc8002c1",
+      "title": "Ойкумена",
+      "authors": [
+        "Генри Лайон Олди"
+      ],
+      "fw_id": "23787",
+      "fw_title": "Ангелы Ойкумены",
+      "fw_authors": [
+        "Генри Лайон Олди"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7848,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "241e1abc-435d-5467-a0c9-387af8f8e338",
+      "title": "Древняя Греция",
+      "authors": [
+        "Генри Лайон Олди",
+        "Андрей Валентинов"
+      ],
+      "fw_id": "12024",
+      "fw_title": "Гарпия",
+      "fw_authors": [
+        "Генри Лайон Олди"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.67,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "5b03dc9f-2cc3-5c23-a04a-7eb50a43ad25",
+      "title": "Профессия",
+      "authors": [
+        "Айзек Азимов"
+      ],
+      "fw_id": "18954",
+      "fw_title": "Вредная профессия [Сборник]",
+      "fw_authors": [
+        "Олег Дивов"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "ba1c756b-d3c6-5b8f-8d79-40792d7b8f8c",
+      "title": "Двухсотлетний человек",
+      "authors": [
+        "Айзек Азимов"
+      ],
+      "fw_id": "2310",
+      "fw_title": "Основание и Земля",
+      "fw_authors": [
+        "Айзек Азимов"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.5286,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "e0b5124f-e8a7-5ca2-9edd-9f9b66b6dec5",
+      "title": "Вопрос цены",
+      "authors": [
+        "Анджей Сапковский"
+      ],
+      "fw_id": "18603",
+      "fw_title": "Свет вечный",
+      "fw_authors": [
+        "Анджей Сапковский"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7735,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "2b493757-740b-563f-ba2b-7f7158fdb8ce",
+      "title": "Крупица истины",
+      "authors": [
+        "Анджей Сапковский"
+      ],
+      "fw_id": "25498",
+      "fw_title": "Бестиарий. Создания света, мрака, полумрака и тьмы",
+      "fw_authors": [
+        "Анджей Сапковский"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.5762,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "f18bcf83-3cd7-50a1-a659-8a68fa19384f",
+      "title": "Говорящий с богом",
+      "authors": [
+        "Роман Суржиков"
+      ],
+      "fw_id": "36529",
+      "fw_title": "Вор",
+      "fw_authors": [
+        "Роннат"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "4d53a04a-3d5a-531e-95c8-b14d6771a789",
+      "title": "Цикл о Грегоре и Арнольде",
+      "authors": [
+        "Роберт Шекли"
+      ],
+      "fw_id": "23929",
+      "fw_title": "Миры Роберта Шекли. Книга 1",
+      "fw_authors": [
+        "Роберт Шекли"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6765,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "9ffac080-fcfb-55a9-bbef-e39181deca37",
+      "title": "Лётчик для особых поручений",
+      "authors": [
+        "Владислав Крапивин"
+      ],
+      "fw_id": "27440",
+      "fw_title": "Лето кончится не скоро",
+      "fw_authors": [
+        "Владислав Крапивин"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.725,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "87159a8b-1b1f-5e29-953b-9437f873d1b6",
+      "title": "Ордер на убийство",
+      "authors": [
+        "Роберт Шекли"
+      ],
+      "fw_id": "23232",
+      "fw_title": "Координаты чудес",
+      "fw_authors": [
+        "Роберт Шекли"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7462,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "a0099e92-492b-5c5d-8839-8e72469c19b0",
+      "title": "С кем бы побегать",
+      "authors": [
+        "Гроссман Давид"
+      ],
+      "fw_id": "21546",
+      "fw_title": "Побег",
+      "fw_authors": [
+        "Роман Глушков"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "1fcf1991-e4d4-520b-840f-595210841c9e",
+      "title": "Запах мысли",
+      "authors": [
+        "Роберт Шекли"
+      ],
+      "fw_id": "21856",
+      "fw_title": "Лавка старинных диковин",
+      "fw_authors": [
+        "Роберт Шекли"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6118,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "50597289-99c7-5016-9fad-be50937cf1c3",
+      "title": "Диптаун",
+      "authors": [
+        "Сергей Лукьяненко"
+      ],
+      "fw_id": "1555",
+      "fw_title": "Танцы на снегу",
+      "fw_authors": [
+        "Сергей Лукьяненко"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6071,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "399f6cf6-55a5-5756-baff-127a34d2ae93",
+      "title": "Застава на Якорном поле",
+      "authors": [
+        "Владислав Крапивин"
+      ],
+      "fw_id": "15178",
+      "fw_title": "Тополята",
+      "fw_authors": [
+        "Владислав Крапивин"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6274,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "fa148ab9-e4c9-5856-a765-b71f10f61e8c",
+      "title": "И грянул гром",
+      "authors": [
+        "Рэй Брэдбери"
+      ],
+      "fw_id": "23290",
+      "fw_title": "Тени грядущего зла (сборник)",
+      "fw_authors": [
+        "Рэй  Брэдбери"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7885,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "baa85ac5-5de0-55c4-9924-42c2f5da0d49",
+      "title": "Конец историй",
+      "authors": [
+        "Алексей Пехов"
+      ],
+      "fw_id": "29144",
+      "fw_title": "Талорис",
+      "fw_authors": [
+        "Алексей Пехов"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.67,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "f975ae2f-6f2c-544b-b1bf-6363a934d17b",
+      "title": "В списках не значился",
+      "authors": [
+        "Борис Васильев"
+      ],
+      "fw_id": "28818",
+      "fw_title": "4 НЕ (Сборник)",
+      "fw_authors": [
+        "Василий Головачев"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "7a313996-3da3-5f9d-95bf-5e384c9df3b5",
+      "title": "Майская ночь, или Утопленница",
+      "authors": [
+        "Николай Гоголь"
+      ],
+      "fw_id": "15483",
+      "fw_title": "Вечера на хуторе близ Диканьки",
+      "fw_authors": [
+        "Николай Гоголь"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6966,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "5adfe479-fa76-5c3c-a1ca-915b2c89ef43",
+      "title": "Коса",
+      "authors": [
+        "Рэй Брэдбери"
+      ],
+      "fw_id": "13763",
+      "fw_title": "Давайте все убьем Констанцию",
+      "fw_authors": [
+        "Рэй  Брэдбери"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.5875,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "4315f9a0-c4f1-559e-98d2-a75f5ec96915",
+      "title": "Третья экспедиция",
+      "authors": [
+        "Рэй Брэдбери"
+      ],
+      "fw_id": "13764",
+      "fw_title": "Лед и пламя",
+      "fw_authors": [
+        "Рэй  Брэдбери"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7088,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "360798a9-ad76-5731-b7e8-f48359f5d85d",
+      "title": "«Особый старательский»",
+      "authors": [
+        "Роберт Шекли"
+      ],
+      "fw_id": "19875",
+      "fw_title": "Осколки космоса (сборник)",
+      "fw_authors": [
+        "Роберт Шекли"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.714,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "e70d80c6-5fe6-5b83-9b89-d5c0bbafd2f7",
+      "title": "Барраярский цикл",
+      "authors": [
+        "Лоис Макмастер Буджолд"
+      ],
+      "fw_id": "31229",
+      "fw_title": "Барраяр (сборник)",
+      "fw_authors": [
+        "Лоис Буджолд"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7848,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "393507d0-0df9-55b7-86dd-a30c4168783f",
+      "title": "Чёрный Баламут",
+      "authors": [
+        "Генри Лайон Олди"
+      ],
+      "fw_id": "12973",
+      "fw_title": "Шутиха",
+      "fw_authors": [
+        "Генри Лайон Олди"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.56,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "ce2abc9b-4db4-5227-bde2-c6e2128a0f2c",
+      "title": "Профессор Челленджер",
+      "authors": [
+        "Артур Конан Дойл"
+      ],
+      "fw_id": "3831",
+      "fw_title": "Сэр Найджел Лоринг",
+      "fw_authors": [
+        "Артур Конан Дойл"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.725,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "088aace2-c6dc-5db3-b569-64329dab267a",
+      "title": "Sapiens. Краткая история человечества",
+      "authors": [
+        "Юваль Ной Харари"
+      ],
+      "fw_id": "19645",
+      "fw_title": "Тор",
+      "fw_authors": [
+        "Василий Сахаров"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "872b4411-8c2c-56d8-9a0e-f0caef1f3226",
+      "title": "Лавка миров",
+      "authors": [
+        "Роберт Шекли"
+      ],
+      "fw_id": "21856",
+      "fw_title": "Лавка старинных диковин",
+      "fw_authors": [
+        "Роберт Шекли"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7937,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "d7d32baa-6461-5553-8cb4-d9dc2819d482",
+      "title": "Край света",
+      "authors": [
+        "Анджей Сапковский"
+      ],
+      "fw_id": "25498",
+      "fw_title": "Бестиарий. Создания света, мрака, полумрака и тьмы",
+      "fw_authors": [
+        "Анджей Сапковский"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.8167,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "997566cc-0847-51e0-8ed4-6a51995e1f8c",
+      "title": "Дренайский цикл",
+      "authors": [
+        "Дэвид Геммел"
+      ],
+      "fw_id": "379",
+      "fw_title": "Друсс-Легенда",
+      "fw_authors": [
+        "Дэвид Геммел"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7556,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "01e766a5-05f5-5873-9d1a-aa30fff3a385",
+      "title": "Дознание",
+      "authors": [
+        "Станислав Лем"
+      ],
+      "fw_id": "5056",
+      "fw_title": "Расследование (Следствие)",
+      "fw_authors": [
+        "Станислав Лем"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6629,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "50f09700-30e8-5aeb-abe0-298677f201c9",
+      "title": "Были они смуглые и золотоглазые",
+      "authors": [
+        "Рэй Брэдбери"
+      ],
+      "fw_id": "13764",
+      "fw_title": "Лед и пламя",
+      "fw_authors": [
+        "Рэй  Брэдбери"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6333,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "c7a8e51b-43aa-5360-812d-6cd7907ddb82",
+      "title": "Долгие годы",
+      "authors": [
+        "Рэй Брэдбери"
+      ],
+      "fw_id": "35471",
+      "fw_title": "Механизмы радости (сборник, новые переводы)",
+      "fw_authors": [
+        "Рэй  Брэдбери"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6291,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "3f6e9a9d-7a5c-5f7b-a108-a79fef762e90",
+      "title": "Мир Ехо и приключения Макса",
+      "authors": [
+        "Макс Фрай"
+      ],
+      "fw_id": "124",
+      "fw_title": "Хроники Ехо",
+      "fw_authors": [
+        "Макс Фрай"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6857,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "df23e651-6ed3-5609-a5be-e8907a888b64",
+      "title": "Чистая фэнтези",
+      "authors": [
+        "Генри Лайон Олди"
+      ],
+      "fw_id": "12953",
+      "fw_title": "Страх",
+      "fw_authors": [
+        "Генри Лайон Олди"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6237,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "d9513aa4-ee31-50e5-a5a4-85dc6a5f3332",
+      "title": "Каникулы на Марсе",
+      "authors": [
+        "Рэй Брэдбери"
+      ],
+      "fw_id": "13759",
+      "fw_title": "Канун всех святых",
+      "fw_authors": [
+        "Рэй  Брэдбери"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7885,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "0408d973-6056-596c-8062-be3a821fe653",
+      "title": "Срок авансом",
+      "authors": [
+        "Уильям Тенн"
+      ],
+      "fw_id": "24690",
+      "fw_title": "Миры Уильяма Тенна. Человеческий аспект",
+      "fw_authors": [
+        "Уильям Тенн"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.582,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "e800fa6c-7b9c-5f50-b747-d9a0b20bd340",
+      "title": "Теперь ты колдун",
+      "authors": [
+        "Роман Суржиков"
+      ],
+      "fw_id": "458",
+      "fw_title": "Колдун",
+      "fw_authors": [
+        "Глен Кук"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "c29d9342-82e1-52bc-9992-e25a07d588b5",
+      "title": "Человекоминимум",
+      "authors": [
+        "Роберт Шекли"
+      ],
+      "fw_id": "15558",
+      "fw_title": "Обмен разумов",
+      "fw_authors": [
+        "Роберт Шекли"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7119,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "b55ba100-d61a-5a61-9624-304c06a539e3",
+      "title": "Пожиратели плоти",
+      "authors": [
+        "Алексей Пехов"
+      ],
+      "fw_id": "25216",
+      "fw_title": "Созерцатель",
+      "fw_authors": [
+        "Алексей Пехов"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.78,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "1098d018-328f-54eb-84c5-4c4e8ae88e1a",
+      "title": "Пропавшая грамота. Быль, рассказанная дьячком ***ской церкви",
+      "authors": [
+        "Николай Гоголь"
+      ],
+      "fw_id": "15482",
+      "fw_title": "Вий",
+      "fw_authors": [
+        "Николай Гоголь"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.4879,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "226caeba-606c-5866-8e3c-3782dee98df5",
+      "title": "Праздник лета в Старогорске",
+      "authors": [
+        "Владислав Крапивин"
+      ],
+      "fw_id": "21300",
+      "fw_title": "Струна и люстра",
+      "fw_authors": [
+        "Владислав Крапивин"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.725,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "6240e3df-2eec-5cf9-ac60-467baaca906a",
+      "title": "О скитаньях вечных и о Земле",
+      "authors": [
+        "Рэй Брэдбери"
+      ],
+      "fw_id": "13761",
+      "fw_title": "Зеленые тени, Белый Кит",
+      "fw_authors": [
+        "Рэй  Брэдбери"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.725,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "feaa7281-bc9a-5f53-8184-93eedc72e9fd",
+      "title": "Изобретатель Гэллегер",
+      "authors": [
+        "Генри Каттнер"
+      ],
+      "fw_id": "4501",
+      "fw_title": "Пять рассказов о Гэллегере",
+      "fw_authors": [
+        "Генри Каттнер"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7937,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "10c7ca32-c11e-5957-87e3-36ae35a0e571",
+      "title": "У перекрёстка эпох",
+      "authors": [
+        "Алексей Пехов"
+      ],
+      "fw_id": "12491",
+      "fw_title": "Страж",
+      "fw_authors": [
+        "Алексей Пехов"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.5935,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "cfca3736-ec3b-510d-b6b6-0100bd7261f8",
+      "title": "За миллиард лет до конца света",
+      "authors": [
+        "Аркадий и Борис Стругацкие"
+      ],
+      "fw_id": "15495",
+      "fw_title": "Волны гасят ветер",
+      "fw_authors": [
+        "Аркадий и Борис Стругацкие"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7352,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "d2c4e6b1-d59d-5a5e-928a-a0db4c4d8d98",
+      "title": "Хроники Сиалы",
+      "authors": [
+        "Алексей Пехов"
+      ],
+      "fw_id": "95",
+      "fw_title": "Тёмный Охотник",
+      "fw_authors": [
+        "Алексей Пехов"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7395,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "7b066a7c-7c77-5812-b77e-f904a177f1ce",
+      "title": "Книга огненных страниц",
+      "authors": [
+        "Макс Фрай"
+      ],
+      "fw_id": "75",
+      "fw_title": "Тёмная сторона",
+      "fw_authors": [
+        "Макс Фрай"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7352,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "e0d4d349-6756-5972-9dc7-5e0f79c8a16b",
+      "title": "Распятый",
+      "authors": [
+        "Алексей Пехов"
+      ],
+      "fw_id": "21939",
+      "fw_title": "Распятая Русь. Предания «Велесовой книги»",
+      "fw_authors": [
+        "Алексей Соловьев"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "5f2f1859-e7c4-5eaa-8d7a-355ffa0715ac",
+      "title": "Тихий Город",
+      "authors": [
+        "Макс Фрай"
+      ],
+      "fw_id": "125",
+      "fw_title": "Властелин Морморы",
+      "fw_authors": [
+        "Макс Фрай"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.75,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "a3cc7d81-2f0c-5a17-bf13-78314cfd75eb",
+      "title": "Белый шарик Матроса Вильсона",
+      "authors": [
+        "Владислав Крапивин"
+      ],
+      "fw_id": "21300",
+      "fw_title": "Струна и люстра",
+      "fw_authors": [
+        "Владислав Крапивин"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6547,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "1ca112ee-0d56-5423-b9f4-df964e0be634",
+      "title": "Калейдоскоп",
+      "authors": [
+        "Рэй Брэдбери"
+      ],
+      "fw_id": "20352",
+      "fw_title": "Калейдоскоп",
+      "fw_authors": [
+        "Роберт Абернати"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "4b1a1937-9947-5cfe-afe0-f8d274bf5792",
+      "title": "Призрак V",
+      "authors": [
+        "Роберт Шекли"
+      ],
+      "fw_id": "37609",
+      "fw_title": "Принесите мне голову Прекрасного принца (перевод Николая Кудряшева)",
+      "fw_authors": [
+        "Роберт Шекли"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.5392,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "04f4dc44-c1dc-51d2-85c7-f38592ac1edc",
+      "title": "Цикл рассказов «Грань»",
+      "authors": [
+        "Ольга Громыко"
+      ],
+      "fw_id": "33270",
+      "fw_title": "Карма. Том 2",
+      "fw_authors": [
+        "Ольга Громыко"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.582,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "8e130f3f-1c38-5aba-b041-6ac1c62b6c0b",
+      "title": "Путешествие в Кеттари",
+      "authors": [
+        "Макс Фрай"
+      ],
+      "fw_id": "29979",
+      "fw_title": "Так берегись",
+      "fw_authors": [
+        "Макс Фрай"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.725,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "7585f318-28c4-5d33-ac76-26761fa36adf",
+      "title": "Баллада двойников",
+      "authors": [
+        "Генри Лайон Олди"
+      ],
+      "fw_id": "12789",
+      "fw_title": "Кукольник",
+      "fw_authors": [
+        "Генри Лайон Олди"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6192,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "32beda99-028c-5dd7-9e65-187bbe484958",
+      "title": "Необходимая вещь",
+      "authors": [
+        "Роберт Шекли"
+      ],
+      "fw_id": "23232",
+      "fw_title": "Координаты чудес",
+      "fw_authors": [
+        "Роберт Шекли"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7067,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "4b659df6-36dc-5b17-a338-6b5c79d77a2d",
+      "title": "И по-прежнему лучами серебрит простор луна...",
+      "authors": [
+        "Рэй Брэдбери"
+      ],
+      "fw_id": "13728",
+      "fw_title": "Лето, прощай",
+      "fw_authors": [
+        "Рэй  Брэдбери"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.5745,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "8d5bef3a-7f56-5110-afd0-010649484e90",
+      "title": "Зоны мысли",
+      "authors": [
+        "Вернор Виндж"
+      ],
+      "fw_id": "22641",
+      "fw_title": "Война с «Миром»",
+      "fw_authors": [
+        "Вернор Виндж"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.725,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "4adcd2a7-25fb-5ae5-9bb7-6bafe0d692ed",
+      "title": "Малазанская империя",
+      "authors": [
+        "Стивен Эриксон",
+        "Иан К. Эсслемонт"
+      ],
+      "fw_id": "31319",
+      "fw_title": "Дань псам. Том 2",
+      "fw_authors": [
+        "Стивен Эриксон"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6071,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "c4339b7c-d633-5dc5-b5fe-bfcbb1ca83c4",
+      "title": "Тени Арденау",
+      "authors": [
+        "Алексей Пехов"
+      ],
+      "fw_id": "14457",
+      "fw_title": "Джанга с тенями",
+      "fw_authors": [
+        "Алексей Пехов"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7759,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "fb39768f-9d4c-5f19-8473-cb7d6b72ca9a",
+      "title": "Короли-пустынники",
+      "authors": [
+        "Джордж Р. Р. Мартин"
+      ],
+      "fw_id": "3352",
+      "fw_title": "Король",
+      "fw_authors": [
+        "Джон Норман"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "23ead89f-8945-552b-8436-0e063f4c62df",
+      "title": "Путешествие седьмое",
+      "authors": [
+        "Станислав Лем"
+      ],
+      "fw_id": "5072",
+      "fw_title": "Голем",
+      "fw_authors": [
+        "Станислав Лем"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.5417,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "6b3f5163-43a4-511a-bcb0-a86ee1519295",
+      "title": "Дорога домой",
+      "authors": [
+        "Виталий Зыков"
+      ],
+      "fw_id": "31911",
+      "fw_title": "Дорога домой",
+      "fw_authors": [
+        "Дмитрий Рус"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "3e8a11d7-8b46-540f-8372-368845e98f17",
+      "title": "Мантикора",
+      "authors": [
+        "Алексей Пехов",
+        "Елена Бычкова"
+      ],
+      "fw_id": "94",
+      "fw_title": "Под Знаком Мантикоры",
+      "fw_authors": [
+        "Алексей Пехов"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7534,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "971faec9-d8a9-58ea-8666-a9b603b93af3",
+      "title": "Цикл о короле Артуре",
+      "authors": [
+        "Мэри Стюарт"
+      ],
+      "fw_id": "17046",
+      "fw_title": "Полые холмы",
+      "fw_authors": [
+        "Мэри Стюарт"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6629,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "8453dc18-e3c1-57e9-85e6-592602567a35",
+      "title": "Наложница дьявола",
+      "authors": [
+        "Алексей Пехов"
+      ],
+      "fw_id": "29144",
+      "fw_title": "Талорис",
+      "fw_authors": [
+        "Алексей Пехов"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6333,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "c44bac6b-b271-5ad9-bc95-97b50b3b2b08",
+      "title": "Время могил",
+      "authors": [
+        "Алексей Пехов"
+      ],
+      "fw_id": "12910",
+      "fw_title": "Новые боги",
+      "fw_authors": [
+        "Алексей Пехов"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.78,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "ae95eb74-0309-502a-9ba9-12e9b55bf1fe",
+      "title": "Вспоминая Сири",
+      "authors": [
+        "Дэн Симмонс"
+      ],
+      "fw_id": "21625",
+      "fw_title": "Темная игра смерти",
+      "fw_authors": [
+        "Дэн Симмонс"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7708,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "f0726c00-fd22-5acf-b372-99c84bf79d6f",
+      "title": "Всё лето в один день",
+      "authors": [
+        "Рэй Брэдбери"
+      ],
+      "fw_id": "13760",
+      "fw_title": "Смерть - дело одинокое",
+      "fw_authors": [
+        "Рэй  Брэдбери"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7684,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "2a2a61f7-fb8f-53a2-9d6f-fa1cd4fd4296",
+      "title": "Кабирский цикл",
+      "authors": [
+        "Генри Лайон Олди"
+      ],
+      "fw_id": "12015",
+      "fw_title": "Сумерки мира",
+      "fw_authors": [
+        "Генри Лайон Олди"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7119,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "2371c144-0817-55a4-ab5d-2ec97faac806",
+      "title": "Пыль дорог",
+      "authors": [
+        "Алексей Пехов"
+      ],
+      "fw_id": "23924",
+      "fw_title": "Создатель кошмаров",
+      "fw_authors": [
+        "Алексей Пехов"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.78,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "3c28d167-5c93-5b90-9889-dba37ae9cb28",
+      "title": "Мальчик и ящерка",
+      "authors": [
+        "Владислав Крапивин"
+      ],
+      "fw_id": "21295",
+      "fw_title": "Сказки о рыбаках и рыбках",
+      "fw_authors": [
+        "Владислав Крапивин"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7534,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "cdc11db7-d479-55b8-9f6a-6efbda2d3fbe",
+      "title": "Колесо Времени",
+      "authors": [
+        "Роберт Джордан"
+      ],
+      "fw_id": "1182",
+      "fw_title": "Нож сновидений",
+      "fw_authors": [
+        "Роберт Джордан"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.737,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "083ee55d-44e6-54e5-bbf3-f8ae4230b400",
+      "title": "Земляне",
+      "authors": [
+        "Рэй Брэдбери"
+      ],
+      "fw_id": "13761",
+      "fw_title": "Зеленые тени, Белый Кит",
+      "fw_authors": [
+        "Рэй  Брэдбери"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6397,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "e3952f8c-32bc-5624-9a4a-a26e72cee7c9",
+      "title": "«Все тенали бороговы…»",
+      "authors": [
+        "Генри Каттнер",
+        "Кэтрин Мур"
+      ],
+      "fw_id": "4319",
+      "fw_title": "До скорого",
+      "fw_authors": [
+        "Генри Каттнер"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6397,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "8802eb24-9391-53b1-af8e-1b500c5381fa",
+      "title": "Бродячая Искра",
+      "authors": [
+        "Марина и Сергей Дяченко"
+      ],
+      "fw_id": "16743",
+      "fw_title": "Стократ",
+      "fw_authors": [
+        "Марина и Сергей Дяченко"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6595,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "d391d65e-0307-52c3-a764-6d18174d9695",
+      "title": "Хёнингский цикл",
+      "authors": [
+        "Генри Лайон Олди"
+      ],
+      "fw_id": "24304",
+      "fw_title": "Легенды древнего Хенинга (сборник)",
+      "fw_authors": [
+        "Генри Лайон Олди"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.75,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "4e0751d6-5f5e-5be4-9506-9cfbf5edcbdb",
+      "title": "Нескончаемый дождь",
+      "authors": [
+        "Рэй Брэдбери"
+      ],
+      "fw_id": "33825",
+      "fw_title": "Темный карнавал (сборник, перевод Марины Воронежской)",
+      "fw_authors": [
+        "Рэй  Брэдбери"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.67,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "d801153a-0533-5bbb-b2e6-d6ef431fc8f3",
+      "title": "Осколок льда",
+      "authors": [
+        "Анджей Сапковский"
+      ],
+      "fw_id": "111",
+      "fw_title": "Кровь эльфов",
+      "fw_authors": [
+        "Анджей Сапковский"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7119,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "ab620202-45ae-5aa3-aff9-76eb51a7c360",
+      "title": "Здесь могут водиться тигры",
+      "authors": [
+        "Рэй Брэдбери"
+      ],
+      "fw_id": "13732",
+      "fw_title": "451° по Фаренгейту (перевод Татьяны Шинкарь)",
+      "fw_authors": [
+        "Рэй Брэдбери"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7038,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "fa38c17b-49e5-5b0d-bdd2-b71a7bbea1bf",
+      "title": "Великое Кольцо",
+      "authors": [
+        "Иван Ефремов"
+      ],
+      "fw_id": "28973",
+      "fw_title": "Лезвие бритвы. Звездные корабли. Обсерватория Нур-и-Дешт. Озеро горных духов (сборник)",
+      "fw_authors": [
+        "Иван Ефремов"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.5638,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "f8227cd5-39bc-5624-855a-1a9283659089",
+      "title": "Заколдованное место. Быль, рассказанная дьячком ***ской церкви",
+      "authors": [
+        "Николай Гоголь"
+      ],
+      "fw_id": "15482",
+      "fw_title": "Вий",
+      "fw_authors": [
+        "Николай Гоголь"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.4867,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "884029e9-f2e9-56e6-a1cf-e212d7dab44f",
+      "title": "Жизнь, которую я ждал",
+      "authors": [
+        "Роджер Желязны"
+      ],
+      "fw_id": "4100",
+      "fw_title": "Глаз кота",
+      "fw_authors": [
+        "Роджер Желязны"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6776,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "4b52fb37-91d3-56ae-a330-b3a33c103c63",
+      "title": "Улики",
+      "authors": [
+        "Айзек Азимов"
+      ],
+      "fw_id": "14796",
+      "fw_title": "Норби и захватчики",
+      "fw_authors": [
+        "Айзек Азимов"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.5935,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "1883cfad-1ff1-5ed0-9f39-575b4be94257",
+      "title": "Ночная встреча",
+      "authors": [
+        "Рэй Брэдбери"
+      ],
+      "fw_id": "28235",
+      "fw_title": "Истории о динозаврах (Сборник)",
+      "fw_authors": [
+        "Рэй  Брэдбери"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.75,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "92e1f655-354b-56b5-8408-646769c17b2b",
+      "title": "Трилогия Бартимеуса",
+      "authors": [
+        "Джонатан Страуд"
+      ],
+      "fw_id": "537",
+      "fw_title": "Врата Птолемея",
+      "fw_authors": [
+        "Джонатан Страуд"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6833,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "bcca3ca0-ed4f-533c-b57d-bf0e8a5e0a45",
+      "title": "Предполуденный цикл",
+      "authors": [
+        "Аркадий и Борис Стругацкие"
+      ],
+      "fw_id": "24739",
+      "fw_title": "Мир Полудня (сборник)",
+      "fw_authors": [
+        "Аркадий и Борис Стругацкие"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.8,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "a8966c90-99df-5fce-93f5-ca4d618d61d0",
+      "title": "Муравейник",
+      "authors": [
+        "Уильям Гибсон"
+      ],
+      "fw_id": "5509",
+      "fw_title": "Джонни-Мнемоник",
+      "fw_authors": [
+        "Уильям Гибсон"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7556,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "74cd340e-0c7b-567e-b2e9-e9279b44904e",
+      "title": "Графиня де Монсоро",
+      "authors": [
+        "Александр Дюма"
+      ],
+      "fw_id": "27247",
+      "fw_title": "Донор [Сборник]",
+      "fw_authors": [
+        "Александр Варго"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.5805,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "ff7b529b-f0df-5560-ac98-86d886ef85e8",
+      "title": "Возвращение Угурбадо",
+      "authors": [
+        "Макс Фрай"
+      ],
+      "fw_id": "21095",
+      "fw_title": "Вторая линия. Рассказы и истории разных лет",
+      "fw_authors": [
+        "Макс Фрай"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6274,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "3c8a78ba-eed0-5535-b3c9-d568c1b140cf",
+      "title": "Пиковая дама",
+      "authors": [
+        "Александр Пушкин"
+      ],
+      "fw_id": "37104",
+      "fw_title": "Слуга Пиковой дамы",
+      "fw_authors": [
+        "Анна Велес"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "b408947d-3395-5332-8823-89f58c5be5af",
+      "title": "Наследство для Лонли-Локли",
+      "authors": [
+        "Макс Фрай"
+      ],
+      "fw_id": "124",
+      "fw_title": "Хроники Ехо",
+      "fw_authors": [
+        "Макс Фрай"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.5986,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "f5711929-b40d-5c93-a724-f460926672a4",
+      "title": "Свидание",
+      "authors": [
+        "Аркадий и Борис Стругацкие"
+      ],
+      "fw_id": "36209",
+      "fw_title": "Магическое свидание",
+      "fw_authors": [
+        "К. Ф. Брин"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "7f0fdcc0-73d4-536e-8aea-ada9e21c4156",
+      "title": "Эпоха безумия",
+      "authors": [
+        "Джо Аберкромби"
+      ],
+      "fw_id": "31248",
+      "fw_title": "Проблема с миром",
+      "fw_authors": [
+        "Джо Аберкромби"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.725,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "223a0830-f174-5620-87cc-16b739883b75",
+      "title": "Метавселенная",
+      "authors": [
+        "Александр Рудазов"
+      ],
+      "fw_id": "13212",
+      "fw_title": "Властелин",
+      "fw_authors": [
+        "Александр Рудазов"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7556,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "da70697e-0e13-5628-8b47-20ab217f29c7",
+      "title": "Обелиск",
+      "authors": [
+        "Василь Быков"
+      ],
+      "fw_id": "23567",
+      "fw_title": "У обелиска (сборник)",
+      "fw_authors": [
+        "Наталья Болдырева"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "78993099-bef9-56f1-834c-4d0c23880f17",
+      "title": "Сладкие грёзы Гравви",
+      "authors": [
+        "Макс Фрай"
+      ],
+      "fw_id": "24141",
+      "fw_title": "Сказки cтарого Вильнюса",
+      "fw_authors": [
+        "Макс Фрай"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7176,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "10957676-dc09-5b16-ac41-933ad5651a5e",
+      "title": "Зелёные воды Ишмы",
+      "authors": [
+        "Макс Фрай"
+      ],
+      "fw_id": "15481",
+      "fw_title": "Простые волшебные вещи",
+      "fw_authors": [
+        "Макс Фрай"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7534,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "81a93290-1875-5bbd-8729-1c16031b4fdc",
+      "title": "Тёмные вассалы Гленке Тавала",
+      "authors": [
+        "Макс Фрай"
+      ],
+      "fw_id": "3208",
+      "fw_title": "Жалобная книга",
+      "fw_authors": [
+        "Макс Фрай"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.5722,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "4b1e9665-3ab1-503f-810a-8f76d7007fae",
+      "title": "Эшер II",
+      "authors": [
+        "Рэй Брэдбери"
+      ],
+      "fw_id": "13749",
+      "fw_title": "Электрическое тело пою! (Сборник)",
+      "fw_authors": [
+        "Рэй  Брэдбери"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6017,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "8f8224ed-f93c-5543-beae-11cdd8b83f6e",
+      "title": "Безмолвные города",
+      "authors": [
+        "Рэй Брэдбери"
+      ],
+      "fw_id": "30589",
+      "fw_title": "Гринтаун. Мишурный город",
+      "fw_authors": [
+        "Рэй  Брэдбери"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7885,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "e18563b8-dc74-58af-b77e-b5cc8e2742f6",
+      "title": "Ракета",
+      "authors": [
+        "Рэй Брэдбери"
+      ],
+      "fw_id": "25554",
+      "fw_title": "Высоко в небеса: 100 рассказов",
+      "fw_authors": [
+        "Рэй  Брэдбери"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.5919,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "0419eb2b-6b8a-5b86-92de-1bdf6a4281af",
+      "title": "Смертные муки пришельца",
+      "authors": [
+        "Гарри Гаррисон"
+      ],
+      "fw_id": "3482",
+      "fw_title": "Мир Смерти против флибустьеров",
+      "fw_authors": [
+        "Гарри Гаррисон"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.737,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "7d937e4d-6380-5e9d-936f-728ec7d9ec85",
+      "title": "Пространство",
+      "authors": [
+        "Дэниел Абрахам",
+        "Тай Френк"
+      ],
+      "fw_id": "4980",
+      "fw_title": "Пространство Откровения",
+      "fw_authors": [
+        "Аластер Рейнольдс"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "a39c40e9-0f87-5ea3-a08b-0cf67c57c476",
+      "title": "Комната старинных ключей",
+      "authors": [
+        "Елена Михалкова"
+      ],
+      "fw_id": "19067",
+      "fw_title": "Ком",
+      "fw_authors": [
+        "Роман Злотников"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "60e3fcd5-ad61-5d59-a44f-1f3d8d3e4c3d",
+      "title": "Низкие люди в жёлтых плащах",
+      "authors": [
+        "Стивен Кинг"
+      ],
+      "fw_id": "15488",
+      "fw_title": "Мизери",
+      "fw_authors": [
+        "Стивен Кинг"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.55,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "011191c2-aad4-5c1d-8c2c-001e27d758df",
+      "title": "Лезвие дождя",
+      "authors": [
+        "Алексей Пехов"
+      ],
+      "fw_id": "22162",
+      "fw_title": "Летос",
+      "fw_authors": [
+        "Алексей Пехов"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.5794,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "ec14e97d-f4bc-5c0e-808c-d44f2e5f4995",
+      "title": "Ключи к декабрю",
+      "authors": [
+        "Роджер Желязны"
+      ],
+      "fw_id": "3695",
+      "fw_title": "Ночь в тоскливом октябре",
+      "fw_authors": [
+        "Роджер Желязны"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7155,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "d987b383-9310-5686-9b12-f4bdef1e4e62",
+      "title": "И всё-таки наш...",
+      "authors": [
+        "Рэй Брэдбери"
+      ],
+      "fw_id": "13745",
+      "fw_title": "Человек в картинках (сборник)",
+      "fw_authors": [
+        "Рэй  Брэдбери"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7462,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "9229b59e-a2f2-597f-9809-0823d811b9bc",
+      "title": "Разговор заказан заранее",
+      "authors": [
+        "Рэй Брэдбери"
+      ],
+      "fw_id": "25554",
+      "fw_title": "Высоко в небеса: 100 рассказов",
+      "fw_authors": [
+        "Рэй  Брэдбери"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6969,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "2f6b7b70-fc50-5919-8d05-fe016f5a921a",
+      "title": "Экспансия. История Галактики",
+      "authors": [
+        "Андрей Ливадный"
+      ],
+      "fw_id": "14065",
+      "fw_title": "Галактический вихрь",
+      "fw_authors": [
+        "Андрей Ливадный"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.8036,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "f851fbdb-5f11-556d-84c4-2e570f2cee0c",
+      "title": "Вторая жизнь Уве",
+      "authors": [
+        "Фредрик Бакман"
+      ],
+      "fw_id": "3885",
+      "fw_title": "Я",
+      "fw_authors": [
+        "Александр Мазин"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "bookmix"
+    },
+    {
+      "work_id": "321ab91e-3e56-5fe9-aec9-965523a7174c",
+      "title": "Душа императора",
+      "authors": [
+        "Брендон Сандерсон"
+      ],
+      "fw_id": "26681",
+      "fw_title": "Гранетанцор",
+      "fw_authors": [
+        "Брендон Сандерсон"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7735,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "88ce5b30-09dd-58b5-a0bb-3416c3ca2781",
+      "title": "Лаксианский ключ",
+      "authors": [
+        "Роберт Шекли"
+      ],
+      "fw_id": "37374",
+      "fw_title": "Машина желаний (сборник)",
+      "fw_authors": [
+        "Роберт Шекли"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.714,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "78c9dafe-b1ce-54b6-8663-0269f1ff6b7d",
+      "title": "Поколение, достигшее цели",
+      "authors": [
+        "Клиффорд Саймак"
+      ],
+      "fw_id": "4338",
+      "fw_title": "Посетители",
+      "fw_authors": [
+        "Клиффорд Саймак"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6765,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "1107cd86-bff2-575b-9124-a114342ce8c0",
+      "title": "Страж-птица",
+      "authors": [
+        "Роберт Шекли"
+      ],
+      "fw_id": "31425",
+      "fw_title": "Хождение Джоэниса. Оптимальный вариант (сборник)",
+      "fw_authors": [
+        "Роберт Шекли"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6104,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "bb4412a8-8dc4-5d92-9c28-38f0b4f01cd4",
+      "title": "Дорот — повелитель Манухов",
+      "authors": [
+        "Макс Фрай"
+      ],
+      "fw_id": "125",
+      "fw_title": "Властелин Морморы",
+      "fw_authors": [
+        "Макс Фрай"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7167,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "89acf604-2d0b-5b24-b6f0-8dc787c507de",
+      "title": "Белые камни Харумбы",
+      "authors": [
+        "Макс Фрай"
+      ],
+      "fw_id": "12493",
+      "fw_title": "Большая телега",
+      "fw_authors": [
+        "Макс Фрай"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "a0027d38-f07c-5b11-ad74-93f7a9ffb248",
+      "title": "Путешествие четырнадцатое",
+      "authors": [
+        "Станислав Лем"
+      ],
+      "fw_id": "5072",
+      "fw_title": "Голем",
+      "fw_authors": [
+        "Станислав Лем"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.5233,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "4af742fa-6acb-5d7c-9cbb-1543e590e2cf",
+      "title": "Страна Слепых",
+      "authors": [
+        "Герберт Уэллс"
+      ],
+      "fw_id": "4608",
+      "fw_title": "Мистер Блетсуорси на острове Рэмполь",
+      "fw_authors": [
+        "Герберт Уэллс"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6296,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "1e4ad10c-081a-530d-a62e-3c28868fa928",
+      "title": "Когти",
+      "authors": [
+        "Алексей Пехов"
+      ],
+      "fw_id": "24850",
+      "fw_title": "Клыки и когти эскадрильи",
+      "fw_authors": [
+        "Алексей  Переяславцев"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "4f70f75e-0ecf-5fa5-be07-07085f6f3212",
+      "title": "Дезертирство",
+      "authors": [
+        "Клиффорд Саймак"
+      ],
+      "fw_id": "2922",
+      "fw_title": "Братство Талисмана",
+      "fw_authors": [
+        "Клиффорд Саймак"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.78,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "28c6347c-7bdd-5da4-9769-ecc65f999072",
+      "title": "Терминус",
+      "authors": [
+        "Станислав Лем"
+      ],
+      "fw_id": "24906",
+      "fw_title": "Черное и белое (сборник)",
+      "fw_authors": [
+        "Станислав Лем"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.725,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "1954400b-60f8-5a32-80ac-850cfe4ec94f",
+      "title": "Приключения Гаррета",
+      "authors": [
+        "Глен Кук"
+      ],
+      "fw_id": "449",
+      "fw_title": "Тьма",
+      "fw_authors": [
+        "Глен Кук"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.5457,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "710da56f-f8cd-5e2c-a9f2-b9b98121868c",
+      "title": "Нью-Кробюзон",
+      "authors": [
+        "Чайна Мьевиль"
+      ],
+      "fw_id": "29428",
+      "fw_title": "Крысиный король",
+      "fw_authors": [
+        "Чайна Мьевиль"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "0d318f71-3253-5754-a34f-a4f79097fbd0",
+      "title": "Долгий джонт",
+      "authors": [
+        "Стивен Кинг"
+      ],
+      "fw_id": "16532",
+      "fw_title": "Оно",
+      "fw_authors": [
+        "Стивен Кинг"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.67,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "f33bbd24-454a-5b91-930f-f61dba040f86",
+      "title": "Вселенная Виктории Харрингтон",
+      "authors": [
+        "Дэвид Вебер"
+      ],
+      "fw_id": "2753",
+      "fw_title": "Восстание",
+      "fw_authors": [
+        "Дэвид Вебер"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.5947,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "2c657774-08e3-5f17-9565-b7eaccd39fd2",
+      "title": "Предисловие",
+      "authors": [
+        "Николай Гоголь"
+      ],
+      "fw_id": "15482",
+      "fw_title": "Вий",
+      "fw_authors": [
+        "Николай Гоголь"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6071,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "14193590-0799-51f2-a774-a24fe42baa3b",
+      "title": "Вселенная Дюны",
+      "authors": [
+        "Фрэнк Герберт"
+      ],
+      "fw_id": "5393",
+      "fw_title": "Дюна",
+      "fw_authors": [
+        "Фрэнк Герберт"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6333,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "f5e13c25-b42c-540b-9cd4-98bbdc5336b8",
+      "title": "Конгрегация",
+      "authors": [
+        "Надежда Попова"
+      ],
+      "fw_id": "18489",
+      "fw_title": "Ловец человеков",
+      "fw_authors": [
+        "Надежда Попова"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6562,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "802d0cee-9e2d-509d-8ee2-75b1b94eed40",
+      "title": "Конан. Первоначальная серия",
+      "authors": [
+        "Роберт И. Говард"
+      ],
+      "fw_id": "35126",
+      "fw_title": "Соломон Кейн и другие герои (сборник)",
+      "fw_authors": [
+        "Роберт Говард"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6562,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "19cfbdfc-4799-5259-beb2-3cd6400d1033",
+      "title": "Руками не трогать!",
+      "authors": [
+        "Роберт Шекли"
+      ],
+      "fw_id": "27721",
+      "fw_title": "Билет на планету Транай",
+      "fw_authors": [
+        "Роберт Шекли"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7167,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "36fe6e52-646a-5e3d-bf5c-347421cc9f6e",
+      "title": "Этот мир — мой!",
+      "authors": [
+        "Генри Каттнер"
+      ],
+      "fw_id": "4504",
+      "fw_title": "Источник миров",
+      "fw_authors": [
+        "Генри Каттнер"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7708,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "e6a2f824-87c8-5952-98af-0b2cab7bbc35",
+      "title": "Вельд",
+      "authors": [
+        "Рэй Брэдбери"
+      ],
+      "fw_id": "34064",
+      "fw_title": "Самые знаменитые произведения писателя в одном томе (сборник)",
+      "fw_authors": [
+        "Рэй  Брэдбери"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.5286,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "c7a44f8f-a62f-5254-beee-e0f123f8ed0e",
+      "title": "Бездна Голодных глаз",
+      "authors": [
+        "Генри Лайон Олди"
+      ],
+      "fw_id": "12791",
+      "fw_title": "Кукольных дел мастер",
+      "fw_authors": [
+        "Генри Лайон Олди"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.725,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "3bdd22db-ab06-5469-9906-73cf56c2a9f1",
+      "title": "Малазанская «Книга Павших»",
+      "authors": [
+        "Стивен Эриксон"
+      ],
+      "fw_id": "31319",
+      "fw_title": "Дань псам. Том 2",
+      "fw_authors": [
+        "Стивен Эриксон"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6537,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "4ccc0e70-b05a-5bdc-8bf9-ab8f5f352019",
+      "title": "Далёкая страна",
+      "authors": [
+        "Алекс Кош"
+      ],
+      "fw_id": "33997",
+      "fw_title": "Приманка для призраков",
+      "fw_authors": [
+        "Алекс Кош"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6944,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "05675218-e026-59b3-a7db-0ad5717e2cab",
+      "title": "Блеск и нищета русской литературы",
+      "authors": [
+        "Сергей Довлатов"
+      ],
+      "fw_id": "14027",
+      "fw_title": "Яртур",
+      "fw_authors": [
+        "Сергей  Шведов"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "cab28722-0d60-5d5c-8937-a3b8bd436f15",
+      "title": "Человек по Платону",
+      "authors": [
+        "Роберт Шекли"
+      ],
+      "fw_id": "27721",
+      "fw_title": "Билет на планету Транай",
+      "fw_authors": [
+        "Роберт Шекли"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7412,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "18006b54-9810-51d9-9e50-98cb5e6478ce",
+      "title": "Благоустроенная планета",
+      "authors": [
+        "Аркадий и Борис Стругацкие"
+      ],
+      "fw_id": "15493",
+      "fw_title": "Обитаемый остров",
+      "fw_authors": [
+        "Аркадий и Борис Стругацкие"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7462,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "a3f25b16-22c8-5927-8991-34c57f9d07bf",
+      "title": "Полари",
+      "authors": [
+        "Роман Суржиков"
+      ],
+      "fw_id": "31292",
+      "fw_title": "Пари, леди, или Укротить неукротимого",
+      "fw_authors": [
+        "Марьяна Сурикова"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.5011,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "f1627611-5945-5aa2-8553-4fd58a699122",
+      "title": "Логика",
+      "authors": [
+        "Айзек Азимов"
+      ],
+      "fw_id": "27753",
+      "fw_title": "Академия. Вторая трилогия (Сборник)",
+      "fw_authors": [
+        "Айзек Азимов"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.5967,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "e6bdd305-4dae-5b3c-bfc4-88a9f44e9005",
+      "title": "Анклавы",
+      "authors": [
+        "Вадим Панов"
+      ],
+      "fw_id": "35349",
+      "fw_title": "Золотые анклавы",
+      "fw_authors": [
+        "Наоми Новик"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "a3b2ff08-8f0e-5d25-bd7b-14f849741895",
+      "title": "Девушка-одуванчик",
+      "authors": [
+        "Роберт Янг"
+      ],
+      "fw_id": "28431",
+      "fw_title": "Эридан (Сборник)",
+      "fw_authors": [
+        "Роберт Янг"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.5935,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "53824c67-0fac-53aa-9ad3-87ede5dd035c",
+      "title": "Верность до гроба",
+      "authors": [
+        "Ольга Громыко"
+      ],
+      "fw_id": "4254",
+      "fw_title": "Кому в навьем царстве жить хорошо",
+      "fw_authors": [
+        "Ольга Громыко"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.626,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "b5604f73-ccff-5212-9dad-3fbd3739885c",
+      "title": "Синяя бутылка",
+      "authors": [
+        "Рэй Брэдбери"
+      ],
+      "fw_id": "13758",
+      "fw_title": "Надвигается беда",
+      "fw_authors": [
+        "Рэй  Брэдбери"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.725,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "7b170d76-d76e-5582-92e8-227f6a35c883",
+      "title": "Статский советник",
+      "authors": [
+        "Борис Акунин"
+      ],
+      "fw_id": "26973",
+      "fw_title": "Вестник",
+      "fw_authors": [
+        "Лоис Лоури"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "89f617a1-0cfc-5d08-aadf-48cd94c87aa6",
+      "title": "Прислуга",
+      "authors": [
+        "Кэтрин Стокетт"
+      ],
+      "fw_id": "32316",
+      "fw_title": "Прислуга в гостинице духов",
+      "fw_authors": [
+        "Ирина Матлак"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "f943ca77-cf45-5aa2-a4db-f9d709d88878",
+      "title": "Охота",
+      "authors": [
+        "Роберт Шекли"
+      ],
+      "fw_id": "1172",
+      "fw_title": "Великая охота",
+      "fw_authors": [
+        "Роберт Джордан"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "62d6207d-2383-5d01-b969-0117a72e9dde",
+      "title": "Отель",
+      "authors": [
+        "Артур Хейли"
+      ],
+      "fw_id": "21762",
+      "fw_title": "Повелитель бури",
+      "fw_authors": [
+        "Гай Хейли"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.725,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "132b4e73-a832-5e3a-ab46-e50bd387e1a8",
+      "title": "Хозяин",
+      "authors": [
+        "Ольга Громыко"
+      ],
+      "fw_id": "14653",
+      "fw_title": "Хозяин Проливов",
+      "fw_authors": [
+        "Ольга Елисеева"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "0d9b76a9-a64e-5b0c-adc6-f360fa454c09",
+      "title": "Огненный ангел",
+      "authors": [
+        "Валерий Брюсов"
+      ],
+      "fw_id": "37256",
+      "fw_title": "Серый ангел",
+      "fw_authors": [
+        "Валерий Елманов"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "4a0d7310-3ed2-57c9-bd03-78273de4679a",
+      "title": "Уроки химии",
+      "authors": [
+        "Бонни Гармус"
+      ],
+      "fw_id": "26914",
+      "fw_title": "Рок",
+      "fw_authors": [
+        "Борис Миловзоров"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "4a6d0a29-2c40-517c-9888-193df8b33aed",
+      "title": "Крууга",
+      "authors": [
+        "Лужбина Анна Андреевна"
+      ],
+      "fw_id": "39412",
+      "fw_title": "Фуга",
+      "fw_authors": [
+        "Елена Ядренцева"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "113e6cd5-f775-5320-b6b3-7e95e2d98aa9",
+      "title": "Артефактика. От теории к практике",
+      "authors": [
+        "Снежная Дарья; Ремезова Любовь"
+      ],
+      "fw_id": "25469",
+      "fw_title": "Артефактика. От теории к практике",
+      "fw_authors": [
+        "Дарья Снежная"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "59e0e823-89c2-5e66-8c65-ba5527a5ba71",
+      "title": "Побег из Шоушенка",
+      "authors": [
+        "Стивен Кинг"
+      ],
+      "fw_id": "22863",
+      "fw_title": "Побег",
+      "fw_authors": [
+        "Кэтрин Ласки"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "9cd3565f-4608-5f2b-be3c-dccc1b71394f",
+      "title": "Добровольно проклятые",
+      "authors": [
+        "Лена Обухова, Наталья Тимошенко"
+      ],
+      "fw_id": "31686",
+      "fw_title": "Проклятие",
+      "fw_authors": [
+        "Елена Булганова"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "132d0e8b-57b6-5800-8a6e-85dd1148fe26",
+      "title": "1984 год",
+      "authors": [
+        "Оруэлл   Джордж",
+        "Оруэлл   Джордж"
+      ],
+      "fw_id": "28239",
+      "fw_title": "Странная погода (Сборник)",
+      "fw_authors": [
+        "Джо Хилл"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "f49e75ee-edc8-56f0-b794-6bafcc250f03",
+      "title": "Люди и боги",
+      "authors": [
+        "Роман Суржиков"
+      ],
+      "fw_id": "30040",
+      "fw_title": "Боги",
+      "fw_authors": [
+        "Дмитрий Серебряков"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "a65bfb6c-c952-5f3c-be24-34e1a9f477f6",
+      "title": "Гроздья гнева",
+      "authors": [
+        "Джон Стейнбек"
+      ],
+      "fw_id": "22576",
+      "fw_title": "Я - гнев",
+      "fw_authors": [
+        "Джен Робертс"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "f568e2ab-98ce-560d-b2d4-0c28ea5bc8b7",
+      "title": "Двадцать шестой",
+      "authors": [
+        "Данилова Мария Сергеевна"
+      ],
+      "fw_id": "28988",
+      "fw_title": "Т-34",
+      "fw_authors": [
+        "Михаил Михеев"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "70440411-50d7-583b-bbf7-5cbbec414d9a",
+      "title": "Обратная сторона успеха",
+      "authors": [
+        "Сидни Шелдон"
+      ],
+      "fw_id": "31456",
+      "fw_title": "Брат",
+      "fw_authors": [
+        "Николай Дронт"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "6d20a537-1622-531a-93a2-0f36278a48db",
+      "title": "До рассвета",
+      "authors": [
+        "Роман Суржиков"
+      ],
+      "fw_id": "16362",
+      "fw_title": "Ядерная зима. Дожить до рассвета!",
+      "fw_authors": [
+        "Артем Рыбаков"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "19446e82-6c43-5947-bf54-7372278a449b",
+      "title": "Где. Повесть о второй карабахской войне",
+      "authors": [
+        "Коля Степанян"
+      ],
+      "fw_id": "27417",
+      "fw_title": "Рой",
+      "fw_authors": [
+        "Скотт Вестерфельд"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "aa8f7990-7d8d-5e9c-8d21-704b426d556f",
+      "title": "Путь королей",
+      "authors": [
+        "Брендон Сандерсон"
+      ],
+      "fw_id": "19506",
+      "fw_title": "Обреченное королевство",
+      "fw_authors": [
+        "Брендон Сандерсон"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.6765,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "09eda0be-732d-5c12-a4c0-2b296e9543f3",
+      "title": "Мир Элдерлингов",
+      "authors": [
+        "Робин Хобб"
+      ],
+      "fw_id": "20866",
+      "fw_title": "Город драконов",
+      "fw_authors": [
+        "Робин Хобб"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.7352,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "fa0568b0-d9a9-51dc-86c1-39b6bb9d6cca",
+      "title": "Портрет",
+      "authors": [
+        "Николай Гоголь"
+      ],
+      "fw_id": "15483",
+      "fw_title": "Вечера на хуторе близ Диканьки",
+      "fw_authors": [
+        "Николай Гоголь"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.5689,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "ecafcc6d-1708-5c3e-89dc-35c3aa85aca8",
+      "title": "Сердце дракона I",
+      "authors": [
+        "Клеванский",
+        "Клеванский"
+      ],
+      "fw_id": "3919",
+      "fw_title": "Дракон",
+      "fw_authors": [
+        "Клайв Касслер"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    },
+    {
+      "work_id": "ac73be8f-3534-5dfc-a2ab-1a1ed9eeb4fb",
+      "title": "Избранное",
+      "authors": [
+        "Николай Лесков"
+      ],
+      "fw_id": "22932",
+      "fw_title": "Избранник Ада",
+      "fw_authors": [
+        "Николай Норд"
+      ],
+      "reason": "title_author_mismatch",
+      "score": 0.0,
+      "description_source": "fantasy_worlds"
+    }
+  ]
+}

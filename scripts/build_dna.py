@@ -38,11 +38,50 @@ from bookfinder.dna_store import (
 )
 from bookfinder.fb2_text import load_fb2_sample
 from bookfinder.llm_client import create_llm_client
+from bookfinder.matcher import MATCH_THRESHOLD, score_pair
+from bookfinder.models import BookRecord
+from bookfinder.normalize import normalize_authors, normalize_title
 from bookfinder.ollama_client import OllamaError, extract_json_object
 from bookfinder.reviews_store import get_reviews_for_work, work_ids_with_reviews
 
 DATA = ROOT / "data" / "processed"
 STORE = CatalogStore(DATA)
+FW_CATALOG = DATA / "fw_catalog.json"
+_FW_BY_ID: dict[str, dict] | None = None
+
+
+def _fw_catalog() -> dict[str, dict]:
+    global _FW_BY_ID
+    if _FW_BY_ID is None:
+        if FW_CATALOG.exists():
+            rows = json.loads(FW_CATALOG.read_text(encoding="utf-8"))
+            _FW_BY_ID = {str(row["id"]): row for row in rows if row.get("id")}
+        else:
+            _FW_BY_ID = {}
+    return _FW_BY_ID
+
+
+def _fw_link_is_sane(work: dict, fw_id: str) -> bool:
+    fw_book = _fw_catalog().get(str(fw_id))
+    if not fw_book:
+        return False
+    left = BookRecord(
+        source="catalog",
+        external_id=str(work.get("id") or ""),
+        title=str(work.get("title") or ""),
+        authors=list(work.get("authors") or []),
+        normalized_title=normalize_title(str(work.get("title") or "")),
+        normalized_authors=normalize_authors(list(work.get("authors") or [])),
+    )
+    right = BookRecord(
+        source="fantasy_worlds",
+        external_id=str(fw_id),
+        title=str(fw_book.get("title") or ""),
+        authors=list(fw_book.get("authors") or []),
+        normalized_title=normalize_title(str(fw_book.get("title") or "")),
+        normalized_authors=normalize_authors(list(fw_book.get("authors") or [])),
+    )
+    return score_pair(left, right) >= MATCH_THRESHOLD
 
 
 def count_profiles() -> int:
@@ -134,8 +173,14 @@ def analyze_work(
     fw_info = work.get("fantasy_worlds") or {}
     if fw_info.get("id"):
         fw_id = str(fw_info["id"])
+        # Refuse poisoned FW links: never feed mismatched FB2/description into DNA.
+        if not _fw_link_is_sane(work, fw_id):
+            fw_id = None
 
     catalog_description = str(work.get("description") or "").strip()
+    if work.get("description_source") == "fantasy_worlds" and fw_id is None:
+        catalog_description = ""
+
     reviews = review_snippets(work_id, fw_id) if use_reviews else []
     text_sample = load_fb2_sample(fw_id) if (use_text and fw_id) else ""
 

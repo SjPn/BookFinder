@@ -5,9 +5,11 @@ from dataclasses import dataclass, field
 from rapidfuzz import fuzz
 
 from bookfinder.models import BookRecord
-from bookfinder.normalize import author_surname, make_match_key, normalize_authors, normalize_title
+from bookfinder.normalize import author_surname, normalize_authors, normalize_title
 
-MATCH_THRESHOLD = 0.78
+MATCH_THRESHOLD = 0.82
+MIN_AUTHOR_SCORE = 0.75
+MIN_TITLE_LENGTH_RATIO = 0.55
 
 
 @dataclass(slots=True)
@@ -37,45 +39,71 @@ class MatchReport:
 def _author_overlap(a: list[str], b: list[str]) -> float:
     if not a or not b:
         return 0.0
-    best = 0.0
-    surnames_a = {author_surname(x) for x in a}
-    surnames_b = {author_surname(x) for x in b}
+
+    surnames_a = {author_surname(x) for x in a if author_surname(x)}
+    surnames_b = {author_surname(x) for x in b if author_surname(x)}
     if surnames_a & surnames_b:
-        best = max(best, 0.95)
+        return 1.0
+
+    best = 0.0
+    for left in surnames_a:
+        for right in surnames_b:
+            # Short surnames: only exact / near-exact, never fuzzy partial.
+            if len(left) < 5 or len(right) < 5:
+                if left == right:
+                    best = max(best, 1.0)
+                continue
+            ratio = fuzz.ratio(left, right) / 100
+            if ratio >= 0.86:
+                best = max(best, ratio)
+
     for left in a:
         for right in b:
-            best = max(
-                best,
-                fuzz.token_sort_ratio(left, right) / 100,
-                fuzz.partial_ratio(left, right) / 100,
-            )
+            best = max(best, fuzz.token_sort_ratio(left, right) / 100)
     return best
+
+
+def _title_score(title_a: str, title_b: str) -> float:
+    if not title_a or not title_b:
+        return 0.0
+
+    shorter, longer = sorted([title_a, title_b], key=len)
+    length_ratio = len(shorter) / max(len(longer), 1)
+
+    sort_score = fuzz.token_sort_ratio(title_a, title_b) / 100
+    set_score = fuzz.token_set_ratio(title_a, title_b) / 100
+    score = max(sort_score, set_score)
+
+    # partial_ratio / containment is dangerous for short titles ("остров" ⊂ "таинственный остров").
+    if length_ratio >= MIN_TITLE_LENGTH_RATIO:
+        score = max(score, fuzz.partial_ratio(title_a, title_b) / 100)
+        if title_a in title_b or title_b in title_a:
+            score = max(score, 0.92)
+    elif shorter == longer:
+        score = 1.0
+
+    return score
 
 
 def score_pair(fantlab: BookRecord, livelib: BookRecord) -> float:
     title_a = fantlab.normalized_title or normalize_title(fantlab.title)
     title_b = livelib.normalized_title or normalize_title(livelib.title)
+    title_score = _title_score(title_a, title_b)
 
-    title_score = max(
-        fuzz.token_sort_ratio(title_a, title_b) / 100,
-        fuzz.token_set_ratio(title_a, title_b) / 100,
-        fuzz.partial_ratio(title_a, title_b) / 100,
-    )
-    if title_a and title_b and (title_a in title_b or title_b in title_a):
-        title_score = max(title_score, 0.92)
+    authors_a = fantlab.normalized_authors or normalize_authors(fantlab.authors)
+    authors_b = livelib.normalized_authors or normalize_authors(livelib.authors)
+    author_score = _author_overlap(authors_a, authors_b)
 
-    author_score = _author_overlap(
-        fantlab.normalized_authors or normalize_authors(fantlab.authors),
-        livelib.normalized_authors or normalize_authors(livelib.authors),
-    )
+    # Both sides have authors → author must actually match. No more "title only" false positives.
+    if authors_a and authors_b:
+        if author_score < MIN_AUTHOR_SCORE:
+            return 0.0
+        return title_score * 0.55 + author_score * 0.45
 
-    if not fantlab.authors or not livelib.authors:
-        return title_score
-
-    if author_score < 0.5:
-        return title_score * 0.4
-
-    return title_score * 0.6 + author_score * 0.4
+    # Missing authors on one side: require a strong title match, no short-containment boosts.
+    if title_score < 0.93:
+        return 0.0
+    return title_score * 0.85
 
 
 def find_best_match(
@@ -118,7 +146,6 @@ def match_books(
 
     used: set[str] = set()
     for fantlab in fantlab_books:
-        key = make_match_key(fantlab.title, fantlab.authors)
         pool = [b for b in livelib_books if b.external_id not in used]
         result = find_best_match(fantlab, pool, threshold)
         if result:

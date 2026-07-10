@@ -37,7 +37,8 @@ def _fold(text: str) -> str:
 
 
 def normalize_title(title: str) -> str:
-    text = _fold(title)
+    original = _fold(title)
+    text = original
     if ":" in text:
         tail = text.split(":")[-1].strip()
         if len(tail) >= 4:
@@ -49,6 +50,9 @@ def normalize_title(title: str) -> str:
     for word in STRIP_WORDS:
         text = re.sub(rf"\b{word}\b", " ", text)
     text = re.sub(r"\s+", " ", text).strip()
+    # Keep pure numeric titles (e.g. "78") — stripping digits would empty them.
+    if not text and original:
+        return original
     return text
 
 
