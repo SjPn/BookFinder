@@ -5,11 +5,12 @@ from dataclasses import dataclass, field
 from rapidfuzz import fuzz
 
 from bookfinder.models import BookRecord
-from bookfinder.normalize import author_surname, normalize_authors, normalize_title
+from bookfinder.normalize import normalize_authors, normalize_title
 
-MATCH_THRESHOLD = 0.82
-MIN_AUTHOR_SCORE = 0.75
-MIN_TITLE_LENGTH_RATIO = 0.55
+# Near-exact only. No "18% error margin" fuzzy merges.
+MATCH_THRESHOLD = 0.98
+MIN_AUTHOR_SCORE = 0.98
+MIN_TITLE_SCORE = 0.98
 
 
 @dataclass(slots=True)
@@ -36,53 +37,59 @@ class MatchReport:
         return len(self.matched) / self.total_fantlab * 100
 
 
+def _author_tokens(author: str) -> set[str]:
+    # Keep 2-letter East-Asian / initial tokens ("ли", "ха"); single letters already stripped by normalize.
+    return {part for part in author.split() if len(part) >= 2}
+
+
 def _author_overlap(a: list[str], b: list[str]) -> float:
+    """Near-exact author match. Token order does not matter (Имя Фамилия == Фамилия Имя)."""
     if not a or not b:
         return 0.0
 
-    surnames_a = {author_surname(x) for x in a if author_surname(x)}
-    surnames_b = {author_surname(x) for x in b if author_surname(x)}
-    if surnames_a & surnames_b:
-        return 1.0
-
     best = 0.0
-    for left in surnames_a:
-        for right in surnames_b:
-            # Short surnames: only exact / near-exact, never fuzzy partial.
-            if len(left) < 5 or len(right) < 5:
-                if left == right:
-                    best = max(best, 1.0)
-                continue
-            ratio = fuzz.ratio(left, right) / 100
-            if ratio >= 0.86:
-                best = max(best, ratio)
-
     for left in a:
+        left_tokens = _author_tokens(left)
+        if not left_tokens:
+            # Fallback: whole normalized string (rare initials-only names).
+            left_tokens = {left} if left else set()
         for right in b:
-            best = max(best, fuzz.token_sort_ratio(left, right) / 100)
+            right_tokens = _author_tokens(right)
+            if not right_tokens:
+                right_tokens = {right} if right else set()
+            if not left_tokens or not right_tokens:
+                continue
+            # Same person, possibly reversed name order.
+            if left_tokens == right_tokens:
+                best = max(best, 1.0)
+                continue
+            shared = left_tokens & right_tokens
+            # Shared short first names ("ольга") are not enough — need a longer token (surname).
+            strong = {token for token in shared if len(token) >= 5}
+            if strong:
+                best = max(best, 1.0)
+                continue
+            # Rare spelling variants of long surnames only.
+            for l_tok in left_tokens:
+                for r_tok in right_tokens:
+                    if len(l_tok) < 5 or len(r_tok) < 5:
+                        continue
+                    ratio = fuzz.ratio(l_tok, r_tok) / 100
+                    if ratio >= MIN_AUTHOR_SCORE:
+                        best = max(best, ratio)
     return best
 
 
 def _title_score(title_a: str, title_b: str) -> float:
+    """Titles must be nearly identical. No containment / partial_ratio tricks."""
     if not title_a or not title_b:
         return 0.0
-
-    shorter, longer = sorted([title_a, title_b], key=len)
-    length_ratio = len(shorter) / max(len(longer), 1)
+    if title_a == title_b:
+        return 1.0
 
     sort_score = fuzz.token_sort_ratio(title_a, title_b) / 100
-    set_score = fuzz.token_set_ratio(title_a, title_b) / 100
-    score = max(sort_score, set_score)
-
-    # partial_ratio / containment is dangerous for short titles ("остров" ⊂ "таинственный остров").
-    if length_ratio >= MIN_TITLE_LENGTH_RATIO:
-        score = max(score, fuzz.partial_ratio(title_a, title_b) / 100)
-        if title_a in title_b or title_b in title_a:
-            score = max(score, 0.92)
-    elif shorter == longer:
-        score = 1.0
-
-    return score
+    ratio_score = fuzz.ratio(title_a, title_b) / 100
+    return max(sort_score, ratio_score)
 
 
 def score_pair(fantlab: BookRecord, livelib: BookRecord) -> float:
@@ -92,18 +99,17 @@ def score_pair(fantlab: BookRecord, livelib: BookRecord) -> float:
 
     authors_a = fantlab.normalized_authors or normalize_authors(fantlab.authors)
     authors_b = livelib.normalized_authors or normalize_authors(livelib.authors)
-    author_score = _author_overlap(authors_a, authors_b)
 
-    # Both sides have authors → author must actually match. No more "title only" false positives.
-    if authors_a and authors_b:
-        if author_score < MIN_AUTHOR_SCORE:
-            return 0.0
-        return title_score * 0.55 + author_score * 0.45
-
-    # Missing authors on one side: require a strong title match, no short-containment boosts.
-    if title_score < 0.93:
+    # No authors on either side → refuse. Better miss a link than poison a book.
+    if not authors_a or not authors_b:
         return 0.0
-    return title_score * 0.85
+
+    author_score = _author_overlap(authors_a, authors_b)
+    if author_score < MIN_AUTHOR_SCORE or title_score < MIN_TITLE_SCORE:
+        return 0.0
+
+    # Both gates passed: report the weaker of the two (conservative).
+    return min(title_score, author_score)
 
 
 def find_best_match(
@@ -122,7 +128,7 @@ def find_best_match(
         return MatchResult(
             fantlab=fantlab,
             livelib=best,
-            method="exact" if best_score >= 0.97 else "fuzzy",
+            method="exact" if best_score >= 0.995 else "near_exact",
             score=best_score,
             matched=True,
         )
@@ -181,7 +187,7 @@ def match_with_search_map(
         candidates = list(search_map.get(fantlab.external_id, []))
         if livelib_pool:
             for book in livelib_pool:
-                if score_pair(fantlab, book) >= 0.65:
+                if score_pair(fantlab, book) >= threshold:
                     candidates.append(book)
 
         seen: set[str] = set()

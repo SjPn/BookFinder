@@ -143,7 +143,7 @@ def repair(
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Audit/repair false Fantasy-Worlds links")
-    parser.add_argument("--threshold", type=float, default=0.82)
+    parser.add_argument("--threshold", type=float, default=0.98)
     parser.add_argument("--repair", action="store_true", help="Remove bad FW links and poisoned descriptions")
     parser.add_argument("--clear-dna", action="store_true", help="Delete DNA profiles for bad matches")
     parser.add_argument("--reindex-dna", action="store_true", help="Rebuild dna_index.json after DNA cleanup")
