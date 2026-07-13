@@ -620,19 +620,9 @@ button.link:hover {
   color: var(--text-secondary);
 }
 
-.col-rating,
-.col-portal,
-.col-rel {
+.col-rating {
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
-}
-
-.col-rel {
-  color: var(--text-secondary);
-}
-
-.col-src {
-  white-space: nowrap;
 }
 
 .col-genres {
@@ -1481,8 +1471,7 @@ a.link {
     line-height: 1.35;
   }
 
-  .col-genres,
-  .col-portal {
+  .col-genres {
     display: none;
   }
 
@@ -1559,7 +1548,6 @@ a.link {
     height: 2.4rem;
   }
 
-  .col-rel,
   .col-num {
     display: none;
   }

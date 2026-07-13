@@ -130,19 +130,6 @@ function openWork(workId) {
   window.location.assign(workUrl(workId));
 }
 
-function formatSourceBadges(work) {
-  const map = [
-    ['fl', work.fantlab, 'FL'],
-    ['ll', work.livelib, 'LL'],
-    ['fw', work.fantasy_worlds, 'FW'],
-    ['kb', work.kubikus, 'KB'],
-    ['bm', work.bookmix, 'BM'],
-    ['lr', work.loveread, 'LR'],
-  ];
-  const badges = map.filter(([, src]) => src).map(([cls, , label]) => `<span class="src-badge ${cls}">${label}</span>`);
-  return badges.length ? `<span class="source-badges">${badges.join('')}</span>` : '—';
-}
-
 function formatRatingPill(value) {
   const text = formatAggregateRating(value);
   if (text === '—') return text;
@@ -221,7 +208,6 @@ async function runSearch(resetLimit = true) {
 
   rows.forEach((w, i) => {
     const href = workUrl(w.id);
-    const sources = formatSourceBadges(w);
     const authors = esc((w.authors || []).join(', '));
     const genres = formatGenreMatches(w);
 
@@ -232,9 +218,6 @@ async function runSearch(resetLimit = true) {
       <td class="col-title"><a class="row-link" href="${href}">${esc(w.title)}</a></td>
       <td class="col-author">${authors}</td>
       <td class="col-rating">${formatRatingPill(w.aggregate_rating)}</td>
-      <td class="col-portal">${formatCommunityRating(w.community_rating)}</td>
-      <td class="col-rel">${w.relevance ?? '—'}</td>
-      <td class="col-src">${sources}</td>
       <td class="col-genres genre-cell">${genres}</td>
       <td class="col-go"><a class="link" href="${href}" aria-label="Открыть">→</a></td>
     `;
@@ -253,7 +236,6 @@ async function runSearch(resetLimit = true) {
         <h3 class="book-card-title">${esc(w.title)}</h3>
         <p class="book-card-authors">${authors || 'Автор не указан'}</p>
         <div class="book-card-meta">
-          ${sources}
           <span class="book-card-genres">${genres}</span>
         </div>
       `;
