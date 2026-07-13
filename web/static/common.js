@@ -20,10 +20,12 @@ function toggleTheme() {
 function syncThemeToggle() {
   const dark = getTheme() === 'dark';
   for (const btn of document.querySelectorAll('[data-theme-toggle]')) {
-    btn.textContent = dark ? '☀' : '🌙';
+    btn.textContent = dark ? '○' : '●';
     btn.setAttribute('aria-label', dark ? 'Включить светлую тему' : 'Включить тёмную тему');
     btn.title = dark ? 'Светлая тема' : 'Тёмная тема';
   }
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) meta.setAttribute('content', dark ? '#0b1220' : '#e8eef5');
 }
 
 function initThemeToggle() {

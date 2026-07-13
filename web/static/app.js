@@ -1,12 +1,15 @@
 const tbody = document.querySelector('#table tbody');
+const resultsCardsEl = document.getElementById('results-cards');
 const statsEl = document.getElementById('stats');
 const queryEl = document.getElementById('query');
 const genreFilterEl = document.getElementById('genre-filter');
 const genreListEl = document.getElementById('genre-list');
 const filterWeightsEl = document.getElementById('filter-weights');
 const resultMetaEl = document.getElementById('result-meta');
+const filtersSidebar = document.getElementById('filters-sidebar');
+const filtersBackdrop = document.getElementById('filters-backdrop');
+const filtersCountEl = document.getElementById('filters-count');
 
-const ASSET_V = '20260704g';
 let searchLimit = 200;
 let lastSearchTotal = 0;
 let searchSeq = 0;
@@ -16,6 +19,30 @@ let searchTimer = null;
 
 function selectedGenres() {
   return [...genreListEl.querySelectorAll('input[type=checkbox]:checked')].map((el) => el.value);
+}
+
+function updateFiltersCount() {
+  const n = selectedGenres().length;
+  if (!filtersCountEl) return;
+  if (n > 0) {
+    filtersCountEl.hidden = false;
+    filtersCountEl.textContent = String(n);
+  } else {
+    filtersCountEl.hidden = true;
+    filtersCountEl.textContent = '';
+  }
+}
+
+function openFilters() {
+  document.body.classList.add('is-filters-drawer-open');
+  if (filtersBackdrop) filtersBackdrop.hidden = false;
+  filtersSidebar?.setAttribute('aria-hidden', 'false');
+}
+
+function closeFilters() {
+  document.body.classList.remove('is-filters-drawer-open');
+  if (filtersBackdrop) filtersBackdrop.hidden = true;
+  filtersSidebar?.setAttribute('aria-hidden', 'true');
 }
 
 function matchMode() {
@@ -47,7 +74,10 @@ function renderGenres(filterText = '') {
     const input = document.createElement('input');
     input.type = 'checkbox';
     input.value = g.name;
-    input.addEventListener('change', () => runSearch());
+    input.addEventListener('change', () => {
+      updateFiltersCount();
+      scheduleSearch();
+    });
     const name = document.createElement('span');
     name.className = 'genre-name';
     name.textContent = g.name;
@@ -184,25 +214,51 @@ async function runSearch(resetLimit = true) {
     }
   }
   renderFilterWeights(data.filters || [], data.total || 0);
+  updateFiltersCount();
 
   tbody.innerHTML = '';
+  if (resultsCardsEl) resultsCardsEl.innerHTML = '';
+
   rows.forEach((w, i) => {
-    const tr = document.createElement('tr');
-    tr.dataset.workId = w.id;
     const href = workUrl(w.id);
     const sources = formatSourceBadges(w);
+    const authors = esc((w.authors || []).join(', '));
+    const genres = formatGenreMatches(w);
+
+    const tr = document.createElement('tr');
+    tr.dataset.workId = w.id;
     tr.innerHTML = `
       <td class="col-num">${i + 1}</td>
       <td class="col-title"><a class="row-link" href="${href}">${esc(w.title)}</a></td>
-      <td class="col-author">${esc((w.authors || []).join(', '))}</td>
+      <td class="col-author">${authors}</td>
       <td class="col-rating">${formatRatingPill(w.aggregate_rating)}</td>
       <td class="col-portal">${formatCommunityRating(w.community_rating)}</td>
       <td class="col-rel">${w.relevance ?? '—'}</td>
       <td class="col-src">${sources}</td>
-      <td class="col-genres genre-cell">${formatGenreMatches(w)}</td>
+      <td class="col-genres genre-cell">${genres}</td>
       <td class="col-go"><a class="link" href="${href}" aria-label="Открыть">→</a></td>
     `;
     tbody.appendChild(tr);
+
+    if (resultsCardsEl) {
+      const card = document.createElement('a');
+      card.className = 'book-card';
+      card.href = href;
+      card.dataset.workId = w.id;
+      card.innerHTML = `
+        <div class="book-card-top">
+          <span class="book-card-index">${i + 1}</span>
+          ${formatRatingPill(w.aggregate_rating)}
+        </div>
+        <h3 class="book-card-title">${esc(w.title)}</h3>
+        <p class="book-card-authors">${authors || 'Автор не указан'}</p>
+        <div class="book-card-meta">
+          ${sources}
+          <span class="book-card-genres">${genres}</span>
+        </div>
+      `;
+      resultsCardsEl.appendChild(card);
+    }
   });
 }
 
@@ -238,7 +294,15 @@ document.getElementById('clear-genres')?.addEventListener('click', () => {
   for (const input of genreListEl.querySelectorAll('input[type=checkbox]:checked')) {
     input.checked = false;
   }
+  updateFiltersCount();
   scheduleSearch();
+});
+
+document.getElementById('filters-open')?.addEventListener('click', openFilters);
+document.getElementById('filters-close')?.addEventListener('click', closeFilters);
+filtersBackdrop?.addEventListener('click', closeFilters);
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeFilters();
 });
 
 queryEl.addEventListener('input', scheduleSearch);

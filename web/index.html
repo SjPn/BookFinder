@@ -2,13 +2,14 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta http-equiv="Cache-Control" content="no-cache">
+  <meta name="theme-color" content="#0b1220">
   <title>Bookfinder</title>
   <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script>
     (function () {
       var key = 'bookfinder_theme';
@@ -17,33 +18,41 @@
         theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
       }
       document.documentElement.setAttribute('data-theme', theme);
+      document.querySelector('meta[name="theme-color"]')?.setAttribute(
+        'content',
+        theme === 'light' ? '#e8eef5' : '#0b1220'
+      );
     })();
   </script>
-  <link rel="stylesheet" href="/static/style.css?v=20260704g">
+  <link rel="stylesheet" href="/static/style.css?v=20260713c">
 </head>
 <body class="catalog-page">
   <header class="site-header">
     <div class="header-inner">
       <div class="brand-block">
         <a class="brand" href="/">
-          <span class="brand-mark" aria-hidden="true">📚</span>
+          <span class="brand-mark" aria-hidden="true"></span>
           <span class="brand-text">Bookfinder</span>
         </a>
-        <p class="brand-tagline">Каталог фантастики и фэнтези</p>
+        <p class="brand-tagline">Фантастика и фэнтези — рейтинги в одном месте</p>
       </div>
       <div class="header-actions">
         <div id="stats" class="stats-row" aria-live="polite"></div>
-        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Переключить тему">☀</button>
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Переключить тему"></button>
       </div>
     </div>
   </header>
 
   <main class="catalog-layout">
-    <aside class="filters-sidebar">
+    <div class="filters-backdrop" id="filters-backdrop" hidden></div>
+    <aside class="filters-sidebar" id="filters-sidebar" aria-label="Фильтр жанров">
       <div class="panel panel-filters">
         <div class="panel-head">
           <h2 class="panel-title">Жанры</h2>
-          <button type="button" id="clear-genres" class="btn-text">Сбросить</button>
+          <div class="panel-head-actions">
+            <button type="button" id="clear-genres" class="btn-text">Сбросить</button>
+            <button type="button" class="btn-icon filters-close" id="filters-close" aria-label="Закрыть фильтры">×</button>
+          </div>
         </div>
         <label class="sr-only" for="genre-filter">Поиск жанра</label>
         <input id="genre-filter" class="input" type="search" placeholder="Найти жанр…" autocomplete="off">
@@ -57,33 +66,34 @@
     </aside>
 
     <section class="results-section">
-      <div class="search-hero panel">
+      <div class="search-hero">
         <label class="search-field" for="query">
-          <span class="field-label">Поиск книг</span>
+          <span class="field-label">Поиск</span>
           <div class="search-input-wrap">
             <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
               <path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>
-            <input id="query" class="input input-search" type="search" placeholder="Название, автор или жанр…" autocomplete="off">
+            <input id="query" class="input input-search" type="search" placeholder="Название, автор или жанр…" autocomplete="off" enterkeyhint="search">
           </div>
         </label>
+        <div class="search-toolbar">
+          <button type="button" class="btn-secondary filters-open-btn" id="filters-open">
+            Жанры
+            <span class="filters-count" id="filters-count" hidden></span>
+          </button>
+        </div>
         <div class="search-meta">
           <p id="result-meta" class="result-meta"></p>
           <p id="load-more-row" class="load-more-row hidden">
             <button type="button" id="load-more" class="btn-secondary">Показать ещё</button>
           </p>
         </div>
-        <p class="legend-hints muted">
-          <span class="hint-tip" tabindex="0" data-tip="Сводная оценка 0–10 по FantLab, LiveLib, FW, Кубикус, BookMix и LoveRead.">Рейтинг</span>
-          <span class="hint-sep">·</span>
-          <span class="hint-tip" tabindex="0" data-tip="Насколько книга подходит под текст поиска и выбранные жанры (0–100).">Релевантность</span>
-          <span class="hint-sep">·</span>
-          <span class="hint-tip" tabindex="0" data-tip="Средняя оценка читателей Bookfinder на странице книги.">Оценка портала</span>
-        </p>
       </div>
 
-      <div class="table-shell panel">
+      <div id="results-cards" class="results-cards" aria-live="polite"></div>
+
+      <div class="table-shell">
         <div class="table-scroll">
           <table id="table" class="data-table">
             <thead>
@@ -106,7 +116,7 @@
     </section>
   </main>
 
-  <script src="/static/common.js?v=20260704g"></script>
-  <script src="/static/app.js?v=20260704g"></script>
+  <script src="/static/common.js?v=20260713c"></script>
+  <script src="/static/app.js?v=20260713c"></script>
 </body>
 </html>
