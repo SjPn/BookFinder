@@ -181,11 +181,45 @@ def match_axis_labels_dicts(
 def themes_jaccard(left: Iterable[str], right: Iterable[str]) -> float:
     a = {item.strip().casefold() for item in left if item and item.strip()}
     b = {item.strip().casefold() for item in right if item and item.strip()}
-    if not a and not b:
+    return set_jaccard(a, b)
+
+
+def set_jaccard(left: set[str] | frozenset[str], right: set[str] | frozenset[str]) -> float:
+    if not left and not right:
         return 0.0
-    if not a or not b:
+    if not left or not right:
         return 0.0
-    return len(a & b) / len(a | b)
+    return len(left & right) / len(left | right)
+
+
+def score_axis_theme_trope(
+    left_axes: dict[str, int | float],
+    right_axes: dict[str, int | float],
+    left_themes: frozenset[str],
+    right_themes: frozenset[str],
+    left_tropes: frozenset[str],
+    right_tropes: frozenset[str],
+    mode: str = "ideas",
+) -> float:
+    """Fast similar score without review/embedding work."""
+    axis_score = axes_similarity_dicts(left_axes, right_axes, mode=mode)
+    theme_score = set_jaccard(left_themes, right_themes)
+    trope_score = set_jaccard(left_tropes, right_tropes)
+    if mode == "ideas":
+        return 0.55 * axis_score + 0.28 * theme_score + 0.17 * trope_score
+    if mode == "atmosphere":
+        return 0.70 * axis_score + 0.18 * theme_score + 0.12 * trope_score
+    if mode == "emotions":
+        return 0.60 * axis_score + 0.22 * theme_score + 0.18 * trope_score
+    if mode == "dynamics":
+        return 0.80 * axis_score + 0.10 * theme_score + 0.10 * trope_score
+    if mode == "gameplay":
+        return 0.75 * axis_score + 0.10 * theme_score + 0.15 * trope_score
+    if mode == "style":
+        return 0.70 * axis_score + 0.18 * theme_score + 0.12 * trope_score
+    if mode == "overall":
+        return 0.50 * axis_score + 0.28 * theme_score + 0.22 * trope_score
+    return 0.60 * axis_score + 0.25 * theme_score + 0.15 * trope_score
 
 
 def cosine_similarity(left: list[float], right: list[float]) -> float:

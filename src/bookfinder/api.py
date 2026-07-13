@@ -10,12 +10,21 @@ from starlette.concurrency import run_in_threadpool
 
 from bookfinder.catalog import genre_counts, get_work, reload_works, search_works, similar_works, works_count
 from bookfinder.dna_similarity import DNA_MODES
-from bookfinder.dna_service import dna_available, get_dna_public, similar_works_dna
+from bookfinder.dna_service import dna_available, get_dna_public, similar_works_dna, warm_dna_caches
 from bookfinder.parsers import fantasy_worlds as fw
 from bookfinder.reviews_store import get_reviews_for_work
 from bookfinder.user_ratings import delete_user_rating, get_user_rating, set_user_rating, work_user_stats
 
 app = FastAPI(title="Bookfinder", version="0.1.0")
+
+
+@app.on_event("startup")
+def _startup_warm_dna() -> None:
+    try:
+        warm_dna_caches()
+    except Exception:
+        # DNA is optional; never block boot.
+        pass
 
 WEB = Path(__file__).resolve().parents[2] / "web"
 DATA = Path(__file__).resolve().parents[2] / "data"

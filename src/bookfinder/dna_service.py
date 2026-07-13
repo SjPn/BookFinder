@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import heapq
+from dataclasses import dataclass
 from functools import lru_cache
 
 from bookfinder.book_dna import (
@@ -14,7 +16,7 @@ from bookfinder.book_dna import (
     trope_labels,
 )
 from bookfinder.catalog import LIST_ITEM_FIELDS, get_work
-from bookfinder.dna_similarity import DNA_MODES, index_similarity, match_axis_labels_dicts
+from bookfinder.dna_similarity import DNA_MODES, match_axis_labels_dicts, score_axis_theme_trope
 from bookfinder.dna_store import get_index_item, index_by_work_id, load_index, load_profile
 from bookfinder.normalize import author_surname, normalize_authors
 
@@ -31,6 +33,15 @@ def clear_dna_cache() -> None:
     dna_available.cache_clear()
     clear_index_cache()
     clear_neighbors_cache()
+    _similarity_rows.cache_clear()
+    _similarity_by_id.cache_clear()
+
+
+def warm_dna_caches() -> None:
+    """Load DNA index into memory so the first book page is not cold."""
+    if not dna_available():
+        return
+    _similarity_rows()
 
 
 def get_dna_profile(work_id: str) -> BookDNAProfile | None:
@@ -137,23 +148,53 @@ def _author_keys(authors: list[str] | None) -> set[str]:
     return keys
 
 
-def _same_author(left: list[str] | None, right: list[str] | None) -> bool:
-    a = _author_keys(left)
-    b = _author_keys(right)
-    return bool(a and b and (a & b))
+@dataclass(frozen=True)
+class _SimRow:
+    work_id: str
+    axes: dict[str, int]
+    themes: frozenset[str]
+    tropes: frozenset[str]
+    author_keys: frozenset[str]
 
 
-def _enriched_item(item: dict) -> dict:
-    """Ensure tropes exist for scoring/UI even on old index rows."""
-    tropes = list(item.get("tropes") or [])
-    if tropes:
-        return item
-    derived = derive_tropes_from_axes(item.get("axes") or {}, None)
-    if not derived:
-        return item
-    enriched = dict(item)
-    enriched["tropes"] = derived
-    return enriched
+@lru_cache(maxsize=1)
+def _similarity_rows() -> tuple[_SimRow, ...]:
+    rows: list[_SimRow] = []
+    for work_id, item in index_by_work_id().items():
+        axes = {str(k): int(v or 0) for k, v in (item.get("axes") or {}).items()}
+        tropes = list(item.get("tropes") or [])
+        if not tropes:
+            tropes = derive_tropes_from_axes(axes, None)
+        themes = frozenset(
+            str(theme).strip().casefold()
+            for theme in (item.get("themes") or [])
+            if theme and str(theme).strip()
+        )
+        tropes_set = frozenset(str(trope).strip().casefold() for trope in tropes if trope)
+        rows.append(
+            _SimRow(
+                work_id=work_id,
+                axes=axes,
+                themes=themes,
+                tropes=tropes_set,
+                author_keys=frozenset(_author_keys(item.get("authors") or [])),
+            )
+        )
+    return tuple(rows)
+
+
+@lru_cache(maxsize=1)
+def _similarity_by_id() -> dict[str, _SimRow]:
+    return {row.work_id: row for row in _similarity_rows()}
+
+
+def _match_labels(base: _SimRow, other: _SimRow, mode: str) -> list[str]:
+    labels = match_axis_labels_dicts(base.axes, other.axes, mode=mode)
+    for key in sorted(base.tropes & other.tropes)[:2]:
+        label = TROPE_LABELS_RU.get(key, key)
+        if label not in labels:
+            labels.append(label)
+    return labels
 
 
 def similar_works_dna(work_id: str, *, mode: str = "ideas", limit: int = 12) -> list[dict]:
@@ -161,66 +202,86 @@ def similar_works_dna(work_id: str, *, mode: str = "ideas", limit: int = 12) -> 
     if mode not in DNA_MODES:
         mode = "ideas"
 
-    base_item = get_index_item(work_id)
-    if not base_item:
-        profile = load_profile(work_id)
-        if not profile:
-            return []
-        base_item = {
-            "work_id": work_id,
-            "title": profile.title,
-            "authors": profile.authors,
-            "axes": profile.axes.model_dump(),
-            "themes": profile.themes,
-            "tropes": profile.tropes,
-            "reviews_summary": profile.reviews_summary.model_dump(),
-        }
-    base_item = _enriched_item(base_item)
+    rows = _similarity_rows()
+    if not rows:
+        return []
 
-    base_authors = list(base_item.get("authors") or [])
-    index_map = index_by_work_id()
+    by_id = _similarity_by_id()
+    base = by_id.get(work_id)
+    if base is None:
+        item = get_index_item(work_id)
+        if not item:
+            profile = load_profile(work_id)
+            if not profile:
+                return []
+            item = {
+                "work_id": work_id,
+                "authors": profile.authors,
+                "axes": profile.axes.model_dump(),
+                "themes": profile.themes,
+                "tropes": profile.tropes,
+            }
+        tropes = list(item.get("tropes") or [])
+        if not tropes:
+            tropes = derive_tropes_from_axes(item.get("axes") or {}, None)
+        base = _SimRow(
+            work_id=work_id,
+            axes={str(k): int(v or 0) for k, v in (item.get("axes") or {}).items()},
+            themes=frozenset(
+                str(theme).strip().casefold()
+                for theme in (item.get("themes") or [])
+                if theme and str(theme).strip()
+            ),
+            tropes=frozenset(str(trope).strip().casefold() for trope in tropes if trope),
+            author_keys=frozenset(_author_keys(item.get("authors") or [])),
+        )
 
-    other: list[tuple[float, str, list[str]]] = []
-    same_author: list[tuple[float, str, list[str]]] = []
+    other_heap: list[tuple[float, str]] = []
+    same_heap: list[tuple[float, str]] = []
+    keep = max(limit * 3, 24)
 
-    for candidate_id, raw_item in index_map.items():
-        if candidate_id == work_id:
+    for row in rows:
+        if row.work_id == work_id:
             continue
-        item = _enriched_item(raw_item)
-        score = index_similarity(base_item, item, mode=mode)
-        if score <= 0.05:
-            continue
-        labels = match_axis_labels_dicts(
-            base_item.get("axes") or {},
-            item.get("axes") or {},
+        score = score_axis_theme_trope(
+            base.axes,
+            row.axes,
+            base.themes,
+            row.themes,
+            base.tropes,
+            row.tropes,
             mode=mode,
         )
-        shared_tropes = sorted(set(base_item.get("tropes") or []) & set(item.get("tropes") or []))
-        for key in shared_tropes[:2]:
-            label = TROPE_LABELS_RU.get(key, key)
-            if label not in labels:
-                labels.append(label)
-        row = (score, candidate_id, labels)
-        if _same_author(base_authors, item.get("authors") or []):
-            same_author.append((score * 0.2, candidate_id, labels))
+        if score <= 0.05:
+            continue
+        if base.author_keys and row.author_keys and (base.author_keys & row.author_keys):
+            entry = (score * 0.2, row.work_id)
+            if len(same_heap) < keep:
+                heapq.heappush(same_heap, entry)
+            else:
+                heapq.heappushpop(same_heap, entry)
         else:
-            other.append(row)
+            entry = (score, row.work_id)
+            if len(other_heap) < keep:
+                heapq.heappush(other_heap, entry)
+            else:
+                heapq.heappushpop(other_heap, entry)
 
-    other.sort(key=lambda pair: pair[0], reverse=True)
-    chosen = other[:limit]
-    if len(chosen) < limit:
-        same_author.sort(key=lambda pair: pair[0], reverse=True)
-        seen = {row[1] for row in chosen}
-        for row in same_author:
-            if len(chosen) >= limit:
-                break
-            if row[1] not in seen:
-                chosen.append(row)
-                seen.add(row[1])
+    ranked = sorted(other_heap, key=lambda pair: pair[0], reverse=True)
+    if len(ranked) < limit:
+        ranked.extend(sorted(same_heap, key=lambda pair: pair[0], reverse=True))
 
-    result = []
-    for score, candidate_id, labels in chosen:
+    result: list[dict] = []
+    seen: set[str] = set()
+    for score, candidate_id in ranked:
+        if candidate_id in seen:
+            continue
+        seen.add(candidate_id)
+        other = by_id.get(candidate_id)
+        labels = _match_labels(base, other, mode) if other else []
         card = _work_card(candidate_id, score, mode, match_axes=labels)
         if card:
             result.append(card)
+        if len(result) >= limit:
+            break
     return result
