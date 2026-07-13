@@ -117,6 +117,7 @@ def index_similarity(
     right_axes = right.get("axes") or {}
     axis_score = axes_similarity_dicts(left_axes, right_axes, mode=mode)
     theme_score = themes_jaccard(left.get("themes") or [], right.get("themes") or [])
+    trope_score = themes_jaccard(left.get("tropes") or [], right.get("tropes") or [])
     reviews_left = left.get("reviews_summary") or {}
     reviews_right = right.get("reviews_summary") or {}
     review_score = 0.0
@@ -131,20 +132,20 @@ def index_similarity(
 
     # Axis-heavy blends so mode tabs actually change ranking without embeddings.
     if mode == "ideas":
-        return 0.55 * axis_score + 0.35 * theme_score + 0.10 * review_score
+        return 0.50 * axis_score + 0.25 * theme_score + 0.15 * trope_score + 0.10 * review_score
     if mode == "atmosphere":
-        return 0.70 * axis_score + 0.20 * theme_score + 0.10 * review_score
+        return 0.65 * axis_score + 0.15 * theme_score + 0.10 * trope_score + 0.10 * review_score
     if mode == "emotions":
-        return 0.65 * axis_score + 0.25 * theme_score + 0.10 * review_score
+        return 0.55 * axis_score + 0.20 * theme_score + 0.15 * trope_score + 0.10 * review_score
     if mode == "dynamics":
-        return 0.80 * axis_score + 0.15 * theme_score + 0.05 * review_score
+        return 0.75 * axis_score + 0.10 * theme_score + 0.10 * trope_score + 0.05 * review_score
     if mode == "gameplay":
-        return 0.75 * axis_score + 0.20 * theme_score + 0.05 * review_score
+        return 0.70 * axis_score + 0.10 * theme_score + 0.15 * trope_score + 0.05 * review_score
     if mode == "style":
-        return 0.70 * axis_score + 0.20 * theme_score + 0.10 * review_score
+        return 0.65 * axis_score + 0.15 * theme_score + 0.10 * trope_score + 0.10 * review_score
     if mode == "overall":
-        return 0.50 * axis_score + 0.35 * theme_score + 0.15 * review_score
-    return 0.6 * axis_score + 0.3 * theme_score + 0.1 * review_score
+        return 0.45 * axis_score + 0.25 * theme_score + 0.20 * trope_score + 0.10 * review_score
+    return 0.55 * axis_score + 0.25 * theme_score + 0.15 * trope_score + 0.05 * review_score
 
 
 def match_axis_labels_dicts(
@@ -169,9 +170,11 @@ def match_axis_labels_dicts(
     scored.sort(key=lambda pair: pair[0], reverse=True)
     labels: list[str] = []
     for _, key in scored[:limit]:
+        left_value = int(left_axes.get(key, 5) or 5)
+        right_value = int(right_axes.get(key, 5) or 5)
         label = AXIS_LABELS_RU.get(key, key)
-        if label not in labels:
-            labels.append(label)
+        labels.append(f"{label} {right_value}")
+    # Also surface shared tropes briefly via caller if needed.
     return labels
 
 

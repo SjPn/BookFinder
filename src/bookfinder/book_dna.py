@@ -8,7 +8,38 @@ from typing import Any
 from pydantic import BaseModel, Field, field_validator
 
 DNA_VERSION = 1
-PROMPT_VERSION = "dna-v2"
+PROMPT_VERSION = "dna-v3"
+
+# Controlled tropes (English keys → Russian labels for UI).
+TROPE_LABELS_RU: dict[str, str] = {
+    "robinsonade": "Робинзонада",
+    "exploration": "Исследование",
+    "survival_island": "Выживание / изоляция",
+    "academy": "Академия",
+    "revenge": "Месть",
+    "betrayal": "Предательство",
+    "second_chance": "Второй шанс",
+    "enemies_to_lovers": "Враги → любовь",
+    "forced_proximity": "Вынужденная близость",
+    "found_family": "Найденная семья",
+    "chosen_one": "Избранный",
+    "quest": "Квест / путь",
+    "war": "Война",
+    "court_intrigue": "Придворные интриги",
+    "heist": "Ограбление / афера",
+    "detective": "Расследование",
+    "time_travel": "Путешествие во времени",
+    "portal_fantasy": "Попаданец / портал",
+    "litrpg": "ЛитРПГ",
+    "dystopia": "Антиутопия",
+    "postapo": "Постапокалипсис",
+    "space_opera": "Космоопера",
+    "coming_of_age": "Взросление",
+    "tragic_love": "Трагическая любовь",
+    "comedy_of_manners": "Комедия положений",
+}
+
+CANONICAL_TROPES = tuple(TROPE_LABELS_RU.keys())
 
 # Numeric axes 1–10. Keys are stable API identifiers (English).
 CONTENT_AXES = (
@@ -171,6 +202,7 @@ class BookDNAProfile(BaseModel):
     axes: DNAAxes
     labels: DNALabels = Field(default_factory=DNALabels)
     themes: list[str] = Field(default_factory=list)
+    tropes: list[str] = Field(default_factory=list)
     ai_tagline: str = ""
     ai_summary: str = ""
     reader_badge: str = ""
@@ -191,6 +223,32 @@ class BookDNAProfile(BaseModel):
         if isinstance(value, list):
             return [str(item).strip() for item in value if str(item).strip()]
         return []
+
+    @field_validator("tropes", mode="before")
+    @classmethod
+    def _tropes_to_list(cls, value: Any) -> list[str]:
+        if value is None:
+            return []
+        raw: list[str]
+        if isinstance(value, str):
+            raw = [part.strip() for part in value.replace(";", ",").split(",") if part.strip()]
+        elif isinstance(value, list):
+            raw = [str(item).strip() for item in value if str(item).strip()]
+        else:
+            return []
+        allowed = set(CANONICAL_TROPES)
+        aliases = {label.casefold(): key for key, label in TROPE_LABELS_RU.items()}
+        result: list[str] = []
+        for item in raw:
+            key = item.casefold().replace(" ", "_").replace("-", "_")
+            if key in allowed:
+                if key not in result:
+                    result.append(key)
+                continue
+            mapped = aliases.get(item.casefold())
+            if mapped and mapped not in result:
+                result.append(mapped)
+        return result[:8]
 
     @field_validator("ai_overview", mode="before")
     @classmethod
@@ -242,6 +300,73 @@ def derive_reader_badge(axes: dict[str, int] | None, genres: list[str] | None = 
     return "Для спокойного вечера"
 
 
+def derive_tropes_from_axes(axes: dict[str, int] | None, genres: list[str] | None = None) -> list[str]:
+    """Heuristic tropes from axes/genres when LLM tropes are missing."""
+    values = {key: int(axes.get(key, 0) or 0) for key in (axes or {})}
+    genre_text = " ".join(genres or []).casefold()
+    tropes: list[str] = []
+
+    def add(key: str) -> None:
+        if key in CANONICAL_TROPES and key not in tropes:
+            tropes.append(key)
+
+    if values.get("survival", 0) >= 8 and values.get("world_exploration", 0) >= 7:
+        add("robinsonade")
+        add("survival_island")
+    if values.get("world_exploration", 0) >= 8:
+        add("exploration")
+    if values.get("construction", 0) >= 8 or values.get("survival", 0) >= 8:
+        add("survival_island")
+    if values.get("romance", 0) >= 8 and values.get("darkness", 0) >= 7:
+        add("tragic_love")
+    if values.get("romance", 0) >= 8 and values.get("humor", 0) >= 7:
+        add("enemies_to_lovers")
+    if values.get("thinking", 0) >= 8 and values.get("science", 0) >= 7:
+        add("quest")
+    if values.get("politics", 0) >= 8:
+        add("court_intrigue")
+    if values.get("action", 0) >= 8 and values.get("pace", 0) >= 8:
+        add("quest")
+    if "академи" in genre_text:
+        add("academy")
+    if "попадан" in genre_text or "литрпг" in genre_text or "rpg" in genre_text:
+        add("portal_fantasy")
+        add("litrpg")
+    if "детектив" in genre_text:
+        add("detective")
+    if "антиутоп" in genre_text:
+        add("dystopia")
+    if "апокалип" in genre_text:
+        add("postapo")
+    if "космич" in genre_text or "космос" in genre_text:
+        add("space_opera")
+    return tropes[:6]
+
+
+def trope_labels(tropes: list[str] | None) -> list[str]:
+    return [TROPE_LABELS_RU.get(key, key) for key in (tropes or []) if key]
+
+
+def has_usable_dna_source(
+    *,
+    catalog_description: str,
+    review_snippets: list[str],
+    text_sample: str,
+) -> bool:
+    """Refuse DNA when there is almost nothing reliable to analyze."""
+    desc = (catalog_description or "").strip()
+    text = (text_sample or "").strip()
+    if len(text) >= 400:
+        return True
+    if len(desc) >= 120 and len(review_snippets) >= 1:
+        return True
+    if len(desc) >= 220:
+        return True
+    if len(review_snippets) >= 3:
+        return True
+    return False
+
+
 def build_dna_prompt(
     *,
     title: str,
@@ -255,6 +380,7 @@ def build_dna_prompt(
     genres_text = ", ".join(genres[:12]) if genres else "не указаны"
     reviews_block = "\n".join(f"- {line}" for line in review_snippets[:8]) or "нет"
     text_block = text_sample.strip() or "нет фрагмента текста"
+    tropes_list = ", ".join(CANONICAL_TROPES)
 
     return f"""Ты аналитик художественной литературы. По данным о книге построй профиль «ДНК книги».
 
@@ -274,12 +400,14 @@ def build_dna_prompt(
 ЗАДАЧА:
 1. Оцени ВСЕ оси шкалой 1–10 (целые числа).
 2. Заполни labels короткими фразами на русском.
-3. themes — 3–8 ключевых тем (короткие фразы).
-4. ai_tagline — одна цепляющая фраза о книге (до 120 символов).
-5. ai_summary — аннотация 2–4 предложения: о чём книга, тон, для кого; без спойлеров финала.
-6. reader_badge — короткий чип для читателя (до 40 символов), например «Горячая романтика» или «Лёгкое чтение».
-7. ai_overview — краткий обзор/пересказ книги: 2–5 абзацев, по 2–4 предложения в каждом; без спойлеров финала и ключевых поворотов.
-8. reviews_summary — что хвалят / ругают / эмоции после прочтения.
+3. themes — 3–8 ключевых тем (короткие фразы на русском).
+4. tropes — 2–6 ключей ТОЛЬКО из списка: {tropes_list}
+   (например robinsonade, academy, revenge, exploration — без выдуманных ключей).
+5. ai_tagline — одна цепляющая фраза о книге (до 120 символов).
+6. ai_summary — аннотация 2–4 предложения: о чём книга, тон, для кого; без спойлеров финала.
+7. reader_badge — короткий чип для читателя (до 40 символов), например «Горячая романтика» или «Робинзонада».
+8. ai_overview — краткий обзор/пересказ книги: 2–5 абзацев, по 2–4 предложения в каждом; без спойлеров финала.
+9. reviews_summary — что хвалят / ругают / эмоции после прочтения.
 
 Оси (1 = почти нет, 10 = очень сильно):
 Сюжет: character_growth, world_exploration, politics, romance, humor, action, brutality, science, magic, survival, construction
@@ -292,12 +420,39 @@ labels: hero (тип героя), ending (open|bittersweet|happy|tragic|ambiguou
   "axes": {{ ... все 22 оси ... }},
   "labels": {{ "hero": "", "ending": "", "conflict": "", "setting": "", "tone": "", "pov": "" }},
   "themes": ["..."],
+  "tropes": ["robinsonade", "exploration"],
   "ai_tagline": "...",
   "ai_summary": "...",
   "reader_badge": "...",
   "ai_overview": ["абзац 1", "абзац 2"],
   "reviews_summary": {{ "praised": [], "criticized": [], "emotions": [] }}
 }}"""
+
+
+def build_tropes_prompt(
+    *,
+    title: str,
+    authors: list[str],
+    genres: list[str],
+    ai_summary: str,
+    themes: list[str],
+    catalog_description: str,
+) -> str:
+    tropes_list = ", ".join(CANONICAL_TROPES)
+    return f"""Выбери тропы книги из фиксированного списка.
+
+КНИГА: «{title}»
+АВТОРЫ: {', '.join(authors) if authors else 'неизвестен'}
+ЖАНРЫ: {', '.join(genres[:12]) if genres else 'нет'}
+ТЕМЫ: {', '.join(themes[:8]) if themes else 'нет'}
+КРАТКО: {ai_summary or 'нет'}
+АННОТАЦИЯ: {catalog_description or 'нет'}
+
+Список ключей: {tropes_list}
+
+Верни ТОЛЬКО JSON:
+{{"tropes": ["key1", "key2"]}}
+2–6 ключей, только из списка."""
 
 
 def build_overview_prompt(
@@ -329,11 +484,13 @@ TAGLINE: {ai_tagline or "нет"}
 ЗАДАЧА:
 1. reader_badge — короткий чип (до 40 символов), например «Горячая романтика».
 2. ai_overview — 2–5 абзацев пересказа/обзора по 2–4 предложения; без спойлеров финала.
+3. tropes — 2–6 ключей из: {', '.join(CANONICAL_TROPES)}
 
 Ответь ТОЛЬКО JSON:
 {{
   "reader_badge": "...",
-  "ai_overview": ["абзац 1", "абзац 2"]
+  "ai_overview": ["абзац 1", "абзац 2"],
+  "tropes": ["robinsonade", "exploration"]
 }}"""
 
 
@@ -347,6 +504,7 @@ def embedding_text(profile: BookDNAProfile) -> str:
         profile.reader_badge,
         "\n".join(profile.ai_overview),
         ", ".join(profile.themes),
+        ", ".join(trope_labels(profile.tropes)),
         profile.labels.hero,
         profile.labels.conflict,
         profile.labels.setting,

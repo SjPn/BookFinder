@@ -21,7 +21,9 @@ from bookfinder.book_dna import (
     DNASources,
     PROMPT_VERSION,
     build_dna_prompt,
+    derive_tropes_from_axes,
     embedding_text,
+    has_usable_dna_source,
     utc_now_iso,
 )
 from bookfinder.catalog import get_work, works_count
@@ -184,6 +186,13 @@ def analyze_work(
     reviews = review_snippets(work_id, fw_id) if use_reviews else []
     text_sample = load_fb2_sample(fw_id) if (use_text and fw_id) else ""
 
+    if not has_usable_dna_source(
+        catalog_description=catalog_description,
+        review_snippets=reviews,
+        text_sample=text_sample,
+    ):
+        raise ValueError("insufficient_source: no reliable description/reviews/text")
+
     prompt = build_dna_prompt(
         title=str(work.get("title") or ""),
         authors=list(work.get("authors") or []),
@@ -195,9 +204,16 @@ def analyze_work(
 
     raw = client.chat(
         prompt,
-        system="Ты возвращаешь только JSON. Все текстовые поля — на русском.",
+        system="Ты возвращаешь только JSON. Все текстовые поля — на русском. tropes — только ключи из списка.",
     )
     payload = extract_json_object(raw)
+
+    tropes = list(payload.get("tropes") or [])
+    if not tropes:
+        tropes = derive_tropes_from_axes(
+            clamp_axes(payload.get("axes") or {}),
+            list(work.get("genres") or []),
+        )
 
     profile = BookDNAProfile(
         work_id=work_id,
@@ -206,6 +222,7 @@ def analyze_work(
         axes=DNAAxes.model_validate(clamp_axes(payload.get("axes") or {})),
         labels=DNALabels.model_validate(payload.get("labels") or {}),
         themes=list(payload.get("themes") or []),
+        tropes=tropes,
         ai_tagline=str(payload.get("ai_tagline") or "").strip(),
         ai_summary=str(payload.get("ai_summary") or "").strip(),
         reader_badge=str(payload.get("reader_badge") or "").strip(),
@@ -439,8 +456,17 @@ def main() -> None:
                 print(f"ok {title} | {progress_text}", flush=True)
                 touch_heartbeat(work_id=work_id, note="ok", profiles_ok=count_profiles())
             except (OllamaError, ValueError, json.JSONDecodeError) as exc:
-                progress[work_id] = f"fail:{exc}"
-                fail += 1
+                message = str(exc)
+                if "insufficient_source" in message:
+                    progress[work_id] = f"skip:{message}"
+                    skip += 1
+                    note = "skip"
+                    label = "skip"
+                else:
+                    progress[work_id] = f"fail:{message}"
+                    fail += 1
+                    note = "fail"
+                    label = "fail"
                 progress_text = format_progress(
                     catalog_total=catalog_total,
                     pass_ok=ok,
@@ -449,8 +475,8 @@ def main() -> None:
                     queue_pos=idx,
                     queue_total=len(work_ids),
                 )
-                print(f"fail {title} | {progress_text}: {exc}", flush=True)
-                touch_heartbeat(work_id=work_id, note="fail", profiles_ok=count_profiles())
+                print(f"{label} {title} | {progress_text}: {message}", flush=True)
+                touch_heartbeat(work_id=work_id, note=note, profiles_ok=count_profiles())
 
             if idx % 5 == 0:
                 save_progress(progress)

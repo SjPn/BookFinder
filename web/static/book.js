@@ -348,6 +348,19 @@ function renderDnaBlock(dna) {
 
   document.getElementById('d-dna-axes').innerHTML = renderDnaAxes(dna.axes, dna.axis_labels, dna.axis_hints);
   bindDnaAxisClicks();
+
+  const tropeLabels = dna.trope_labels || [];
+  const tropesEl = document.getElementById('d-dna-tropes');
+  if (tropeLabels.length) {
+    tropesEl.hidden = false;
+    tropesEl.innerHTML = `<span class="dna-tropes-label">Тропы:</span> ${
+      tropeLabels.map((label) => `<span class="badge dna-trope-badge">${esc(label)}</span>`).join('')
+    }`;
+  } else {
+    tropesEl.hidden = true;
+    tropesEl.innerHTML = '';
+  }
+
   document.getElementById('d-dna-themes').innerHTML = (dna.themes || []).length
     ? (dna.themes || []).map((theme) => `<span class="badge">${esc(theme)}</span>`).join('')
     : '';
@@ -412,14 +425,13 @@ function renderSimilarList(sim) {
     a.textContent = `${s.title} — ${(s.authors || []).join(', ')}${rating}${dnaScore}`;
     li.appendChild(a);
 
-    const modeLabel = SIMILAR_MODE_LABELS[s.match_mode] || '';
-    const matchBits = [];
-    if (modeLabel) matchBits.push(modeLabel);
-    (s.match_axes || []).forEach((label) => matchBits.push(label));
-    if (matchBits.length) {
+    const matchAxes = s.match_axes || [];
+    if (matchAxes.length) {
       const meta = document.createElement('div');
       meta.className = 'similar-match-tags';
-      meta.innerHTML = matchBits.map((label) => `<span class="similar-match-tag">${esc(label)}</span>`).join('');
+      meta.innerHTML =
+        `<span class="similar-match-why">похожи по:</span> ` +
+        matchAxes.map((label) => `<span class="similar-match-tag">${esc(label)}</span>`).join('');
       li.appendChild(meta);
     }
 

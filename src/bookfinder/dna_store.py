@@ -9,7 +9,12 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
-from bookfinder.book_dna import BookDNAProfile, DNA_VERSION, PROMPT_VERSION
+from bookfinder.book_dna import (
+    DNA_VERSION,
+    PROMPT_VERSION,
+    BookDNAProfile,
+    derive_tropes_from_axes,
+)
 
 ROOT = Path(__file__).resolve().parents[2]
 DNA_DIR = ROOT / "data" / "processed" / "dna"
@@ -172,6 +177,9 @@ def build_index() -> dict[str, Any]:
             profile = BookDNAProfile.model_validate(data)
         except (json.JSONDecodeError, ValueError):
             continue
+        tropes = list(profile.tropes)
+        if not tropes:
+            tropes = derive_tropes_from_axes(profile.axes.model_dump(), None)
         items.append(
             {
                 "work_id": profile.work_id,
@@ -179,6 +187,7 @@ def build_index() -> dict[str, Any]:
                 "authors": profile.authors,
                 "axes": profile.axes.model_dump(),
                 "themes": profile.themes,
+                "tropes": tropes,
                 "ai_tagline": profile.ai_tagline,
                 "ai_summary": profile.ai_summary,
                 "reader_badge": profile.reader_badge,

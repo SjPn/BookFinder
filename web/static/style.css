@@ -1081,8 +1081,14 @@ button.link:hover {
 .similar-match-tags {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 0.3rem;
   margin-top: 0.25rem;
+}
+
+.similar-match-why {
+  font-size: 0.72rem;
+  color: var(--text-muted);
 }
 
 .similar-match-tag {
@@ -1093,6 +1099,22 @@ button.link:hover {
   background: var(--bg-soft);
   color: var(--text-muted);
   border: 1px solid var(--border);
+}
+
+.dna-tropes {
+  margin-top: 0.65rem;
+  margin-bottom: 0.15rem;
+}
+
+.dna-tropes-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-right: 0.15rem;
+}
+
+.dna-trope-badge {
+  background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
 }
 
 .similar-header {

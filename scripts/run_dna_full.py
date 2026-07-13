@@ -70,20 +70,20 @@ def ensure_lm_studio() -> None:
     except (FileNotFoundError, subprocess.TimeoutExpired):
         log("WARN: lms CLI not found or slow; assuming LM Studio server is already running")
 
-    for model_key, identifier in (
-        ("qwen/qwen2.5-vl-7b", "qwen-chat"),
-        ("text-embedding-nomic-embed-text-v1.5", "nomic-embed"),
+    for model_key in (
+        "deepseek-coder-v2-lite-instruct",
+        "text-embedding-nomic-embed-text-v1.5",
     ):
         try:
             subprocess.run(
-                ["lms", "load", model_key, "-y", "--identifier", identifier],
+                ["lms", "load", model_key, "-y"],
                 check=False,
                 capture_output=True,
                 text=True,
-                timeout=120,
+                timeout=180,
             )
         except (FileNotFoundError, subprocess.TimeoutExpired) as exc:
-            log(f"WARN: could not preload {identifier}: {exc}")
+            log(f"WARN: could not preload {model_key}: {exc}")
 
 
 def _heartbeat_age_sec() -> float | None:
@@ -111,8 +111,8 @@ def run_build_pass(
         "PYTHONUNBUFFERED": "1",
         "LLM_BACKEND": "lmstudio",
         "LMSTUDIO_HOST": "http://127.0.0.1:1234",
-        "LMSTUDIO_CHAT_MODEL": "qwen-chat",
-        "LMSTUDIO_EMBED_MODEL": "nomic-embed",
+        "LMSTUDIO_CHAT_MODEL": os.environ.get("LMSTUDIO_CHAT_MODEL") or "deepseek-coder-v2-lite-instruct",
+        "LMSTUDIO_EMBED_MODEL": os.environ.get("LMSTUDIO_EMBED_MODEL") or "text-embedding-nomic-embed-text-v1.5",
         "LLM_TIMEOUT_SEC": str(min(90, max_book_seconds)),
     }
     cmd = [

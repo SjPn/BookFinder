@@ -4,7 +4,15 @@ from __future__ import annotations
 
 from functools import lru_cache
 
-from bookfinder.book_dna import AXIS_HINTS_RU, AXIS_LABELS_RU, BookDNAProfile, derive_reader_badge
+from bookfinder.book_dna import (
+    AXIS_HINTS_RU,
+    AXIS_LABELS_RU,
+    TROPE_LABELS_RU,
+    BookDNAProfile,
+    derive_reader_badge,
+    derive_tropes_from_axes,
+    trope_labels,
+)
 from bookfinder.catalog import LIST_ITEM_FIELDS, get_work
 from bookfinder.dna_similarity import DNA_MODES, index_similarity, match_axis_labels_dicts
 from bookfinder.dna_store import get_index_item, index_by_work_id, load_index, load_profile
@@ -40,6 +48,9 @@ def get_dna_public(work_id: str) -> dict | None:
 
     axes = item.get("axes") or {}
     work = get_work(work_id) or {}
+    tropes = list(item.get("tropes") or [])
+    if not tropes:
+        tropes = derive_tropes_from_axes(axes, work.get("genres") or [])
     reader_badge = str(item.get("reader_badge") or "").strip()
     if not reader_badge:
         reader_badge = derive_reader_badge(axes, work.get("genres") or [])
@@ -51,6 +62,8 @@ def get_dna_public(work_id: str) -> dict | None:
         "axis_labels": AXIS_LABELS_RU,
         "axis_hints": AXIS_HINTS_RU,
         "themes": item.get("themes") or [],
+        "tropes": tropes,
+        "trope_labels": trope_labels(tropes),
         "labels": {},
         "ai_tagline": item.get("ai_tagline") or "",
         "ai_summary": item.get("ai_summary") or "",
@@ -65,6 +78,9 @@ def get_dna_public(work_id: str) -> dict | None:
 
 def _public_payload(profile: BookDNAProfile) -> dict:
     work = get_work(profile.work_id) or {}
+    tropes = list(profile.tropes)
+    if not tropes:
+        tropes = derive_tropes_from_axes(profile.axes.model_dump(), work.get("genres") or [])
     reader_badge = profile.reader_badge.strip()
     if not reader_badge:
         reader_badge = derive_reader_badge(profile.axes.model_dump(), work.get("genres") or [])
@@ -77,6 +93,8 @@ def _public_payload(profile: BookDNAProfile) -> dict:
         "axis_hints": AXIS_HINTS_RU,
         "labels": profile.labels.model_dump(),
         "themes": profile.themes,
+        "tropes": tropes,
+        "trope_labels": trope_labels(tropes),
         "ai_tagline": profile.ai_tagline,
         "ai_summary": profile.ai_summary,
         "reader_badge": reader_badge,
@@ -125,8 +143,21 @@ def _same_author(left: list[str] | None, right: list[str] | None) -> bool:
     return bool(a and b and (a & b))
 
 
+def _enriched_item(item: dict) -> dict:
+    """Ensure tropes exist for scoring/UI even on old index rows."""
+    tropes = list(item.get("tropes") or [])
+    if tropes:
+        return item
+    derived = derive_tropes_from_axes(item.get("axes") or {}, None)
+    if not derived:
+        return item
+    enriched = dict(item)
+    enriched["tropes"] = derived
+    return enriched
+
+
 def similar_works_dna(work_id: str, *, mode: str = "ideas", limit: int = 12) -> list[dict]:
-    """Recommend by DNA axes/themes from dna_index (works on Render without dna/*.json)."""
+    """Recommend by DNA axes/themes/tropes from dna_index (works on Render without dna/*.json)."""
     if mode not in DNA_MODES:
         mode = "ideas"
 
@@ -141,8 +172,10 @@ def similar_works_dna(work_id: str, *, mode: str = "ideas", limit: int = 12) -> 
             "authors": profile.authors,
             "axes": profile.axes.model_dump(),
             "themes": profile.themes,
+            "tropes": profile.tropes,
             "reviews_summary": profile.reviews_summary.model_dump(),
         }
+    base_item = _enriched_item(base_item)
 
     base_authors = list(base_item.get("authors") or [])
     index_map = index_by_work_id()
@@ -150,9 +183,10 @@ def similar_works_dna(work_id: str, *, mode: str = "ideas", limit: int = 12) -> 
     other: list[tuple[float, str, list[str]]] = []
     same_author: list[tuple[float, str, list[str]]] = []
 
-    for candidate_id, item in index_map.items():
+    for candidate_id, raw_item in index_map.items():
         if candidate_id == work_id:
             continue
+        item = _enriched_item(raw_item)
         score = index_similarity(base_item, item, mode=mode)
         if score <= 0.05:
             continue
@@ -161,6 +195,11 @@ def similar_works_dna(work_id: str, *, mode: str = "ideas", limit: int = 12) -> 
             item.get("axes") or {},
             mode=mode,
         )
+        shared_tropes = sorted(set(base_item.get("tropes") or []) & set(item.get("tropes") or []))
+        for key in shared_tropes[:2]:
+            label = TROPE_LABELS_RU.get(key, key)
+            if label not in labels:
+                labels.append(label)
         row = (score, candidate_id, labels)
         if _same_author(base_authors, item.get("authors") or []):
             same_author.append((score * 0.2, candidate_id, labels))
