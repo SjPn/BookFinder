@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import re
 from datetime import datetime, timezone
+from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
@@ -109,20 +110,56 @@ def read_heartbeat() -> dict[str, Any] | None:
 
 
 def load_index() -> dict[str, Any] | None:
+    return _cached_index()
+
+
+@lru_cache(maxsize=1)
+def _cached_index() -> dict[str, Any] | None:
     if not DNA_INDEX.exists():
         return None
     return json.loads(DNA_INDEX.read_text(encoding="utf-8"))
 
 
+@lru_cache(maxsize=1)
+def index_by_work_id() -> dict[str, dict[str, Any]]:
+    index = _cached_index()
+    if not index:
+        return {}
+    return {
+        str(item.get("work_id")): item
+        for item in (index.get("items") or [])
+        if item.get("work_id")
+    }
+
+
+def get_index_item(work_id: str) -> dict[str, Any] | None:
+    return index_by_work_id().get(work_id)
+
+
+def clear_index_cache() -> None:
+    _cached_index.cache_clear()
+    index_by_work_id.cache_clear()
+
+
 def load_neighbors() -> dict[str, Any] | None:
+    return _cached_neighbors()
+
+
+@lru_cache(maxsize=1)
+def _cached_neighbors() -> dict[str, Any] | None:
     if not DNA_NEIGHBORS.exists():
         return None
     return json.loads(DNA_NEIGHBORS.read_text(encoding="utf-8"))
 
 
+def clear_neighbors_cache() -> None:
+    _cached_neighbors.cache_clear()
+
+
 def save_neighbors(payload: dict[str, Any]) -> Path:
     DNA_NEIGHBORS.parent.mkdir(parents=True, exist_ok=True)
     DNA_NEIGHBORS.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    clear_neighbors_cache()
     return DNA_NEIGHBORS
 
 
@@ -159,4 +196,5 @@ def build_index() -> dict[str, Any]:
         "items": items,
     }
     DNA_INDEX.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    clear_index_cache()
     return payload

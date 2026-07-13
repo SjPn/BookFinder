@@ -71,17 +71,14 @@ def _axes_dict(profile: BookDNAProfile) -> dict[str, int]:
     return profile.axes.model_dump()
 
 
-def axes_similarity(
-    left: BookDNAProfile,
-    right: BookDNAProfile,
+def axes_similarity_dicts(
+    left_axes: dict[str, int | float],
+    right_axes: dict[str, int | float],
     mode: str = "overall",
 ) -> float:
-    """Weighted 1 - normalized L1 distance on selected axes."""
-    left_axes = _axes_dict(left)
-    right_axes = _axes_dict(right)
-
+    """Weighted 1 - normalized L1 distance on selected axes (plain dicts from dna_index)."""
     if mode == "overall":
-        keys = ALL_AXES
+        keys = list(ALL_AXES)
         weights = {key: 1.0 for key in keys}
     else:
         spec = SIMILARITY_MODES.get(mode, SIMILARITY_MODES["atmosphere"])
@@ -96,10 +93,86 @@ def axes_similarity(
 
     distance = 0.0
     for key in keys:
-        delta = abs(int(left_axes.get(key, 5)) - int(right_axes.get(key, 5)))
+        delta = abs(int(left_axes.get(key, 5) or 5) - int(right_axes.get(key, 5) or 5))
         distance += weights[key] * (delta / 9.0)
 
     return max(0.0, 1.0 - distance / total_weight)
+
+
+def axes_similarity(
+    left: BookDNAProfile,
+    right: BookDNAProfile,
+    mode: str = "overall",
+) -> float:
+    return axes_similarity_dicts(_axes_dict(left), _axes_dict(right), mode=mode)
+
+
+def index_similarity(
+    left: dict,
+    right: dict,
+    mode: str = "ideas",
+) -> float:
+    """Score two dna_index items. Modes must differ via axis weights (no embeddings on Render)."""
+    left_axes = left.get("axes") or {}
+    right_axes = right.get("axes") or {}
+    axis_score = axes_similarity_dicts(left_axes, right_axes, mode=mode)
+    theme_score = themes_jaccard(left.get("themes") or [], right.get("themes") or [])
+    reviews_left = left.get("reviews_summary") or {}
+    reviews_right = right.get("reviews_summary") or {}
+    review_score = 0.0
+    review_parts = [
+        themes_jaccard(reviews_left.get("praised") or [], reviews_right.get("praised") or []),
+        themes_jaccard(reviews_left.get("criticized") or [], reviews_right.get("criticized") or []),
+        themes_jaccard(reviews_left.get("emotions") or [], reviews_right.get("emotions") or []),
+    ]
+    review_parts = [part for part in review_parts if part > 0]
+    if review_parts:
+        review_score = sum(review_parts) / len(review_parts)
+
+    # Axis-heavy blends so mode tabs actually change ranking without embeddings.
+    if mode == "ideas":
+        return 0.55 * axis_score + 0.35 * theme_score + 0.10 * review_score
+    if mode == "atmosphere":
+        return 0.70 * axis_score + 0.20 * theme_score + 0.10 * review_score
+    if mode == "emotions":
+        return 0.65 * axis_score + 0.25 * theme_score + 0.10 * review_score
+    if mode == "dynamics":
+        return 0.80 * axis_score + 0.15 * theme_score + 0.05 * review_score
+    if mode == "gameplay":
+        return 0.75 * axis_score + 0.20 * theme_score + 0.05 * review_score
+    if mode == "style":
+        return 0.70 * axis_score + 0.20 * theme_score + 0.10 * review_score
+    if mode == "overall":
+        return 0.50 * axis_score + 0.35 * theme_score + 0.15 * review_score
+    return 0.6 * axis_score + 0.3 * theme_score + 0.1 * review_score
+
+
+def match_axis_labels_dicts(
+    left_axes: dict[str, int | float],
+    right_axes: dict[str, int | float],
+    mode: str = "ideas",
+    *,
+    limit: int = 3,
+) -> list[str]:
+    spec = SIMILARITY_MODES.get(mode, {})
+    keys = [key for key in spec if key in ALL_AXES] if spec else list(ALL_AXES)
+    scored: list[tuple[float, str]] = []
+    for key in keys:
+        left_value = int(left_axes.get(key, 5) or 5)
+        right_value = int(right_axes.get(key, 5) or 5)
+        if left_value < 5 or right_value < 5:
+            continue
+        closeness = 1.0 - abs(left_value - right_value) / 9.0
+        strength = (left_value + right_value) / 20.0
+        weight = spec.get(key, 1.0) if spec else 1.0
+        scored.append((closeness * strength * weight, key))
+    scored.sort(key=lambda pair: pair[0], reverse=True)
+    labels: list[str] = []
+    for _, key in scored[:limit]:
+        label = AXIS_LABELS_RU.get(key, key)
+        if label not in labels:
+            labels.append(label)
+    return labels
 
 
 def themes_jaccard(left: Iterable[str], right: Iterable[str]) -> float:
@@ -211,26 +284,4 @@ def match_axis_labels(
     limit: int = 3,
 ) -> list[str]:
     """Top axis labels explaining why two books match in a given mode."""
-    left_axes = _axes_dict(left)
-    right_axes = _axes_dict(right)
-    spec = SIMILARITY_MODES.get(mode, {})
-    keys = [key for key in spec if key in ALL_AXES] if spec else list(ALL_AXES)
-
-    scored: list[tuple[float, str]] = []
-    for key in keys:
-        left_value = int(left_axes.get(key, 5))
-        right_value = int(right_axes.get(key, 5))
-        if left_value < 5 or right_value < 5:
-            continue
-        closeness = 1.0 - abs(left_value - right_value) / 9.0
-        strength = (left_value + right_value) / 20.0
-        weight = spec.get(key, 1.0) if spec else 1.0
-        scored.append((closeness * strength * weight, key))
-
-    scored.sort(key=lambda pair: pair[0], reverse=True)
-    labels: list[str] = []
-    for _, key in scored[:limit]:
-        label = AXIS_LABELS_RU.get(key, key)
-        if label not in labels:
-            labels.append(label)
-    return labels
+    return match_axis_labels_dicts(_axes_dict(left), _axes_dict(right), mode=mode, limit=limit)

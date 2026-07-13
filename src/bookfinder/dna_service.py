@@ -6,8 +6,9 @@ from functools import lru_cache
 
 from bookfinder.book_dna import AXIS_HINTS_RU, AXIS_LABELS_RU, BookDNAProfile, derive_reader_badge
 from bookfinder.catalog import LIST_ITEM_FIELDS, get_work
-from bookfinder.dna_similarity import DNA_MODES, combined_similarity, match_axis_labels
-from bookfinder.dna_store import load_index, load_neighbors, load_profile
+from bookfinder.dna_similarity import DNA_MODES, index_similarity, match_axis_labels_dicts
+from bookfinder.dna_store import get_index_item, index_by_work_id, load_index, load_profile
+from bookfinder.normalize import author_surname, normalize_authors
 
 
 @lru_cache
@@ -17,7 +18,11 @@ def dna_available() -> bool:
 
 
 def clear_dna_cache() -> None:
+    from bookfinder.dna_store import clear_index_cache, clear_neighbors_cache
+
     dna_available.cache_clear()
+    clear_index_cache()
+    clear_neighbors_cache()
 
 
 def get_dna_profile(work_id: str) -> BookDNAProfile | None:
@@ -29,35 +34,33 @@ def get_dna_public(work_id: str) -> dict | None:
     if profile:
         return _public_payload(profile)
 
-    index = load_index()
-    if not index:
+    item = get_index_item(work_id)
+    if not item:
         return None
-    for item in index.get("items") or []:
-        if item.get("work_id") == work_id:
-            axes = item.get("axes") or {}
-            work = get_work(work_id) or {}
-            reader_badge = str(item.get("reader_badge") or "").strip()
-            if not reader_badge:
-                reader_badge = derive_reader_badge(axes, work.get("genres") or [])
-            return {
-                "work_id": work_id,
-                "title": item.get("title") or "",
-                "authors": item.get("authors") or [],
-                "axes": axes,
-                "axis_labels": AXIS_LABELS_RU,
-                "axis_hints": AXIS_HINTS_RU,
-                "themes": item.get("themes") or [],
-                "labels": {},
-                "ai_tagline": item.get("ai_tagline") or "",
-                "ai_summary": item.get("ai_summary") or "",
-                "reader_badge": reader_badge,
-                "ai_overview": item.get("ai_overview") or [],
-                "reviews_summary": item.get("reviews_summary") or {},
-                "sources": item.get("sources") or {},
-                "modes": list(DNA_MODES),
-                "has_full_profile": False,
-            }
-    return None
+
+    axes = item.get("axes") or {}
+    work = get_work(work_id) or {}
+    reader_badge = str(item.get("reader_badge") or "").strip()
+    if not reader_badge:
+        reader_badge = derive_reader_badge(axes, work.get("genres") or [])
+    return {
+        "work_id": work_id,
+        "title": item.get("title") or "",
+        "authors": item.get("authors") or [],
+        "axes": axes,
+        "axis_labels": AXIS_LABELS_RU,
+        "axis_hints": AXIS_HINTS_RU,
+        "themes": item.get("themes") or [],
+        "labels": {},
+        "ai_tagline": item.get("ai_tagline") or "",
+        "ai_summary": item.get("ai_summary") or "",
+        "reader_badge": reader_badge,
+        "ai_overview": item.get("ai_overview") or [],
+        "reviews_summary": item.get("reviews_summary") or {},
+        "sources": item.get("sources") or {},
+        "modes": list(DNA_MODES),
+        "has_full_profile": False,
+    }
 
 
 def _public_payload(profile: BookDNAProfile) -> dict:
@@ -104,68 +107,81 @@ def _work_card(
     return card
 
 
+def _author_keys(authors: list[str] | None) -> set[str]:
+    keys: set[str] = set()
+    for author in normalize_authors(list(authors or [])):
+        surname = author_surname(author)
+        if surname:
+            keys.add(surname)
+        for token in author.split():
+            if len(token) >= 5:
+                keys.add(token)
+    return keys
+
+
+def _same_author(left: list[str] | None, right: list[str] | None) -> bool:
+    a = _author_keys(left)
+    b = _author_keys(right)
+    return bool(a and b and (a & b))
+
+
 def similar_works_dna(work_id: str, *, mode: str = "ideas", limit: int = 12) -> list[dict]:
+    """Recommend by DNA axes/themes from dna_index (works on Render without dna/*.json)."""
     if mode not in DNA_MODES:
         mode = "ideas"
 
-    neighbors = load_neighbors()
-    if neighbors:
-        entry = (neighbors.get("items") or {}).get(work_id, {})
-        rows = entry.get(mode) or []
-        if rows:
-            base = load_profile(work_id)
-            result: list[dict] = []
-            for row in rows[:limit]:
-                candidate_id = str(row.get("work_id") or "")
-                score = float(row.get("score") or 0.0)
-                match_axes: list[str] | None = None
-                if base:
-                    candidate = load_profile(candidate_id)
-                    if candidate:
-                        match_axes = match_axis_labels(base, candidate, mode)
-                card = _work_card(candidate_id, score, mode, match_axes=match_axes)
-                if card:
-                    result.append(card)
-            if result:
-                return result
+    base_item = get_index_item(work_id)
+    if not base_item:
+        profile = load_profile(work_id)
+        if not profile:
+            return []
+        base_item = {
+            "work_id": work_id,
+            "title": profile.title,
+            "authors": profile.authors,
+            "axes": profile.axes.model_dump(),
+            "themes": profile.themes,
+            "reviews_summary": profile.reviews_summary.model_dump(),
+        }
 
-    base = load_profile(work_id)
-    if not base:
-        return []
+    base_authors = list(base_item.get("authors") or [])
+    index_map = index_by_work_id()
 
-    index = load_index()
-    if not index:
-        return []
+    other: list[tuple[float, str, list[str]]] = []
+    same_author: list[tuple[float, str, list[str]]] = []
 
-    base_work = get_work(work_id) or {}
-    base_genres = {genre.casefold() for genre in base_work.get("genres") or [] if genre}
-
-    scored: list[tuple[float, str]] = []
-    for item in index.get("items") or []:
-        candidate_id = str(item.get("work_id") or "")
-        if not candidate_id or candidate_id == work_id:
+    for candidate_id, item in index_map.items():
+        if candidate_id == work_id:
             continue
-        candidate = load_profile(candidate_id)
-        if not candidate:
+        score = index_similarity(base_item, item, mode=mode)
+        if score <= 0.05:
             continue
-        candidate_work = get_work(candidate_id) or {}
-        candidate_genres = {genre.casefold() for genre in candidate_work.get("genres") or [] if genre}
-        score = combined_similarity(
-            base,
-            candidate,
+        labels = match_axis_labels_dicts(
+            base_item.get("axes") or {},
+            item.get("axes") or {},
             mode=mode,
-            left_genres=base_genres,
-            right_genres=candidate_genres,
         )
-        if score > 0.05:
-            scored.append((score, candidate_id))
+        row = (score, candidate_id, labels)
+        if _same_author(base_authors, item.get("authors") or []):
+            same_author.append((score * 0.2, candidate_id, labels))
+        else:
+            other.append(row)
 
-    scored.sort(key=lambda pair: pair[0], reverse=True)
+    other.sort(key=lambda pair: pair[0], reverse=True)
+    chosen = other[:limit]
+    if len(chosen) < limit:
+        same_author.sort(key=lambda pair: pair[0], reverse=True)
+        seen = {row[1] for row in chosen}
+        for row in same_author:
+            if len(chosen) >= limit:
+                break
+            if row[1] not in seen:
+                chosen.append(row)
+                seen.add(row[1])
+
     result = []
-    for score, candidate_id in scored[:limit]:
-        candidate = load_profile(candidate_id)
-        match_axes = match_axis_labels(base, candidate, mode) if candidate else None
-        card = _work_card(candidate_id, score, mode, match_axes=match_axes)
+    for score, candidate_id, labels in chosen:
+        card = _work_card(candidate_id, score, mode, match_axes=labels)
         if card:
             result.append(card)
     return result
