@@ -36,8 +36,13 @@ def merge_records(by_id: dict[str, dict], records, list_name: str) -> int:
                 entry["genres"] = prev["genres"]
             if entry.get("rating") is None and prev.get("rating") is not None:
                 entry["rating"] = prev["rating"]
-            if entry.get("vote_count") is None and prev.get("vote_count") is not None:
-                entry["vote_count"] = prev["vote_count"]
+            # Never keep page-view "votes"; never keep fake 5.0 ceiling.
+            entry.pop("vote_count", None)
+            try:
+                if entry.get("rating") is not None and float(entry["rating"]) >= 4.95:
+                    entry["rating"] = None
+            except (TypeError, ValueError):
+                entry["rating"] = None
         else:
             added += 1
         by_id[record.external_id] = entry

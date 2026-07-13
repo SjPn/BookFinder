@@ -230,6 +230,25 @@ class CatalogStore:
         rows = self._connect().execute(query, params).fetchall()
         return [str(row["id"]) for row in rows]
 
+    def list_work_ids_prefer_sources(self, *, limit: int = 0) -> list[str]:
+        """Prefer books with annotation or local FB2 so DNA has something to analyze."""
+        query = """
+            SELECT id,
+                   CASE
+                     WHEN length(trim(coalesce(description, ''))) >= 120 THEN 0
+                     WHEN fb2_local = 1 THEN 1
+                     ELSE 2
+                   END AS source_rank
+            FROM works
+            ORDER BY source_rank ASC, aggregate_rating DESC, title COLLATE NOCASE
+        """
+        params: list[object] = []
+        if limit > 0:
+            query += " LIMIT ?"
+            params.append(limit)
+        rows = self._connect().execute(query, params).fetchall()
+        return [str(row["id"]) for row in rows]
+
     def similar_candidate_ids(
         self,
         work_id: str,

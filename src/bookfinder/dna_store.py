@@ -66,6 +66,10 @@ def progress_failed(progress: dict[str, str], work_id: str) -> bool:
     return str(progress.get(work_id) or "").startswith("fail:")
 
 
+def progress_skipped(progress: dict[str, str], work_id: str) -> bool:
+    return str(progress.get(work_id) or "").startswith("skip:")
+
+
 def should_skip(
     work_id: str,
     *,
@@ -75,9 +79,10 @@ def should_skip(
 ) -> bool:
     if force:
         return False
+    state = progress if progress is not None else None
     if skip_failed:
-        state = progress if progress is not None else load_progress()
-        if progress_failed(state, work_id):
+        state = state if state is not None else load_progress()
+        if progress_failed(state, work_id) or progress_skipped(state, work_id):
             return True
     path = profile_path(work_id)
     if not path.exists():
@@ -86,7 +91,9 @@ def should_skip(
         data = json.loads(path.read_text(encoding="utf-8"))
     except json.JSONDecodeError:
         return False
-    return int(data.get("version", 0)) == DNA_VERSION and data.get("prompt_version") == PROMPT_VERSION
+    # Existing DNA_VERSION profile is done for full-catalog coverage.
+    # Prompt upgrades (tropes/overview) go through dedicated backfill scripts.
+    return int(data.get("version", 0)) == DNA_VERSION
 
 
 def touch_heartbeat(

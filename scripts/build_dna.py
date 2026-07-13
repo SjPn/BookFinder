@@ -132,7 +132,9 @@ def iter_work_ids(
     if not STORE.available():
         raise SystemExit("catalog.db not found. Run: python scripts/export_runtime_catalog.py")
 
-    return STORE.list_work_ids(limit=limit, only_fb2=only_fb2)
+    if only_fb2:
+        return STORE.list_work_ids(limit=limit, only_fb2=True)
+    return STORE.list_work_ids_prefer_sources(limit=limit)
 
 
 def review_snippets(work_id: str, fw_id: str | None, limit: int = 8) -> list[str]:
@@ -320,6 +322,22 @@ def analyze_work_isolated(
     embed_model: str,
     max_seconds: float,
 ) -> BookDNAProfile:
+    # Windows + redirected stdout (supervisor Tee) often breaks spawn pipes
+    # with PermissionError on DuplicateHandle. Supervisor stall watchdog still
+    # covers hung in-process calls.
+    if sys.platform.startswith("win"):
+        with create_llm_client(
+            backend=backend or None,
+            chat_model=chat_model or None,
+            embed_model=embed_model or None,
+        ) as client:
+            return analyze_work_with_fallback(
+                client,
+                work_id,
+                use_reviews=use_reviews,
+                use_text=use_text,
+            )
+
     ctx = mp.get_context("spawn")
     parent_conn, child_conn = ctx.Pipe(duplex=False)
     proc = ctx.Process(
@@ -334,7 +352,24 @@ def analyze_work_isolated(
         },
         daemon=True,
     )
-    proc.start()
+    try:
+        proc.start()
+    except (PermissionError, OSError) as exc:
+        child_conn.close()
+        parent_conn.close()
+        print(f"WARN: process spawn failed ({exc}); running in-process", flush=True)
+        with create_llm_client(
+            backend=backend or None,
+            chat_model=chat_model or None,
+            embed_model=embed_model or None,
+        ) as client:
+            return analyze_work_with_fallback(
+                client,
+                work_id,
+                use_reviews=use_reviews,
+                use_text=use_text,
+            )
+
     child_conn.close()
     try:
         if not parent_conn.poll(max_seconds):
@@ -462,6 +497,20 @@ def main() -> None:
                     skip += 1
                     note = "skip"
                     label = "skip"
+                elif any(
+                    token in message
+                    for token in (
+                        "10061",
+                        "ConnectError",
+                        "Connection refused",
+                        "Server disconnected",
+                        "actively refused",
+                    )
+                ):
+                    # Transient LM Studio downtime — do not mark permanent fail.
+                    fail += 1
+                    note = "retry"
+                    label = "retry"
                 else:
                     progress[work_id] = f"fail:{message}"
                     fail += 1

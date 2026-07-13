@@ -120,7 +120,8 @@ def parse_list_page(html: str, list_name: str = "") -> list[BookRecord]:
                 authors=authors,
                 rating=rating if rating and rating > 0 else None,
                 rating_max=5.0,
-                vote_count=views,
+                # Do not store page views as vote_count — they inflated aggregates to 10/10.
+                vote_count=None,
                 year=year,
                 url=book_url(book_id),
                 genres=genres,

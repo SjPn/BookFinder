@@ -248,9 +248,6 @@ def sanitize_entry(entry: dict, fl_api: dict[str, dict]) -> dict:
                 fl_block["votes"] = api.get("votes")
                 entry["fantlab"] = fl_block
 
-    agg = aggregate_from_sources(_source_triples(entry))
-    entry["aggregate_rating"] = round(agg, 2) if agg is not None else None
-
     if entry.get("fantlab"):
         entry["fantlab"] = clean_fl_block(entry["fantlab"])
         if not entry["fantlab"]:
@@ -275,6 +272,10 @@ def sanitize_entry(entry: dict, fl_api: dict[str, dict]) -> dict:
         entry["loveread"] = clean_loveread_block(entry["loveread"])
         if not entry["loveread"]:
             entry.pop("loveread", None)
+
+    agg = aggregate_from_sources(_source_triples(entry))
+    entry["aggregate_rating"] = round(agg, 2) if agg is not None else None
+
     if entry.get("fantlab_link"):
         link = entry["fantlab_link"]
         if valid_rating("fantlab", link.get("rating"), link.get("votes")):
@@ -480,7 +481,10 @@ def main() -> None:
         "loveread_matched": len(used_loveread),
         "loveread_only_added": loveread_added,
         "readrate_indexed": len(readrate),
-        "rating_policy": "parsed sources only, min votes: fantlab=10, livelib=5, fw=10, kubikus=10, bookmix=5, loveread=5 views",
+        "rating_policy": (
+            "parsed sources only; loveread 5.0 dropped; loveread views not votes; "
+            "min votes: fantlab=10, livelib=5, fw=10, kubikus=10, bookmix=5"
+        ),
         "runtime_catalog": runtime,
     }
     (OUT / "expanded_report.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
