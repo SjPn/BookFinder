@@ -25,8 +25,14 @@ RATING_MAX: dict[str, float] = {
     "loveread": 5.0,
 }
 
-# LoveRead often pins a fake ceiling 5.0/5 (=10/10). Treat as missing.
-LOVEREAD_MAX_TRUSTED = 4.94
+# Ceiling scores on 5-point sites map to a fake 10/10 and dominate the catalog top.
+FIVE_POINT_MAX_TRUSTED = 4.94
+# Exact 10/10 on 10-point sites needs a serious vote base.
+TEN_POINT_CEILING = 9.95
+MIN_VOTES_FOR_PERFECT_10 = 100
+
+# Back-compat alias
+LOVEREAD_MAX_TRUSTED = FIVE_POINT_MAX_TRUSTED
 
 
 def valid_rating(source: str, rating: float | None, votes: int | None) -> bool:
@@ -40,11 +46,20 @@ def valid_rating(source: str, rating: float | None, votes: int | None) -> bool:
     rating_max = RATING_MAX.get(source, 10.0)
     if not (0 < rating_f <= rating_max):
         return False
-    if source == "loveread":
-        # Drop ceiling scores; views must not act as votes.
-        return rating_f <= LOVEREAD_MAX_TRUSTED
+
+    if rating_max <= 5.0:
+        # Drop pinned 5.0/5 ceilings (LoveRead / BookMix / Kubikus).
+        if rating_f > FIVE_POINT_MAX_TRUSTED:
+            return False
+        if source == "loveread":
+            return True
+    else:
+        # Drop lonely perfect 10/10 without a real audience.
+        if rating_f >= TEN_POINT_CEILING and (votes_i is None or votes_i < MIN_VOTES_FOR_PERFECT_10):
+            return False
+
     min_votes = MIN_VOTES.get(source, 10)
-    if votes_i is None or votes_i < min_votes:
+    if source != "loveread" and (votes_i is None or votes_i < min_votes):
         return False
     return True
 
@@ -116,7 +131,7 @@ def clean_loveread_block(block: dict[str, Any] | None) -> dict[str, Any] | None:
         rating_f = float(rating) if rating is not None else None
     except (TypeError, ValueError):
         rating_f = None
-    if rating_f is not None and rating_f > LOVEREAD_MAX_TRUSTED:
+    if rating_f is not None and rating_f > FIVE_POINT_MAX_TRUSTED:
         cleaned.pop("rating", None)
     if cleaned.get("rating") is None:
         cleaned.pop("rating", None)
