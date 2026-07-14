@@ -142,12 +142,9 @@ function formatRatingPill(value) {
 
 async function loadStats() {
   const s = await apiJson('/api/stats');
-  const m = s.merge || {};
   statsEl.innerHTML = `
     <span class="stat-chip accent"><strong>${s.works_count?.toLocaleString('ru-RU') ?? '—'}</strong> книг</span>
     <span class="stat-chip"><strong>${s.genres_count?.toLocaleString('ru-RU') ?? '—'}</strong> жанров</span>
-    <span class="stat-chip"><strong>${m.match_rate_on_cached_percent ?? '—'}%</strong> LL</span>
-    <span class="stat-chip"><strong>${m.fw_matched ?? '—'}</strong> FW</span>
   `;
 }
 
