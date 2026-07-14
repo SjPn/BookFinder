@@ -37,12 +37,14 @@ function openFilters() {
   document.body.classList.add('is-filters-drawer-open');
   if (filtersBackdrop) filtersBackdrop.hidden = false;
   filtersSidebar?.setAttribute('aria-hidden', 'false');
+  document.getElementById('filters-open')?.setAttribute('aria-expanded', 'true');
 }
 
 function closeFilters() {
   document.body.classList.remove('is-filters-drawer-open');
   if (filtersBackdrop) filtersBackdrop.hidden = true;
   filtersSidebar?.setAttribute('aria-hidden', 'true');
+  document.getElementById('filters-open')?.setAttribute('aria-expanded', 'false');
 }
 
 function matchMode() {

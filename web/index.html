@@ -24,7 +24,7 @@
       );
     })();
   </script>
-  <link rel="stylesheet" href="/static/style.css?v=20260713d">
+  <link rel="stylesheet" href="/static/style.css?v=20260714a">
 </head>
 <body class="catalog-page">
   <header class="site-header">
@@ -45,7 +45,7 @@
 
   <main class="catalog-layout">
     <div class="filters-backdrop" id="filters-backdrop" hidden></div>
-    <aside class="filters-sidebar" id="filters-sidebar" aria-label="Фильтр жанров">
+    <aside class="filters-sidebar" id="filters-sidebar" aria-label="Фильтр жанров" aria-hidden="true">
       <div class="panel panel-filters">
         <div class="panel-head">
           <h2 class="panel-title">Жанры</h2>
@@ -78,7 +78,7 @@
           </div>
         </label>
         <div class="search-toolbar">
-          <button type="button" class="btn-secondary filters-open-btn" id="filters-open">
+          <button type="button" class="btn-secondary filters-open-btn" id="filters-open" aria-expanded="false" aria-controls="filters-sidebar">
             Жанры
             <span class="filters-count" id="filters-count" hidden></span>
           </button>
@@ -113,7 +113,7 @@
     </section>
   </main>
 
-  <script src="/static/common.js?v=20260713d"></script>
-  <script src="/static/app.js?v=20260713d"></script>
+  <script src="/static/common.js?v=20260714a"></script>
+  <script src="/static/app.js?v=20260714a"></script>
 </body>
 </html>
